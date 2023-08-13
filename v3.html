@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Management</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="v3.styles.css">
+</head>
+
+<body class="container">
+    <h3 class="mt-4">Pie: <span id="portfolioName"></span></h3>
+    <table id="fundSelection" class="fund-table table table-sm">
+        <thead class="thead-dark">
+            <tr>
+                <th class="fund-header">Fund</th>
+                <th>Allocation %</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Dynamic Fund Selection Rows will be populated here -->
+        </tbody>
+    </table>
+    <button onclick="calculateAndUpdate()" class="btn btn-primary">Calculate</button>
+    <div id="results" style="display: none;" class="mt-4">
+        <h3>Slices Aggregated <span id="portfolioVisualizerLink"></span></h3>
+        <ul id="aggregateDisplay" class="list-group"></ul>
+        <h3>Leverage</h3>
+        <span id="portfolioLeverage">1.0</span>
+        <h3>Pie Composition:</h3>
+        <ul id="compositionDisplay" class="list-group"></ul>
+    </div>
+    <script src="v3.data.js"></script>
+    <script src="v3.functions.js"></script>
+    <script src="v3.main.js"></script>
+</body>
+
+</html>
