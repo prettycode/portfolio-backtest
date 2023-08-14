@@ -1,7 +1,7 @@
 import { FundAllocation } from '../models/Fund/FundAllocation';
-import { calcLeverage } from './calcLeverage';
+import { getFundAllocationsLeverage } from './getFundAllocationsLeverage';
 
-describe('calcLeverage', () => {
+describe('getFundAllocationsLeverage', () => {
     it('should throw an error if holdings do not add up to at least 100', () => {
         const fundHoldings: Array<FundAllocation> = [
             { fundId: 1, percentage: 10 },
@@ -10,7 +10,7 @@ describe('calcLeverage', () => {
             { fundId: 4, percentage: 15 }
         ];
 
-        expect(() => calcLeverage(fundHoldings)).toThrow();
+        expect(() => getFundAllocationsLeverage(fundHoldings)).toThrow();
     });
 
     it('should calculate 1.05 leverage', () => {
@@ -21,7 +21,7 @@ describe('calcLeverage', () => {
             { fundId: 4, percentage: 5 }
         ];
 
-        expect(calcLeverage(fundHoldings)).toBe(1.05);
+        expect(getFundAllocationsLeverage(fundHoldings)).toBe(1.05);
     });
 
     it('should calculate 1.50 leverage', () => {
@@ -31,7 +31,7 @@ describe('calcLeverage', () => {
             { fundId: 3, percentage: -50 }
         ];
 
-        expect(calcLeverage(fundHoldings)).toBe(1.5);
+        expect(getFundAllocationsLeverage(fundHoldings)).toBe(1.5);
     });
 
     it('should calculate 1.8 leverage', () => {
@@ -41,13 +41,13 @@ describe('calcLeverage', () => {
             { fundId: 3, percentage: -80 }
         ];
 
-        expect(calcLeverage(fundHoldings)).toBe(1.8);
+        expect(getFundAllocationsLeverage(fundHoldings)).toBe(1.8);
     });
 
     it('should calculate 1.0 leverage', () => {
         const fundHoldings: Array<FundAllocation> = [{ fundId: 1, percentage: 100 }];
 
-        expect(calcLeverage(fundHoldings)).toBe(1.0);
+        expect(getFundAllocationsLeverage(fundHoldings)).toBe(1.0);
     });
 
     it('should calculate 1.0 leverage', () => {
@@ -56,6 +56,6 @@ describe('calcLeverage', () => {
             { fundId: 2, percentage: 50 }
         ];
 
-        expect(calcLeverage(fundHoldings)).toBe(1.0);
+        expect(getFundAllocationsLeverage(fundHoldings)).toBe(1.0);
     });
 });

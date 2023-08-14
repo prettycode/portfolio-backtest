@@ -1,6 +1,6 @@
 import { FundAllocation } from '../models/Fund/FundAllocation';
 
-export const calcLeverage = (fundHoldings: Array<FundAllocation>): number => {
+export const getFundAllocationsLeverage = (fundHoldings: Array<FundAllocation>): number => {
     if (!fundHoldings.length) {
         throw new Error('Fund is missing holdings. Cannot calculate leveraged.');
     }

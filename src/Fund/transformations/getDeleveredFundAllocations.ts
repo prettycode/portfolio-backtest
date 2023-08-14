@@ -1,6 +1,6 @@
 import { FundAllocation } from '../models/Fund/FundAllocation';
 
-export const calcUnlevered = (fundHoldings: Array<FundAllocation>): Array<FundAllocation> => {
+export const getDeleveredFundAllocations = (fundHoldings: Array<FundAllocation>): Array<FundAllocation> => {
     if (!fundHoldings.length) {
         throw new Error('Fund is missing holdings. Cannot calculate unlevered portfolio.');
     }

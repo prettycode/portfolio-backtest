@@ -3,7 +3,7 @@ import { Fund } from '../models/Fund/Fund';
 import { getFundById } from '../services/getFundById';
 import { FundAllocation } from '../models/Fund/FundAllocation';
 
-export const calcFundMetadata = async (fundHoldings: FundAllocation[], fundsDictionary?: Array<Fund>): Promise<Fund[]> => {
+export const getFundsFromFundAllocations = async (fundHoldings: FundAllocation[], fundsDictionary?: Array<Fund>): Promise<Fund[]> => {
     const holdingsAsFunds = await Promise.all(
         fundHoldings.map(async (holding) => {
             const holdingDefinition: Fund = await getFundById(holding.fundId, fundsDictionary);

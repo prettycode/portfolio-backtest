@@ -1,10 +1,10 @@
 import { FundAllocation } from '../models/Fund/FundAllocation';
-import { calcUnlevered } from './calcUnlevered';
+import { getDeleveredFundAllocations } from './getDeleveredFundAllocations';
 
-describe('calcUnlevered', () => {
+describe('getDeleveredFundAllocations', () => {
     it('should throw an error if holdings are missing', () => {
         const fundHoldings: Array<FundAllocation> = [];
-        expect(() => calcUnlevered(fundHoldings)).toThrow();
+        expect(() => getDeleveredFundAllocations(fundHoldings)).toThrow();
     });
 
     it('should return correct unlevered portfolio of 60/40', () => {
@@ -19,7 +19,7 @@ describe('calcUnlevered', () => {
             { fundId: 3, percentage: 40 }
         ];
 
-        expect(calcUnlevered(fundHoldings)).toEqual(expected);
+        expect(getDeleveredFundAllocations(fundHoldings)).toEqual(expected);
     });
 
     it('should return correct unlevered portfolio of 50/50', () => {
@@ -34,7 +34,7 @@ describe('calcUnlevered', () => {
             { fundId: 3, percentage: 50 }
         ];
 
-        expect(calcUnlevered(fundHoldings)).toEqual(expected);
+        expect(getDeleveredFundAllocations(fundHoldings)).toEqual(expected);
     });
 
     it('should return correct unlevered portfolio of 60/40', () => {
@@ -48,13 +48,13 @@ describe('calcUnlevered', () => {
             { fundId: 2, percentage: 40 }
         ];
 
-        expect(calcUnlevered(fundHoldings)).toEqual(expected);
+        expect(getDeleveredFundAllocations(fundHoldings)).toEqual(expected);
     });
 
     it('should return correct unlevered portfolio of 100', () => {
         const fundHoldings: Array<FundAllocation> = [{ fundId: 1, percentage: 100 }];
         const expected: Array<FundAllocation> = [{ fundId: 1, percentage: 100 }];
 
-        expect(calcUnlevered(fundHoldings)).toEqual(expected);
+        expect(getDeleveredFundAllocations(fundHoldings)).toEqual(expected);
     });
 });
