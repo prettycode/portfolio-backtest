@@ -1,12 +1,12 @@
-import './App.css'
-import AllocationTable from './Table'
+import './App.css';
+import AllocationTable from './Table';
 
 function App() {
-  return (
-    <>
-      <AllocationTable></AllocationTable>
-    </>
-  )
+    return (
+        <>
+            <AllocationTable></AllocationTable>
+        </>
+    );
 }
 
-export default App
+export default App;

@@ -1,37 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Portfolio Management</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Management</title>
-</head>
+    <body>
+        <h3>Pie: <span id="portfolioName"></span></h3>
+        <table id="fundSelection">
+            <thead>
+                <tr>
+                    <th style="text-align: left">Fund</th>
+                    <!-- Left-align Fund column -->
+                    <th>Allocation %</th>
+                    <!-- Rename Percentage to Allocation % -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic Fund Selection Rows will be populated here -->
+            </tbody>
+        </table>
+        <button onclick="calculateAndUpdate()">Calculate</button>
+        <h3>Slices Aggregated <span id="portfolioVisualizerLink"></span></h3>
+        <ul id="aggregateDisplay"></ul>
 
-<body>
-    <h3>Pie: <span id="portfolioName"></span></h3>
-    <table id="fundSelection">
-		 <thead>
-			<tr>
-				<th style="text-align: left;">Fund</th> <!-- Left-align Fund column -->
-				<th>Allocation %</th> <!-- Rename Percentage to Allocation % -->
-			</tr>
-		</thead>
-        <tbody>
-            <!-- Dynamic Fund Selection Rows will be populated here -->
-        </tbody>
-    </table>
-    <button onclick="calculateAndUpdate()">Calculate</button>
-    <h3>Slices Aggregated <span id="portfolioVisualizerLink"></span></h3>
-    <ul id="aggregateDisplay"></ul>
+        <h3>Leverage</h3>
+        <span id="portfolioLeverage">1.0</span>
 
-    <h3>Leverage</h3>
-    <span id="portfolioLeverage">1.0</span>
+        <h3>Pie Composition:</h3>
+        <ul id="compositionDisplay"></ul>
 
-    <h3>Pie Composition:</h3>
-    <ul id="compositionDisplay"></ul>
-
-<script>
-	/*type FundType = 'Synthetic' | 'ETF' | 'individualEquity' | 'index' | 'mutualFund';
+        <script>
+            /*type FundType = 'Synthetic' | 'ETF' | 'individualEquity' | 'index' | 'mutualFund';
 
 	type Fund = {
 		id: number;
@@ -43,337 +44,336 @@
 		holdings?: Fund[];
 	}*/
 
-	const marketFunds/*: Fund[]*/ = [
-		{
-			id: 1,
-			name: "VFINX",
-			description: "Vanguard 500 Index Fund Investor Shares",
-			tickerSymbol: "VFINX",
-			percentage: 100,
-			type: 'mutualFund',
-			holdings: []
-		},
-		{
-			id: 2,
-			name: "VFITX",
-			description: "Vanguard Intermediate-Term Treasury Fund Investor Shares",
-			tickerSymbol: "VFITX",
-			percentage: 100,
-			type: 'mutualFund',
-			holdings: []
-		},
-		{
-			id: 3,
-			name: "^GOLD",
-			description: "Gold",
-			tickerSymbol: "^GOLD",
-			percentage: 100,
-			type: 'index',
-			holdings: []
-		},
-		{
-			id: 4,
-			name: "CASHX",
-			description: "Treasury money market",
-			tickerSymbol: "CASHX",
-			percentage: 100,
-			type: 'ETF',
-			holdings: []
-		},
-		{
-			id: 5,
-			name: "DFALX",
-			description: "DFA Large Cap International Portfolio",
-			tickerSymbol: "DFALX",
-			percentage: 100,
-			type: 'mutualFund',
-			holdings: []
-		},
-		{
-			id: 6,
-			name: "VEIEX",
-			description: "Vanguard Emerging Markets Stock Index Fund",
-			tickerSymbol: "VEIEX",
-			percentage: 100,
-			type: 'mutualFund',
-			holdings: []
-		}
-	];
+            const marketFunds /*: Fund[]*/ = [
+                {
+                    id: 1,
+                    name: 'VFINX',
+                    description: 'Vanguard 500 Index Fund Investor Shares',
+                    tickerSymbol: 'VFINX',
+                    percentage: 100,
+                    type: 'mutualFund',
+                    holdings: []
+                },
+                {
+                    id: 2,
+                    name: 'VFITX',
+                    description: 'Vanguard Intermediate-Term Treasury Fund Investor Shares',
+                    tickerSymbol: 'VFITX',
+                    percentage: 100,
+                    type: 'mutualFund',
+                    holdings: []
+                },
+                {
+                    id: 3,
+                    name: '^GOLD',
+                    description: 'Gold',
+                    tickerSymbol: '^GOLD',
+                    percentage: 100,
+                    type: 'index',
+                    holdings: []
+                },
+                {
+                    id: 4,
+                    name: 'CASHX',
+                    description: 'Treasury money market',
+                    tickerSymbol: 'CASHX',
+                    percentage: 100,
+                    type: 'ETF',
+                    holdings: []
+                },
+                {
+                    id: 5,
+                    name: 'DFALX',
+                    description: 'DFA Large Cap International Portfolio',
+                    tickerSymbol: 'DFALX',
+                    percentage: 100,
+                    type: 'mutualFund',
+                    holdings: []
+                },
+                {
+                    id: 6,
+                    name: 'VEIEX',
+                    description: 'Vanguard Emerging Markets Stock Index Fund',
+                    tickerSymbol: 'VEIEX',
+                    percentage: 100,
+                    type: 'mutualFund',
+                    holdings: []
+                }
+            ];
 
-	const customPortfolios/*: Fund[]*/ = [
-		{
-			id: 7,
-			name: "NTSX",
-			description: "Placeholder Description for NTSX",
-			percentage: 100,
-			type: 'Synthetic',
-			holdings: [
-				{
-					id: 1,
-					percentage: 90
-				},
-				{
-					id: 2,
-					percentage: 60
-				},
-				{
-					id: 4,
-					percentage: -50
-				}
-			]
-		},
-		{
-			id: 8,
-			name: "GDE",
-			description: "Placeholder Description for GDE",
-			percentage: 100,
-			type: 'Synthetic',
-			holdings: [
-				{
-					id: 1,
-					percentage: 90
-				},
-				{
-					id: 3,
-					percentage: 90
-				},
-				{
-					id: 4,
-					percentage: -80
-				}
-			]
-		},
-		{
-			id: 9,
-			name: "NTSI",
-			description: "Placeholder Description for NTSI",
-			percentage: 100,
-			type: 'Synthetic',
-			holdings: [
-				{
-					id: 5,
-					percentage: 90
-				},
-				{
-					id: 2,
-					percentage: 60
-				},
-				{
-					id: 4,
-					percentage: -50
-				}
-			]
-		},
-		{
-			id: 10,
-			name: "NTSE",
-			description: "Placeholder Description for NTSE",
-			percentage: 100,
-			type: 'Synthetic',
-			holdings: [
-				{
-					id: 6,
-					percentage: 90
-				},
-				{
-					id: 2,
-					percentage: 60
-				},
-				{
-					id: 4,
-					percentage: -50
-				}
-			]
-		},
-		{
-			id: 11,
-			name: "Global Efficient Core",
-			description: "Placeholder Description for Global Efficient Core",
-			percentage: 100,
-			type: 'Synthetic',
-			holdings: [
-				{
-					id: 7,
-					percentage: 60
-				},
-				{
-					id: 9,
-					percentage: 20
-				},
-				{
-					id: 10,
-					percentage: 20
-				}
-			]
-		},
-		{
-			id: 12,
-			name: "Global + Gold Efficient Core",
-			description: "Placeholder Description for Global + Gold Efficient Core",
-			percentage: 100,
-			type: 'Synthetic',
-			holdings: [
-				{
-					id: 7,
-					percentage: 36
-				},
-				{
-					id: 8,
-					percentage: 24
-				},
-				{
-					id: 9,
-					percentage: 20
-				},
-				{
-					id: 10,
-					percentage: 20
-				}
-			]
-		}
-	];
-</script>
-	
-<script>
-	const generateAggregatePortfolio = portfolio => {
-		return portfolio.reduce((acc, holding) => {
-			holding.holdings.forEach(item => {
-				const existing = acc.find(e => e.id === item.id);
-				if (existing) {
-					existing.percentage += item.percentage * (holding.percentage / 100);
-				} else {
-					acc.push({
-						...funds.find(f => f.id === item.id),
-						percentage: item.percentage * (holding.percentage / 100)
-					});
-				}
-			});
-			return acc;
-		}, []);
-	};
+            const customPortfolios /*: Fund[]*/ = [
+                {
+                    id: 7,
+                    name: 'NTSX',
+                    description: 'Placeholder Description for NTSX',
+                    percentage: 100,
+                    type: 'Synthetic',
+                    holdings: [
+                        {
+                            id: 1,
+                            percentage: 90
+                        },
+                        {
+                            id: 2,
+                            percentage: 60
+                        },
+                        {
+                            id: 4,
+                            percentage: -50
+                        }
+                    ]
+                },
+                {
+                    id: 8,
+                    name: 'GDE',
+                    description: 'Placeholder Description for GDE',
+                    percentage: 100,
+                    type: 'Synthetic',
+                    holdings: [
+                        {
+                            id: 1,
+                            percentage: 90
+                        },
+                        {
+                            id: 3,
+                            percentage: 90
+                        },
+                        {
+                            id: 4,
+                            percentage: -80
+                        }
+                    ]
+                },
+                {
+                    id: 9,
+                    name: 'NTSI',
+                    description: 'Placeholder Description for NTSI',
+                    percentage: 100,
+                    type: 'Synthetic',
+                    holdings: [
+                        {
+                            id: 5,
+                            percentage: 90
+                        },
+                        {
+                            id: 2,
+                            percentage: 60
+                        },
+                        {
+                            id: 4,
+                            percentage: -50
+                        }
+                    ]
+                },
+                {
+                    id: 10,
+                    name: 'NTSE',
+                    description: 'Placeholder Description for NTSE',
+                    percentage: 100,
+                    type: 'Synthetic',
+                    holdings: [
+                        {
+                            id: 6,
+                            percentage: 90
+                        },
+                        {
+                            id: 2,
+                            percentage: 60
+                        },
+                        {
+                            id: 4,
+                            percentage: -50
+                        }
+                    ]
+                },
+                {
+                    id: 11,
+                    name: 'Global Efficient Core',
+                    description: 'Placeholder Description for Global Efficient Core',
+                    percentage: 100,
+                    type: 'Synthetic',
+                    holdings: [
+                        {
+                            id: 7,
+                            percentage: 60
+                        },
+                        {
+                            id: 9,
+                            percentage: 20
+                        },
+                        {
+                            id: 10,
+                            percentage: 20
+                        }
+                    ]
+                },
+                {
+                    id: 12,
+                    name: 'Global + Gold Efficient Core',
+                    description: 'Placeholder Description for Global + Gold Efficient Core',
+                    percentage: 100,
+                    type: 'Synthetic',
+                    holdings: [
+                        {
+                            id: 7,
+                            percentage: 36
+                        },
+                        {
+                            id: 8,
+                            percentage: 24
+                        },
+                        {
+                            id: 9,
+                            percentage: 20
+                        },
+                        {
+                            id: 10,
+                            percentage: 20
+                        }
+                    ]
+                }
+            ];
+        </script>
 
-	const displayAggregatePortfolio = aggregateList =>
-		document.getElementById('aggregateDisplay').innerHTML =
-		aggregateList.map(holding => `<li>${holding.name}: ${holding.percentage.toFixed(1)}%</li>`).join('');
+        <script>
+            const generateAggregatePortfolio = (portfolio) => {
+                return portfolio.reduce((acc, holding) => {
+                    holding.holdings.forEach((item) => {
+                        const existing = acc.find((e) => e.id === item.id);
+                        if (existing) {
+                            existing.percentage += item.percentage * (holding.percentage / 100);
+                        } else {
+                            acc.push({
+                                ...funds.find((f) => f.id === item.id),
+                                percentage: item.percentage * (holding.percentage / 100)
+                            });
+                        }
+                    });
+                    return acc;
+                }, []);
+            };
 
-	const calculateLeverage = (aggregateList, ignoredAssets = ['CASHX']) =>
-		aggregateList.filter(holding => !ignoredAssets.includes(holding.name))
-			.reduce((sum, holding) => sum + holding.percentage, 0) / 100;
+            const displayAggregatePortfolio = (aggregateList) =>
+                (document.getElementById('aggregateDisplay').innerHTML = aggregateList
+                    .map((holding) => `<li>${holding.name}: ${holding.percentage.toFixed(1)}%</li>`)
+                    .join(''));
 
-	const generateBacktestURL = aggregateList => {
-		let url = 'https://www.portfoliovisualizer.com/backtest-portfolio?s=y&timePeriod=2&startYear=1985&firstMonth=1&endYear=2023&lastMonth=12&calendarAligned=false&includeYTD=false&initialAmount=10000&annualOperation=0&annualAdjustment=0&inflationAdjusted=true&annualPercentage=0.0&frequency=4&rebalanceType=1&absoluteDeviation=5.0&relativeDeviation=25.0&leverageType=0&leverageRatio=0.0&debtAmount=0&debtInterest=0.0&maintenanceMargin=25.0&leveragedBenchmark=false&reinvestDividends=true&showYield=false&showFactors=false&factorModel=3&benchmark=VFINX&portfolioNames=true&portfolioName1=Custom&portfolioName2=Example&portfolioName3=Example';
+            const calculateLeverage = (aggregateList, ignoredAssets = ['CASHX']) =>
+                aggregateList
+                    .filter((holding) => !ignoredAssets.includes(holding.name))
+                    .reduce((sum, holding) => sum + holding.percentage, 0) / 100;
 
-		aggregateList.forEach((holding, index) => {
-			url += `&symbol${index + 1}=${holding.tickerSymbol}&allocation${index + 1}_1=${holding.percentage}`;
-		});
+            const generateBacktestURL = (aggregateList) => {
+                let url =
+                    'https://www.portfoliovisualizer.com/backtest-portfolio?s=y&timePeriod=2&startYear=1985&firstMonth=1&endYear=2023&lastMonth=12&calendarAligned=false&includeYTD=false&initialAmount=10000&annualOperation=0&annualAdjustment=0&inflationAdjusted=true&annualPercentage=0.0&frequency=4&rebalanceType=1&absoluteDeviation=5.0&relativeDeviation=25.0&leverageType=0&leverageRatio=0.0&debtAmount=0&debtInterest=0.0&maintenanceMargin=25.0&leveragedBenchmark=false&reinvestDividends=true&showYield=false&showFactors=false&factorModel=3&benchmark=VFINX&portfolioNames=true&portfolioName1=Custom&portfolioName2=Example&portfolioName3=Example';
 
-		return url;
-	};
+                aggregateList.forEach((holding, index) => {
+                    url += `&symbol${index + 1}=${holding.tickerSymbol}&allocation${index + 1}_1=${holding.percentage}`;
+                });
 
-	const calculateAndUpdate = () => {
-		let totalPercentage = 0;
-		let portfolio = [];
+                return url;
+            };
 
-		// Iterate over the 10 rows you created, not the funds array
-		for (let i = 0; i < 10; i++) {
-			const fundId = document.getElementById('fundSelect' + i).value;
-			const fund = funds.find(f => f.id == fundId);
-			const percentage = parseFloat(document.getElementById('fundPercentage' + i).value);
-			totalPercentage += percentage;
+            const calculateAndUpdate = () => {
+                let totalPercentage = 0;
+                let portfolio = [];
 
-			if (percentage > 0) {
-				portfolio.push({
-					...fund,
-					percentage
-				});
-			}
-		}
+                // Iterate over the 10 rows you created, not the funds array
+                for (let i = 0; i < 10; i++) {
+                    const fundId = document.getElementById('fundSelect' + i).value;
+                    const fund = funds.find((f) => f.id == fundId);
+                    const percentage = parseFloat(document.getElementById('fundPercentage' + i).value);
+                    totalPercentage += percentage;
 
-		if (totalPercentage !== 100) {
-			alert("Total percentage must add up to 100");
-			return;
-		}
+                    if (percentage > 0) {
+                        portfolio.push({
+                            ...fund,
+                            percentage
+                        });
+                    }
+                }
 
-		const aggregate = generateAggregatePortfolio(portfolio);
-		document.getElementById('portfolioName').textContent = 'Custom Portfolio';
-		displayAggregatePortfolio(aggregate);
+                if (totalPercentage !== 100) {
+                    alert('Total percentage must add up to 100');
+                    return;
+                }
 
-		document.getElementById('portfolioLeverage').textContent =
-			calculateLeverage(aggregate).toFixed(2);
+                const aggregate = generateAggregatePortfolio(portfolio);
+                document.getElementById('portfolioName').textContent = 'Custom Portfolio';
+                displayAggregatePortfolio(aggregate);
 
+                document.getElementById('portfolioLeverage').textContent = calculateLeverage(aggregate).toFixed(2);
 
-		// Code to calculate and update pie composition
-		const excludeTicker = "CASHX";
-		const totalForComposition = aggregate.reduce((acc, holding) => {
-			if (holding.tickerSymbol !== excludeTicker) {
-				acc += holding.percentage;
-			}
-			return acc;
-		}, 0);
+                // Code to calculate and update pie composition
+                const excludeTicker = 'CASHX';
+                const totalForComposition = aggregate.reduce((acc, holding) => {
+                    if (holding.tickerSymbol !== excludeTicker) {
+                        acc += holding.percentage;
+                    }
+                    return acc;
+                }, 0);
 
-		const compositionDisplay = document.getElementById('compositionDisplay');
-		compositionDisplay.innerHTML = '';
-		aggregate.forEach(holding => {
-			if (holding.tickerSymbol !== excludeTicker) {
-				const relativePercentage = holding.percentage / totalForComposition * 100;
-				const li = document.createElement('li');
-				li.textContent = `${holding.name}: ${relativePercentage.toFixed(1)}%`;
-				compositionDisplay.appendChild(li);
-			}
-		});
-		
-		// Generate the backtest URL
-		const backtestURL = generateBacktestURL(aggregate);
+                const compositionDisplay = document.getElementById('compositionDisplay');
+                compositionDisplay.innerHTML = '';
+                aggregate.forEach((holding) => {
+                    if (holding.tickerSymbol !== excludeTicker) {
+                        const relativePercentage = (holding.percentage / totalForComposition) * 100;
+                        const li = document.createElement('li');
+                        li.textContent = `${holding.name}: ${relativePercentage.toFixed(1)}%`;
+                        compositionDisplay.appendChild(li);
+                    }
+                });
 
-		// Add the external link symbol with the generated URL
-		const iconLink = document.createElement('a');
-		iconLink.href = backtestURL;
-		iconLink.target = '_blank'; // Open in a new tab
-		iconLink.innerHTML = '&#x2197;';
-		iconLink.style.fontSize = '18px'; // Adjust the size as needed
-		iconLink.style.textDecoration = 'none'; // Remove underline
-		iconLink.style.color = '#000'; // Set color if needed
+                // Generate the backtest URL
+                const backtestURL = generateBacktestURL(aggregate);
 
-		document.getElementById('portfolioVisualizerLink').appendChild(iconLink);
-	};
-</script>
+                // Add the external link symbol with the generated URL
+                const iconLink = document.createElement('a');
+                iconLink.href = backtestURL;
+                iconLink.target = '_blank'; // Open in a new tab
+                iconLink.innerHTML = '&#x2197;';
+                iconLink.style.fontSize = '18px'; // Adjust the size as needed
+                iconLink.style.textDecoration = 'none'; // Remove underline
+                iconLink.style.color = '#000'; // Set color if needed
 
-<script>
-	const funds = [...marketFunds, ...customPortfolios].sort();
+                document.getElementById('portfolioVisualizerLink').appendChild(iconLink);
+            };
+        </script>
 
-	// Generate fund selection table with 10 rows
-	for (let i = 0; i < 10; i++) {
-		const tr = document.createElement('tr');
+        <script>
+            const funds = [...marketFunds, ...customPortfolios].sort();
 
-		// Create dropdown for fund selection
-		const tdFund = document.createElement('td');
-		const select = document.createElement('select');
-		select.id = 'fundSelect' + i;
-		funds.forEach(fund => {
-			const option = document.createElement('option');
-			option.value = fund.id;
-			option.textContent = fund.name;
-			select.appendChild(option);
-		});
-		tdFund.appendChild(select);
-		tr.appendChild(tdFund);
+            // Generate fund selection table with 10 rows
+            for (let i = 0; i < 10; i++) {
+                const tr = document.createElement('tr');
 
-		// Create input for percentage
-		const tdPercentage = document.createElement('td');
-		const input = document.createElement('input');
-		input.type = 'number';
-		input.id = 'fundPercentage' + i;
-		input.min = '0';
-		input.max = '100';
-		input.value = '0';
-		input.appendChild(document.createTextNode('%'));
-		tdPercentage.appendChild(input);
-		tr.appendChild(tdPercentage);
+                // Create dropdown for fund selection
+                const tdFund = document.createElement('td');
+                const select = document.createElement('select');
+                select.id = 'fundSelect' + i;
+                funds.forEach((fund) => {
+                    const option = document.createElement('option');
+                    option.value = fund.id;
+                    option.textContent = fund.name;
+                    select.appendChild(option);
+                });
+                tdFund.appendChild(select);
+                tr.appendChild(tdFund);
 
-		document.getElementById('fundSelection').querySelector('tbody').appendChild(tr);
-	}
-</script>
+                // Create input for percentage
+                const tdPercentage = document.createElement('td');
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.id = 'fundPercentage' + i;
+                input.min = '0';
+                input.max = '100';
+                input.value = '0';
+                input.appendChild(document.createTextNode('%'));
+                tdPercentage.appendChild(input);
+                tr.appendChild(tdPercentage);
 
-</body>
-
+                document.getElementById('fundSelection').querySelector('tbody').appendChild(tr);
+            }
+        </script>
+    </body>
 </html>
