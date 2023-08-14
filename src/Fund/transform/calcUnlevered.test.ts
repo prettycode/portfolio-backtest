@@ -8,46 +8,53 @@ describe('calcUnlevered', () => {
     });
 
     it('should return correct unlevered portfolio of 60/40', () => {
-        const fundHoldings = [
-            { id: 1, percentage: -50 },
-            { id: 2, percentage: 90 },
-            { id: 3, percentage: 60 }
+        const fundHoldings: Array<Fund> = [
+            { fundId: 1, percentage: -50 },
+            { fundId: 2, percentage: 90 },
+            { fundId: 3, percentage: 60 }
         ];
 
-        expect(calcUnlevered(fundHoldings)).toEqual([
-            { id: 2, percentage: 60 },
-            { id: 3, percentage: 40 }
-        ]);
+        const expected: Array<Fund> = [
+            { fundId: 2, percentage: 60 },
+            { fundId: 3, percentage: 40 }
+        ];
+
+        expect(calcUnlevered(fundHoldings)).toEqual(expected);
     });
 
     it('should return correct unlevered portfolio of 50/50', () => {
-        const fundHoldings = [
-            { id: 1, percentage: 90 },
-            { id: 2, percentage: -80 },
-            { id: 3, percentage: 90 }
+        const fundHoldings: Array<Fund> = [
+            { fundId: 1, percentage: 90 },
+            { fundId: 2, percentage: -80 },
+            { fundId: 3, percentage: 90 }
         ];
 
-        expect(calcUnlevered(fundHoldings)).toEqual([
-            { id: 1, percentage: 50 },
-            { id: 3, percentage: 50 }
-        ]);
+        const expected: Array<Fund> = [
+            { fundId: 1, percentage: 50 },
+            { fundId: 3, percentage: 50 }
+        ];
+
+        expect(calcUnlevered(fundHoldings)).toEqual(expected);
     });
 
     it('should return correct unlevered portfolio of 60/40', () => {
-        const fundHoldings = [
-            { id: 2, percentage: 40 },
-            { id: 1, percentage: 60 }
+        const fundHoldings: Array<Fund> = [
+            { fundId: 2, percentage: 40 },
+            { fundId: 1, percentage: 60 }
         ];
 
-        expect(calcUnlevered(fundHoldings)).toEqual([
-            { id: 1, percentage: 60 },
-            { id: 2, percentage: 40 }
-        ]);
+        const expected: Array<Fund> = [
+            { fundId: 1, percentage: 60 },
+            { fundId: 2, percentage: 40 }
+        ];
+
+        expect(calcUnlevered(fundHoldings)).toEqual(expected);
     });
 
     it('should return correct unlevered portfolio of 100', () => {
-        const fundHoldings = [{ id: 1, percentage: 100 }];
+        const fundHoldings: Array<Fund> = [{ fundId: 1, percentage: 100 }];
+        const expected: Array<Fund> = [{ fundId: 1, percentage: 100 }];
 
-        expect(calcUnlevered(fundHoldings)).toEqual([{ id: 1, percentage: 100 }]);
+        expect(calcUnlevered(fundHoldings)).toEqual(expected);
     });
 });

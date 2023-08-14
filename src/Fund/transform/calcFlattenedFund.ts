@@ -8,13 +8,13 @@ export const calcFlattenedFund = async (fund: Fund, fundsDictionary?: Array<Fund
 
     async function flatten(holdings: Array<Fund>, weight: number) {
         for (const holding of holdings) {
-            const holdingFund = await getFundById(holding.id, fundsDictionary);
+            const holdingFund = await getFundById(holding.fundId, fundsDictionary);
 
             if (holdingFund.holdings && holdingFund.holdings.length > 0) {
                 await flatten(holdingFund.holdings, (holding.percentage * weight) / 100);
             } else {
                 flattened.push({
-                    id: holding.id,
+                    fundId: holding.fundId,
                     percentage: (holding.percentage * weight) / 100
                 });
             }
@@ -26,7 +26,7 @@ export const calcFlattenedFund = async (fund: Fund, fundsDictionary?: Array<Fund
     // TODO no unit tests written cover this yet
     // Collapsing duplicates and summing percentages
     const holdingsGrouped = flattened.reduce((acc: Array<Fund>, curr: Fund) => {
-        const existingEntry = acc.find((entry) => entry.id === curr.id);
+        const existingEntry = acc.find((entry) => entry.fundId === curr.fundId);
 
         if (existingEntry) {
             existingEntry.percentage += curr.percentage;

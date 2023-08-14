@@ -6,7 +6,7 @@ export const calcFundMetadata = async (fundHoldings: Fund[], funds?: Array<Fund>
     const fundHoldingsCopy = cloneDeep(fundHoldings);
 
     for (const holding of fundHoldingsCopy) {
-        const fundDefinition = await getFundById(holding.id, funds);
+        const fundDefinition = await getFundById(holding.fundId, funds);
 
         if (!holding.assetClass) {
             holding.assetClass = fundDefinition.assetClass;

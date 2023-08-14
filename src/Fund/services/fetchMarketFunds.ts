@@ -3,7 +3,7 @@ import { Fund } from '../models/Fund/Fund';
 export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
     Promise.resolve([
         {
-            id: 1,
+            fundId: 1,
             name: 'VFINX (SPY)',
             description: 'Vanguard 500 Index Fund Investor Shares',
             tickerSymbol: 'VFINX',
@@ -14,7 +14,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             holdings: []
         },
         {
-            id: 2,
+            fundId: 2,
             name: 'VFITX (VGIT)',
             description: 'Vanguard Intermediate-Term Treasury Fund Investor Shares',
             tickerSymbol: 'VFITX',
@@ -25,7 +25,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             holdings: []
         },
         {
-            id: 3,
+            fundId: 3,
             name: '^GOLD (GLD)',
             description: 'Gold',
             tickerSymbol: '^GOLD',
@@ -36,7 +36,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             holdings: []
         },
         {
-            id: 4,
+            fundId: 4,
             name: 'CASHX (SGOV)',
             description: 'Treasury money market',
             tickerSymbol: 'CASHX',
@@ -47,7 +47,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             holdings: []
         },
         {
-            id: 5,
+            fundId: 5,
             name: 'DFALX (VEA)',
             description: 'DFA Large Cap International Portfolio',
             tickerSymbol: 'DFALX',
@@ -58,7 +58,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             holdings: []
         },
         {
-            id: 6,
+            fundId: 6,
             name: 'VEIEX (VWO)',
             description: 'Vanguard Emerging Markets Stock Index Fund',
             tickerSymbol: 'VEIEX',
@@ -69,7 +69,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             holdings: []
         },
         {
-            id: 14,
+            fundId: 14,
             name: 'VTSMX (VTI)',
             description: 'Vanguard Total Stock Market Fund',
             tickerSymbol: 'VTSMX',

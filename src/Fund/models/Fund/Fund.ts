@@ -3,7 +3,7 @@ import { FundMarketRegion } from './FundMarketRegion';
 import { FundType } from './FundType';
 
 export type Fund = {
-    id: number;
+    fundId: number;
     percentage: number;
     name?: string;
     description?: string;

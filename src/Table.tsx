@@ -5,7 +5,7 @@ import { calcFundAnalysis } from './Fund/transform/calcFundAnalysis';
 // Sample funds to populate the dropdown
 const funds = ['Fund A', 'Fund B', 'Fund C', 'Fund D', 'Fund E'];
 
-const customFund = (await fetchCustomFunds()).find((fund) => fund.id === 13);
+const customFund = (await fetchCustomFunds()).find((fund) => fund.fundId === 13);
 
 if (!customFund) {
     throw new Error();

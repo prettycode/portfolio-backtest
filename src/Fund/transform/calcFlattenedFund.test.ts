@@ -3,106 +3,136 @@ import { calcFlattenedFund } from './calcFlattenedFund';
 
 const marketFunds: Fund[] = [
     {
-        id: 1,
+        fundId: 1,
         percentage: 100,
         name: 'VT',
         marketRegion: 'Global (All-World)',
         assetClass: 'Equity',
-        holdings: []
+        holdings: [],
+        description: '',
+        tickerSymbol: '',
+        type: 'ETF'
     },
     {
-        id: 2,
+        fundId: 2,
         percentage: 100,
         name: 'VTI',
         marketRegion: 'US',
         assetClass: 'Equity',
-        holdings: []
+        holdings: [],
+        description: '',
+        tickerSymbol: '',
+        type: 'ETF'
     },
     {
-        id: 3,
+        fundId: 3,
         percentage: 100,
         name: 'VEA',
         marketRegion: 'International Developed',
         assetClass: 'Equity',
-        holdings: []
+        holdings: [],
+        description: '',
+        tickerSymbol: '',
+        type: 'ETF'
     },
     {
-        id: 4,
+        fundId: 4,
         percentage: 100,
         name: 'VWO',
         marketRegion: 'Emerging',
         assetClass: 'Equity',
-        holdings: []
+        holdings: [],
+        description: '',
+        tickerSymbol: '',
+        type: 'ETF'
     },
     {
-        id: 5,
+        fundId: 5,
         percentage: 100,
         name: 'BNDW',
         marketRegion: 'Global (All-World)',
         assetClass: 'Bond',
-        holdings: []
+        holdings: [],
+        description: '',
+        tickerSymbol: '',
+        type: 'ETF'
     },
     {
-        id: 6,
+        fundId: 6,
         percentage: 100,
         name: 'GLD',
         marketRegion: 'Global (All-World)',
         assetClass: 'Commodity',
-        holdings: []
+        holdings: [],
+        description: '',
+        tickerSymbol: '',
+        type: 'ETF'
     }
 ];
 
 const customFunds: Fund[] = [
     {
-        id: 7,
+        fundId: 7,
         percentage: 100,
         name: 'Market-cap Weighted All-World Equity',
-        holdings: [{ id: 1, percentage: 100 }]
+        description: '',
+        type: 'Custom',
+        holdings: [{ fundId: 1, percentage: 100 }]
     },
     {
-        id: 8,
+        fundId: 8,
         percentage: 100,
         name: '60/20/20 All-World Equity',
+        description: '',
+        type: 'Custom',
         holdings: [
-            { id: 2, percentage: 60 },
-            { id: 3, percentage: 20 },
-            { id: 4, percentage: 20 }
+            { fundId: 2, percentage: 60 },
+            { fundId: 3, percentage: 20 },
+            { fundId: 4, percentage: 20 }
         ]
     },
     {
-        id: 9,
+        fundId: 9,
         percentage: 100,
         name: '90/10 All-World Equity/Bonds',
+        description: '',
+        type: 'Custom',
         holdings: [
-            { id: 8, percentage: 90 },
-            { id: 5, percentage: 10 }
+            { fundId: 8, percentage: 90 },
+            { fundId: 5, percentage: 10 }
         ]
     },
     {
-        id: 10,
+        fundId: 10,
         percentage: 100,
         name: '80% 90/10 All-World Equity/Bonds + 10% Gold',
+        description: '',
+        type: 'Custom',
         holdings: [
-            { id: 9, percentage: 80 },
-            { id: 6, percentage: 20 }
+            { fundId: 9, percentage: 80 },
+            { fundId: 6, percentage: 20 }
         ]
     },
     {
-        id: 11,
+        fundId: 11,
         percentage: 100,
         name: '50% Bonds + 50% Gold',
+        description: '',
+        type: 'Custom',
         holdings: [
-            { id: 5, percentage: 50 },
-            { id: 6, percentage: 50 }
+            { fundId: 5, percentage: 50 },
+            { fundId: 6, percentage: 50 }
         ]
     },
     {
-        id: 12,
+        fundId: 12,
         percentage: 100,
         name: '50% All-World Equities + 50% Bonds/Gold Split',
+        description: '',
+        type: 'Custom',
         holdings: [
-            { id: 8, percentage: 50 },
-            { id: 11, percentage: 50 }
+            { fundId: 8, percentage: 50 },
+            { fundId: 11, percentage: 50 }
         ]
     }
 ];
@@ -118,7 +148,7 @@ describe('flattenFund', () => {
         const actual = await calcFlattenedFund(given, allFunds);
         const expected: Array<Fund> = [
             {
-                id: given.id,
+                fundId: given.fundId,
                 percentage: given.percentage
             }
         ];
@@ -132,7 +162,7 @@ describe('flattenFund', () => {
         const actual = await calcFlattenedFund(given, allFunds);
         const expected: Array<Fund> = [
             {
-                id: marketFunds[0].id,
+                fundId: marketFunds[0].fundId,
                 percentage: 100
             }
         ];
@@ -145,9 +175,9 @@ describe('flattenFund', () => {
         const given = customFunds[1];
         const actual = await calcFlattenedFund(given, allFunds);
         const expected: Array<Fund> = [
-            { id: 2, percentage: 60 },
-            { id: 3, percentage: 20 },
-            { id: 4, percentage: 20 }
+            { fundId: 2, percentage: 60 },
+            { fundId: 3, percentage: 20 },
+            { fundId: 4, percentage: 20 }
         ];
 
         expect(actual).toEqual(expected);
@@ -158,10 +188,10 @@ describe('flattenFund', () => {
         const given = customFunds[2];
         const actual = await calcFlattenedFund(given, allFunds);
         const expected: Array<Fund> = [
-            { id: 2, percentage: 60 * 0.9 },
-            { id: 3, percentage: 20 * 0.9 },
-            { id: 4, percentage: 20 * 0.9 },
-            { id: 5, percentage: 100 * 0.1 }
+            { fundId: 2, percentage: 60 * 0.9 },
+            { fundId: 3, percentage: 20 * 0.9 },
+            { fundId: 4, percentage: 20 * 0.9 },
+            { fundId: 5, percentage: 100 * 0.1 }
         ];
 
         expect(actual).toEqual(expected);
@@ -172,11 +202,11 @@ describe('flattenFund', () => {
         const given = customFunds[3];
         const actual = await calcFlattenedFund(given, allFunds);
         const expected: Array<Fund> = [
-            { id: 2, percentage: 60 * 0.9 * 0.8 },
-            { id: 6, percentage: 20 * 1.0 * 1.0 },
-            { id: 3, percentage: 20 * 0.9 * 0.8 },
-            { id: 4, percentage: 20 * 0.9 * 0.8 },
-            { id: 5, percentage: 100 * 0.1 * 0.8 }
+            { fundId: 2, percentage: 60 * 0.9 * 0.8 },
+            { fundId: 6, percentage: 20 * 1.0 * 1.0 },
+            { fundId: 3, percentage: 20 * 0.9 * 0.8 },
+            { fundId: 4, percentage: 20 * 0.9 * 0.8 },
+            { fundId: 5, percentage: 100 * 0.1 * 0.8 }
         ];
 
         expect(actual).toEqual(expected);
@@ -187,11 +217,11 @@ describe('flattenFund', () => {
         const given = customFunds[5];
         const actual = await calcFlattenedFund(given, allFunds);
         const expected: Array<Fund> = [
-            { id: 2, percentage: 60 * 0.5 },
-            { id: 5, percentage: 50 * 0.5 },
-            { id: 6, percentage: 50 * 0.5 },
-            { id: 3, percentage: 20 * 0.5 },
-            { id: 4, percentage: 20 * 0.5 }
+            { fundId: 2, percentage: 60 * 0.5 },
+            { fundId: 5, percentage: 50 * 0.5 },
+            { fundId: 6, percentage: 50 * 0.5 },
+            { fundId: 3, percentage: 20 * 0.5 },
+            { fundId: 4, percentage: 20 * 0.5 }
         ];
 
         expect(actual).toEqual(expected);

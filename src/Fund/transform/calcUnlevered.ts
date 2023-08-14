@@ -10,8 +10,8 @@ export const calcUnlevered = (fundHoldings: Array<Fund>): Array<Fund> => {
     // Create a new array with the unlevered holdings, filtering out the negative percentages
     const unleveredHoldings = fundHoldings
         .filter((holding) => holding.percentage >= 0)
-        .map((holding) => ({
-            id: holding.id,
+        .map<Fund>((holding) => ({
+            fundId: holding.fundId,
             percentage: holding.percentage / leverage
         }))
         // Sort from highest to lowest percentage

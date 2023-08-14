@@ -5,7 +5,7 @@ import { fetchMarketFunds } from './fetchMarketFunds';
 export const getFundById = async (fundId: number, funds?: Array<Fund>): Promise<Fund> => {
     const allFunds = funds || [...(await fetchMarketFunds()), ...(await fetchCustomFunds())];
 
-    const matchingFund = allFunds.find((fund) => fund.id === fundId);
+    const matchingFund = allFunds.find((fund) => fund.fundId === fundId);
 
     if (!matchingFund) {
         throw new Error(`Could not find fund matching id "${fundId}"`);
