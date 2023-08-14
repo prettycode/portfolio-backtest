@@ -1,7 +1,8 @@
 import { Fund } from '../models/Fund/Fund';
-import { calcFlattenedFund } from './calcFlattenedFund';
+import { FundAllocation } from '../models/Fund/FundAllocation';
+import { calcFlattenedFundAllocation } from './calcFlattenedFund';
 
-const marketFunds: Fund[] = [
+const mockMarketFunds: Fund[] = [
     {
         fundId: 1,
         percentage: 100,
@@ -70,7 +71,7 @@ const marketFunds: Fund[] = [
     }
 ];
 
-const customFunds: Fund[] = [
+const mockCustomFunds: Fund[] = [
     {
         fundId: 7,
         percentage: 100,
@@ -137,16 +138,16 @@ const customFunds: Fund[] = [
     }
 ];
 
-const allFunds = [...marketFunds, ...customFunds];
+const allFunds = [...mockMarketFunds, ...mockCustomFunds];
 
-// TODO hack for
-const fundTotal = (fund: Array<Fund>): number => +fund.reduce((acc, curr) => acc + curr.percentage, 0).toFixed(2);
+// TODO hack for float
+const fundTotal = (fund: Array<FundAllocation>): number => +fund.reduce((acc, curr) => acc + curr.percentage, 0).toFixed(2);
 
 describe('flattenFund', () => {
     it('should flatten market fund into fund of only that market fund', async () => {
-        const given = marketFunds[0];
-        const actual = await calcFlattenedFund(given, allFunds);
-        const expected: Array<Fund> = [
+        const given = mockMarketFunds[0];
+        const actual = await calcFlattenedFundAllocation(given, allFunds);
+        const expected: Array<FundAllocation> = [
             {
                 fundId: given.fundId,
                 percentage: given.percentage
@@ -158,11 +159,11 @@ describe('flattenFund', () => {
     });
 
     it('should flatten custom fund of market fund into fund of only that market fund', async () => {
-        const given = customFunds[0];
-        const actual = await calcFlattenedFund(given, allFunds);
-        const expected: Array<Fund> = [
+        const given = mockCustomFunds[0];
+        const actual = await calcFlattenedFundAllocation(given, allFunds);
+        const expected: Array<FundAllocation> = [
             {
-                fundId: marketFunds[0].fundId,
+                fundId: mockMarketFunds[0].fundId,
                 percentage: 100
             }
         ];
@@ -172,9 +173,9 @@ describe('flattenFund', () => {
     });
 
     it('should flatten custom fund of market funds into fund of market funds', async () => {
-        const given = customFunds[1];
-        const actual = await calcFlattenedFund(given, allFunds);
-        const expected: Array<Fund> = [
+        const given = mockCustomFunds[1];
+        const actual = await calcFlattenedFundAllocation(given, allFunds);
+        const expected: Array<FundAllocation> = [
             { fundId: 2, percentage: 60 },
             { fundId: 3, percentage: 20 },
             { fundId: 4, percentage: 20 }
@@ -185,9 +186,9 @@ describe('flattenFund', () => {
     });
 
     it('should flatten custom fund of market fund and custom fund into fund of market and custom fund', async () => {
-        const given = customFunds[2];
-        const actual = await calcFlattenedFund(given, allFunds);
-        const expected: Array<Fund> = [
+        const given = mockCustomFunds[2];
+        const actual = await calcFlattenedFundAllocation(given, allFunds);
+        const expected: Array<FundAllocation> = [
             { fundId: 2, percentage: 60 * 0.9 },
             { fundId: 3, percentage: 20 * 0.9 },
             { fundId: 4, percentage: 20 * 0.9 },
@@ -199,9 +200,9 @@ describe('flattenFund', () => {
     });
 
     it('should flatten custom fund of market fund and custom fund into fund of market and custom fund', async () => {
-        const given = customFunds[3];
-        const actual = await calcFlattenedFund(given, allFunds);
-        const expected: Array<Fund> = [
+        const given = mockCustomFunds[3];
+        const actual = await calcFlattenedFundAllocation(given, allFunds);
+        const expected: Array<FundAllocation> = [
             { fundId: 2, percentage: 60 * 0.9 * 0.8 },
             { fundId: 6, percentage: 20 * 1.0 * 1.0 },
             { fundId: 3, percentage: 20 * 0.9 * 0.8 },
@@ -214,9 +215,9 @@ describe('flattenFund', () => {
     });
 
     it('should flatten custom fund of custom funds', async () => {
-        const given = customFunds[5];
-        const actual = await calcFlattenedFund(given, allFunds);
-        const expected: Array<Fund> = [
+        const given = mockCustomFunds[5];
+        const actual = await calcFlattenedFundAllocation(given, allFunds);
+        const expected: Array<FundAllocation> = [
             { fundId: 2, percentage: 60 * 0.5 },
             { fundId: 5, percentage: 50 * 0.5 },
             { fundId: 6, percentage: 50 * 0.5 },
