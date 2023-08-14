@@ -5,13 +5,15 @@ import { getFundAnalysis } from './Fund/transformations/getFundAnalysis';
 // Sample funds to populate the dropdown
 const funds = ['Fund A', 'Fund B', 'Fund C', 'Fund D', 'Fund E'];
 
-const customFund = (await fetchCustomFunds()).find((fund) => fund.fundId === 13);
+(async () => {
+    const customFund = (await fetchCustomFunds()).find((fund) => fund.fundId === 13);
 
-if (!customFund) {
-    throw new Error();
-}
+    if (!customFund) {
+        throw new Error();
+    }
 
-console.log(await getFundAnalysis(customFund));
+    console.log(await getFundAnalysis(customFund));
+})();
 
 const AllocationTable: React.FC = () => {
     const [rows, setRows] = useState(

@@ -1,4 +1,4 @@
 export type FundAllocation = {
-    fundId: number;
+    fundId: string | number;
     percentage: number;
 };
