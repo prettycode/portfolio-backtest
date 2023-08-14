@@ -1,4 +1,4 @@
-import { Fund } from '../models/Fund';
+import { Fund } from '../models/Fund/Fund';
 import { calcFlattenedFund } from './calcFlattenedFund';
 
 const marketFunds: Fund[] = [
@@ -6,36 +6,48 @@ const marketFunds: Fund[] = [
         id: 1,
         percentage: 100,
         name: 'VT',
+        marketRegion: 'Global (All-World)',
+        assetClass: 'Equity',
         holdings: []
     },
     {
         id: 2,
         percentage: 100,
         name: 'VTI',
+        marketRegion: 'US',
+        assetClass: 'Equity',
         holdings: []
     },
     {
         id: 3,
         percentage: 100,
         name: 'VEA',
+        marketRegion: 'International Developed',
+        assetClass: 'Equity',
         holdings: []
     },
     {
         id: 4,
         percentage: 100,
         name: 'VWO',
+        marketRegion: 'Emerging',
+        assetClass: 'Equity',
         holdings: []
     },
     {
         id: 5,
         percentage: 100,
         name: 'BNDW',
+        marketRegion: 'Global (All-World)',
+        assetClass: 'Bond',
         holdings: []
     },
     {
         id: 6,
         percentage: 100,
         name: 'GLD',
+        marketRegion: 'Global (All-World)',
+        assetClass: 'Commodity',
         holdings: []
     }
 ];
@@ -97,6 +109,7 @@ const customFunds: Fund[] = [
 
 const allFunds = [...marketFunds, ...customFunds];
 
+// TODO hack for
 const fundTotal = (fund: Array<Fund>): number => +fund.reduce((acc, curr) => acc + curr.percentage, 0).toFixed(2);
 
 describe('flattenFund', () => {

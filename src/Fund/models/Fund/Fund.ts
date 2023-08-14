@@ -1,5 +1,5 @@
 import { FundAssetClass } from './FundAssetClass';
-import { FundMarketRegion } from './FundRegion';
+import { FundMarketRegion } from './FundMarketRegion';
 import { FundType } from './FundType';
 
 export type Fund = {

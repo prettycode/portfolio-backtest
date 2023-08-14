@@ -1,16 +1,14 @@
-import { Fund } from '../models/Fund';
+import { Fund } from '../models/Fund/Fund';
 
-export const calcUnlevered = (fund: Fund): Array<Fund> => {
-    const { holdings } = fund;
-
-    if (!holdings?.length) {
+export const calcUnlevered = (fundHoldings: Array<Fund>): Array<Fund> => {
+    if (!fundHoldings.length) {
         throw new Error('Fund is missing holdings. Cannot calculate unlevered portfolio.');
     }
 
-    const leverage = holdings.reduce((sum, holding) => sum + (holding.percentage < 0 ? 0 : holding.percentage), 0) / 100;
+    const leverage = fundHoldings.reduce((sum, holding) => sum + (holding.percentage < 0 ? 0 : holding.percentage), 0) / 100;
 
     // Create a new array with the unlevered holdings, filtering out the negative percentages
-    const unleveredHoldings = holdings
+    const unleveredHoldings = fundHoldings
         .filter((holding) => holding.percentage >= 0)
         .map((holding) => ({
             id: holding.id,

@@ -1,4 +1,4 @@
-import { Fund } from '../models/Fund';
+import { Fund } from '../models/Fund/Fund';
 import { fetchCustomFunds } from './fetchCustomFunds';
 import { fetchMarketFunds } from './fetchMarketFunds';
 

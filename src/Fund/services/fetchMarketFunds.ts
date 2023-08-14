@@ -1,4 +1,4 @@
-import { Fund } from '../models/Fund';
+import { Fund } from '../models/Fund/Fund';
 
 export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
     Promise.resolve([

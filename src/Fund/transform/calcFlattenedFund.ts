@@ -1,14 +1,14 @@
-import { Fund } from '../models/Fund';
+import { Fund } from '../models/Fund/Fund';
 import { getFundById } from '../services/getFundById';
 
 const sortFundsDescending = (funds: Array<Fund>) => funds.sort((a, b) => b.percentage - a.percentage);
 
-export const calcFlattenedFund = async (fund: Fund, funds?: Array<Fund>): Promise<Array<Fund>> => {
+export const calcFlattenedFund = async (fund: Fund, fundsDictionary?: Array<Fund>): Promise<Array<Fund>> => {
     const flattened: Array<Fund> = [];
 
     async function flatten(holdings: Array<Fund>, weight: number) {
         for (const holding of holdings) {
-            const holdingFund = await getFundById(holding.id, funds);
+            const holdingFund = await getFundById(holding.id, fundsDictionary);
 
             if (holdingFund.holdings && holdingFund.holdings.length > 0) {
                 await flatten(holdingFund.holdings, (holding.percentage * weight) / 100);
@@ -25,7 +25,7 @@ export const calcFlattenedFund = async (fund: Fund, funds?: Array<Fund>): Promis
 
     // TODO no unit tests written cover this yet
     // Collapsing duplicates and summing percentages
-    const collapsedHoldings = flattened.reduce((acc: Array<Fund>, curr: Fund) => {
+    const holdingsGrouped = flattened.reduce((acc: Array<Fund>, curr: Fund) => {
         const existingEntry = acc.find((entry) => entry.id === curr.id);
 
         if (existingEntry) {
@@ -38,5 +38,5 @@ export const calcFlattenedFund = async (fund: Fund, funds?: Array<Fund>): Promis
     }, []);
 
     // sort DESC
-    return sortFundsDescending(collapsedHoldings);
+    return sortFundsDescending(holdingsGrouped);
 };

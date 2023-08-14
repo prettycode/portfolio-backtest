@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
+import { fetchCustomFunds } from './Fund/services/fetchCustomFunds';
+import { calcFundAnalysis } from './Fund/transform/calcFundAnalysis';
 
 // Sample funds to populate the dropdown
 const funds = ['Fund A', 'Fund B', 'Fund C', 'Fund D', 'Fund E'];
+
+const customFund = (await fetchCustomFunds()).find((fund) => fund.id === 13);
+
+if (!customFund) {
+    throw new Error();
+}
+
+console.log(await calcFundAnalysis(customFund));
 
 const AllocationTable: React.FC = () => {
     const [rows, setRows] = useState(

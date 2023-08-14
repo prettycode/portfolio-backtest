@@ -1,19 +1,18 @@
-import { Fund } from '../models/Fund';
+import { Fund } from '../models/Fund/Fund';
 
-export const calcLeverage = (fund: Fund): number => {
-    const { holdings } = fund;
-
-    if (!holdings?.length) {
+export const calcLeverage = (fundHoldings: Array<Fund>): number => {
+    if (!fundHoldings.length) {
         throw new Error('Fund is missing holdings. Cannot calculate leveraged.');
     }
 
-    const totalPercentage = holdings.reduce((sum, holding) => sum + holding.percentage, 0);
+    // TODO hack for floats
+    const totalPercentage = +fundHoldings.reduce((sum, holding) => sum + holding.percentage, 0).toFixed(2);
 
     if (totalPercentage !== 100) {
-        throw new Error('Holdings must add up to 100.');
+        throw new Error(`Holdings added up to ${totalPercentage} instead of 100.`);
     }
 
-    const totalPercentageSansBarrowing = holdings.reduce((sum, holding) => sum + (holding.percentage < 0 ? 0 : holding.percentage), 0);
+    const totalPercentageSansBarrowing = fundHoldings.reduce((sum, holding) => sum + (holding.percentage < 0 ? 0 : holding.percentage), 0);
 
     if (totalPercentageSansBarrowing < 100) {
         throw new Error('Holdings must add up to 100 or more when negative-percentage holdings are removed.');
