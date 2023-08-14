@@ -1,7 +1,7 @@
+const sortFundsDescending = funds => funds.sort((a, b) => b.percentage - a.percentage);
+
 const generateAggregatePortfolio = portfolio => {
   let expandedHoldings = [];
-
-console.log(portfolio);
 
   function expandHoldings(holdings, weight) {
     for (const holding of holdings) {
@@ -23,15 +23,18 @@ console.log(portfolio);
   // Collapsing duplicates and summing percentages
   const collapsedHoldings = expandedHoldings.reduce((acc, curr) => {
     const existingEntry = acc.find(entry => entry.id === curr.id);
+
     if (existingEntry) {
       existingEntry.percentage += curr.percentage;
     } else {
       acc.push(curr);
     }
+
     return acc;
   }, []);
 
-  return collapsedHoldings;
+  // sort DESC
+  return sortFundsDescending(collapsedHoldings);
 };
 
 const displayAggregatePortfolio = aggregateList =>
@@ -57,7 +60,7 @@ const calculateAndUpdate = () => {
 	let portfolio = [];
 
 	// Iterate over the 10 rows you created, not the funds array
-	for (let i = 0; i < 10; i++) {
+	for (let i = 0; i < 5; i++) {
 		const fundId = document.getElementById('fundSelect' + i).value;
 		const fund = funds.find(f => f.id == fundId);
 		const percentage = parseFloat(document.getElementById('fundPercentage' + i).value);

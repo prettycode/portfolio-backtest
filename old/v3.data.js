@@ -1,4 +1,8 @@
-/*type FundType = 'Synthetic' | 'ETF' | 'individualEquity' | 'index' | 'mutualFund';
+/*
+
+type FundType = 'Synthetic' | 'ETF' | 'Company' | 'Index' | 'Mutual Fund';
+type FundMarketRegion = 'US' | 'International Developed' | 'Emerging' | 'Ex-US' | 'Global (All-World)';
+type FundAssetClass = 'Equity' | 'Treasury' | 'Bond' | 'Commodity' | 'Cash';
 
 type Fund = {
 	id: number;
@@ -7,6 +11,8 @@ type Fund = {
 	tickerSymbol?: string;
 	percentage: number;
 	type: FundType;
+	marketRegion: FundMarketRegion,
+	assetClass: FundAssetClass,
 	holdings?: Fund[];
 }*/
 
@@ -17,7 +23,9 @@ const marketFunds/*: Fund[]*/ = [
 		description: "Vanguard 500 Index Fund Investor Shares",
 		tickerSymbol: "VFINX",
 		percentage: 100,
-		type: 'mutualFund',
+		type: 'Mutual Fund',
+		marketRegion: 'US',
+		assetClass: 'Equity',
 		holdings: []
 	},
 	{
@@ -26,7 +34,9 @@ const marketFunds/*: Fund[]*/ = [
 		description: "Vanguard Intermediate-Term Treasury Fund Investor Shares",
 		tickerSymbol: "VFITX",
 		percentage: 100,
-		type: 'mutualFund',
+		type: 'Mutual Fund',
+		marketRegion: 'US',
+		assetClass: 'Treasury',
 		holdings: []
 	},
 	{
@@ -35,7 +45,8 @@ const marketFunds/*: Fund[]*/ = [
 		description: "Gold",
 		tickerSymbol: "^GOLD",
 		percentage: 100,
-		type: 'index',
+		type: 'Index',
+		assetClass: 'Commodity',
 		holdings: []
 	},
 	{
@@ -45,6 +56,7 @@ const marketFunds/*: Fund[]*/ = [
 		tickerSymbol: "CASHX",
 		percentage: 100,
 		type: 'ETF',
+		assetClass: 'Cash',
 		holdings: []
 	},
 	{
@@ -53,7 +65,9 @@ const marketFunds/*: Fund[]*/ = [
 		description: "DFA Large Cap International Portfolio",
 		tickerSymbol: "DFALX",
 		percentage: 100,
-		type: 'mutualFund',
+		type: 'Mutual Fund',
+		marketRegion: 'International Developed',
+		assetClass: 'Equity',
 		holdings: []
 	},
 	{
@@ -62,7 +76,9 @@ const marketFunds/*: Fund[]*/ = [
 		description: "Vanguard Emerging Markets Stock Index Fund",
 		tickerSymbol: "VEIEX",
 		percentage: 100,
-		type: 'mutualFund',
+		type: 'Mutual Fund',
+		marketRegion: 'Emerging',
+		assetClass: 'Equity',
 		holdings: []
 	},
 	{
@@ -71,7 +87,9 @@ const marketFunds/*: Fund[]*/ = [
 		description: "Vanguard Total Stock Market Fund",
 		tickerSymbol: "VTSMX",
 		percent: 100,
-		type: 'mutualFund',
+		type: 'Mutual Fund',
+		marketRegion: 'US',
+		assetClass: 'Equity',
 		holdings: []
 	}
 ];

@@ -1,7 +1,7 @@
-const funds = [...marketFunds, ...customPortfolios].sort();
+const funds = [...marketFunds, ...customPortfolios].sort((a, b) => a.name.localeCompare(b.name));
 
 // Generate fund selection table with 10 rows
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 5; i++) {
 	const tr = document.createElement('tr');
 
 	// Create dropdown for fund selection
