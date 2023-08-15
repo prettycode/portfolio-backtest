@@ -27,7 +27,7 @@ import { fetchCustomFunds } from '../../Fund/services/fetchCustomFunds';
 
 const AllocationTable: React.FC = () => {
     const [funds, setFunds] = useState<Fund[]>([]);
-    const [customFundAllocations, setCustomFundAllocations] = useState<Array<FundAllocation>>([]);
+    const [customFundAllocations, setCustomFundAllocations] = useState<Array<FundAllocation> | undefined>(undefined);
     const [rows, setRows] = useState<FundAllocation[]>(
         Array.from({ length: 5 }, () => ({
             fundId: '',
@@ -40,15 +40,15 @@ const AllocationTable: React.FC = () => {
     };
 
     const calculate = () => {
-        const rowsWithFundIdsAndPercentages = rows.filter((row) => row.fundId !== '' && Number.isInteger(row.percentage));
-        const sumOfPercentages = rowsWithFundIdsAndPercentages.reduce((sum, row) => sum + row.percentage, 0);
+        const rowsWithValidEntries = rows.filter((row) => row.fundId !== '' && Number.isInteger(row.percentage));
+        const sumOfPercentages = rowsWithValidEntries.reduce((sum, row) => sum + row.percentage, 0);
 
         if (sumOfPercentages < 100) {
             alert(`The sum of the percentages (${sumOfPercentages}%) is less than 100%.`);
             return;
         }
 
-        const rowsToFundAllocations = rowsWithFundIdsAndPercentages.map((row) => ({
+        const rowsToFundAllocations = rowsWithValidEntries.map((row) => ({
             fundId: Number(row.fundId),
             percentage: row.percentage
         }));
@@ -122,7 +122,7 @@ const AllocationTable: React.FC = () => {
                 Calculate
             </button>
 
-            {customFundAllocations.length && <FundAnalysis fundAllocations={customFundAllocations} />}
+            {customFundAllocations && <FundAnalysis fundAllocations={customFundAllocations} />}
         </>
     );
 };

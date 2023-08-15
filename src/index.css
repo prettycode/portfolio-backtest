@@ -67,3 +67,7 @@ button:focus-visible {
         background-color: #f9f9f9;
     }
 }
+
+h3:not(:first-of-type) {
+    padding-top: 25px;
+}
