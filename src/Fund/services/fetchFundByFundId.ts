@@ -4,15 +4,7 @@ import { fetchMarketFunds } from './fetchMarketFunds';
 
 const findFund = (fundId: string | number, funds: Array<Fund>): Fund | undefined => funds.find((fund) => fund.fundId == fundId);
 
-export const getFundById = async (fundId: string | number, funds?: Array<Fund>): Promise<Fund> => {
-    if (funds) {
-        const matchingFund = findFund(fundId, funds);
-
-        if (matchingFund) {
-            return matchingFund;
-        }
-    }
-
+export const fetchFundByFundId = async (fundId: string | number): Promise<Fund> => {
     const marketFunds = await fetchMarketFunds();
     const matchingMarketFund = findFund(fundId, marketFunds);
 

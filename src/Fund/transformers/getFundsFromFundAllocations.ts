@@ -1,12 +1,12 @@
 import cloneDeep from 'lodash.clonedeep';
 import { Fund } from '../models/Fund/Fund';
-import { getFundById } from '../services/getFundById';
+import { fetchFundByFundId } from '../services/fetchFundByFundId';
 import { FundAllocation } from '../models/Fund/FundAllocation';
 
-export const getFundsFromFundAllocations = async (fundHoldings: FundAllocation[], fundsDictionary?: Array<Fund>): Promise<Fund[]> => {
+export const getFundsFromFundAllocations = async (fundHoldings: Array<FundAllocation>): Promise<Fund[]> => {
     const holdingsAsFunds = await Promise.all(
         fundHoldings.map(async (holding) => {
-            const holdingDefinition: Fund = await getFundById(holding.fundId, fundsDictionary);
+            const holdingDefinition: Fund = await fetchFundByFundId(holding.fundId);
             const fund: Fund = {
                 ...cloneDeep(holdingDefinition),
                 percentage: holding.percentage

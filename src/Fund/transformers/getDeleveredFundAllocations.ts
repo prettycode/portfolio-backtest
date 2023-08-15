@@ -7,8 +7,7 @@ export const getDeleveredFundAllocations = (fundHoldings: Array<FundAllocation>)
 
     const leverage = fundHoldings.reduce((sum, holding) => sum + (holding.percentage < 0 ? 0 : holding.percentage), 0) / 100;
 
-    // Create a new array with the unlevered holdings, filtering out the negative percentages
-    const unleveredHoldings = fundHoldings
+    const deleveredHoldings = fundHoldings
         .filter((holding) => holding.percentage >= 0)
         .map<FundAllocation>((holding) => ({
             fundId: holding.fundId,
@@ -17,5 +16,5 @@ export const getDeleveredFundAllocations = (fundHoldings: Array<FundAllocation>)
         // Sort from highest to lowest percentage
         .sort((a, b) => b.percentage - a.percentage);
 
-    return unleveredHoldings;
+    return deleveredHoldings;
 };

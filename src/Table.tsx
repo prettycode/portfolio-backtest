@@ -1,16 +1,38 @@
 import React, { useState } from 'react';
-import { fetchCustomFunds } from './Fund/services/fetchCustomFunds';
-import { getFundAnalysis } from './Fund/transformations/getFundAnalysis';
+import { getFundAnalysis } from './Fund/transformers/getFundAnalysis';
+import { Fund } from './Fund/models/Fund/Fund';
 
 // Sample funds to populate the dropdown
 const funds = ['Fund A', 'Fund B', 'Fund C', 'Fund D', 'Fund E'];
 
 (async () => {
-    const customFund = (await fetchCustomFunds()).find((fund) => fund.fundId === 13);
-
-    if (!customFund) {
-        throw new Error();
-    }
+    const customFund: Fund = {
+        fundId: -1,
+        name: '',
+        description: '',
+        percentage: 100,
+        type: 'Custom',
+        holdings: [
+            {
+                // NTSX
+                fundId: 7,
+                percentage: 30
+            },
+            {
+                // GDE
+                fundId: 8,
+                percentage: 30
+            },
+            {
+                fundId: 9,
+                percentage: 20
+            },
+            {
+                fundId: 10,
+                percentage: 20
+            }
+        ]
+    };
 
     console.log(await getFundAnalysis(customFund));
 })();

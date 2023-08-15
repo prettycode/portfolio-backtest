@@ -1,15 +1,15 @@
 import { Fund } from '../models/Fund/Fund';
 import { FundAllocation } from '../models/Fund/FundAllocation';
-import { getFundById } from '../services/getFundById';
+import { fetchFundByFundId } from '../services/fetchFundByFundId';
 
 const sortFundAllocationsDescending = (funds: Array<FundAllocation>) => funds.sort((a, b) => b.percentage - a.percentage);
 
-export const getFlattenedFundAllocations = async (fund: Fund, fundsDictionary?: Array<Fund>): Promise<Array<FundAllocation>> => {
+export const getFlattenedFundAllocations = async (fund: Fund): Promise<Array<FundAllocation>> => {
     const flattened: Array<FundAllocation> = [];
 
     async function flatten(holdings: Array<FundAllocation>, weight: number) {
         for (const holding of holdings) {
-            const holdingFund = await getFundById(holding.fundId, fundsDictionary);
+            const holdingFund = await fetchFundByFundId(holding.fundId);
 
             if (holdingFund.holdings && holdingFund.holdings.length > 0) {
                 await flatten(holdingFund.holdings, (holding.percentage * weight) / 100);

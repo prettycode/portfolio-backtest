@@ -4,14 +4,14 @@
     "version": "0.0.0",
     "type": "module",
     "scripts": {
-        "prettier:check": "npx prettier . --check",
+        "start": "npm install && npm run prettier:fix && npm run lint:fix && npm run build && npm run test && vite --open",
+        "prettier:ci": "npx prettier . --check",
         "prettier:fix": "npx prettier . --write",
-        "start": "npm run dev",
-        "dev": "npm run prettier:fix && npm run build && npm run test && vite",
-        "test": "npx jest",
+        "lint:ci": "eslint . --ext ts,tsx --max-warnings 0",
+        "lint:fix": "npx eslint . --ext .ts,.tsx --fix",
         "build": "tsc && vite build",
-        "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-        "preview": "vite preview"
+        "build:ci": "npm ci && npm run prettier:ci && npm run lint:ci && npm run build && npm run test",
+        "test": "npx jest"
     },
     "dependencies": {
         "bootstrap": "^5.3.1",
