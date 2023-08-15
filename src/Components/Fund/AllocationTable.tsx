@@ -3,25 +3,31 @@ import { getFundAnalysis } from '../../Fund/transformers/FundAnalysis/getFundAna
 import { Fund } from '../../Fund/models/Fund/Fund';
 import { fetchMarketFunds } from '../../Fund/services/fetchMarketFunds';
 import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
+import FundAnalysis from '../FundAnalysis/FundAnalysis';
+import { fetchCustomFunds } from '../../Fund/services/fetchCustomFunds';
 
-const manualTestingFund: Fund = {
-    fundId: -1,
-    name: 'Efficient Core, Gilded',
-    description: 'Efficient Core, Gilded',
-    percentage: 100,
-    type: 'Custom',
-    holdings: [
-        { fundId: 7 /* NTSX */, percentage: 30 },
-        { fundId: 8 /* GDE */, percentage: 30 },
-        { fundId: 9, percentage: 20 },
-        { fundId: 10, percentage: 20 }
-    ]
-};
-
-(async () => console.log(await getFundAnalysis(manualTestingFund)))();
+(async () =>
+    console.log(
+        await getFundAnalysis(
+            {
+                fundId: -1,
+                name: 'Efficient Core, Gilded',
+                description: 'Efficient Core, Gilded',
+                percentage: 100,
+                type: 'Custom',
+                holdings: [
+                    { fundId: 7 /* NTSX */, percentage: 30 },
+                    { fundId: 8 /* GDE */, percentage: 30 },
+                    { fundId: 9, percentage: 20 },
+                    { fundId: 10, percentage: 20 }
+                ]
+            }.holdings
+        )
+    ))();
 
 const AllocationTable: React.FC = () => {
     const [funds, setFunds] = useState<Fund[]>([]);
+    const [customFundAllocations, setCustomFundAllocations] = useState<Array<FundAllocation>>([]);
     const [rows, setRows] = useState<FundAllocation[]>(
         Array.from({ length: 5 }, () => ({
             fundId: '',
@@ -34,11 +40,26 @@ const AllocationTable: React.FC = () => {
     };
 
     const calculate = () => {
-        alert('Calculate');
+        const rowsWithFundIdsAndPercentages = rows.filter((row) => row.fundId !== '' && Number.isInteger(row.percentage));
+        const sumOfPercentages = rowsWithFundIdsAndPercentages.reduce((sum, row) => sum + row.percentage, 0);
+
+        if (sumOfPercentages < 100) {
+            alert(`The sum of the percentages (${sumOfPercentages}%) is less than 100%.`);
+            return;
+        }
+
+        const rowsToFundAllocations = rowsWithFundIdsAndPercentages.map((row) => ({
+            fundId: Number(row.fundId),
+            percentage: row.percentage
+        }));
+
+        console.log('CALCULATE:', rowsToFundAllocations);
+
+        setCustomFundAllocations(rowsToFundAllocations);
     };
 
     useEffect(() => {
-        (async () => setFunds([manualTestingFund, ...(await fetchMarketFunds())]))();
+        (async () => setFunds([...(await fetchCustomFunds()), ...(await fetchMarketFunds())]))();
     }, []);
 
     return (
@@ -100,6 +121,8 @@ const AllocationTable: React.FC = () => {
             <button className="btn btn-success" onClick={calculate}>
                 Calculate
             </button>
+
+            {customFundAllocations.length && <FundAnalysis fundAllocations={customFundAllocations} />}
         </>
     );
 };

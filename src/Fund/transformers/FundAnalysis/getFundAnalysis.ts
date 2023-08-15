@@ -8,16 +8,17 @@ import { getDeleveredFundAllocations } from '../Fund/getDeleveredFundAllocations
 import { getFlattenedFundAllocations } from '../Fund/getFlattenedFundAllocations';
 import { getFundAllocationsLeverage } from '../Fund/getFundAllocationsLeverage';
 import { getFundsFromFundAllocations } from '../Fund/getFundsFromFundAllocations';
+import { FundAllocation } from '../../models/Fund/FundAllocation';
 
-export const getFundAnalysis = async (fund: Fund): Promise<FundAnalysis> => {
-    const fundCopy = cloneDeep(fund);
-    const holdings = fundCopy.holdings;
+export const getFundAnalysis = async (fundAllocations: Array<FundAllocation>): Promise<FundAnalysis> => {
+    const holdings = cloneDeep(fundAllocations);
 
-    if (!holdings) {
+    if (!holdings.length) {
         throw new Error('Fund has no holdings to analyze.');
     }
 
-    const flattened = await getFlattenedFundAllocations(fundCopy);
+    // TODO in next commit, refactor getFlattenedFundAllocations to accept holdings instead
+    const flattened = await getFlattenedFundAllocations({ fundId: -1, percentage: 100, holdings });
     const leverage = getFundAllocationsLeverage(flattened);
     const delevered = getDeleveredFundAllocations(flattened);
     const composition = await getFundsFromFundAllocations(delevered);
