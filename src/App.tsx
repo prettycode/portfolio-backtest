@@ -1,6 +1,6 @@
 import './App.css';
-import AllocationTable from './AllocationTable';
-import DynamicAllocationTable from './DynamicAllocationTable';
+import AllocationTable from './Components/Fund/AllocationTable';
+import DynamicAllocationTable from './Components/Fund/DynamicAllocationTable';
 
 function App() {
     return (

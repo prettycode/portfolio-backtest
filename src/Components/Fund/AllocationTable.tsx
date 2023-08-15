@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { getFundAnalysis } from './Fund/transformers/getFundAnalysis';
-import { Fund } from './Fund/models/Fund/Fund';
-import { fetchMarketFunds } from './Fund/services/fetchMarketFunds';
-import { FundAllocation } from './Fund/models/Fund/FundAllocation';
+import { getFundAnalysis } from '../../Fund/transformers/FundAnalysis/getFundAnalysis';
+import { Fund } from '../../Fund/models/Fund/Fund';
+import { fetchMarketFunds } from '../../Fund/services/fetchMarketFunds';
+import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
 
 const manualTestingFund: Fund = {
     fundId: -1,

@@ -1,4 +1,4 @@
-import { FundAllocation } from '../models/Fund/FundAllocation';
+import { FundAllocation } from '../../models/Fund/FundAllocation';
 
 export const getDeleveredFundAllocations = (fundHoldings: Array<FundAllocation>): Array<FundAllocation> => {
     if (!fundHoldings.length) {

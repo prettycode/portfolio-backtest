@@ -1,4 +1,4 @@
-import { FundAllocation } from '../models/Fund/FundAllocation';
+import { FundAllocation } from '../../models/Fund/FundAllocation';
 import { getFundAllocationsLeverage } from './getFundAllocationsLeverage';
 
 describe('getFundAllocationsLeverage', () => {

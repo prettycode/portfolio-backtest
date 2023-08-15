@@ -1,4 +1,4 @@
-import { FundAllocation } from '../models/Fund/FundAllocation';
+import { FundAllocation } from '../../models/Fund/FundAllocation';
 
 export const getFundAllocationsLeverage = (fundHoldings: Array<FundAllocation>): number => {
     if (!fundHoldings.length) {

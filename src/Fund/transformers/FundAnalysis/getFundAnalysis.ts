@@ -1,13 +1,13 @@
 import cloneDeep from 'lodash.clonedeep';
-import { Fund } from '../models/Fund/Fund';
-import { FundAnalysis } from '../models/Fund/FundAnalysis';
-import { getFundAllocationsLeverage } from './getFundAllocationsLeverage';
-import { getDeleveredFundAllocations } from './getDeleveredFundAllocations';
-import { getFundsFromFundAllocations } from './getFundsFromFundAllocations';
-import { getFlattenedFundAllocations } from './getFlattenedFundAllocations';
+import { Fund } from '../../models/Fund/Fund';
+import { FundAnalysis } from '../../models/FundAnalysis/FundAnalysis';
 import groupBy from 'lodash.groupby';
-import { FundAssetClass } from '../models/Fund/FundAssetClass';
-import { FundMarketRegion } from '../models/Fund/FundMarketRegion';
+import { FundAssetClass } from '../../models/Fund/FundAssetClass';
+import { FundMarketRegion } from '../../models/Fund/FundMarketRegion';
+import { getDeleveredFundAllocations } from '../Fund/getDeleveredFundAllocations';
+import { getFlattenedFundAllocations } from '../Fund/getFlattenedFundAllocations';
+import { getFundAllocationsLeverage } from '../Fund/getFundAllocationsLeverage';
+import { getFundsFromFundAllocations } from '../Fund/getFundsFromFundAllocations';
 
 export const getFundAnalysis = async (fund: Fund): Promise<FundAnalysis> => {
     const fundCopy = cloneDeep(fund);

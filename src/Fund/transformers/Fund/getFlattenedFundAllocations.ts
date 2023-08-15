@@ -1,6 +1,6 @@
-import { Fund } from '../models/Fund/Fund';
-import { FundAllocation } from '../models/Fund/FundAllocation';
-import { fetchFundByFundId } from '../services/fetchFundByFundId';
+import { Fund } from '../../models/Fund/Fund';
+import { FundAllocation } from '../../models/Fund/FundAllocation';
+import { fetchFundByFundId } from '../../services/fetchFundByFundId';
 
 const sortFundAllocationsDescending = (funds: Array<FundAllocation>) => funds.sort((a, b) => b.percentage - a.percentage);
 

@@ -1,4 +1,4 @@
-import { FundAllocation } from '../models/Fund/FundAllocation';
+import { FundAllocation } from '../../models/Fund/FundAllocation';
 import { getDeleveredFundAllocations } from './getDeleveredFundAllocations';
 
 describe('getDeleveredFundAllocations', () => {

@@ -1,7 +1,7 @@
 import cloneDeep from 'lodash.clonedeep';
-import { Fund } from '../models/Fund/Fund';
-import { fetchFundByFundId } from '../services/fetchFundByFundId';
-import { FundAllocation } from '../models/Fund/FundAllocation';
+import { Fund } from '../../models/Fund/Fund';
+import { fetchFundByFundId } from '../../services/fetchFundByFundId';
+import { FundAllocation } from '../../models/Fund/FundAllocation';
 
 export const getFundsFromFundAllocations = async (fundHoldings: Array<FundAllocation>): Promise<Fund[]> => {
     const holdingsAsFunds = await Promise.all(

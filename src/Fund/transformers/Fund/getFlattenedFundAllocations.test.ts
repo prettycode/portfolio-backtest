@@ -1,7 +1,7 @@
-import { Fund } from '../models/Fund/Fund';
-import { FundAllocation } from '../models/Fund/FundAllocation';
-import { fetchCustomFunds } from '../services/fetchCustomFunds';
-import { fetchMarketFunds } from '../services/fetchMarketFunds';
+import { Fund } from '../../models/Fund/Fund';
+import { FundAllocation } from '../../models/Fund/FundAllocation';
+import { fetchCustomFunds } from '../../services/fetchCustomFunds';
+import { fetchMarketFunds } from '../../services/fetchMarketFunds';
 import { getFlattenedFundAllocations } from './getFlattenedFundAllocations';
 
 const mockMarketFunds: Fund[] = [

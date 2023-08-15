@@ -4,13 +4,15 @@
     "version": "0.0.0",
     "type": "module",
     "scripts": {
-        "start": "npm install && npm run prettier:fix && npm run lint:fix && npm run build && npm run test && vite --open",
+        "start": "npm run build:local && vite --open",
         "prettier:ci": "npx prettier . --check",
         "prettier:fix": "npx prettier . --write",
         "lint:ci": "eslint . --ext ts,tsx --max-warnings 0",
         "lint:fix": "npx eslint . --ext .ts,.tsx --fix",
-        "build": "tsc && vite build",
-        "build:ci": "npm ci && npm run prettier:ci && npm run lint:ci && npm run build && npm run test",
+        "vite:build:local": "tsc & vite build --mode development",
+        "vite:build": "tsc && vite build",
+        "build:local": "npm install && npm run prettier:fix && npm run lint:fix && npm run vite:build:local && npm run test",
+        "build:ci": "npm ci && npm run prettier:ci && npm run lint:ci && npm run vite:build && npm run test",
         "test": "npx jest"
     },
     "dependencies": {

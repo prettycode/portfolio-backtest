@@ -1,7 +1,7 @@
-import { Fund } from './Fund';
-import { FundAllocation } from './FundAllocation';
-import { FundAssetClass } from './FundAssetClass';
-import { FundMarketRegion } from './FundMarketRegion';
+import { Fund } from '../Fund/Fund';
+import { FundAllocation } from '../Fund/FundAllocation';
+import { FundAssetClass } from '../Fund/FundAssetClass';
+import { FundMarketRegion } from '../Fund/FundMarketRegion';
 
 export type FundAnalysis = {
     holdings: Array<FundAllocation>;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { getFundAnalysis } from './Fund/transformers/getFundAnalysis';
-import { Fund } from './Fund/models/Fund/Fund';
-import { fetchMarketFunds } from './Fund/services/fetchMarketFunds';
+import { Fund } from '../../Fund/models/Fund/Fund';
+import { getFundAnalysis } from '../../Fund/transformers/FundAnalysis/getFundAnalysis';
+import { fetchMarketFunds } from '../../Fund/services/fetchMarketFunds';
 
 interface FundAllocation {
     fundId: string;
