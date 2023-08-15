@@ -1,5 +1,5 @@
 import './App.css';
-import AllocationTable from './Table';
+import AllocationTable from './AllocationTable';
 
 function App() {
     return (
