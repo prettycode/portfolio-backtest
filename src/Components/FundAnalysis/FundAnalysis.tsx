@@ -15,6 +15,10 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
 
     useEffect(() => {
         (async () => {
+            if (!fundAllocations?.length) {
+                return;
+            }
+
             const analysis: FundAnalysis = await getFundAnalysis(fundAllocations);
             const cache: Record<string, Fund> = {};
 
@@ -134,30 +138,40 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
             </table>
 
             {fundAnalysis &&
-                Object.entries(fundAnalysis.decomposed.assetByRegion).map(([assetClass, regions]) => (
-                    <>
-                        <h3>{assetClass} by Region</h3>
-                        <table className="table table-sm">
-                            <thead>
-                                <tr>
-                                    <th>{assetClass}</th>
-                                    <th style={{ textAlign: 'right' }}>Total Allocation</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {regions &&
-                                    Object.entries(regions).map(([region, funds]) => (
-                                        <tr key={region}>
-                                            <td>{region}</td>
-                                            <td style={{ textAlign: 'right' }}>
-                                                {funds.reduce((acc, fund) => acc + fund.percentage, 0).toFixed(1)}%
-                                            </td>
-                                        </tr>
-                                    ))}
-                            </tbody>
-                        </table>
-                    </>
-                ))}
+                Object.entries(fundAnalysis.decomposed.assetByRegion).map(([assetClass, regions]) => {
+                    const totalPercentage = Object.values(regions)
+                        .flat()
+                        .reduce((acc, fund) => acc + fund.percentage, 0);
+                        
+                    return (
+                        <div key={assetClass}>
+                            <h3>{assetClass} by Region</h3>
+                            <table className="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>{assetClass}</th>
+                                        <th style={{ textAlign: 'right' }}>Total Allocation</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {regions &&
+                                        Object.entries(regions).map(([region, funds]) => (
+                                            <tr key={region}>
+                                                <td>{region}</td>
+                                                <td style={{ textAlign: 'right' }}>
+                                                    {(
+                                                        (funds.reduce((acc, fund) => acc + fund.percentage, 0) / totalPercentage) *
+                                                        100
+                                                    ).toFixed(1)}
+                                                    %
+                                                </td>
+                                            </tr>
+                                        ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    );
+                })}
 
             <h3>TODO</h3>
             <table className="table table-sm">

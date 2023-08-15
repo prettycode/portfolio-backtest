@@ -71,3 +71,12 @@ button:focus-visible {
 h3:not(:first-of-type) {
     padding-top: 25px;
 }
+
+.table-sm {
+    font-size: 0.75rem;
+}
+
+.table-sm th,
+.table-sm td {
+    padding: 0.25rem;
+}
