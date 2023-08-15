@@ -22,10 +22,21 @@ export const getFundAnalysis = async (fundAllocations: Array<FundAllocation>): P
     const leverage = getFundAllocationsLeverage(flattened);
     const delevered = getDeleveredFundAllocations(flattened);
     const composition = await getFundsFromFundAllocations(delevered);
-    const decomposed = {
-        assetClass: groupBy(cloneDeep(composition), 'assetClass') as Record<FundAssetClass, Fund[]>,
-        marketRegion: groupBy(cloneDeep(composition), 'marketRegion') as Record<FundMarketRegion, Fund[]>
-    };
+
+    const marketRegion = groupBy(cloneDeep(composition), 'marketRegion') as Record<FundMarketRegion, Fund[]>;
+    const assetClass = groupBy(cloneDeep(composition), 'assetClass') as Record<FundAssetClass, Fund[]>;
+    const assetByRegion: Partial<Record<FundAssetClass, Partial<Record<FundMarketRegion, Array<Fund>>>>> = (
+        Object.entries(assetClass) as [FundAssetClass, Array<FundAllocation>][]
+    ).reduce(
+        (acc, [assetClass, holdings]) => {
+            // TODO sort the lowest descendent group of Fund[]s
+            acc[assetClass] = groupBy(holdings, 'marketRegion') as Record<FundMarketRegion, Array<Fund>>;
+            return acc;
+        },
+        {} as Partial<Record<FundAssetClass, Partial<Record<FundMarketRegion, Array<Fund>>>>>
+    );
+
+    console.log(JSON.stringify(assetByRegion));
 
     const analysis: FundAnalysis = {
         holdings,
@@ -33,7 +44,11 @@ export const getFundAnalysis = async (fundAllocations: Array<FundAllocation>): P
         leverage,
         delevered,
         composition,
-        decomposed
+        decomposed: {
+            marketRegion,
+            assetClass,
+            assetByRegion
+        }
     };
 
     return analysis;

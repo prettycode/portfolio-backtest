@@ -12,5 +12,6 @@ export type FundAnalysis = {
     decomposed: {
         assetClass: Record<FundAssetClass, Array<Fund>>;
         marketRegion: Record<FundMarketRegion, Array<Fund>>;
+        assetByRegion: Partial<Record<FundAssetClass, Partial<Record<FundMarketRegion, Array<Fund>>>>>;
     };
 };

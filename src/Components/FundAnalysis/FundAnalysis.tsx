@@ -133,6 +133,58 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                 </tbody>
             </table>
 
+            {fundAnalysis &&
+                Object.entries(fundAnalysis.decomposed.assetByRegion).map(([assetClass, regions]) => (
+                    <>
+                        <h3>{assetClass} by Region</h3>
+                        <table className="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>{assetClass}</th>
+                                    <th style={{ textAlign: 'right' }}>Total Allocation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {regions &&
+                                    Object.entries(regions).map(([region, funds]) => (
+                                        <tr key={region}>
+                                            <td>{region}</td>
+                                            <td style={{ textAlign: 'right' }}>
+                                                {funds.reduce((acc, fund) => acc + fund.percentage, 0).toFixed(1)}%
+                                            </td>
+                                        </tr>
+                                    ))}
+                            </tbody>
+                        </table>
+                    </>
+                ))}
+
+            <h3>TODO</h3>
+            <table className="table table-sm">
+                <thead>
+                    <tr>
+                        <th>Asset Class</th>
+                        <th>Market Region</th>
+                        <th>Fund Name</th>
+                        <th style={{ textAlign: 'right' }}>Allocation Percentage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {fundAnalysis &&
+                        Object.entries(fundAnalysis.decomposed.assetByRegion).map(([assetClass, regions]) =>
+                            Object.entries(regions).map(([region, funds]) =>
+                                funds.map((fund, index) => (
+                                    <tr key={index}>
+                                        {index === 0 && <td rowSpan={funds.length}>{assetClass}</td>}
+                                        {index === 0 && <td rowSpan={funds.length}>{region}</td>}
+                                        <td>{fund.name}</td>
+                                        <td style={{ textAlign: 'right' }}>{fund.percentage.toFixed(2)}%</td>
+                                    </tr>
+                                ))
+                            )
+                        )}
+                </tbody>
+            </table>
         </div>
     );
 };
