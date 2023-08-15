@@ -144,7 +144,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                         .reduce((acc, fund) => acc + fund.percentage, 0);
                         
                     return (
-                        <div key={assetClass}>
+                        <React.Fragment key={assetClass}>
                             <h3>{assetClass} by Region</h3>
                             <table className="table table-sm">
                                 <thead>
@@ -169,7 +169,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                                         ))}
                                 </tbody>
                             </table>
-                        </div>
+                        </React.Fragment>
                     );
                 })}
 
