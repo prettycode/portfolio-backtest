@@ -15,6 +15,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
 
     useEffect(() => {
         (async () => {
+            // TODO is this really needed?
             if (!fundAllocations?.length) {
                 return;
             }

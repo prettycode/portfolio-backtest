@@ -8,7 +8,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
             {
                 fundId: 7,
                 name: 'NTSX (90/60 US-only)',
-                description: 'Placeholder Description for NTSX',
+                description: 'NTSX (Simulated)',
                 percentage: 100,
                 type: 'Custom',
                 holdings: [
@@ -29,7 +29,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
             {
                 fundId: 8,
                 name: 'GDE (90/0/90 US-only)',
-                description: 'Placeholder Description for GDE',
+                description: 'GDE (Simulated)',
                 percentage: 100,
                 type: 'Custom',
                 holdings: [
@@ -50,7 +50,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
             {
                 fundId: 9,
                 name: 'NTSI (90/60 Intl. Developed-only)',
-                description: 'Placeholder Description for NTSI',
+                description: 'NTSI (Simulated)',
                 percentage: 100,
                 type: 'Custom',
                 holdings: [
@@ -71,7 +71,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
             {
                 fundId: 10,
                 name: 'NTSE (90/60 EM-only)',
-                description: 'Placeholder Description for NTSE',
+                description: 'NTSE (Simulated)',
                 percentage: 100,
                 type: 'Custom',
                 holdings: [
@@ -91,8 +91,8 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 11,
-                name: 'Global Efficient Core (60/20/20 NTSX/NTSI/NTSE)',
-                description: 'Placeholder Description for Global Efficient Core',
+                name: 'Global Efficient Core',
+                description: '60/20/20 NTSX/NTSI/NTSE (Simulated)',
                 percentage: 100,
                 type: 'Custom',
                 holdings: [
@@ -112,8 +112,8 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 12,
-                name: 'Global + Gold Efficient Core (30/30/20/20 NTSX/GDE/NTSI/NTSE)',
-                description: 'Placeholder Description for Global + Gold Efficient Core',
+                name: 'Global Gilded Efficient Core A',
+                description: '30/30/20/20 NTSX/GDE/NTSI/NTSE (Simulated)',
                 percentage: 100,
                 type: 'Custom',
                 holdings: [
@@ -137,8 +137,8 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 13,
-                name: 'Global + Gold Efficient Core (36/24/20/20 NTSX/GDE/NTSI/NTSE)',
-                description: 'Placeholder Description for Global + Gold Efficient Core',
+                name: 'Global Gilded Efficient Core B',
+                description: '36/24/20/20 NTSX/GDE/NTSI/NTSE (Simulated)',
                 percentage: 100,
                 type: 'Custom',
                 holdings: [
@@ -162,8 +162,8 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 15,
-                name: 'Global Equities (60/20/20)',
-                description: '',
+                name: 'Global Equities (60/20/20 US/Intl. Developed/EM)',
+                description: '60/20/20 US/Intl. Developed/EM',
                 percentage: 100,
                 type: 'Custom',
                 holdings: [
