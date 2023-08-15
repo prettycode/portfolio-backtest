@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { getFundAnalysis } from './Fund/transformers/getFundAnalysis';
 import { Fund } from './Fund/models/Fund/Fund';
 import { fetchMarketFunds } from './Fund/services/fetchMarketFunds';
-import { FundAllocation } from './Fund/models/Fund/FundAllocation';
+
+interface FundAllocation {
+    fundId: string;
+    percentages: number[];
+}
 
 const manualTestingFund: Fund = {
     fundId: -1,
@@ -20,17 +24,26 @@ const manualTestingFund: Fund = {
 
 (async () => console.log(await getFundAnalysis(manualTestingFund)))();
 
-const AllocationTable: React.FC = () => {
+const DynamicAllocationTable: React.FC = () => {
     const [funds, setFunds] = useState<Fund[]>([]);
     const [rows, setRows] = useState<FundAllocation[]>(
         Array.from({ length: 5 }, () => ({
             fundId: '',
-            percentage: 0
+            percentages: [0, 0, 0] // Start with two allocation columns
         }))
     );
 
     const addRow = () => {
-        setRows([...rows, { fundId: '', percentage: 0 }]);
+        setRows([...rows, { fundId: '', percentages: new Array(rows[0]?.percentages.length || 2).fill(0) }]);
+    };
+
+    const addAllocationColumn = () => {
+        setRows(
+            rows.map((row) => ({
+                ...row,
+                percentages: [...row.percentages, 0]
+            }))
+        );
     };
 
     const calculate = () => {
@@ -49,14 +62,16 @@ const AllocationTable: React.FC = () => {
                         <th scope="col" style={{ textAlign: 'left', width: '100%' }}>
                             Fund
                         </th>
-                        <th scope="col" style={{ whiteSpace: 'nowrap' }}>
-                            Allocation (%)
-                        </th>
+                        {rows[0]?.percentages.map((_, index) => (
+                            <th key={index} scope="col" style={{ whiteSpace: 'nowrap' }}>
+                                Porfolio {index + 1} (%)
+                            </th>
+                        ))}
                     </tr>
                 </thead>
                 <tbody>
-                    {rows.map((row, index) => (
-                        <tr key={index}>
+                    {rows.map((row, rowIndex) => (
+                        <tr key={rowIndex}>
                             <td>
                                 <input
                                     className="form-control"
@@ -66,36 +81,40 @@ const AllocationTable: React.FC = () => {
                                     placeholder="Search for asset..."
                                     onChange={(e) => {
                                         const newRows = [...rows];
-                                        newRows[index].fundId = e.target.value;
+                                        newRows[rowIndex].fundId = e.target.value;
                                         setRows(newRows);
                                     }}
                                 />
                                 <datalist id="funds">
                                     {funds.map((fund: Fund, idx) => (
-                                        <option key={idx} data-value={fund.fundId} value={fund.fundId} label={fund.description} />
+                                        <option key={idx} value={fund.name} />
                                     ))}
                                 </datalist>
                             </td>
-                            <td>
-                                <input
-                                    className="form-control"
-                                    type="number"
-                                    style={{ textAlign: 'center' }}
-                                    value={row.percentage}
-                                    onChange={(e) => {
-                                        const newRows = [...rows];
-                                        newRows[index].percentage = Number(e.target.value || 0);
-                                        setRows(newRows);
-                                    }}
-                                />
-                            </td>
+                            {row.percentages.map((percentage, columnIndex) => (
+                                <td key={columnIndex}>
+                                    <input
+                                        className="form-control"
+                                        type="number"
+                                        style={{ textAlign: 'center' }}
+                                        value={percentage}
+                                        onChange={(e) => {
+                                            const newRows = [...rows];
+                                            newRows[rowIndex].percentages[columnIndex] = Number(e.target.value || 0);
+                                            setRows(newRows);
+                                        }}
+                                    />
+                                </td>
+                            ))}
                         </tr>
                     ))}
                 </tbody>
             </table>
-
             <button className="btn btn-primary" onClick={addRow}>
                 Add Row
+            </button>
+            <button className="btn btn-warning" onClick={addAllocationColumn}>
+                Add Allocation Column
             </button>
             <button className="btn btn-success" onClick={calculate}>
                 Calculate
@@ -104,4 +123,4 @@ const AllocationTable: React.FC = () => {
     );
 };
 
-export default AllocationTable;
+export default DynamicAllocationTable;
