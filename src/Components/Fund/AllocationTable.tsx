@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getFundAnalysis } from '../../Fund/transformers/FundAnalysis/getFundAnalysis';
+import { getFundAnalysisForCustomFund } from '../../Fund/transformers/FundAnalysis/getFundAnalysisForCustomFund';
 import { Fund } from '../../Fund/models/Fund/Fund';
 import { fetchMarketFunds } from '../../Fund/services/fetchMarketFunds';
 import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
@@ -8,7 +8,7 @@ import { fetchCustomFunds } from '../../Fund/services/fetchCustomFunds';
 
 (async () =>
     console.log(
-        await getFundAnalysis(
+        await getFundAnalysisForCustomFund(
             {
                 fundId: -1,
                 name: 'Efficient Core, Gilded',

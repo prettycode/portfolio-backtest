@@ -1,31 +1,67 @@
 import React, { useEffect, useState } from 'react';
-import { getFundAnalysis } from '../../Fund/transformers/FundAnalysis/getFundAnalysis';
+import { getFundAnalysisForCustomFund } from '../../Fund/transformers/FundAnalysis/getFundAnalysisForCustomFund';
 import { FundAnalysis } from '../../Fund/models/FundAnalysis/FundAnalysis';
 import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
 import { Fund } from '../../Fund/models/Fund/Fund';
 import { fetchFundByFundId } from '../../Fund/services/fetchFundByFundId';
+import { getFundFromFundAllocation } from '../../Fund/transformers/Fund/getFundsFromFundAllocations';
 
-type PortfolioVisualizerBacktestLinkProps = {
-    url: string;
+const generateBacktestUrl = async (allocations: Array<FundAllocation>): Promise<string> => {
+    let url =
+        'https://www.portfoliovisualizer.com/backtest-portfolio?s=y&timePeriod=2&startYear=1985&firstMonth=1&endYear=2023&lastMonth=12&calendarAligned=false&includeYTD=false&initialAmount=10000&annualOperation=0&annualAdjustment=0&inflationAdjusted=true&annualPercentage=0.0&frequency=4&rebalanceType=1&absoluteDeviation=5.0&relativeDeviation=25.0&leverageType=0&leverageRatio=0.0&debtAmount=0&debtInterest=0.0&maintenanceMargin=25.0&leveragedBenchmark=false&reinvestDividends=true&showYield=false&showFactors=false&factorModel=3&benchmark=VFINX&portfolioNames=true&portfolioName1=Custom&portfolioName2=Example&portfolioName3=Example';
+
+    const allocationFunds = await getFundFromFundAllocation(allocations);
+
+    if (allocationFunds.some((fund) => fund.type === 'Custom')) {
+        throw new Error('Cannot generate Portfolio Visualizer backtest link for custom fund.');
+    }
+
+    allocations.forEach((allocation, index) => {
+        const fund = allocationFunds.find((fund) => fund.fundId === allocation.fundId);
+
+        if (!fund) {
+            throw new Error('Could not look up fund ticker.');
+        }
+
+        url += `&symbol${index + 1}=${fund.tickerSymbol}&allocation${index + 1}_1=${allocation.percentage}`;
+    });
+
+    return url;
 };
 
-const PortfolioVisualizerLink: React.FC<PortfolioVisualizerBacktestLinkProps> = ({ url }) => (
-    <span style={{ display: 'inline-block', float: 'right' }}>
-        <a
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Open backtest in Portfolio Visualizer"
-            style={{
-                fontSize: '18px',
-                textDecoration: 'none',
-                color: '#000'
-            }}
-        >
-            <i className="fa fa-external-link"></i>
-        </a>
-    </span>
-);
+type PortfolioVisualizerBacktestLinkProps = {
+    allocations: Array<FundAllocation>;
+};
+
+const PortfolioVisualizerLink: React.FC<PortfolioVisualizerBacktestLinkProps> = ({ allocations }) => {
+    const [url, setUrl] = useState<string | undefined>();
+
+    useEffect(() => {
+        (async () => setUrl(await generateBacktestUrl(allocations)))();
+    });
+
+    return (
+        <>
+            {url && (
+                <span style={{ display: 'inline-block', float: 'right' }}>
+                    <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Open backtest in Portfolio Visualizer"
+                        style={{
+                            fontSize: '18px',
+                            textDecoration: 'none',
+                            color: '#000'
+                        }}
+                    >
+                        <i className="fa fa-external-link"></i>
+                    </a>
+                </span>
+            )}
+        </>
+    );
+};
 
 interface FundAnalysisProps {
     fundAllocations: Array<FundAllocation>;
@@ -42,7 +78,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                 return;
             }
 
-            const analysis: FundAnalysis = await getFundAnalysis(fundAllocations);
+            const analysis: FundAnalysis = await getFundAnalysisForCustomFund(fundAllocations);
             const cache: Record<string, Fund> = {};
 
             await Promise.all(
@@ -58,13 +94,12 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
         <div style={{ textAlign: 'left' }}>
             {/* TODO: what we doing w/fundAnalysis.holdings */}
 
-            <h3>
-                Portfolio Decomposed <PortfolioVisualizerLink url="https://example.com" />
-            </h3>
+            <h3>Portfolio Decomposed {fundAnalysis?.flattened && <PortfolioVisualizerLink allocations={fundAnalysis.flattened} />}</h3>
             <table className="table table-sm">
                 <thead>
                     <tr>
-                        <th>Fund Name</th>
+                        <th>Ticker</th>
+                        <th>Name</th>
                         <th style={{ textAlign: 'right' }}>Allocation</th>
                     </tr>
                 </thead>
@@ -73,6 +108,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                         fundLookupCache &&
                         fundAnalysis.flattened.map((fund, index) => (
                             <tr key={index}>
+                                <td style={{ width: '1%', paddingRight: '15px' }}>{fundLookupCache[String(fund.fundId)].tickerSymbol}</td>
                                 <td>{fundLookupCache[String(fund.fundId)].name}</td>
                                 <td style={{ textAlign: 'right' }}>{fund.percentage.toFixed(1)}%</td>
                             </tr>
@@ -81,15 +117,14 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
             </table>
 
             <h3>Portfolio Leverage</h3>
-            <div>{fundAnalysis && fundAnalysis.leverage.toFixed(2)}&#8202;&times;</div>
+            <div>{fundAnalysis && fundAnalysis.leverage.toFixed(2)}&times;</div>
 
-            <h3>
-                Delevered Composition <PortfolioVisualizerLink url="https://example.com" />
-            </h3>
+            <h3>Delevered Composition {fundAnalysis?.delevered && <PortfolioVisualizerLink allocations={fundAnalysis.delevered} />}</h3>
             <table className="table table-sm">
                 <thead>
                     <tr>
-                        <th>Fund Name</th>
+                        <th>Ticker</th>
+                        <th>Name</th>
                         <th style={{ textAlign: 'right' }}>Allocation</th>
                     </tr>
                 </thead>
@@ -98,6 +133,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                         fundLookupCache &&
                         fundAnalysis.delevered.map((fund, index) => (
                             <tr key={index}>
+                                <td style={{ width: '1%', paddingRight: '15px' }}>{fundLookupCache[String(fund.fundId)].tickerSymbol}</td>
                                 <td>{fundLookupCache[String(fund.fundId)].name}</td>
                                 <td style={{ textAlign: 'right' }}>{fund.percentage.toFixed(1)}%</td>
                             </tr>

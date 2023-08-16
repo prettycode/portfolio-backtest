@@ -5,17 +5,10 @@ import { FundType } from './FundType';
 
 export type Fund = FundAllocation & {
     allocations: FundAllocation[];
+    type: FundType;
     name?: string;
     description?: string;
-};
-
-export type CustomFund = Fund & {
-    type: 'Custom';
-};
-
-export type MarketFund = Fund & {
-    tickerSymbol: string;
-    marketRegion: FundMarketRegion;
+    tickerSymbol?: string;
+    marketRegion?: FundMarketRegion;
     assetClass?: FundAssetClass;
-    type: Omit<FundType, 'Cusotm'>;
 };

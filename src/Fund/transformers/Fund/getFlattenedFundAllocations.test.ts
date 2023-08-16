@@ -1,10 +1,10 @@
-import { CustomFund, MarketFund } from '../../models/Fund/Fund';
+import { Fund } from '../../models/Fund/Fund';
 import { FundAllocation } from '../../models/Fund/FundAllocation';
 import { fetchCustomFunds } from '../../services/fetchCustomFunds';
 import { fetchMarketFunds } from '../../services/fetchMarketFunds';
 import { getFlattenedFundAllocations } from './getFlattenedFundAllocations';
 
-const mockMarketFunds: MarketFund[] = [
+const mockMarketFunds: Fund[] = [
     {
         fundId: 1,
         percentage: 100,
@@ -73,7 +73,7 @@ const mockMarketFunds: MarketFund[] = [
     }
 ];
 
-const mockCustomFunds: CustomFund[] = [
+const mockCustomFunds: Fund[] = [
     {
         fundId: 7,
         percentage: 100,
