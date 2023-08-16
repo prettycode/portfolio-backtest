@@ -7,7 +7,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
         mock || [
             {
                 fundId: 1,
-                name: 'VFINX (SPY)',
+                name: 'S&P 500',
                 description: 'Vanguard 500 Index Fund Investor Shares',
                 tickerSymbol: 'VFINX',
                 percentage: 100,
@@ -18,7 +18,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 2,
-                name: 'VFITX (VGIT)',
+                name: 'Intermediate-Term Treasury',
                 description: 'Vanguard Intermediate-Term Treasury Fund Investor Shares',
                 tickerSymbol: 'VFITX',
                 percentage: 100,
@@ -29,7 +29,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 3,
-                name: '^GOLD (GLD)',
+                name: 'Gold',
                 description: 'Gold',
                 tickerSymbol: '^GOLD',
                 percentage: 100,
@@ -40,8 +40,8 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 4,
-                name: 'CASHX (SGOV)',
-                description: 'Treasury money market',
+                name: 'Cash',
+                description: 'US Treasury Money Market',
                 tickerSymbol: 'CASHX',
                 percentage: 100,
                 type: 'ETF',
@@ -51,7 +51,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 5,
-                name: 'DFALX (VEA)',
+                name: 'International Developed Large Cap',
                 description: 'DFA Large Cap International Portfolio',
                 tickerSymbol: 'DFALX',
                 percentage: 100,
@@ -62,7 +62,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 6,
-                name: 'VEIEX (VWO)',
+                name: 'Emerging Markets',
                 description: 'Vanguard Emerging Markets Stock Index Fund',
                 tickerSymbol: 'VEIEX',
                 percentage: 100,
@@ -73,7 +73,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 14,
-                name: 'VTSMX (VTI)',
+                name: 'US Market',
                 description: 'Vanguard Total Stock Market Fund',
                 tickerSymbol: 'VTSMX',
                 percentage: 100,
