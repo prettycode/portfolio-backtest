@@ -7,6 +7,7 @@ import FundAnalysis from '../FundAnalysis/FundAnalysis';
 import { fetchCustomFunds } from '../../Fund/services/fetchCustomFunds';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartPie } from '@fortawesome/free-solid-svg-icons';
+import { FundSelectionDropdown } from './FundSelectionDropdown';
 
 (async () =>
     console.log(
@@ -89,6 +90,9 @@ const AllocationTable: React.FC = () => {
                                         <option key={idx} data-value={fund.fundId} value={fund.fundId} label={fund.description} />
                                     ))}
                                 </datalist>
+                                <span style={{ textAlign: 'left' }}>
+                                    <FundSelectionDropdown funds={funds} />
+                                </span>
                             </td>
                             <td>
                                 <input
