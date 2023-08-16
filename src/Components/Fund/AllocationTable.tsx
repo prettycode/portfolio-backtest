@@ -5,6 +5,8 @@ import { fetchMarketFunds } from '../../Fund/services/fetchMarketFunds';
 import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
 import FundAnalysis from '../FundAnalysis/FundAnalysis';
 import { fetchCustomFunds } from '../../Fund/services/fetchCustomFunds';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChartPie } from '@fortawesome/free-solid-svg-icons';
 
 (async () =>
     console.log(
@@ -59,7 +61,7 @@ const AllocationTable: React.FC = () => {
                 <thead>
                     <tr>
                         <th scope="col" style={{ textAlign: 'left', width: '100%' }}>
-                            Fund
+                            <FontAwesomeIcon icon={faChartPie} /> Assets
                         </th>
                         <th scope="col" style={{ whiteSpace: 'nowrap' }}>
                             Allocation (%)

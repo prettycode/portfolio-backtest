@@ -5,6 +5,8 @@ import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
 import { Fund } from '../../Fund/models/Fund/Fund';
 import { fetchFundByFundId } from '../../Fund/services/fetchFundByFundId';
 import { getFundFromFundAllocation } from '../../Fund/transformers/Fund/getFundsFromFundAllocations';
+import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const generateBacktestUrl = async (allocations: Array<FundAllocation>): Promise<string> => {
     let url =
@@ -50,12 +52,12 @@ const PortfolioVisualizerLink: React.FC<PortfolioVisualizerBacktestLinkProps> = 
                         rel="noopener noreferrer"
                         title="Open backtest in Portfolio Visualizer"
                         style={{
-                            fontSize: '18px',
-                            textDecoration: 'none',
-                            color: '#000'
+                            fontSize: '0.6em',
+                            position: 'relative',
+                            top: '-2px'
                         }}
                     >
-                        <i className="fa fa-external-link"></i>
+                        <FontAwesomeIcon icon={faExternalLink} />
                     </a>
                 </span>
             )}
