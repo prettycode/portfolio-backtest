@@ -8,21 +8,12 @@ import { fetchCustomFunds } from '../../Fund/services/fetchCustomFunds';
 
 (async () =>
     console.log(
-        await getFundAnalysisForCustomFund(
-            {
-                fundId: -1,
-                name: 'Efficient Core, Gilded',
-                description: 'Efficient Core, Gilded',
-                percentage: 100,
-                type: 'Custom',
-                holdings: [
-                    { fundId: 7 /* NTSX */, percentage: 30 },
-                    { fundId: 8 /* GDE */, percentage: 30 },
-                    { fundId: 9, percentage: 20 },
-                    { fundId: 10, percentage: 20 }
-                ]
-            }.holdings
-        )
+        await getFundAnalysisForCustomFund([
+            { fundId: 7 /* NTSX */, percentage: 30 },
+            { fundId: 8 /* GDE */, percentage: 30 },
+            { fundId: 9, percentage: 20 },
+            { fundId: 10, percentage: 20 }
+        ])
     ))();
 
 const AllocationTable: React.FC = () => {
