@@ -1,1 +1,1 @@
-Experiments with GPT 4.
+A tool for evaluating portfolio composition.
