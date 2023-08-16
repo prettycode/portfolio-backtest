@@ -18,7 +18,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 2,
-                name: 'Intermediate-Term Treasury',
+                name: 'Intermediate-Term US Treasury',
                 description: 'Vanguard Intermediate-Term Treasury Fund Investor Shares',
                 tickerSymbol: 'VFITX',
                 percentage: 100,

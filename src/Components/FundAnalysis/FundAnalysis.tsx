@@ -52,12 +52,42 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                         fundAnalysis.flattened.map((fund, index) => (
                             <tr key={index}>
                                 <td style={{ width: '1%', paddingRight: '15px' }}>{fundLookupCache[String(fund.fundId)].tickerSymbol}</td>
-                                <td>{fundLookupCache[String(fund.fundId)].name}</td>
-                                <td style={{ textAlign: 'right' }}>{fund.percentage.toFixed(1)}%</td>
+                                <td>{fundLookupCache[String(fund.fundId)].name}</td>                                
+                                <td style={{ textAlign: 'right' }}>
+                                    {fund.percentage.toFixed(1)}%&nbsp;&nbsp;
+                                    {/*<FundAssetClassIcon assetClass={fundLookupCache[String(fund.fundId)].assetClass}></FundAssetClassIcon>*/}
+                                </td>
                             </tr>
                         ))}
                 </tbody>
             </table>
+
+
+            {/*<table className="table table-sm">
+                <thead>
+                    <tr>
+                        <th>Asset Class</th>
+                        <th>Region</th>
+                        <th>Fund Name</th>
+                        <th style={{ textAlign: 'right' }}>Allocation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {fundAnalysis &&
+                        Object.entries(fundAnalysis.decomposed.assetByRegion).map(([assetClass, regions]) =>
+                            Object.entries(regions).map(([region, funds]) =>
+                                funds.map((fund, index) => (
+                                    <tr key={index}>
+                                        {index === 0 && <td rowSpan={funds.length}>{assetClass}</td>}
+                                        {index === 0 && <td rowSpan={funds.length}>{region}</td>}
+                                        <td>{fund.name}</td>
+                                        <td style={{ textAlign: 'right' }}>{fund.percentage.toFixed(2)}%</td>
+                                    </tr>
+                                ))
+                            )
+                        )}
+                </tbody>
+            </table>*/}
 
             <h3>Portfolio Leverage</h3>
             <div>{fundAnalysis && fundAnalysis.leverage.toFixed(2)}&times;</div>
@@ -89,7 +119,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                 <thead>
                     <tr>
                         <th>Asset Class</th>
-                        <th style={{ textAlign: 'right' }}>Total Allocation</th>
+                        <th style={{ textAlign: 'right' }}>Allocation</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -111,7 +141,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                 <thead>
                     <tr>
                         <th>Region</th>
-                        <th style={{ textAlign: 'right' }}>Total Allocation</th>
+                        <th style={{ textAlign: 'right' }}>Allocation</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -141,7 +171,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                                 <thead>
                                     <tr>
                                         <th>{assetClass}</th>
-                                        <th style={{ textAlign: 'right' }}>Total Allocation</th>
+                                        <th style={{ textAlign: 'right' }}>Allocation</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -164,32 +194,6 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                     );
                 })}
 
-            <h3>TODO</h3>
-            <table className="table table-sm">
-                <thead>
-                    <tr>
-                        <th>Asset Class</th>
-                        <th>Market Region</th>
-                        <th>Fund Name</th>
-                        <th style={{ textAlign: 'right' }}>Allocation Percentage</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {fundAnalysis &&
-                        Object.entries(fundAnalysis.decomposed.assetByRegion).map(([assetClass, regions]) =>
-                            Object.entries(regions).map(([region, funds]) =>
-                                funds.map((fund, index) => (
-                                    <tr key={index}>
-                                        {index === 0 && <td rowSpan={funds.length}>{assetClass}</td>}
-                                        {index === 0 && <td rowSpan={funds.length}>{region}</td>}
-                                        <td>{fund.name}</td>
-                                        <td style={{ textAlign: 'right' }}>{fund.percentage.toFixed(2)}%</td>
-                                    </tr>
-                                ))
-                            )
-                        )}
-                </tbody>
-            </table>
         </div>
     );
 };
