@@ -3,6 +3,10 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
+    "author": {
+        "name": "Chris O'Brien",
+        "url": "https://github.com/prettycode"
+    },
     "scripts": {
         "start": "npm run build:local && vite --open",
         "prettier:ci": "npx prettier . --check",
