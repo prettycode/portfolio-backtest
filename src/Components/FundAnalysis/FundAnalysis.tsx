@@ -10,20 +10,21 @@ type PortfolioVisualizerBacktestLinkProps = {
 };
 
 const PortfolioVisualizerLink: React.FC<PortfolioVisualizerBacktestLinkProps> = ({ url }) => (
-    <span style={{ display: 'inline-block', float: 'right'}}>
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      title="Open backtest in Portfolio Visualizer"
-      style={{
-        fontSize: '18px',
-        textDecoration: 'none',
-        color: '#000'
-      }}
-    >
-      <i className="fa fa-external-link"></i>
-    </a></span>
+    <span style={{ display: 'inline-block', float: 'right' }}>
+        <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Open backtest in Portfolio Visualizer"
+            style={{
+                fontSize: '18px',
+                textDecoration: 'none',
+                color: '#000'
+            }}
+        >
+            <i className="fa fa-external-link"></i>
+        </a>
+    </span>
 );
 
 interface FundAnalysisProps {

@@ -18,7 +18,7 @@ export const getFundAnalysis = async (fundAllocations: Array<FundAllocation>): P
     }
 
     // TODO in next commit, refactor getFlattenedFundAllocations to accept holdings instead
-    const flattened = await getFlattenedFundAllocations({ fundId: -1, percentage: 100, holdings });
+    const flattened = await getFlattenedFundAllocations({ fundId: -1, percentage: 100, allocations: holdings });
     const leverage = getFundAllocationsLeverage(flattened);
     const delevered = getDeleveredFundAllocations(flattened);
     const composition = await getFundsFromFundAllocations(delevered);

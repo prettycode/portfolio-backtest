@@ -18,3 +18,25 @@ export const getFundsFromFundAllocations = async (fundHoldings: Array<FundAlloca
 
     return holdingsAsFunds;
 };
+
+/**
+ *
+ * @param allocation
+ * @returns
+ */
+export const getFundFromFundAllocation = async (allocation: FundAllocation | Array<FundAllocation>): Promise<Array<Fund>> => {
+    const allocations = Array.isArray(allocation) ? allocation : [allocation];
+    const allocationsAsFunds = await Promise.all(
+        allocations.map(async (allocation) => {
+            const holdingDefinition: Fund = await fetchFundByFundId(allocation.fundId);
+            const fund: Fund = {
+                ...cloneDeep(holdingDefinition),
+                percentage: allocation.percentage
+            };
+
+            return fund;
+        })
+    );
+
+    return allocationsAsFunds;
+};

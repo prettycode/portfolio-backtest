@@ -11,7 +11,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 description: 'NTSX (Simulated)',
                 percentage: 100,
                 type: 'Custom',
-                holdings: [
+                allocations: [
                     {
                         fundId: 1,
                         percentage: 90
@@ -32,7 +32,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 description: 'GDE (Simulated)',
                 percentage: 100,
                 type: 'Custom',
-                holdings: [
+                allocations: [
                     {
                         fundId: 1,
                         percentage: 90
@@ -53,7 +53,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 description: 'NTSI (Simulated)',
                 percentage: 100,
                 type: 'Custom',
-                holdings: [
+                allocations: [
                     {
                         fundId: 5,
                         percentage: 90
@@ -74,7 +74,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 description: 'NTSE (Simulated)',
                 percentage: 100,
                 type: 'Custom',
-                holdings: [
+                allocations: [
                     {
                         fundId: 6,
                         percentage: 90
@@ -95,7 +95,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 description: '60/20/20 NTSX/NTSI/NTSE (Simulated)',
                 percentage: 100,
                 type: 'Custom',
-                holdings: [
+                allocations: [
                     {
                         fundId: 7,
                         percentage: 60
@@ -116,7 +116,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 description: '30/30/20/20 NTSX/GDE/NTSI/NTSE (Simulated)',
                 percentage: 100,
                 type: 'Custom',
-                holdings: [
+                allocations: [
                     {
                         fundId: 7,
                         percentage: 30
@@ -141,7 +141,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 description: '36/24/20/20 NTSX/GDE/NTSI/NTSE (Simulated)',
                 percentage: 100,
                 type: 'Custom',
-                holdings: [
+                allocations: [
                     {
                         fundId: 7,
                         percentage: 36
@@ -166,7 +166,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 description: '60/20/20 US/Intl. Developed/EM',
                 percentage: 100,
                 type: 'Custom',
-                holdings: [
+                allocations: [
                     {
                         fundId: 14,
                         percentage: 60

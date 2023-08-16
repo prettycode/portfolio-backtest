@@ -11,8 +11,8 @@ export const getFlattenedFundAllocations = async (fund: Fund): Promise<Array<Fun
         for (const holding of holdings) {
             const holdingFund = await fetchFundByFundId(holding.fundId);
 
-            if (holdingFund.holdings && holdingFund.holdings.length > 0) {
-                await flatten(holdingFund.holdings, (holding.percentage * weight) / 100);
+            if (holdingFund.allocations && holdingFund.allocations.length > 0) {
+                await flatten(holdingFund.allocations, (holding.percentage * weight) / 100);
             } else {
                 flattened.push({
                     fundId: holding.fundId,
@@ -22,7 +22,7 @@ export const getFlattenedFundAllocations = async (fund: Fund): Promise<Array<Fun
         }
     }
 
-    await flatten(fund.holdings && fund.holdings.length > 0 ? fund.holdings : [fund], fund.percentage);
+    await flatten(fund.allocations && fund.allocations.length > 0 ? fund.allocations : [fund], fund.percentage);
 
     // TODO no unit tests written cover this yet
     // Collapsing duplicates and summing percentages

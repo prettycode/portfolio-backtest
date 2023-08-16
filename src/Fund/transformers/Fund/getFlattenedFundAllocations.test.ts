@@ -11,7 +11,7 @@ const mockMarketFunds: Fund[] = [
         name: 'VT',
         marketRegion: 'Global (All-World)',
         assetClass: 'Equity',
-        holdings: [],
+        allocations: [],
         description: '',
         tickerSymbol: '',
         type: 'ETF'
@@ -22,7 +22,7 @@ const mockMarketFunds: Fund[] = [
         name: 'VTI',
         marketRegion: 'US',
         assetClass: 'Equity',
-        holdings: [],
+        allocations: [],
         description: '',
         tickerSymbol: '',
         type: 'ETF'
@@ -33,7 +33,7 @@ const mockMarketFunds: Fund[] = [
         name: 'VEA',
         marketRegion: 'International Developed',
         assetClass: 'Equity',
-        holdings: [],
+        allocations: [],
         description: '',
         tickerSymbol: '',
         type: 'ETF'
@@ -44,7 +44,7 @@ const mockMarketFunds: Fund[] = [
         name: 'VWO',
         marketRegion: 'Emerging',
         assetClass: 'Equity',
-        holdings: [],
+        allocations: [],
         description: '',
         tickerSymbol: '',
         type: 'ETF'
@@ -55,7 +55,7 @@ const mockMarketFunds: Fund[] = [
         name: 'BNDW',
         marketRegion: 'Global (All-World)',
         assetClass: 'Bond',
-        holdings: [],
+        allocations: [],
         description: '',
         tickerSymbol: '',
         type: 'ETF'
@@ -66,7 +66,7 @@ const mockMarketFunds: Fund[] = [
         name: 'GLD',
         marketRegion: 'Global (All-World)',
         assetClass: 'Commodity',
-        holdings: [],
+        allocations: [],
         description: '',
         tickerSymbol: '',
         type: 'ETF'
@@ -80,7 +80,7 @@ const mockCustomFunds: Fund[] = [
         name: 'Market-cap Weighted All-World Equity',
         description: '',
         type: 'Custom',
-        holdings: [{ fundId: 1, percentage: 100 }]
+        allocations: [{ fundId: 1, percentage: 100 }]
     },
     {
         fundId: 8,
@@ -88,7 +88,7 @@ const mockCustomFunds: Fund[] = [
         name: '60/20/20 All-World Equity',
         description: '',
         type: 'Custom',
-        holdings: [
+        allocations: [
             { fundId: 2, percentage: 60 },
             { fundId: 3, percentage: 20 },
             { fundId: 4, percentage: 20 }
@@ -100,7 +100,7 @@ const mockCustomFunds: Fund[] = [
         name: '90/10 All-World Equity/Bonds',
         description: '',
         type: 'Custom',
-        holdings: [
+        allocations: [
             { fundId: 8, percentage: 90 },
             { fundId: 5, percentage: 10 }
         ]
@@ -111,7 +111,7 @@ const mockCustomFunds: Fund[] = [
         name: '80% 90/10 All-World Equity/Bonds + 10% Gold',
         description: '',
         type: 'Custom',
-        holdings: [
+        allocations: [
             { fundId: 9, percentage: 80 },
             { fundId: 6, percentage: 20 }
         ]
@@ -122,7 +122,7 @@ const mockCustomFunds: Fund[] = [
         name: '50% Bonds + 50% Gold',
         description: '',
         type: 'Custom',
-        holdings: [
+        allocations: [
             { fundId: 5, percentage: 50 },
             { fundId: 6, percentage: 50 }
         ]
@@ -133,7 +133,7 @@ const mockCustomFunds: Fund[] = [
         name: '50% All-World Equities + 50% Bonds/Gold Split',
         description: '',
         type: 'Custom',
-        holdings: [
+        allocations: [
             { fundId: 8, percentage: 50 },
             { fundId: 11, percentage: 50 }
         ]

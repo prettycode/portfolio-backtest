@@ -14,7 +14,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 type: 'Mutual Fund',
                 marketRegion: 'US',
                 assetClass: 'Equity',
-                holdings: []
+                allocations: []
             },
             {
                 fundId: 2,
@@ -25,7 +25,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 type: 'Mutual Fund',
                 marketRegion: 'US',
                 assetClass: 'Treasury',
-                holdings: []
+                allocations: []
             },
             {
                 fundId: 3,
@@ -36,7 +36,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 type: 'Index',
                 marketRegion: 'Global (All-World)',
                 assetClass: 'Commodity',
-                holdings: []
+                allocations: []
             },
             {
                 fundId: 4,
@@ -47,7 +47,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 type: 'ETF',
                 marketRegion: 'US',
                 assetClass: 'Cash',
-                holdings: []
+                allocations: []
             },
             {
                 fundId: 5,
@@ -58,7 +58,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 type: 'Mutual Fund',
                 marketRegion: 'International Developed',
                 assetClass: 'Equity',
-                holdings: []
+                allocations: []
             },
             {
                 fundId: 6,
@@ -69,7 +69,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 type: 'Mutual Fund',
                 marketRegion: 'Emerging',
                 assetClass: 'Equity',
-                holdings: []
+                allocations: []
             },
             {
                 fundId: 14,
@@ -80,7 +80,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 type: 'Mutual Fund',
                 marketRegion: 'US',
                 assetClass: 'Equity',
-                holdings: []
+                allocations: []
             }
         ]
     );
