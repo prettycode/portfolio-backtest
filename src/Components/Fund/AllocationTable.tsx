@@ -11,10 +11,10 @@ import { faChartPie } from '@fortawesome/free-solid-svg-icons';
 (async () =>
     console.log(
         await getFundAnalysisForCustomFund([
-            { fundId: 7 /* NTSX */, percentage: 30 },
-            { fundId: 8 /* GDE */, percentage: 30 },
-            { fundId: 9, percentage: 20 },
-            { fundId: 10, percentage: 20 }
+            { fundId: '7' /* NTSX */, percentage: 30 },
+            { fundId: '8' /* GDE */, percentage: 30 },
+            { fundId: '9', percentage: 20 },
+            { fundId: '10', percentage: 20 }
         ])
     ))();
 
@@ -42,7 +42,7 @@ const AllocationTable: React.FC = () => {
         }
 
         const rowsToFundAllocations = rowsWithValidEntries.map((row) => ({
-            fundId: Number(row.fundId),
+            fundId: row.fundId,
             percentage: row.percentage
         }));
 

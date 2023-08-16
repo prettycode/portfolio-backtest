@@ -6,7 +6,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
     Promise.resolve(
         mock || [
             {
-                fundId: 1,
+                fundId: '1',
                 name: 'S&P 500',
                 description: 'Vanguard 500 Index Fund Investor Shares',
                 tickerSymbol: 'VFINX',
@@ -17,7 +17,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 allocations: []
             },
             {
-                fundId: 2,
+                fundId: '2',
                 name: 'Intermediate-Term US Treasury',
                 description: 'Vanguard Intermediate-Term Treasury Fund Investor Shares',
                 tickerSymbol: 'VFITX',
@@ -28,7 +28,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 allocations: []
             },
             {
-                fundId: 3,
+                fundId: '3',
                 name: 'Gold',
                 description: 'Gold',
                 tickerSymbol: '^GOLD',
@@ -39,7 +39,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 allocations: []
             },
             {
-                fundId: 4,
+                fundId: '4',
                 name: 'Cash',
                 description: 'US Treasury Money Market',
                 tickerSymbol: 'CASHX',
@@ -50,7 +50,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 allocations: []
             },
             {
-                fundId: 5,
+                fundId: '5',
                 name: 'International Developed Large Cap',
                 description: 'DFA Large Cap International Portfolio',
                 tickerSymbol: 'DFALX',
@@ -61,7 +61,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 allocations: []
             },
             {
-                fundId: 6,
+                fundId: '6',
                 name: 'Emerging Markets',
                 description: 'Vanguard Emerging Markets Stock Index Fund',
                 tickerSymbol: 'VEIEX',
@@ -72,7 +72,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 allocations: []
             },
             {
-                fundId: 14,
+                fundId: '14',
                 name: 'US Market',
                 description: 'Vanguard Total Stock Market Fund',
                 tickerSymbol: 'VTSMX',

@@ -52,7 +52,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                         fundAnalysis.flattened.map((fund, index) => (
                             <tr key={index}>
                                 <td style={{ width: '1%', paddingRight: '15px' }}>{fundLookupCache[String(fund.fundId)].tickerSymbol}</td>
-                                <td>{fundLookupCache[String(fund.fundId)].name}</td>                                
+                                <td>{fundLookupCache[String(fund.fundId)].name}</td>
                                 <td style={{ textAlign: 'right' }}>
                                     {fund.percentage.toFixed(1)}%&nbsp;&nbsp;
                                     {/*<FundAssetClassIcon assetClass={fundLookupCache[String(fund.fundId)].assetClass}></FundAssetClassIcon>*/}
@@ -61,7 +61,6 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                         ))}
                 </tbody>
             </table>
-
 
             {/*<table className="table table-sm">
                 <thead>
@@ -193,7 +192,6 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                         </React.Fragment>
                     );
                 })}
-
         </div>
     );
 };
