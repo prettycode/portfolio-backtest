@@ -122,7 +122,9 @@ const AllocationTable: React.FC = () => {
                 Calculate
             </button>
 
-            {customFundAllocations && <FundAnalysis fundAllocations={customFundAllocations} />}
+            <div style={{ marginTop: '40px'}}>
+                {customFundAllocations && <FundAnalysis fundAllocations={customFundAllocations} />}
+            </div>
         </>
     );
 };

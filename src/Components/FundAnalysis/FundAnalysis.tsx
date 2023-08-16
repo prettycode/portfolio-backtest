@@ -5,6 +5,27 @@ import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
 import { Fund } from '../../Fund/models/Fund/Fund';
 import { fetchFundByFundId } from '../../Fund/services/fetchFundByFundId';
 
+type PortfolioVisualizerBacktestLinkProps = {
+    url: string;
+};
+
+const PortfolioVisualizerLink: React.FC<PortfolioVisualizerBacktestLinkProps> = ({ url }) => (
+    <span style={{ display: 'inline-block', float: 'right'}}>
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      title="Open backtest in Portfolio Visualizer"
+      style={{
+        fontSize: '18px',
+        textDecoration: 'none',
+        color: '#000'
+      }}
+    >
+      <i className="fa fa-external-link"></i>
+    </a></span>
+);
+
 interface FundAnalysisProps {
     fundAllocations: Array<FundAllocation>;
 }
@@ -34,21 +55,10 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
 
     return (
         <div style={{ textAlign: 'left' }}>
-            <h3>
-                Portfolio<span className="portfolioVisualizerLink"></span>
-            </h3>
-            <ul>
-                {/*fundAnalysis &&
-                    fundLookupCache &&
-                    fundAnalysis.holdings.map((fund, index) => (
-                        <li key={index}>
-                            {fundLookupCache[String(fund.fundId)].name} - {fund.percentage.toFixed(1)}%
-                        </li>
-                    ))*/}
-            </ul>
+            {/* TODO: what we doing w/fundAnalysis.holdings */}
 
             <h3>
-                Portfolio Decomposed<span className="portfolioVisualizerLink"></span>
+                Portfolio Decomposed <PortfolioVisualizerLink url="https://example.com" />
             </h3>
             <table className="table table-sm">
                 <thead>
@@ -73,7 +83,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
             <div>{fundAnalysis && fundAnalysis.leverage.toFixed(2)}&#8202;&times;</div>
 
             <h3>
-                Delevered Composition<span className="portfolioVisualizerLink"></span>
+                Delevered Composition <PortfolioVisualizerLink url="https://example.com" />
             </h3>
             <table className="table table-sm">
                 <thead>
@@ -143,7 +153,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                     const totalPercentage = Object.values(regions)
                         .flat()
                         .reduce((acc, fund) => acc + fund.percentage, 0);
-                        
+
                     return (
                         <React.Fragment key={assetClass}>
                             <h3>{assetClass} by Region</h3>
