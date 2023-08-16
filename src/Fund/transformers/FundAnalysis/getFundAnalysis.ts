@@ -7,7 +7,7 @@ import { FundMarketRegion } from '../../models/Fund/FundMarketRegion';
 import { getDeleveredFundAllocations } from '../Fund/getDeleveredFundAllocations';
 import { getFlattenedFundAllocations } from '../Fund/getFlattenedFundAllocations';
 import { getFundAllocationsLeverage } from '../Fund/getFundAllocationsLeverage';
-import { getFundsFromFundAllocations } from '../Fund/getFundsFromFundAllocations';
+import { getFundFromFundAllocation } from '../Fund/getFundsFromFundAllocations';
 import { FundAllocation } from '../../models/Fund/FundAllocation';
 
 export const getFundAnalysis = async (fundAllocations: Array<FundAllocation>): Promise<FundAnalysis> => {
@@ -21,7 +21,7 @@ export const getFundAnalysis = async (fundAllocations: Array<FundAllocation>): P
     const flattened = await getFlattenedFundAllocations({ fundId: -1, percentage: 100, allocations: holdings });
     const leverage = getFundAllocationsLeverage(flattened);
     const delevered = getDeleveredFundAllocations(flattened);
-    const composition = await getFundsFromFundAllocations(delevered);
+    const composition = await getFundFromFundAllocation(delevered);
 
     const marketRegion = groupBy(cloneDeep(composition), 'marketRegion') as Record<FundMarketRegion, Fund[]>;
     const assetClass = groupBy(cloneDeep(composition), 'assetClass') as Record<FundAssetClass, Fund[]>;
