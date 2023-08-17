@@ -8,13 +8,22 @@ type OptionType = {
 
 type FundSelectionDropdownProps = {
     funds: Array<Fund>;
+    onFundSelected: (fundId: string) => void;
 };
 
-export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({ funds }) => {
+export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({ funds, onFundSelected }) => {
     const options: OptionType[] = funds.map((fund) => ({
         value: fund.fundId,
-        label: fund.name
+        label: fund.tickerSymbol ? (fund.name ? `${fund.tickerSymbol} (${fund.name})` : fund.tickerSymbol) : fund.name || ''
     }));
 
-    return <Select options={options} />;
+    const handleChange = (selectedOption: OptionType | null) => {
+        if (selectedOption) {
+            onFundSelected(selectedOption.value);
+        }
+    };
+
+    return (
+        <Select options={options} placeholder="Search for asset..." openMenuOnClick={false} isSearchable={true} onChange={handleChange} />
+    );
 };

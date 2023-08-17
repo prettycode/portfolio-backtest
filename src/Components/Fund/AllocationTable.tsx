@@ -73,25 +73,15 @@ const AllocationTable: React.FC = () => {
                     {rows.map((row, index) => (
                         <tr key={index}>
                             <td>
-                                <input
-                                    className="form-control"
-                                    list="funds"
-                                    style={{ width: '100%' }}
-                                    value={row.fundId}
-                                    placeholder="Search for asset..."
-                                    onChange={(e) => {
-                                        const newRows = [...rows];
-                                        newRows[index].fundId = e.target.value;
-                                        setRows(newRows);
-                                    }}
-                                />
-                                <datalist id="funds">
-                                    {funds.map((fund: Fund, idx) => (
-                                        <option key={idx} data-value={fund.fundId} value={fund.fundId} label={fund.description} />
-                                    ))}
-                                </datalist>
                                 <span style={{ textAlign: 'left' }}>
-                                    <FundSelectionDropdown funds={funds} />
+                                    <FundSelectionDropdown
+                                        funds={funds}
+                                        onFundSelected={(fundId: string) => {
+                                            const newRows = [...rows];
+                                            newRows[index].fundId = fundId;
+                                            setRows(newRows);
+                                        }}
+                                    />
                                 </span>
                             </td>
                             <td>
