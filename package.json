@@ -17,7 +17,8 @@
         "vite:build": "tsc && vite build",
         "build:local": "npm install && npm update && npm run prettier:fix && npm run lint:fix && npm run vite:build:local && npm run test",
         "build:ci": "npm ci && npm run prettier:ci && npm run lint:ci && npm run vite:build && npm run test",
-        "test": "npm run vite:build && npx jest"
+        "test:local": "npm run vite:build && npx jest",
+        "test": "npx jest"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^6.4.2",
@@ -28,7 +29,9 @@
         "lodash.clonedeep": "^4.5.0",
         "lodash.groupby": "^4.6.0",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "react-select": "^5.7.4",
+        "reactstrap": "^9.2.0"
     },
     "devDependencies": {
         "@types/jest": "^29.5.3",

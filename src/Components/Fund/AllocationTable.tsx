@@ -7,6 +7,7 @@ import FundAnalysis from '../FundAnalysis/FundAnalysis';
 import { fetchCustomFunds } from '../../Fund/services/fetchCustomFunds';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartPie } from '@fortawesome/free-solid-svg-icons';
+import { FundSelectionDropdown } from './FundSelectionDropdown';
 
 (async () =>
     console.log(
@@ -72,23 +73,16 @@ const AllocationTable: React.FC = () => {
                     {rows.map((row, index) => (
                         <tr key={index}>
                             <td>
-                                <input
-                                    className="form-control"
-                                    list="funds"
-                                    style={{ width: '100%' }}
-                                    value={row.fundId}
-                                    placeholder="Search for asset..."
-                                    onChange={(e) => {
-                                        const newRows = [...rows];
-                                        newRows[index].fundId = e.target.value;
-                                        setRows(newRows);
-                                    }}
-                                />
-                                <datalist id="funds">
-                                    {funds.map((fund: Fund, idx) => (
-                                        <option key={idx} data-value={fund.fundId} value={fund.fundId} label={fund.description} />
-                                    ))}
-                                </datalist>
+                                <span style={{ textAlign: 'left' }}>
+                                    <FundSelectionDropdown
+                                        funds={funds}
+                                        onFundSelected={(fundId: string) => {
+                                            const newRows = [...rows];
+                                            newRows[index].fundId = fundId;
+                                            setRows(newRows);
+                                        }}
+                                    />
+                                </span>
                             </td>
                             <td>
                                 <input
