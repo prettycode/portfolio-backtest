@@ -103,10 +103,10 @@ const FundSelectionTable: React.FC = () => {
             </table>
 
             <div className="clearfix">
-                <button className="btn btn-sm border btn-white float-start" onClick={addRow}>
+                <button type="button" className="btn btn-outline-secondary float-start" onClick={addRow}>
                     Add Row
                 </button>
-                <button className="btn btn-sm border btn-white float-end" onClick={calculate}>
+                <button type="button" className="btn btn-outline-primary float-end" onClick={calculate}>
                     Calculate
                 </button>
             </div>
