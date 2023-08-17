@@ -34,16 +34,16 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
     }, [fundAllocations]);
 
     return (
-        <div style={{ textAlign: 'left' }}>
+        <div>
             {/* TODO: what we doing w/fundAnalysis.holdings */}
 
-            <h3>Portfolio Decomposed {fundAnalysis?.flattened && <PortfolioVisualizerLink allocations={fundAnalysis.flattened} />}</h3>
+            <h4>Portfolio Decomposed {fundAnalysis?.flattened && <PortfolioVisualizerLink allocations={fundAnalysis.flattened} />}</h4>
             <table className="table table-sm">
                 <thead>
                     <tr>
                         <th>Ticker</th>
                         <th>Name</th>
-                        <th style={{ textAlign: 'right' }}>Allocation</th>
+                        <th style={{ textAlign: 'right' }}>Weight</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,7 +51,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                         fundLookupCache &&
                         fundAnalysis.flattened.map((fund, index) => (
                             <tr key={index}>
-                                <td style={{ width: '1%', paddingRight: '15px' }}>{fundLookupCache[String(fund.fundId)].tickerSymbol}</td>
+                                <td style={{ width: '1%', paddingRight: '25px' }}>{fundLookupCache[String(fund.fundId)].tickerSymbol}</td>
                                 <td>{fundLookupCache[String(fund.fundId)].name}</td>
                                 <td style={{ textAlign: 'right' }}>
                                     {fund.percentage.toFixed(1)}%&nbsp;&nbsp;
@@ -68,7 +68,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                         <th>Asset Class</th>
                         <th>Region</th>
                         <th>Fund Name</th>
-                        <th style={{ textAlign: 'right' }}>Allocation</th>
+                        <th style={{ textAlign: 'right' }}>Weight</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -88,16 +88,16 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                 </tbody>
             </table>*/}
 
-            <h3>Portfolio Leverage</h3>
-            <div>{fundAnalysis && fundAnalysis.leverage.toFixed(2)}&times;</div>
+            <h4>Portfolio Leverage</h4>
+            <div style={{ marginBottom: '1rem' }}>{fundAnalysis && fundAnalysis.leverage.toFixed(2)}&times;</div>
 
-            <h3>Delevered Composition {fundAnalysis?.delevered && <PortfolioVisualizerLink allocations={fundAnalysis.delevered} />}</h3>
+            <h4>Delevered Composition {fundAnalysis?.delevered && <PortfolioVisualizerLink allocations={fundAnalysis.delevered} />}</h4>
             <table className="table table-sm">
                 <thead>
                     <tr>
                         <th>Ticker</th>
                         <th>Name</th>
-                        <th style={{ textAlign: 'right' }}>Allocation</th>
+                        <th style={{ textAlign: 'right' }}>Weight</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -113,12 +113,12 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                 </tbody>
             </table>
 
-            <h3>Portfolio Asset Classes</h3>
+            <h4>Portfolio Asset Classes</h4>
             <table className="table table-sm">
                 <thead>
                     <tr>
                         <th>Asset Class</th>
-                        <th style={{ textAlign: 'right' }}>Allocation</th>
+                        <th style={{ textAlign: 'right' }}>Weight</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -135,12 +135,12 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                 </tbody>
             </table>
 
-            <h3>Portfolio Regions (All Asset Classes)</h3>
+            <h4>Portfolio Regions (All Asset Classes)</h4>
             <table className="table table-sm">
                 <thead>
                     <tr>
                         <th>Region</th>
-                        <th style={{ textAlign: 'right' }}>Allocation</th>
+                        <th style={{ textAlign: 'right' }}>Weight</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -165,12 +165,12 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
 
                     return (
                         <React.Fragment key={assetClass}>
-                            <h3>{assetClass} by Region</h3>
+                            <h4>{assetClass} by Region</h4>
                             <table className="table table-sm">
                                 <thead>
                                     <tr>
                                         <th>{assetClass}</th>
-                                        <th style={{ textAlign: 'right' }}>Allocation</th>
+                                        <th style={{ textAlign: 'right' }}>Weight</th>
                                     </tr>
                                 </thead>
                                 <tbody>

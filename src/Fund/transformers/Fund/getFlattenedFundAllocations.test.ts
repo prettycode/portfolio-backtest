@@ -31,7 +31,7 @@ const mockMarketFunds: Fund[] = [
         fundId: '3',
         percentage: 100,
         name: 'VEA',
-        marketRegion: 'International Developed',
+        marketRegion: 'Int’l Developed',
         assetClass: 'Equity',
         allocations: [],
         description: '',

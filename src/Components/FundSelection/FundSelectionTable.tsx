@@ -5,8 +5,6 @@ import { fetchMarketFunds } from '../../Fund/services/fetchMarketFunds';
 import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
 import FundAnalysis from '../FundAnalysis/FundAnalysis';
 import { fetchCustomFunds } from '../../Fund/services/fetchCustomFunds';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChartPie } from '@fortawesome/free-solid-svg-icons';
 import { FundSelectionDropdown } from './FundSelectionDropdown';
 
 (async () =>
@@ -19,37 +17,29 @@ import { FundSelectionDropdown } from './FundSelectionDropdown';
         ])
     ))();
 
-const AllocationTable: React.FC = () => {
+const FundSelectionTable: React.FC = () => {
+    const createRow = (): FundAllocation => ({ fundId: '', percentage: 0 });
+    const validRows = (): Array<FundAllocation> => rows.filter((row) => row.fundId !== '' && Number.isInteger(row.percentage));
+    const sumRows = (rows?: Array<FundAllocation>): number => (rows || validRows()).reduce((sum, row) => sum + row.percentage, 0);
+
     const [funds, setFunds] = useState<Fund[]>([]);
     const [customFundAllocations, setCustomFundAllocations] = useState<Array<FundAllocation> | undefined>(undefined);
-    const [rows, setRows] = useState<FundAllocation[]>(
-        Array.from({ length: 5 }, () => ({
-            fundId: '',
-            percentage: 0
-        }))
-    );
+    const [rows, setRows] = useState<FundAllocation[]>(Array.from({ length: 5 }, createRow));
 
     const addRow = () => {
-        setRows([...rows, { fundId: '', percentage: 0 }]);
+        setRows([...rows, createRow()]);
     };
 
     const calculate = () => {
-        const rowsWithValidEntries = rows.filter((row) => row.fundId !== '' && Number.isInteger(row.percentage));
-        const sumOfPercentages = rowsWithValidEntries.reduce((sum, row) => sum + row.percentage, 0);
+        const completedRows = validRows();
+        const sumOfPercentages = sumRows(completedRows);
 
         if (sumOfPercentages < 100) {
             alert(`The sum of the percentages (${sumOfPercentages}%) is less than 100%.`);
             return;
         }
 
-        const rowsToFundAllocations = rowsWithValidEntries.map((row) => ({
-            fundId: row.fundId,
-            percentage: row.percentage
-        }));
-
-        console.log('CALCULATE:', rowsToFundAllocations);
-
-        setCustomFundAllocations(rowsToFundAllocations);
+        setCustomFundAllocations(completedRows);
     };
 
     useEffect(() => {
@@ -58,22 +48,25 @@ const AllocationTable: React.FC = () => {
 
     return (
         <>
-            <table className="table table-light">
+            <table className="table rounded" style={{ width: '480px' }}>
                 <thead>
                     <tr>
-                        <th scope="col" style={{ textAlign: 'left', width: '100%' }}>
-                            <FontAwesomeIcon icon={faChartPie} /> Assets
+                        <th scope="col" style={{ width: '100%' }}>
+                            Assets
                         </th>
                         <th scope="col" style={{ whiteSpace: 'nowrap' }}>
-                            Allocation (%)
+                            Weight (%)
                         </th>
+                        {/*<th scope="col" style={{ whiteSpace: 'nowrap' }}>
+                            Weight ($)
+                        </th>*/}
                     </tr>
                 </thead>
                 <tbody>
                     {rows.map((row, index) => (
                         <tr key={index}>
                             <td>
-                                <span style={{ textAlign: 'left' }}>
+                                <span>
                                     <FundSelectionDropdown
                                         funds={funds}
                                         onFundSelected={(fundId: string) => {
@@ -86,7 +79,7 @@ const AllocationTable: React.FC = () => {
                             </td>
                             <td>
                                 <input
-                                    className="form-control"
+                                    className={'form-control'}
                                     type="number"
                                     style={{ textAlign: 'center' }}
                                     value={row.percentage}
@@ -97,21 +90,30 @@ const AllocationTable: React.FC = () => {
                                     }}
                                 />
                             </td>
+                            {/*<td style={{ textAlign: 'right', verticalAlign: 'middle' }}>
+                                <span style={{ paddingRight: '10px' }}>$</span>0.00
+                            </td>*/}
                         </tr>
                     ))}
+                    <tr>
+                        <td>Total: {validRows().length} asset(s)</td>
+                        <td style={{ textAlign: 'center' }}>{sumRows()}&thinsp;%</td>
+                    </tr>
                 </tbody>
             </table>
 
-            <button className="btn btn-primary" onClick={addRow}>
-                Add Row
-            </button>
-            <button className="btn btn-success" onClick={calculate}>
-                Calculate
-            </button>
+            <div className="clearfix">
+                <button className="btn btn-sm border btn-white float-start" onClick={addRow}>
+                    Add Row
+                </button>
+                <button className="btn btn-sm border btn-white float-end" onClick={calculate}>
+                    Calculate
+                </button>
+            </div>
 
             <div style={{ marginTop: '40px' }}>{customFundAllocations && <FundAnalysis fundAllocations={customFundAllocations} />}</div>
         </>
     );
 };
 
-export default AllocationTable;
+export default FundSelectionTable;
