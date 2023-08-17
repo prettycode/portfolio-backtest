@@ -1,14 +1,11 @@
-import './App.css';
-import 'font-awesome/css/font-awesome.min.css';
+import FundSelectionTable from './Components/FundSelection/FundSelectionTable';
 
-import AllocationTable from './Components/Fund/AllocationTable';
-//import DynamicAllocationTable from './Components/Fund/DynamicAllocationTable';
+import './App.css';
 
 function App() {
     return (
         <>
-            <AllocationTable></AllocationTable>
-            {/* <DynamicAllocationTable></DynamicAllocationTable> */}
+            <FundSelectionTable></FundSelectionTable>
         </>
     );
 }

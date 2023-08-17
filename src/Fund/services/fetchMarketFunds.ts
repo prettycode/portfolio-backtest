@@ -51,12 +51,12 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: '5',
-                name: 'International Developed Large Cap',
-                description: 'DFA Large Cap International Portfolio',
+                name: 'Int’l Developed Large Cap',
+                description: 'DFA Large Cap Int’l Portfolio',
                 tickerSymbol: 'DFALX',
                 percentage: 100,
                 type: 'Mutual Fund',
-                marketRegion: 'International Developed',
+                marketRegion: 'Int’l Developed',
                 assetClass: 'Equity',
                 allocations: []
             },

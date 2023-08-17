@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    display: flex;
+    min-width: 320px;
+    min-height: 100vh;
+}
+
+h4 {
+    padding-top: 25px;
+}
+
+.table-sm {
+    font-size: 0.75rem;
+}
+
+.table-sm th,
+.table-sm td {
+    padding: 0.25rem;
+}
+
+table {
+    margin-bottom: 0;
+}
