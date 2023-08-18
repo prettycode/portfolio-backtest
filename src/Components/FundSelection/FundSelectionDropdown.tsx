@@ -13,10 +13,14 @@ type FundSelectionDropdownProps = {
 };
 
 export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({ funds, onFundSelected, className }) => {
-    const options: OptionType[] = funds.map((fund) => ({
-        value: fund.fundId,
-        label: fund.tickerSymbol ? (fund.name ? `${fund.tickerSymbol} (${fund.name})` : fund.tickerSymbol) : fund.name || ''
-    }));
+    const options: OptionType[] = funds
+        .map((fund) => ({
+            value: fund.fundId,
+            label:
+                `${fund.fundId}: ` +
+                (fund.tickerSymbol ? (fund.name ? `${fund.tickerSymbol} (${fund.name})` : fund.tickerSymbol) : fund.name || '')
+        }))
+        .sort((a, b) => a.label?.localeCompare(b.label || '') || 0);
 
     const customStyles: StylesConfig<OptionType, false> = {
         control: (provided) => ({

@@ -6,7 +6,7 @@ import { getFlattenedFundAllocations } from './getFlattenedFundAllocations';
 
 const mockMarketFunds: Fund[] = [
     {
-        fundId: '1',
+        fundId: 'SPY',
         percentage: 100,
         name: 'VT',
         marketRegion: 'Global (All-World)',
@@ -17,7 +17,7 @@ const mockMarketFunds: Fund[] = [
         type: 'ETF'
     },
     {
-        fundId: '2',
+        fundId: 'VGIT',
         percentage: 100,
         name: 'VTI',
         marketRegion: 'US',
@@ -28,7 +28,7 @@ const mockMarketFunds: Fund[] = [
         type: 'ETF'
     },
     {
-        fundId: '3',
+        fundId: 'GLD',
         percentage: 100,
         name: 'VEA',
         marketRegion: 'Int’l Developed',
@@ -39,7 +39,7 @@ const mockMarketFunds: Fund[] = [
         type: 'ETF'
     },
     {
-        fundId: '4',
+        fundId: 'USFR',
         percentage: 100,
         name: 'VWO',
         marketRegion: 'Emerging',
@@ -50,7 +50,7 @@ const mockMarketFunds: Fund[] = [
         type: 'ETF'
     },
     {
-        fundId: '5',
+        fundId: 'VEA',
         percentage: 100,
         name: 'BNDW',
         marketRegion: 'Global (All-World)',
@@ -61,7 +61,7 @@ const mockMarketFunds: Fund[] = [
         type: 'ETF'
     },
     {
-        fundId: '6',
+        fundId: 'VWO',
         percentage: 100,
         name: 'GLD',
         marketRegion: 'Global (All-World)',
@@ -75,45 +75,45 @@ const mockMarketFunds: Fund[] = [
 
 const mockCustomFunds: Fund[] = [
     {
-        fundId: '7',
+        fundId: 'NTSX',
         percentage: 100,
         name: 'Market-cap Weighted All-World Equity',
         description: '',
         type: 'Custom',
-        allocations: [{ fundId: '1', percentage: 100 }]
+        allocations: [{ fundId: 'SPY', percentage: 100 }]
     },
     {
-        fundId: '8',
+        fundId: 'GDE',
         percentage: 100,
         name: '60/20/20 All-World Equity',
         description: '',
         type: 'Custom',
         allocations: [
-            { fundId: '2', percentage: 60 },
-            { fundId: '3', percentage: 20 },
-            { fundId: '4', percentage: 20 }
+            { fundId: 'VGIT', percentage: 60 },
+            { fundId: 'GLD', percentage: 20 },
+            { fundId: 'USFR', percentage: 20 }
         ]
     },
     {
-        fundId: '9',
+        fundId: 'NTSI',
         percentage: 100,
         name: '90/10 All-World Equity/Bonds',
         description: '',
         type: 'Custom',
         allocations: [
-            { fundId: '8', percentage: 90 },
-            { fundId: '5', percentage: 10 }
+            { fundId: 'GDE', percentage: 90 },
+            { fundId: 'VEA', percentage: 10 }
         ]
     },
     {
-        fundId: '10',
+        fundId: 'NTSE',
         percentage: 100,
         name: '80% 90/10 All-World Equity/Bonds + 10% Gold',
         description: '',
         type: 'Custom',
         allocations: [
-            { fundId: '9', percentage: 80 },
-            { fundId: '6', percentage: 20 }
+            { fundId: 'NTSI', percentage: 80 },
+            { fundId: 'VWO', percentage: 20 }
         ]
     },
     {
@@ -123,8 +123,8 @@ const mockCustomFunds: Fund[] = [
         description: '',
         type: 'Custom',
         allocations: [
-            { fundId: '5', percentage: 50 },
-            { fundId: '6', percentage: 50 }
+            { fundId: 'VEA', percentage: 50 },
+            { fundId: 'VWO', percentage: 50 }
         ]
     },
     {
@@ -134,7 +134,7 @@ const mockCustomFunds: Fund[] = [
         description: '',
         type: 'Custom',
         allocations: [
-            { fundId: '8', percentage: 50 },
+            { fundId: 'GDE', percentage: 50 },
             { fundId: '11', percentage: 50 }
         ]
     }
@@ -179,9 +179,9 @@ describe('getFlattenedFundAllocation', () => {
         const given = mockCustomFunds[1];
         const actual = await getFlattenedFundAllocations(given);
         const expected: Array<FundAllocation> = [
-            { fundId: '2', percentage: 60 },
-            { fundId: '3', percentage: 20 },
-            { fundId: '4', percentage: 20 }
+            { fundId: 'VGIT', percentage: 60 },
+            { fundId: 'GLD', percentage: 20 },
+            { fundId: 'USFR', percentage: 20 }
         ];
 
         expect(actual).toEqual(expected);
@@ -192,10 +192,10 @@ describe('getFlattenedFundAllocation', () => {
         const given = mockCustomFunds[2];
         const actual = await getFlattenedFundAllocations(given);
         const expected: Array<FundAllocation> = [
-            { fundId: '2', percentage: 60 * 0.9 },
-            { fundId: '3', percentage: 20 * 0.9 },
-            { fundId: '4', percentage: 20 * 0.9 },
-            { fundId: '5', percentage: 100 * 0.1 }
+            { fundId: 'VGIT', percentage: 60 * 0.9 },
+            { fundId: 'GLD', percentage: 20 * 0.9 },
+            { fundId: 'USFR', percentage: 20 * 0.9 },
+            { fundId: 'VEA', percentage: 100 * 0.1 }
         ];
 
         expect(actual).toEqual(expected);
@@ -206,11 +206,11 @@ describe('getFlattenedFundAllocation', () => {
         const given = mockCustomFunds[3];
         const actual = await getFlattenedFundAllocations(given);
         const expected: Array<FundAllocation> = [
-            { fundId: '2', percentage: 60 * 0.9 * 0.8 },
-            { fundId: '6', percentage: 20 * 1.0 * 1.0 },
-            { fundId: '3', percentage: 20 * 0.9 * 0.8 },
-            { fundId: '4', percentage: 20 * 0.9 * 0.8 },
-            { fundId: '5', percentage: 100 * 0.1 * 0.8 }
+            { fundId: 'VGIT', percentage: 60 * 0.9 * 0.8 },
+            { fundId: 'VWO', percentage: 20 * 1.0 * 1.0 },
+            { fundId: 'GLD', percentage: 20 * 0.9 * 0.8 },
+            { fundId: 'USFR', percentage: 20 * 0.9 * 0.8 },
+            { fundId: 'VEA', percentage: 100 * 0.1 * 0.8 }
         ];
 
         expect(actual).toEqual(expected);
@@ -221,11 +221,11 @@ describe('getFlattenedFundAllocation', () => {
         const given = mockCustomFunds[5];
         const actual = await getFlattenedFundAllocations(given);
         const expected: Array<FundAllocation> = [
-            { fundId: '2', percentage: 60 * 0.5 },
-            { fundId: '5', percentage: 50 * 0.5 },
-            { fundId: '6', percentage: 50 * 0.5 },
-            { fundId: '3', percentage: 20 * 0.5 },
-            { fundId: '4', percentage: 20 * 0.5 }
+            { fundId: 'VGIT', percentage: 60 * 0.5 },
+            { fundId: 'VEA', percentage: 50 * 0.5 },
+            { fundId: 'VWO', percentage: 50 * 0.5 },
+            { fundId: 'GLD', percentage: 20 * 0.5 },
+            { fundId: 'USFR', percentage: 20 * 0.5 }
         ];
 
         expect(actual).toEqual(expected);

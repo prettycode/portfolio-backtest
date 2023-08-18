@@ -18,7 +18,12 @@ export const getFundAnalysisForCustomFund = async (fundAllocations: Array<FundAl
     }
 
     // TODO in next commit, refactor getFlattenedFundAllocations to accept holdings instead
-    const flattened = await getFlattenedFundAllocations({ fundId: '-1', percentage: 100, allocations: holdings, type: 'Custom' });
+    const flattened = await getFlattenedFundAllocations({
+        fundId: '-1',
+        percentage: 100,
+        allocations: cloneDeep(holdings),
+        type: 'Custom'
+    });
     const leverage = getFundAllocationsLeverage(flattened);
     const delevered = getDeleveredFundAllocations(flattened);
     const composition = await getFundFromFundAllocation(delevered);
@@ -29,14 +34,11 @@ export const getFundAnalysisForCustomFund = async (fundAllocations: Array<FundAl
         Object.entries(assetClass) as [FundAssetClass, Array<FundAllocation>][]
     ).reduce(
         (acc, [assetClass, holdings]) => {
-            // TODO sort the lowest descendent group of Fund[]s
             acc[assetClass] = groupBy(holdings, 'marketRegion') as Record<FundMarketRegion, Array<Fund>>;
             return acc;
         },
         {} as Partial<Record<FundAssetClass, Partial<Record<FundMarketRegion, Array<Fund>>>>>
     );
-
-    console.log(JSON.stringify(assetByRegion));
 
     const analysis: FundAnalysis = {
         holdings,

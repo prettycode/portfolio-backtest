@@ -9,15 +9,21 @@ h4 {
     padding-top: 25px;
 }
 
-.table-sm {
+.table-sm,
+.btn-xs {
     font-size: 0.75rem;
 }
 
 .table-sm th,
-.table-sm td {
+.table-sm td,
+.btn-xs {
     padding: 0.25rem;
 }
 
 table {
     margin-bottom: 0;
+}
+
+td {
+    vertical-align: middle;
 }

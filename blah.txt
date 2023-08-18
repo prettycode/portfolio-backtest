@@ -1,0 +1,69 @@
+Cash replacement fund (minimize max drawdown):
+
+* VT = ACWV
+* Missing USFR
+
+1. 50/50 Equities/Bonds													VT/BNDW
+	1. 50/50 Equities/US Treasuries										VT/GOVT
+		1. 50/50 Equities/Ultra-short US Treasuries						VT/SGOV
+		2. 50/50 Equities/Short-term US Treasuries						VT/VGSH
+		3. 50/50 Equities/Intermediate-term US Treasuries				VT/VGIT
+		4. 50/50 Equities/US Treasury Barbell							VT/(SGOV/ZROZ)
+		5. 50/50 Equities/Longer-term US Treasuries						VT/VGLT
+		6. 50/50 Equities/Extended-term US Treasuries					VT/ZROZ
+2. 50/50 Equities/Bonds + Gold											-
+	1. 35/35/30 Equities/Bonds/Gold
+		1. 35/35/30 Equities/Ultra-short US Treasuries/Gold				VT/SGOV/GLD
+		2. 35/35/30 Equities/Short-term US Treasuries/Gold				VT/VGSH/GLD
+		3. 35/35/30 Equities/Intermediate-term US Treasuries/Gold		VT/VGIT/GLD
+		4. 35/35/30 Equities/US Treasury Barbell/Gold					VT/(SGOV/ZROZ)/GLD
+		5. 35/35/30 Equities/Longer-term US Treasuries/Gold				VT/VGLT/GLD
+		6. 35/35/30 Equities/Extended-term US Treasuries/Gold			VT/ZROZ/GLD
+	2. 40/40/20 Equities/Bonds/Gold
+		1. 40/40/10 Equities/Ultra-short US Treasuries/Gold				VT/SGOV/GLD
+		2. 40/40/10 Equities/Short-term US Treasuries/Gold				VT/VGSH/GLD
+		3. 40/40/10 Equities/Intermediate-term US Treasuries/Gold		VT/VGIT/GLD
+		4. 40/40/10 Equities/US Treasury Barbell/Gold					VT/(SGOV/ZROZ)/GLD
+		5. 40/40/10 Equities/Longer-term US Treasuries/Gold				VT/VGLT/GLD
+		6. 40/40/10 Equities/Extended-term US Treasuries/Gold			VT/ZROZ/GLD
+	3. 45/45/10 Equiteis/Bonds/Gold
+		1. 45/45/10 Equities/Ultra-short US Treasuries/Gold				VT/SGOV/GLD
+		2. 45/45/10 Equities/Short-term US Treasuries/Gold				VT/VGSH/GLD
+		3. 45/45/10 Equities/Intermediate-term US Treasuries/Gold		VT/VGIT/GLD
+		4. 45/45/10 Equities/US Treasury Barbell/Gold					VT/(SGOV/ZROZ)/GLD
+		5. 45/45/10 Equities/Longer-term US Treasuries/Gold				VT/VGLT/GLD
+		6. 45/45/10 Equities/Extended-term US Treasuries/Gold			VT/ZROZ/GLD
+		
+		
+Please create a table of expected returns for the following portfolios, given all the historical data you have access to. I don't care if your data ends in 2021. Please also include in the table the maximum hypothetical drawdown (again, according to historical data), and include in the table what the time range of historical data that you have is for each portfolio.
+
+1. 50/50 Equities/Bonds												
+	1. 50/50 Equities/US Treasuries									
+		1. 50/50 Equities/Ultra-short US Treasuries					
+		2. 50/50 Equities/Short-term US Treasuries					
+		3. 50/50 Equities/Intermediate-term US Treasuries			
+		4. 50/50 Equities/US Treasury Barbell						
+		5. 50/50 Equities/Longer-term US Treasuries					
+		6. 50/50 Equities/Extended-term US Treasuries				
+2. 50/50 Equities/Bonds + Gold										
+	1. 35/35/30 Equities/Bonds/Gold
+		1. 35/35/30 Equities/Ultra-short US Treasuries/Gold			
+		2. 35/35/30 Equities/Short-term US Treasuries/Gold			
+		3. 35/35/30 Equities/Intermediate-term US Treasuries/Gold
+		4. 35/35/30 Equities/US Treasury Barbell/Gold				
+		5. 35/35/30 Equities/Longer-term US Treasuries/Gold			
+		6. 35/35/30 Equities/Extended-term US Treasuries/Gold		
+	2. 40/40/20 Equities/Bonds/Gold
+		1. 40/40/10 Equities/Ultra-short US Treasuries/Gold			
+		2. 40/40/10 Equities/Short-term US Treasuries/Gold			
+		3. 40/40/10 Equities/Intermediate-term US Treasuries/Gold
+		4. 40/40/10 Equities/US Treasury Barbell/Gold				
+		5. 40/40/10 Equities/Longer-term US Treasuries/Gold			
+		6. 40/40/10 Equities/Extended-term US Treasuries/Gold		
+	3. 45/45/10 Equiteis/Bonds/Gold
+		1. 45/45/10 Equities/Ultra-short US Treasuries/Gold			
+		2. 45/45/10 Equities/Short-term US Treasuries/Gold			
+		3. 45/45/10 Equities/Intermediate-term US Treasuries/Gold
+		4. 45/45/10 Equities/US Treasury Barbell/Gold				
+		5. 45/45/10 Equities/Longer-term US Treasuries/Gold			
+		6. 45/45/10 Equities/Extended-term US Treasuries/Gold	
