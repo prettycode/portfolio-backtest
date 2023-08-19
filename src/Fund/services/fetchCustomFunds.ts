@@ -6,85 +6,85 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
     Promise.resolve(
         mock || [
             {
-                fundId: '7',
+                fundId: 'NTSX',
                 name: 'NTSX (90/60 US-only)',
                 description: 'NTSX (Simulated)',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
                     {
-                        fundId: '1',
+                        fundId: 'SPY',
                         percentage: 90
                     },
                     {
-                        fundId: '2',
+                        fundId: 'VGIT',
                         percentage: 60
                     },
                     {
-                        fundId: '4',
+                        fundId: 'USFR',
                         percentage: -50
                     }
                 ]
             },
             {
-                fundId: '8',
+                fundId: 'GDE',
                 name: 'GDE (90/0/90 US-only)',
                 description: 'GDE (Simulated)',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
                     {
-                        fundId: '1',
+                        fundId: 'SPY',
                         percentage: 90
                     },
                     {
-                        fundId: '3',
+                        fundId: 'GLD',
                         percentage: 90
                     },
                     {
-                        fundId: '4',
+                        fundId: 'USFR',
                         percentage: -80
                     }
                 ]
             },
             {
-                fundId: '9',
+                fundId: 'NTSI',
                 name: 'NTSI (90/60 Intl. Developed-only)',
                 description: 'NTSI (Simulated)',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
                     {
-                        fundId: '5',
+                        fundId: 'VEA',
                         percentage: 90
                     },
                     {
-                        fundId: '2',
+                        fundId: 'VGIT',
                         percentage: 60
                     },
                     {
-                        fundId: '4',
+                        fundId: 'USFR',
                         percentage: -50
                     }
                 ]
             },
             {
-                fundId: '10',
+                fundId: 'NTSE',
                 name: 'NTSE (90/60 EM-only)',
                 description: 'NTSE (Simulated)',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
                     {
-                        fundId: '6',
+                        fundId: 'VWO',
                         percentage: 90
                     },
                     {
-                        fundId: '2',
+                        fundId: 'VGIT',
                         percentage: 60
                     },
                     {
-                        fundId: '4',
+                        fundId: 'USFR',
                         percentage: -50
                     }
                 ]
@@ -97,65 +97,90 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 type: 'Custom',
                 allocations: [
                     {
-                        fundId: '7',
+                        fundId: 'NTSX',
                         percentage: 60
                     },
                     {
-                        fundId: '9',
+                        fundId: 'NTSI',
                         percentage: 20
                     },
                     {
-                        fundId: '10',
+                        fundId: 'NTSE',
                         percentage: 20
                     }
                 ]
             },
             {
                 fundId: '12',
-                name: 'Global Gilded Efficient Core A',
+                name: 'Global Gilded Efficient: 30/30/20/20',
                 description: '30/30/20/20 NTSX/GDE/NTSI/NTSE (Simulated)',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
                     {
-                        fundId: '7',
+                        fundId: 'NTSX',
                         percentage: 30
                     },
                     {
-                        fundId: '8',
+                        fundId: 'GDE',
                         percentage: 30
                     },
                     {
-                        fundId: '9',
+                        fundId: 'NTSI',
                         percentage: 20
                     },
                     {
-                        fundId: '10',
+                        fundId: 'NTSE',
                         percentage: 20
                     }
                 ]
             },
             {
                 fundId: '13',
-                name: 'Global Gilded Efficient Core B',
+                name: 'Global Gilded Efficient: 36/24/20/20',
                 description: '36/24/20/20 NTSX/GDE/NTSI/NTSE (Simulated)',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
                     {
-                        fundId: '7',
+                        fundId: 'NTSX',
                         percentage: 36
                     },
                     {
-                        fundId: '8',
+                        fundId: 'GDE',
                         percentage: 24
                     },
                     {
-                        fundId: '9',
+                        fundId: 'NTSI',
                         percentage: 20
                     },
                     {
-                        fundId: '10',
+                        fundId: 'NTSE',
+                        percentage: 20
+                    }
+                ]
+            },
+            {
+                fundId: '16',
+                name: 'Global Gilded Efficient: 24/36/20/20',
+                description: '24/36/20/20 NTSX/GDE/NTSI/NTSE (Simulated)',
+                percentage: 100,
+                type: 'Custom',
+                allocations: [
+                    {
+                        fundId: 'NTSX',
+                        percentage: 24
+                    },
+                    {
+                        fundId: 'GDE',
+                        percentage: 36
+                    },
+                    {
+                        fundId: 'NTSI',
+                        percentage: 20
+                    },
+                    {
+                        fundId: 'NTSE',
                         percentage: 20
                     }
                 ]
@@ -168,19 +193,94 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 type: 'Custom',
                 allocations: [
                     {
-                        fundId: '14',
+                        fundId: 'VTI',
                         percentage: 60
                     },
                     {
-                        fundId: '5',
+                        fundId: 'VEA',
                         percentage: 20
                     },
                     {
-                        fundId: '6',
+                        fundId: 'VWO',
                         percentage: 20
                     }
                 ]
-            }
+            },
+            {
+                fundId: 'SWAN A',
+                name: 'SWAN (70/90 SPY/VGIT)',
+                description: 'SWAN (Simualted)',
+                percentage: 100,
+                type: 'Custom',
+                allocations: [
+                    {
+                        fundId: 'SPY',
+                        percentage: 70
+                    },
+                    {
+                        fundId: 'VGIT',
+                        percentage: 90
+                    },
+                    {
+                        fundId: 'USFR',
+                        percentage: -60
+                    }
+                ]
+            },
+            {
+                fundId: 'SWAN B',
+                name: 'SWAN (70/85 SPY/IEF)',
+                description: 'SWAN (Simualted)',
+                percentage: 100,
+                type: 'Custom',
+                allocations: [
+                    {
+                        fundId: 'SPY',
+                        percentage: 70
+                    },
+                    {
+                        fundId: 'IEF',
+                        percentage: 85
+                    },
+                    {
+                        fundId: 'USFR',
+                        percentage: -55
+                    }
+                ]
+            },
+            {
+                fundId: 'AOR',
+                name: 'Balanced Fund (Global)',
+                description: '60/40 Global Equities/Intermediate Treasuries',
+                percentage: 100,
+                type: 'Custom',
+                allocations: [
+                    {
+                        fundId: 'SPY',
+                        percentage: 36
+                    },
+                    {
+                        fundId: 'VEA',
+                        percentage: 12
+                    },
+                    {
+                        fundId: 'VWO',
+                        percentage: 12
+                    },
+                    {
+                        fundId: 'VGIT',
+                        percentage: 40
+                    }
+                ]
+            } /*, {
+                fundId: 'AOR',
+                name: 'UPAR',
+                description: 'UPAR (Simualted)',
+                percentage: 100,
+                type: 'Custom',
+                allocations: [
+                ]
+            }*/
         ]
     );
 

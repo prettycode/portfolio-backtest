@@ -5,194 +5,223 @@ import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
 import { Fund } from '../../Fund/models/Fund/Fund';
 import { fetchFundByFundId } from '../../Fund/services/fetchFundByFundId';
 import { PortfolioVisualizerLink } from './PortfolioVisualizerLink';
+import { getComparisonBacktestUrl } from '../../Fund/utils/getBacktestUrl';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
 
 interface FundAnalysisProps {
-    fundAllocations: Array<FundAllocation>;
+    fundAllocations: Array<Array<FundAllocation>>;
 }
 
 const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
-    const [fundAnalysis, setFundAnalysis] = useState<FundAnalysis | undefined>(undefined);
+    const [fundAnalysis, setFundAnalysis] = useState<Array<FundAnalysis> | undefined>(undefined);
     const [fundLookupCache, setFundLookupCache] = useState<Record<string, Fund> | undefined>(undefined);
+    const [comparisonBacktestUrl, setComparisonBacktestUrl] = useState<string | undefined>(undefined);
 
     useEffect(() => {
         (async () => {
-            // TODO is this really needed?
-            if (!fundAllocations?.length) {
-                return;
-            }
-
-            const analysis: FundAnalysis = await getFundAnalysisForCustomFund(fundAllocations);
+            const analysis: Array<FundAnalysis> = await Promise.all(
+                fundAllocations.map((portfolio) => getFundAnalysisForCustomFund(portfolio))
+            );
             const cache: Record<string, Fund> = {};
 
             await Promise.all(
-                analysis.flattened.map(async (holding) => (cache[String(holding.fundId)] = await fetchFundByFundId(holding.fundId)))
+                /*fundAllocations
+                    .flatMap((a) => a.map((holding) => holding.fundId))
+                    .map(async (fundId) => (cache[fundId] = await fetchFundByFundId(fundId)))*/
+                analysis
+                    .flatMap((a) => a.flattened)
+                    .map(async (holding) => (cache[holding.fundId] = await fetchFundByFundId(holding.fundId)))
             );
 
             setFundAnalysis(analysis);
             setFundLookupCache(cache);
+            setComparisonBacktestUrl(await getComparisonBacktestUrl(analysis.map((a) => a.flattened)));
         })();
     }, [fundAllocations]);
 
     return (
-        <div>
-            {/* TODO: what we doing w/fundAnalysis.holdings */}
-
-            <h4>Portfolio Decomposed {fundAnalysis?.flattened && <PortfolioVisualizerLink allocations={fundAnalysis.flattened} />}</h4>
-            <table className="table table-sm">
-                <thead>
-                    <tr>
-                        <th>Ticker</th>
-                        <th>Name</th>
-                        <th style={{ textAlign: 'right' }}>Weight</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {fundAnalysis &&
-                        fundLookupCache &&
-                        fundAnalysis.flattened.map((fund, index) => (
-                            <tr key={index}>
-                                <td style={{ width: '1%', paddingRight: '25px' }}>{fundLookupCache[String(fund.fundId)].tickerSymbol}</td>
-                                <td>{fundLookupCache[String(fund.fundId)].name}</td>
-                                <td style={{ textAlign: 'right' }}>
-                                    {fund.percentage.toFixed(1)}%&nbsp;&nbsp;
-                                    {/*<FundAssetClassIcon assetClass={fundLookupCache[String(fund.fundId)].assetClass}></FundAssetClassIcon>*/}
-                                </td>
-                            </tr>
-                        ))}
-                </tbody>
-            </table>
-
-            {/*<table className="table table-sm">
-                <thead>
-                    <tr>
-                        <th>Asset Class</th>
-                        <th>Region</th>
-                        <th>Fund Name</th>
-                        <th style={{ textAlign: 'right' }}>Weight</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {fundAnalysis &&
-                        Object.entries(fundAnalysis.decomposed.assetByRegion).map(([assetClass, regions]) =>
-                            Object.entries(regions).map(([region, funds]) =>
-                                funds.map((fund, index) => (
-                                    <tr key={index}>
-                                        {index === 0 && <td rowSpan={funds.length}>{assetClass}</td>}
-                                        {index === 0 && <td rowSpan={funds.length}>{region}</td>}
-                                        <td>{fund.name}</td>
-                                        <td style={{ textAlign: 'right' }}>{fund.percentage.toFixed(2)}%</td>
-                                    </tr>
-                                ))
-                            )
-                        )}
-                </tbody>
-            </table>*/}
-
-            <h4>Portfolio Leverage</h4>
-            <div style={{ marginBottom: '1rem' }}>{fundAnalysis && fundAnalysis.leverage.toFixed(2)}&times;</div>
-
-            <h4>Delevered Composition {fundAnalysis?.delevered && <PortfolioVisualizerLink allocations={fundAnalysis.delevered} />}</h4>
-            <table className="table table-sm">
-                <thead>
-                    <tr>
-                        <th>Ticker</th>
-                        <th>Name</th>
-                        <th style={{ textAlign: 'right' }}>Weight</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {fundAnalysis &&
-                        fundLookupCache &&
-                        fundAnalysis.delevered.map((fund, index) => (
-                            <tr key={index}>
-                                <td style={{ width: '1%', paddingRight: '15px' }}>{fundLookupCache[String(fund.fundId)].tickerSymbol}</td>
-                                <td>{fundLookupCache[String(fund.fundId)].name}</td>
-                                <td style={{ textAlign: 'right' }}>{fund.percentage.toFixed(1)}%</td>
-                            </tr>
-                        ))}
-                </tbody>
-            </table>
-
-            <h4>Portfolio Asset Classes</h4>
-            <table className="table table-sm">
-                <thead>
-                    <tr>
-                        <th>Asset Class</th>
-                        <th style={{ textAlign: 'right' }}>Weight</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {fundAnalysis &&
-                        fundAnalysis.decomposed.marketRegion &&
-                        Object.entries(fundAnalysis.decomposed.assetClass).map(([region, funds], index) => (
-                            <tr key={index}>
-                                <td>{region}</td>
-                                <td style={{ textAlign: 'right' }}>
-                                    {funds.reduce((total, fund) => total + fund.percentage, 0).toFixed(1)}%
-                                </td>
-                            </tr>
-                        ))}
-                </tbody>
-            </table>
-
-            <h4>Portfolio Regions (All Asset Classes)</h4>
-            <table className="table table-sm">
-                <thead>
-                    <tr>
-                        <th>Region</th>
-                        <th style={{ textAlign: 'right' }}>Weight</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {fundAnalysis &&
-                        fundAnalysis.decomposed.marketRegion &&
-                        Object.entries(fundAnalysis.decomposed.marketRegion).map(([region, funds], index) => (
-                            <tr key={index}>
-                                <td>{region}</td>
-                                <td style={{ textAlign: 'right' }}>
-                                    {funds.reduce((total, fund) => total + fund.percentage, 0).toFixed(1)}%
-                                </td>
-                            </tr>
-                        ))}
-                </tbody>
-            </table>
-
+        <>
             {fundAnalysis &&
-                Object.entries(fundAnalysis.decomposed.assetByRegion).map(([assetClass, regions]) => {
-                    const totalPercentage = Object.values(regions)
-                        .flat()
-                        .reduce((acc, fund) => acc + fund.percentage, 0);
+                fundLookupCache &&
+                fundAnalysis.map((analysis, portfolioIndex) => (
+                    <div key={portfolioIndex} className="float-start" style={{ marginRight: 75 }}>
+                        <h4>
+                            {portfolioIndex > 0 ? (
+                                <>&nbsp;</>
+                            ) : (
+                                <>
+                                    Backtest Portfolios&nbsp;
+                                    <a
+                                        href={comparisonBacktestUrl}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        title="Open backtest in Portfolio Visualizer"
+                                        style={{ fontSize: '0.6em', position: 'relative', top: '-2px' }}
+                                    >
+                                        <FontAwesomeIcon icon={faExternalLink} />
+                                    </a>
+                                </>
+                            )}
+                        </h4>
 
-                    return (
-                        <React.Fragment key={assetClass}>
-                            <h4>{assetClass} by Region</h4>
-                            <table className="table table-sm">
-                                <thead>
-                                    <tr>
-                                        <th>{assetClass}</th>
-                                        <th style={{ textAlign: 'right' }}>Weight</th>
+                        {/*<h4>
+                            {portfolioIndex === 0 ? 'Portfolio' : <>&nbsp;</>}
+                            <PortfolioVisualizerLink allocations={analysis.holdings} />
+                        </h4>
+                        <table className="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Name</th>
+                                    <th style={{ textAlign: 'right' }}>Weight</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {analysis.holdings.map((fund, index) => (
+                                    <tr key={index}>
+                                        <td style={{ width: '1%', paddingRight: '25px' }}>{fundLookupCache[fund.fundId].tickerSymbol}</td>
+                                        <td>{fundLookupCache[fund.fundId].name}</td>
+                                        <td style={{ textAlign: 'right' }}>
+                                            {fund.percentage.toFixed(1)}%&nbsp;&nbsp;
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    {regions &&
-                                        Object.entries(regions).map(([region, funds]) => (
-                                            <tr key={region}>
-                                                <td>{region}</td>
-                                                <td style={{ textAlign: 'right' }}>
-                                                    {(
-                                                        (funds.reduce((acc, fund) => acc + fund.percentage, 0) / totalPercentage) *
-                                                        100
-                                                    ).toFixed(1)}
-                                                    %
-                                                </td>
+                                ))}
+                            </tbody>
+                        </table>*/}
+
+                        <h4>
+                            {portfolioIndex === 0 ? 'Portfolio Decomposed' : <>&nbsp;</>}
+                            <PortfolioVisualizerLink allocations={analysis.flattened} />
+                        </h4>
+                        <table className="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Name</th>
+                                    <th style={{ textAlign: 'right' }}>Weight</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {analysis.flattened.map((fund, index) => (
+                                    <tr key={index}>
+                                        <td style={{ width: '1%', paddingRight: '25px' }}>{fundLookupCache[fund.fundId].tickerSymbol}</td>
+                                        <td>{fundLookupCache[fund.fundId].name}</td>
+                                        <td style={{ textAlign: 'right' }}>
+                                            {fund.percentage.toFixed(1)}%&nbsp;&nbsp;
+                                            {/*<FundAssetClassIcon assetClass={fundLookupCache[String(fund.fundId)].assetClass}></FundAssetClassIcon>*/}
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+
+                        <h4>{portfolioIndex === 0 ? 'Portfolio Leverage' : <>&nbsp;</>}</h4>
+                        <div style={{ marginBottom: '1rem' }}>{analysis.leverage.toFixed(2)}&times;</div>
+
+                        <h4>
+                            {portfolioIndex === 0 ? 'Delevered Composition' : <>&nbsp;</>}
+                            <PortfolioVisualizerLink allocations={analysis.delevered} />
+                        </h4>
+                        <table className="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Ticker</th>
+                                    <th>Name</th>
+                                    <th style={{ textAlign: 'right' }}>Weight</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {analysis.delevered.map((fund, index) => (
+                                    <tr key={index}>
+                                        <td style={{ width: '1%', paddingRight: '15px' }}>
+                                            {fundLookupCache[String(fund.fundId)].tickerSymbol}
+                                        </td>
+                                        <td>{fundLookupCache[String(fund.fundId)].name}</td>
+                                        <td style={{ textAlign: 'right' }}>{fund.percentage.toFixed(1)}%</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+
+                        <h4>{portfolioIndex === 0 ? 'Portfolio Asset Classes' : <>&nbsp;</>}</h4>
+                        <table className="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Asset Class</th>
+                                    <th style={{ textAlign: 'right' }}>Weight</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {analysis.decomposed.marketRegion &&
+                                    Object.entries(analysis.decomposed.assetClass).map(([region, funds], index) => (
+                                        <tr key={index}>
+                                            <td>{region}</td>
+                                            <td style={{ textAlign: 'right' }}>
+                                                {funds.reduce((total, fund) => total + fund.percentage, 0).toFixed(1)}%
+                                            </td>
+                                        </tr>
+                                    ))}
+                            </tbody>
+                        </table>
+
+                        <h4>{portfolioIndex === 0 ? 'Portfolio Regions (All Asset Classes)' : <>&nbsp;</>}</h4>
+                        <table className="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Region</th>
+                                    <th style={{ textAlign: 'right' }}>Weight</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {Object.entries(analysis.decomposed.marketRegion).map(([region, funds], index) => (
+                                    <tr key={index}>
+                                        <td>{region}</td>
+                                        <td style={{ textAlign: 'right' }}>
+                                            {funds.reduce((total, fund) => total + fund.percentage, 0).toFixed(1)}%
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+
+                        {Object.entries(analysis.decomposed.assetByRegion).map(([assetClass, regions]) => {
+                            const totalPercentage = Object.values(regions)
+                                .flat()
+                                .reduce((acc, fund) => acc + fund.percentage, 0);
+
+                            return (
+                                <React.Fragment key={assetClass}>
+                                    <h4>{portfolioIndex === 0 ? `${assetClass} by Region` : <>&nbsp;</>}</h4>
+                                    <table className="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>{assetClass}</th>
+                                                <th style={{ textAlign: 'right' }}>Weight</th>
                                             </tr>
-                                        ))}
-                                </tbody>
-                            </table>
-                        </React.Fragment>
-                    );
-                })}
-        </div>
+                                        </thead>
+                                        <tbody>
+                                            {regions &&
+                                                Object.entries(regions).map(([region, funds]) => (
+                                                    <tr key={region}>
+                                                        <td>{region}</td>
+                                                        <td style={{ textAlign: 'right' }}>
+                                                            {(
+                                                                (funds.reduce((acc, fund) => acc + fund.percentage, 0) / totalPercentage) *
+                                                                100
+                                                            ).toFixed(1)}
+                                                            %
+                                                        </td>
+                                                    </tr>
+                                                ))}
+                                        </tbody>
+                                    </table>
+                                </React.Fragment>
+                            );
+                        })}
+                    </div>
+                ))}
+        </>
     );
 };
 
