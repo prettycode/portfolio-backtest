@@ -117,6 +117,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
 
     return (
         <>
+            <h3>Portoflio Construction</h3>
             <table className="table table-borderless">
                 <thead>
                     <tr>

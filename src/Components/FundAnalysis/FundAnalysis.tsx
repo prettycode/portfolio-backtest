@@ -48,18 +48,24 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
 
     return (
         <>
-            {comparisonBacktestUrl && (
-                <div style={{ fontWeight: 500 }}>
-                    Portfolio Decomposed Baktests&nbsp;
-                    <PortfolioVisualizerLink url={comparisonBacktestUrl} />
-                </div>
-            )}
-            {/* TODO has bug where rows don't align */}
-            {comparisonDeleveredBacktestUrl && (
-                <div style={{ fontWeight: 500 }}>
-                    Delevered Compositions Backtests&nbsp;
-                    <PortfolioVisualizerLink url={comparisonDeleveredBacktestUrl} />
-                </div>
+            <h3>Portoflio Analysis</h3>
+            {(comparisonBacktestUrl || comparisonDeleveredBacktestUrl) && (
+                <ul>
+                    {' '}
+                    {comparisonBacktestUrl && (
+                        <li style={{ fontWeight: 500 }}>
+                            Portfolio Decomposed Baktests&nbsp;
+                            <PortfolioVisualizerLink url={comparisonBacktestUrl} />
+                        </li>
+                    )}
+                    {/* TODO has bug where rows don't align */}
+                    {comparisonDeleveredBacktestUrl && (
+                        <li style={{ fontWeight: 500 }}>
+                            Delevered Compositions Backtests&nbsp;
+                            <PortfolioVisualizerLink url={comparisonDeleveredBacktestUrl} />
+                        </li>
+                    )}
+                </ul>
             )}
 
             {fundAnalysis &&
