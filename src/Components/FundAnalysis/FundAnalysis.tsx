@@ -6,9 +6,6 @@ import { Fund } from '../../Fund/models/Fund/Fund';
 import { fetchFundByFundId } from '../../Fund/services/fetchFundByFundId';
 import { PortfolioVisualizerLink } from './PortfolioVisualizerLink';
 import { getComparisonBacktestUrl } from '../../Fund/utils/getBacktestUrl';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
-import { PortfolioVisualizerBadge } from './PortfolioVisualizerBadge';
 
 interface FundAnalysisProps {
     fundAllocations: Array<Array<FundAllocation>>;
@@ -54,32 +51,14 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
             {comparisonBacktestUrl && (
                 <div style={{ fontWeight: 500 }}>
                     Portfolio Decomposed Baktests&nbsp;
-                    <PortfolioVisualizerBadge />
-                    <a
-                        href={comparisonBacktestUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title="Open backtest in Portfolio Visualizer"
-                        style={{ fontSize: '0.6em', position: 'relative', top: '-2px' }}
-                    >
-                        <FontAwesomeIcon style={{ paddingLeft: 5 }} icon={faExternalLink} />
-                    </a>
+                    <PortfolioVisualizerLink url={comparisonBacktestUrl} />
                 </div>
             )}
             {/* TODO has bug where rows don't align */}
             {comparisonDeleveredBacktestUrl && (
                 <div style={{ fontWeight: 500 }}>
                     Delevered Compositions Backtests&nbsp;
-                    <PortfolioVisualizerBadge />
-                    <a
-                        href={comparisonDeleveredBacktestUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title="Open backtest in Portfolio Visualizer"
-                        style={{ fontSize: '0.6em', position: 'relative', top: '-2px' }}
-                    >
-                        <FontAwesomeIcon style={{ paddingLeft: 5 }} icon={faExternalLink} />
-                    </a>
+                    <PortfolioVisualizerLink url={comparisonDeleveredBacktestUrl} />
                 </div>
             )}
 
@@ -114,7 +93,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
 
                         <h4>
                             {portfolioIndex === 0 ? 'Portfolio Decomposed' : <>&nbsp;</>}
-                            <PortfolioVisualizerLink allocations={analysis.flattened} />
+                            <PortfolioVisualizerLink allocations={analysis.flattened} className="float-end" />
                         </h4>
                         <table className="table table-sm">
                             <thead>
@@ -143,7 +122,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
 
                         <h4>
                             {portfolioIndex === 0 ? 'Delevered Composition' : <>&nbsp;</>}
-                            <PortfolioVisualizerLink allocations={analysis.delevered} />
+                            <PortfolioVisualizerLink allocations={analysis.delevered} className="float-end" />
                         </h4>
                         <table className="table table-sm">
                             <thead>

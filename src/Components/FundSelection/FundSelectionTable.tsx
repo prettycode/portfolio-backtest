@@ -173,7 +173,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                     <tr>
                         <td colSpan={getColumnsCount()}>
                             <div className="clearfix">
-                                <button type="button" className="btn btn-sm btn-outline-success float-start me-1" onClick={onAddRow}>
+                                <button type="button" className="btn btn-sm btn-outline-secondary float-start me-1" onClick={onAddRow}>
                                     Add Row
                                 </button>
                                 <button type="button" className="btn btn-sm btn-outline-danger float-start me-1" onClick={onClear}>
