@@ -120,6 +120,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
             <table className="table table-borderless">
                 <thead>
                     <tr>
+                        <td></td>
                         <th scope="col" style={{ width: '100%' }}>
                             Assets
                         </th>
@@ -141,6 +142,13 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                     {rows.map((row, rowIndex) => (
                         <tr key={rowIndex}>
                             <td>
+                                {rowIndex === rows.length - 1 && (
+                                    <button title="Add new row" className="btn btn-xs" style={{ padding: '2px 4px' }} onClick={onAddRow}>
+                                        <FontAwesomeIcon icon={faPlus} fixedWidth={true} />
+                                    </button>
+                                )}
+                            </td>
+                            <td>
                                 <FundSelectionDropdown
                                     funds={funds}
                                     selectedFundId={row.fundId}
@@ -161,6 +169,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                         </tr>
                     ))}
                     <tr className="border-top">
+                        <td></td>
                         <td>Total: {sumSelectedFunds()} asset(s)</td>
                         {Array.from({ length: getColumnsCount() }, (_, columnIndex) => (
                             <td key={columnIndex} style={{ textAlign: 'center' }}>
@@ -171,10 +180,14 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colSpan={getColumnsCount()}>
+                        <td></td>
+                        <td colSpan={getColumnsCount() - 1}>
                             <div className="clearfix">
                                 <button type="button" className="btn btn-sm btn-outline-secondary float-start me-1" onClick={onAddRow}>
                                     Add Row
+                                </button>
+                                <button type="button" className="btn btn-sm btn-outline-secondary float-start me-1" onClick={onAddColumn}>
+                                    Add Column
                                 </button>
                                 <button type="button" className="btn btn-sm btn-outline-danger float-start me-1" onClick={onClear}>
                                     Clear
