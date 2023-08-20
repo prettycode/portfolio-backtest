@@ -166,7 +166,15 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                             </tbody>
                         </table>
 
-                        <h4>{portfolioIndex === 0 ? 'Portfolio Regions (All Asset Classes)' : <>&nbsp;</>}</h4>
+                        <h4>
+                            {portfolioIndex === 0 ? (
+                                <>
+                                    Portfolio Regions <span style={{ fontSize: 'smaller' }}>(All Asset Classes)</span>
+                                </>
+                            ) : (
+                                <>&nbsp;</>
+                            )}
+                        </h4>
                         <table className="table table-sm">
                             <thead>
                                 <tr>
