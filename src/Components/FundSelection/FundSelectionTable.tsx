@@ -8,6 +8,7 @@ import { faChevronDown, faChevronUp, faPlus } from '@fortawesome/free-solid-svg-
 import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
 import FundAnalysis from '../FundAnalysis/FundAnalysis';
 import cloneDeep from 'lodash.clonedeep';
+import './FundSelectionTable.css';
 
 export type FundSelectionTableRow = {
     fundId: string;
@@ -169,7 +170,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                             <td style={{ padding: 0, verticalAlign: 'middle' }}>
                                 {rowIndex === rows.length - 1 && (
                                     <button title="Add new row" className="btn btn-xs" style={{ padding: '2px 4px' }} onClick={onAddRow}>
-                                        <FontAwesomeIcon icon={faPlus} fixedWidth={true} />
+                                        <FontAwesomeIcon icon={faPlus} />
                                     </button>
                                 )}
                                 {rows.length > 1 && !(rowIndex === rows.length - 1) && (
@@ -224,7 +225,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                             ))}
                         </tr>
                     ))}
-                    <tr className="border-top">
+                    <tr>
                         <td></td>
                         <td>Total: {sumSelectedFunds()} asset(s)</td>
                         {Array.from({ length: getColumnsCount() }, (_, columnIndex) => (

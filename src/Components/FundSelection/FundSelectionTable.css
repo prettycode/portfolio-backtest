@@ -1,0 +1,4 @@
+table.table tbody tr:not(:last-child) td {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
