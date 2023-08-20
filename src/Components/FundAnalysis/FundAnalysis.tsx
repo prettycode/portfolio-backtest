@@ -8,6 +8,7 @@ import { PortfolioVisualizerLink } from './PortfolioVisualizerLink';
 import { getComparisonBacktestUrl } from '../../Fund/utils/getBacktestUrl';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
+import { PortfolioVisualizerBadge } from './PortfolioVisualizerBadge';
 
 interface FundAnalysisProps {
     fundAllocations: Array<Array<FundAllocation>>;
@@ -53,6 +54,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
             {comparisonBacktestUrl && (
                 <div style={{ fontWeight: 500 }}>
                     Portfolio Decomposed Baktests&nbsp;
+                    <PortfolioVisualizerBadge />
                     <a
                         href={comparisonBacktestUrl}
                         target="_blank"
@@ -68,6 +70,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
             {comparisonDeleveredBacktestUrl && (
                 <div style={{ fontWeight: 500 }}>
                     Delevered Compositions Backtests&nbsp;
+                    <PortfolioVisualizerBadge />
                     <a
                         href={comparisonDeleveredBacktestUrl}
                         target="_blank"
