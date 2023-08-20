@@ -15,13 +15,14 @@ type Row = {
 };
 
 interface FundSelectionTableProps {
+    onCalculatePortfolios: (columnCount: number, rows: Array<Row>) => void;
     state?: {
         columnsCount: number;
         rows: Array<Row>;
     };
 }
 
-const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state }) => {
+const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalculatePortfolios }) => {
     const defaultFundId = '';
     const defaultColumnsCount = 3;
     const defaultRowsCount = 3;
@@ -44,18 +45,6 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state }) => {
         (async () => setFunds([...(await fetchCustomFunds()), ...(await fetchMarketFunds())]))();
     }, []);
 
-    // Returns the current state of the table. Used to reload table via URL
-    const getState = () => {
-        return {
-            columnsCount,
-            rows: cloneDeep(rows)
-        };
-    };
-
-    const onStateUpdated = () => {
-        console.log('State changed', new Date().toISOString(), getState(), JSON.stringify(getState()));
-    };
-
     const onAddRow = () => {
         setRows([...rows, createRow(columnsCount)]);
     };
@@ -65,21 +54,18 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state }) => {
         rowsShallowCopy.forEach((row) => row.percentage.push(0));
         setColumnsCount(columnsCount + 1);
         setRows(rowsShallowCopy);
-        onStateUpdated();
     };
 
     const onChangePercentage = (rowIndex: number, columnIndex: number, value: string) => {
         const newRows = [...rows];
         newRows[rowIndex].percentage[columnIndex] = value;
         setRows(newRows);
-        onStateUpdated();
     };
 
     const onFundSelected = (rowIndex: number, fundId: string) => {
         const newRows = [...rows];
         newRows[rowIndex].fundId = fundId;
         setRows(newRows);
-        onStateUpdated();
     };
 
     const onCalculate = () => {
@@ -114,6 +100,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state }) => {
         });
 
         setCustomPortfolios(portfolios);
+        onCalculatePortfolios(columnsCount, cloneDeep(rows));
     };
 
     return (

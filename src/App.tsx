@@ -5,7 +5,9 @@ import './App.css';
 function App() {
     return (
         <>
-            <FundSelectionTable></FundSelectionTable>
+            <FundSelectionTable
+                onCalculatePortfolios={(columnIndex, rows) => console.log(JSON.stringify({ columnIndex, rows }))}
+            ></FundSelectionTable>
         </>
     );
 }
