@@ -11,6 +11,8 @@ interface FundAnalysisProps {
     fundAllocations: Array<Array<FundAllocation>>;
 }
 
+const showRedundantTitles = true;
+
 const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
     const [fundAnalysis, setFundAnalysis] = useState<Array<FundAnalysis> | undefined>(undefined);
     const [fundLookupCache, setFundLookupCache] = useState<Record<string, Fund> | undefined>(undefined);
@@ -98,7 +100,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                         </table>*/}
 
                         <h4>
-                            {portfolioIndex === 0 ? 'Portfolio Decomposed' : <>&nbsp;</>}
+                            {showRedundantTitles || portfolioIndex === 0 ? 'Portfolio Decomposed' : <>&nbsp;</>}
                             <PortfolioVisualizerLink allocations={analysis.flattened} className="float-end" />
                         </h4>
                         <table className="table table-sm">
@@ -123,11 +125,11 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                             </tbody>
                         </table>
 
-                        <h4>{portfolioIndex === 0 ? 'Portfolio Leverage' : <>&nbsp;</>}</h4>
+                        <h4>{showRedundantTitles || portfolioIndex === 0 ? 'Portfolio Leverage' : <>&nbsp;</>}</h4>
                         <div style={{ marginBottom: '1rem' }}>{analysis.leverage.toFixed(2)}&times;</div>
 
                         <h4>
-                            {portfolioIndex === 0 ? 'Delevered Composition' : <>&nbsp;</>}
+                            {showRedundantTitles || portfolioIndex === 0 ? 'Delevered Composition' : <>&nbsp;</>}
                             <PortfolioVisualizerLink allocations={analysis.delevered} className="float-end" />
                         </h4>
                         <table className="table table-sm">
@@ -151,7 +153,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                             </tbody>
                         </table>
 
-                        <h4>{portfolioIndex === 0 ? 'Portfolio Asset Classes' : <>&nbsp;</>}</h4>
+                        <h4>{showRedundantTitles || portfolioIndex === 0 ? 'Portfolio Asset Classes' : <>&nbsp;</>}</h4>
                         <table className="table table-sm">
                             <thead>
                                 <tr>
@@ -173,7 +175,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                         </table>
 
                         <h4>
-                            {portfolioIndex === 0 ? (
+                            {showRedundantTitles || portfolioIndex === 0 ? (
                                 <>
                                     Portfolio Regions <span style={{ fontSize: 'smaller' }}>(All Asset Classes)</span>
                                 </>
@@ -207,7 +209,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
 
                             return (
                                 <React.Fragment key={assetClass}>
-                                    <h4>{portfolioIndex === 0 ? `${assetClass} by Region` : <>&nbsp;</>}</h4>
+                                    <h4>{showRedundantTitles || portfolioIndex === 0 ? `${assetClass} by Region` : <>&nbsp;</>}</h4>
                                     <table className="table table-sm">
                                         <thead>
                                             <tr>
