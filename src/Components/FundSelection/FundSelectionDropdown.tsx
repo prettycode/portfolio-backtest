@@ -10,9 +10,10 @@ type FundSelectionDropdownProps = {
     funds: Array<Fund>;
     onFundSelected: (fundId: string) => void;
     className?: string | undefined;
+    selectedFundId?: string | undefined;
 };
 
-export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({ funds, onFundSelected, className }) => {
+export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({ funds, onFundSelected, className, selectedFundId }) => {
     const options: OptionType[] = funds
         .map((fund) => ({
             value: fund.fundId,
@@ -34,9 +35,7 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({ fu
     };
 
     const handleChange = (selectedOption: OptionType | null) => {
-        if (selectedOption) {
-            onFundSelected(selectedOption.value);
-        }
+        onFundSelected(!selectedOption ? '' /* defaultFundId */ : selectedOption.value);
     };
 
     return (
@@ -45,6 +44,7 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({ fu
             styles={customStyles}
             isClearable={true}
             options={options}
+            value={selectedFundId ? options.find((option) => option.value === selectedFundId) : undefined}
             placeholder="Search for asset..."
             openMenuOnClick={false}
             isSearchable={true}

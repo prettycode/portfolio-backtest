@@ -6,6 +6,48 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
     Promise.resolve(
         mock || [
             {
+                fundId: 'US Defensive',
+                name: 'US Defensive (XLU/XLP/XLV)',
+                description: '',
+                percentage: 100,
+                type: 'Custom',
+                allocations: [
+                    {
+                        fundId: 'XLU',
+                        percentage: 33.4
+                    },
+                    {
+                        fundId: 'XLP',
+                        percentage: 33.3
+                    },
+                    {
+                        fundId: 'XLV',
+                        percentage: 33.3
+                    }
+                ]
+            },
+            {
+                fundId: 'VT',
+                name: 'VT (60/27/13 US/Intl. Developed/EM)',
+                description: 'VT (Simulated)',
+                percentage: 100,
+                type: 'Custom',
+                allocations: [
+                    {
+                        fundId: 'VTI',
+                        percentage: 60
+                    },
+                    {
+                        fundId: 'VEA',
+                        percentage: 26.6
+                    },
+                    {
+                        fundId: 'VWO',
+                        percentage: 13.4
+                    }
+                ]
+            },
+            {
                 fundId: 'NTSX',
                 name: 'NTSX (90/60 US-only)',
                 description: 'NTSX (Simulated)',
@@ -205,7 +247,22 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                         percentage: 20
                     }
                 ]
-            },
+            } /*
+            {
+                fundId: 'UPAR',
+                name: 'UPAR',
+                description: 'Should match global equities return',
+                percentage: 100,
+                type: 'Custom',
+                allocations: [
+                    { fundId: 'TIPS', percentage: 49 },
+                    { fundId: 'Treasuries', percentage: 49 },
+                    { fundId: 'Gold', percentage: 14 },
+                    { fundId: 'VT', percentage: 35 },
+                    { fundId: 'GUNR', percentage: 21 },
+                    { fundId: 'USFR', percentage: -68 }
+                ]
+            },*/,
             {
                 fundId: 'SWAN A',
                 name: 'SWAN (70/90 SPY/VGIT)',

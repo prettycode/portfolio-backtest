@@ -17,6 +17,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
     const [fundAnalysis, setFundAnalysis] = useState<Array<FundAnalysis> | undefined>(undefined);
     const [fundLookupCache, setFundLookupCache] = useState<Record<string, Fund> | undefined>(undefined);
     const [comparisonBacktestUrl, setComparisonBacktestUrl] = useState<string | undefined>(undefined);
+    const [comparisonDeleveredBacktestUrl, setComparisonDeleveredBacktestUrl] = useState<string | undefined>(undefined);
 
     useEffect(() => {
         (async () => {
@@ -36,35 +37,53 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
 
             setFundAnalysis(analysis);
             setFundLookupCache(cache);
-            setComparisonBacktestUrl(await getComparisonBacktestUrl(analysis.map((a) => a.flattened)));
+
+            if (analysis.length > 1) {
+                setComparisonBacktestUrl(await getComparisonBacktestUrl(analysis.map((a) => a.flattened)));
+                setComparisonDeleveredBacktestUrl(await getComparisonBacktestUrl(analysis.map((a) => a.delevered)));
+            } else {
+                setComparisonBacktestUrl(undefined);
+                setComparisonDeleveredBacktestUrl(undefined);
+            }
         })();
     }, [fundAllocations]);
 
     return (
         <>
+            {comparisonBacktestUrl && (
+                <div style={{ fontWeight: 500 }}>
+                    Portfolio Decomposed Baktests&nbsp;
+                    <a
+                        href={comparisonBacktestUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Open backtest in Portfolio Visualizer"
+                        style={{ fontSize: '0.6em', position: 'relative', top: '-2px' }}
+                    >
+                        <FontAwesomeIcon style={{ paddingLeft: 5 }} icon={faExternalLink} />
+                    </a>
+                </div>
+            )}
+            {/* TODO has bug where rows don't align */}
+            {comparisonDeleveredBacktestUrl && (
+                <div style={{ fontWeight: 500 }}>
+                    Delevered Compositions Backtests&nbsp;
+                    <a
+                        href={comparisonDeleveredBacktestUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Open backtest in Portfolio Visualizer"
+                        style={{ fontSize: '0.6em', position: 'relative', top: '-2px' }}
+                    >
+                        <FontAwesomeIcon style={{ paddingLeft: 5 }} icon={faExternalLink} />
+                    </a>
+                </div>
+            )}
+
             {fundAnalysis &&
                 fundLookupCache &&
                 fundAnalysis.map((analysis, portfolioIndex) => (
                     <div key={portfolioIndex} className="float-start" style={{ marginRight: 75 }}>
-                        <h4>
-                            {portfolioIndex > 0 ? (
-                                <>&nbsp;</>
-                            ) : (
-                                <>
-                                    Backtest Portfolios&nbsp;
-                                    <a
-                                        href={comparisonBacktestUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        title="Open backtest in Portfolio Visualizer"
-                                        style={{ fontSize: '0.6em', position: 'relative', top: '-2px' }}
-                                    >
-                                        <FontAwesomeIcon icon={faExternalLink} />
-                                    </a>
-                                </>
-                            )}
-                        </h4>
-
                         {/*<h4>
                             {portfolioIndex === 0 ? 'Portfolio' : <>&nbsp;</>}
                             <PortfolioVisualizerLink allocations={analysis.holdings} />
@@ -206,10 +225,13 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                                                     <tr key={region}>
                                                         <td>{region}</td>
                                                         <td style={{ textAlign: 'right' }}>
-                                                            {(
-                                                                (funds.reduce((acc, fund) => acc + fund.percentage, 0) / totalPercentage) *
-                                                                100
-                                                            ).toFixed(1)}
+                                                            {totalPercentage === 0 && <>{(0).toFixed(1)}</>}
+                                                            {totalPercentage !== 0 &&
+                                                                (
+                                                                    (funds.reduce((acc, fund) => acc + fund.percentage, 0) /
+                                                                        totalPercentage) *
+                                                                    100
+                                                                ).toFixed(1)}
                                                             %
                                                         </td>
                                                     </tr>

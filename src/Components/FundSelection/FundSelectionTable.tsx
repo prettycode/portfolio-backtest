@@ -7,43 +7,58 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
 import FundAnalysis from '../FundAnalysis/FundAnalysis';
+import cloneDeep from 'lodash.clonedeep';
 
-type Row = {
+export type FundSelectionTableRow = {
     fundId: string;
     percentage: Array<string | number>;
 };
 
-interface FundSelectionTableProps {
+export interface FundSelectionTableProps {
+    onCalculatePortfolios: (columnCount: number, rows: Array<FundSelectionTableRow>) => void;
     state?: {
-        columnsCount: number;
-        rows: Array<Row>;
+        columnCount: number;
+        rows: Array<FundSelectionTableRow>;
     };
 }
 
-const FundSelectionTable: React.FC<FundSelectionTableProps | undefined> = (/*{ state }*/) => {
-    // TODO load from state instead of defaults
-
+const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalculatePortfolios }) => {
     const defaultFundId = '';
     const defaultColumnsCount = 3;
-    const defaultRowsCount = 4;
+    const defaultRowsCount = 3;
 
-    const createRow = (columnCountInRow: number): Row => ({ fundId: defaultFundId, percentage: new Array(columnCountInRow).fill(0) });
+    const createRow = (columnCountInRow: number): FundSelectionTableRow => ({
+        fundId: defaultFundId,
+        percentage: new Array(columnCountInRow).fill(0)
+    });
     const getColumnsCount = (): number => rows.reduce((max, row) => Math.max(max, row.percentage.length), 0);
     const sumColumn = (columnIndex: number): number => rows.reduce((sum, row) => sum + Number(row.percentage[columnIndex]), 0);
     const sumSelectedFunds = (): number => rows.reduce((sum, row) => sum + (row.fundId === defaultFundId ? 0 : 1), 0);
 
     const [funds, setFunds] = useState<Array<Fund>>([]);
-    const [rows, setRows] = useState<Row[]>(Array.from({ length: defaultRowsCount }, () => createRow(defaultColumnsCount)));
-    const [columnsCount, setColumnsCount] = useState<number>(defaultColumnsCount);
+    const [rows, setRows] = useState<FundSelectionTableRow[]>(
+        state ? state.rows : Array.from({ length: defaultRowsCount }, () => createRow(defaultColumnsCount))
+    );
+    const [columnsCount, setColumnsCount] = useState<number>(state ? state.columnCount : defaultColumnsCount);
 
     const [customPortfolios, setCustomPortfolios] = useState<Array<Array<FundAllocation>> | undefined>(undefined);
 
+    // Load funds into state for lookup dropdown
     useEffect(() => {
         (async () => setFunds([...(await fetchCustomFunds()), ...(await fetchMarketFunds())]))();
     }, []);
 
     const onAddRow = () => {
         setRows([...rows, createRow(columnsCount)]);
+    };
+
+    const onClear = () => {
+        setRows(Array.from({ length: rows.length }, () => createRow(columnsCount)));
+    };
+
+    const onReset = () => {
+        setColumnsCount(defaultColumnsCount);
+        setRows(Array.from({ length: defaultRowsCount }, () => createRow(defaultColumnsCount)));
     };
 
     const onAddColumn = () => {
@@ -97,11 +112,12 @@ const FundSelectionTable: React.FC<FundSelectionTableProps | undefined> = (/*{ s
         });
 
         setCustomPortfolios(portfolios);
+        onCalculatePortfolios(columnsCount, cloneDeep(rows));
     };
 
     return (
         <>
-            <table className="table rounded" style={{ width: 840 }}>
+            <table className="table table-borderless">
                 <thead>
                     <tr>
                         <th scope="col" style={{ width: '100%' }}>
@@ -127,13 +143,14 @@ const FundSelectionTable: React.FC<FundSelectionTableProps | undefined> = (/*{ s
                             <td>
                                 <FundSelectionDropdown
                                     funds={funds}
+                                    selectedFundId={row.fundId}
                                     onFundSelected={(fundId: string) => onFundSelected(rowIndex, fundId)}
                                 />
                             </td>
                             {row.percentage.map((percentageInColumn, columnIndex) => (
                                 <td key={columnIndex}>
                                     <input
-                                        className={'form-control'}
+                                        className={'form-control form-control-sm'}
                                         style={{ textAlign: 'center' }}
                                         type="text"
                                         value={percentageInColumn.toString()}
@@ -143,7 +160,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps | undefined> = (/*{ s
                             ))}
                         </tr>
                     ))}
-                    <tr>
+                    <tr className="border-top">
                         <td>Total: {sumSelectedFunds()} asset(s)</td>
                         {Array.from({ length: getColumnsCount() }, (_, columnIndex) => (
                             <td key={columnIndex} style={{ textAlign: 'center' }}>
@@ -152,16 +169,31 @@ const FundSelectionTable: React.FC<FundSelectionTableProps | undefined> = (/*{ s
                         ))}
                     </tr>
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <td colSpan={getColumnsCount()}>
+                            <div className="clearfix">
+                                <button type="button" className="btn btn-sm btn-outline-success float-start me-1" onClick={onAddRow}>
+                                    Add Row
+                                </button>
+                                <button type="button" className="btn btn-sm btn-outline-danger float-start me-1" onClick={onClear}>
+                                    Clear
+                                </button>
+                                <button
+                                    type="button"
+                                    className="btn btn-sm btn-outline-danger  btn-outline-secondary float-start me-1"
+                                    onClick={onReset}
+                                >
+                                    Reset
+                                </button>
+                                <button type="button" className="btn btn-sm btn-outline-primary float-start me-1" onClick={onCalculate}>
+                                    Calculate
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
-
-            <div className="clearfix">
-                <button type="button" className="btn btn-sm btn-outline-secondary float-start" onClick={onAddRow}>
-                    Add Row
-                </button>
-                <button type="button" className="btn btn-sm btn-outline-primary float-end" onClick={onCalculate}>
-                    Calculate
-                </button>
-            </div>
 
             {customPortfolios && (
                 <div style={{ marginTop: '40px' }}>

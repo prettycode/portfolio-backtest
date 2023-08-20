@@ -17,6 +17,39 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 allocations: []
             },
             {
+                fundId: 'XLU',
+                name: 'XLU (US Utilities)',
+                description: '',
+                tickerSymbol: 'XLU',
+                percentage: 100,
+                type: 'ETF',
+                marketRegion: 'US',
+                assetClass: 'Equity',
+                allocations: []
+            },
+            {
+                fundId: 'XLP',
+                name: 'XLP (US Consumer Staples)',
+                description: '',
+                tickerSymbol: 'XLP',
+                percentage: 100,
+                type: 'ETF',
+                marketRegion: 'US',
+                assetClass: 'Equity',
+                allocations: []
+            },
+            {
+                fundId: 'XLV',
+                name: 'XLV (US Healthcare)',
+                description: '',
+                tickerSymbol: 'XLV',
+                percentage: 100,
+                type: 'ETF',
+                marketRegion: 'US',
+                assetClass: 'Equity',
+                allocations: []
+            },
+            {
                 fundId: 'SPY',
                 name: 'S&P 500',
                 description: 'Vanguard 500 Index Fund Investor Shares',
