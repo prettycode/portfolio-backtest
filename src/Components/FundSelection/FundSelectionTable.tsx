@@ -109,8 +109,6 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
         const portfolios: Array<Array<FundAllocation>> = [];
 
         Array.from({ length: getColumnsCount() }, (_, index) => index).forEach((columnIndex) => {
-            // Column = portfolio
-
             // If portfolio doesn't add up to 100, can't calculate this portfolio--skip adding it
             if (sumColumn(columnIndex) !== 100) {
                 return;
@@ -142,26 +140,27 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
 
     return (
         <>
-            <h3>Portoflio Construction</h3>
+            <h3>Portoflio(s’) Constituent(s)</h3>
             <table className="table table-borderless">
                 <thead>
                     <tr>
-                        <td></td>
+                        <th></th>
+                        <th></th>
+
+                        <th className="text-center" colSpan={columnsCount}>
+                            Weight (%) in Portfolios
+                        </th>
+                    </tr>
+                    <tr>
+                        <th></th>
                         <th scope="col" style={{ width: '100%' }}>
                             Assets
                         </th>
-
-                        {/*Array(getColumnsCount())
-                            .fill(null)
-                            .map((_, index) => (
-                                <th key={index} scope="col" style={{ whiteSpace: 'nowrap' }}>
-                                    Weight
-                                </th>
-                            ))*/}
-
-                        <th className="text-center" colSpan={columnsCount}>
-                            Weight (%)
-                        </th>
+                        {Array.from({ length: columnsCount }).map((_, index) => (
+                            <th key={index} className="text-center">
+                                P{index + 1}
+                            </th>
+                        ))}
                         <th>
                             <button title="Add new column" className="btn btn-xs" style={{ padding: '2px 4px' }} onClick={onAddColumn}>
                                 <FontAwesomeIcon icon={faPlus} fixedWidth={true} />
@@ -220,7 +219,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                             {row.percentage.map((percentageInColumn, columnIndex) => (
                                 <td key={columnIndex}>
                                     <input
-                                        className={'form-control form-control-sm'}
+                                        className="form-control"
                                         style={{ textAlign: 'center', width: 65 }}
                                         type="text"
                                         value={percentageInColumn.toString()}

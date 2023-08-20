@@ -26,7 +26,6 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({ fu
     const customStyles: StylesConfig<OptionType, false> = {
         control: (provided) => ({
             ...provided,
-            minHeight: 'calc(1.5em + .75rem + 2px)',
             padding: '0',
             fontSize: '.875rem',
             lineHeight: '1.5',

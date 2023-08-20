@@ -6,6 +6,7 @@ import { Fund } from '../../Fund/models/Fund/Fund';
 import { fetchFundByFundId } from '../../Fund/services/fetchFundByFundId';
 import { PortfolioVisualizerLink } from './PortfolioVisualizerLink';
 import { getComparisonBacktestUrl } from '../../Fund/utils/getBacktestUrl';
+import './FundAnalysis.css';
 
 interface FundAnalysisProps {
     fundAllocations: Array<Array<FundAllocation>>;
@@ -53,7 +54,6 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
             <h3>Portoflio Analysis</h3>
             {(comparisonBacktestUrl || comparisonDeleveredBacktestUrl) && (
                 <ul>
-                    {' '}
                     {comparisonBacktestUrl && (
                         <li style={{ fontWeight: 500 }}>
                             Portfolio Decomposed Baktests&nbsp;

@@ -11,13 +11,17 @@ function App() {
 
     return (
         <>
-            <FundSelectionTable
-                state={stateDeserialized}
-                onCalculatePortfolios={(columnCount, rows) => {
-                    const newSearch = new URLSearchParams({ state: JSON.stringify({ columnCount, rows }) }).toString();
-                    console.log(newSearch);
-                }}
-            ></FundSelectionTable>
+            <h3>Load Custom Portfolio</h3>
+            <div>TODO</div>
+            <div style={{ marginTop: 40 }}>
+                <FundSelectionTable
+                    state={stateDeserialized}
+                    onCalculatePortfolios={(columnCount, rows) => {
+                        const newSearch = new URLSearchParams({ state: JSON.stringify({ columnCount, rows }) }).toString();
+                        console.log(newSearch);
+                    }}
+                ></FundSelectionTable>
+            </div>
         </>
     );
 }
