@@ -11,8 +11,6 @@ function App() {
 
     return (
         <>
-            <h3>Load Custom Portfolio</h3>
-            <div>TODO</div>
             <div style={{ marginTop: 40 }}>
                 <FundSelectionTable
                     state={stateDeserialized}

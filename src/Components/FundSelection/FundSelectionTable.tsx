@@ -140,13 +140,12 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
 
     return (
         <>
-            <h3>Portoflio(s’) Constituent(s)</h3>
+            <h3>Custom Portfolios</h3>
             <table className="table table-borderless">
                 <thead>
                     <tr>
                         <th></th>
-                        <th></th>
-
+                        <th>Load Comparison:</th>
                         <th className="text-center" colSpan={columnsCount}>
                             Weight (%) in Portfolios
                         </th>
