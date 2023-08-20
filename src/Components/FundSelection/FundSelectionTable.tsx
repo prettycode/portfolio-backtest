@@ -150,13 +150,18 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                         <th scope="col" style={{ width: '100%' }}>
                             Assets
                         </th>
-                        {Array(getColumnsCount())
+
+                        {/*Array(getColumnsCount())
                             .fill(null)
                             .map((_, index) => (
                                 <th key={index} scope="col" style={{ whiteSpace: 'nowrap' }}>
-                                    Weight (%)
+                                    Weight
                                 </th>
-                            ))}
+                            ))*/}
+
+                        <th className="text-center" colSpan={columnsCount}>
+                            Weight (%)
+                        </th>
                         <th>
                             <button title="Add new column" className="btn btn-xs" style={{ padding: '2px 4px' }} onClick={onAddColumn}>
                                 <FontAwesomeIcon icon={faPlus} fixedWidth={true} />
@@ -216,7 +221,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                                 <td key={columnIndex}>
                                     <input
                                         className={'form-control form-control-sm'}
-                                        style={{ textAlign: 'center' }}
+                                        style={{ textAlign: 'center', width: 65 }}
                                         type="text"
                                         value={percentageInColumn.toString()}
                                         onChange={(e) => onChangePercentage(rowIndex, columnIndex, e.target.value)}
