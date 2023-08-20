@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
 import FundAnalysis from '../FundAnalysis/FundAnalysis';
+import cloneDeep from 'lodash.clonedeep';
 
 type Row = {
     fundId: string;
@@ -20,12 +21,10 @@ interface FundSelectionTableProps {
     };
 }
 
-const FundSelectionTable: React.FC<FundSelectionTableProps | undefined> = (/*{ state }*/) => {
-    // TODO load from state instead of defaults
-
+const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state }) => {
     const defaultFundId = '';
     const defaultColumnsCount = 3;
-    const defaultRowsCount = 4;
+    const defaultRowsCount = 3;
 
     const createRow = (columnCountInRow: number): Row => ({ fundId: defaultFundId, percentage: new Array(columnCountInRow).fill(0) });
     const getColumnsCount = (): number => rows.reduce((max, row) => Math.max(max, row.percentage.length), 0);
@@ -33,14 +32,29 @@ const FundSelectionTable: React.FC<FundSelectionTableProps | undefined> = (/*{ s
     const sumSelectedFunds = (): number => rows.reduce((sum, row) => sum + (row.fundId === defaultFundId ? 0 : 1), 0);
 
     const [funds, setFunds] = useState<Array<Fund>>([]);
-    const [rows, setRows] = useState<Row[]>(Array.from({ length: defaultRowsCount }, () => createRow(defaultColumnsCount)));
-    const [columnsCount, setColumnsCount] = useState<number>(defaultColumnsCount);
+    const [rows, setRows] = useState<Row[]>(
+        state ? state.rows : Array.from({ length: defaultRowsCount }, () => createRow(defaultColumnsCount))
+    );
+    const [columnsCount, setColumnsCount] = useState<number>(state ? state.columnsCount : defaultColumnsCount);
 
     const [customPortfolios, setCustomPortfolios] = useState<Array<Array<FundAllocation>> | undefined>(undefined);
 
+    // Load funds into state for lookup dropdown
     useEffect(() => {
         (async () => setFunds([...(await fetchCustomFunds()), ...(await fetchMarketFunds())]))();
     }, []);
+
+    // Returns the current state of the table. Used to reload table via URL
+    const getState = () => {
+        return {
+            columnsCount,
+            rows: cloneDeep(rows)
+        };
+    };
+
+    const onStateUpdated = () => {
+        console.log('State changed', new Date().toISOString(), getState(), JSON.stringify(getState()));
+    };
 
     const onAddRow = () => {
         setRows([...rows, createRow(columnsCount)]);
@@ -51,18 +65,21 @@ const FundSelectionTable: React.FC<FundSelectionTableProps | undefined> = (/*{ s
         rowsShallowCopy.forEach((row) => row.percentage.push(0));
         setColumnsCount(columnsCount + 1);
         setRows(rowsShallowCopy);
+        onStateUpdated();
     };
 
     const onChangePercentage = (rowIndex: number, columnIndex: number, value: string) => {
         const newRows = [...rows];
         newRows[rowIndex].percentage[columnIndex] = value;
         setRows(newRows);
+        onStateUpdated();
     };
 
     const onFundSelected = (rowIndex: number, fundId: string) => {
         const newRows = [...rows];
         newRows[rowIndex].fundId = fundId;
         setRows(newRows);
+        onStateUpdated();
     };
 
     const onCalculate = () => {
