@@ -4,7 +4,7 @@ import { fetchMarketFunds } from '../../Fund/services/fetchMarketFunds';
 import { fetchCustomFunds } from '../../Fund/services/fetchCustomFunds';
 import { FundSelectionDropdown } from './FundSelectionDropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faChevronUp, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
 import FundAnalysis from '../FundAnalysis/FundAnalysis';
 import cloneDeep from 'lodash.clonedeep';
@@ -80,6 +80,30 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
         setRows(newRows);
     };
 
+    const onMoveRowUp = (rowIndex: number) => {
+        if (rowIndex === 0) {
+            throw new Error('Cannot move the first row up.');
+        }
+
+        const newRows = [...rows];
+        const tempRow = newRows[rowIndex];
+        newRows[rowIndex] = newRows[rowIndex - 1];
+        newRows[rowIndex - 1] = tempRow;
+        setRows(newRows);
+    };
+
+    const onMoveRowDown = (rowIndex: number) => {
+        if (rowIndex === rows.length - 1) {
+            throw new Error('Cannot move the last row down.');
+        }
+
+        const newRows = [...rows];
+        const tempRow = newRows[rowIndex];
+        newRows[rowIndex] = newRows[rowIndex + 1];
+        newRows[rowIndex + 1] = tempRow;
+        setRows(newRows);
+    };
+
     const onCalculate = () => {
         const portfolios: Array<Array<FundAllocation>> = [];
 
@@ -142,13 +166,32 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                 <tbody>
                     {rows.map((row, rowIndex) => (
                         <tr key={rowIndex}>
-                            <td>
+                            <td style={{ padding: 0, verticalAlign: 'middle' }}>
                                 {rowIndex === rows.length - 1 && (
                                     <button title="Add new row" className="btn btn-xs" style={{ padding: '2px 4px' }} onClick={onAddRow}>
                                         <FontAwesomeIcon icon={faPlus} fixedWidth={true} />
                                     </button>
                                 )}
+                                {rows.length > 1 && !(rowIndex === rows.length - 1) && (
+                                    <div
+                                        style={{
+                                            display: 'flex',
+                                            flexDirection: 'column',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            height: '100%'
+                                        }}
+                                    >
+                                        {rowIndex !== 0 && (
+                                            <FontAwesomeIcon icon={faChevronUp} size="xs" onClick={() => onMoveRowUp(rowIndex)} />
+                                        )}
+                                        {rowIndex !== rows.length - 1 && (
+                                            <FontAwesomeIcon icon={faChevronDown} onClick={() => onMoveRowDown(rowIndex)} size="xs" />
+                                        )}
+                                    </div>
+                                )}
                             </td>
+
                             <td>
                                 <FundSelectionDropdown
                                     funds={funds}
