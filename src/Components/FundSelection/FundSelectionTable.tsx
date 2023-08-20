@@ -183,10 +183,22 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                                         }}
                                     >
                                         {rowIndex !== 0 && (
-                                            <FontAwesomeIcon icon={faChevronUp} size="xs" onClick={() => onMoveRowUp(rowIndex)} />
+                                            <button
+                                                className="btn btn-xs"
+                                                style={{ padding: '0 4px' }}
+                                                onClick={() => onMoveRowUp(rowIndex)}
+                                            >
+                                                <FontAwesomeIcon icon={faChevronUp} />
+                                            </button>
                                         )}
                                         {rowIndex !== rows.length - 1 && (
-                                            <FontAwesomeIcon icon={faChevronDown} onClick={() => onMoveRowDown(rowIndex)} size="xs" />
+                                            <button
+                                                className="btn btn-xs"
+                                                style={{ padding: '0 4px' }}
+                                                onClick={() => onMoveRowDown(rowIndex)}
+                                            >
+                                                <FontAwesomeIcon icon={faChevronDown} />
+                                            </button>
                                         )}
                                     </div>
                                 )}
