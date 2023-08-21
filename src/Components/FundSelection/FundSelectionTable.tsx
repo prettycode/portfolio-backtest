@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Fund } from '../../Fund/models/Fund/Fund';
 import { fetchMarketFunds } from '../../Fund/services/fetchMarketFunds';
 import { fetchCustomFunds } from '../../Fund/services/fetchCustomFunds';
@@ -44,10 +44,19 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
     const [columnsCount, setColumnsCount] = useState<number>(state ? state.columnCount : defaultColumnsCount);
     const [customPortfolios, setCustomPortfolios] = useState<Array<Array<FundAllocation>> | undefined>(undefined);
 
+    const triggerCalculation = useRef(false);
+
     // Load funds into state for lookup dropdown
     useEffect(() => {
         (async () => setFunds([...(await fetchCustomFunds()), ...(await fetchMarketFunds())]))();
     }, []);
+
+    useEffect(() => {
+        if (triggerCalculation.current) {
+            onCalculate();
+            triggerCalculation.current = false;
+        }
+    }, [rows]);
 
     const onAddRow = () => {
         setRows([...rows, createRow(columnsCount)]);
@@ -118,8 +127,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
         });
 
         setRows(newRows);
-        // TODO this isn't working
-        setTimeout(onCalculate);
+        triggerCalculation.current = true;
     };
 
     const onCalculate = () => {
