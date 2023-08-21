@@ -11,9 +11,16 @@ type FundSelectionDropdownProps = {
     onFundSelected: (fundId: string) => void;
     className?: string | undefined;
     selectedFundId?: string | undefined;
+    isMulti?: boolean | undefined;
 };
 
-export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({ funds, onFundSelected, className, selectedFundId }) => {
+export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({
+    funds,
+    onFundSelected,
+    className,
+    selectedFundId,
+    isMulti
+}) => {
     const options: OptionType[] = funds
         .map((fund) => ({
             value: fund.fundId,
@@ -39,6 +46,7 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({ fu
 
     return (
         <Select
+            isMulti={isMulti as false | undefined}
             className={className}
             styles={customStyles}
             isClearable={true}

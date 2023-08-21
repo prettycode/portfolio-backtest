@@ -14,6 +14,7 @@ Issues with Portfolio Visualizer:
 
 TODO:
 
-1. Load portfolio
-2. Disable row
-3. Form validation
+1. Load comparison
+2. Disable row/column
+3. Delete row/column
+4. Form validation
