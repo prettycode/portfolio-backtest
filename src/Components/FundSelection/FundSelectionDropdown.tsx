@@ -34,9 +34,9 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({
     const options: OptionType[] = funds
         .map((fund) => ({
             value: fund.fundId,
-            label: `${fund.assetClass || fund.type}: ${fund.name || '[no name]'} (${fund.tickerSymbol || fund.fundId}${
-                fund.description ? `: ${fund.description}` : ''
-            })`
+            label:
+                `${fund.assetClass || fund.type}: ${fund.name || '[no name]'} ${fund.tickerSymbol ? `(${fund.tickerSymbol})` : ''}` +
+                (!isMulti ? `${fund.description ? ` [${fund.description}]` : ''}` : '')
         }))
         .sort((a, b) => a.label?.localeCompare(b.label || '') || 0);
 
