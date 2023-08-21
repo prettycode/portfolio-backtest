@@ -147,8 +147,11 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                 <thead>
                     <tr>
                         <th></th>
+                        <th>Compare Assets</th>
+                    </tr>
+                    <tr>
+                        <th></th>
                         <th style={{ fontWeight: 'normal', display: 'flex', alignItems: 'center', flexWrap: 'nowrap' }}>
-                            <span style={{ marginRight: 10, whiteSpace: 'nowrap', fontSize: 'smaller' }}>Load multiple assets:</span>
                             <span style={{ width: '100%' }}>
                                 <FundSelectionDropdown onFundSelected={(fundId: string) => console.log(fundId)} isMulti funds={funds} />
                             </span>
@@ -172,10 +175,10 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                     <tr>
                         <th></th>
                         <th scope="col" style={{ width: '100%' }}>
-                            Assets
+                            Assets in Portfolios
                         </th>
                         {Array.from({ length: columnsCount }).map((_, index) => (
-                            <th key={index} className="text-center">
+                            <th key={index} className="text-center" title={`Portfolio ${index + 1}`}>
                                 P{index + 1}
                             </th>
                         ))}
