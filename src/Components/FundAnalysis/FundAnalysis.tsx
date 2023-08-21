@@ -6,17 +6,19 @@ import { Fund } from '../../Fund/models/Fund/Fund';
 import { fetchFundByFundId } from '../../Fund/services/fetchFundByFundId';
 import { PortfolioVisualizerLink } from './PortfolioVisualizerLink';
 import { getComparisonBacktestUrl } from '../../Fund/utils/getBacktestUrl';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
+import './FundAnalysis.css';
 
 interface FundAnalysisProps {
     fundAllocations: Array<Array<FundAllocation>>;
 }
 
+const showRedundantTitles = true;
+
 const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
     const [fundAnalysis, setFundAnalysis] = useState<Array<FundAnalysis> | undefined>(undefined);
     const [fundLookupCache, setFundLookupCache] = useState<Record<string, Fund> | undefined>(undefined);
     const [comparisonBacktestUrl, setComparisonBacktestUrl] = useState<string | undefined>(undefined);
+    const [comparisonDeleveredBacktestUrl, setComparisonDeleveredBacktestUrl] = useState<string | undefined>(undefined);
 
     useEffect(() => {
         (async () => {
@@ -36,35 +38,42 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
 
             setFundAnalysis(analysis);
             setFundLookupCache(cache);
-            setComparisonBacktestUrl(await getComparisonBacktestUrl(analysis.map((a) => a.flattened)));
+
+            if (analysis.length > 1) {
+                setComparisonBacktestUrl(await getComparisonBacktestUrl(analysis.map((a) => a.flattened)));
+                setComparisonDeleveredBacktestUrl(await getComparisonBacktestUrl(analysis.map((a) => a.delevered)));
+            } else {
+                setComparisonBacktestUrl(undefined);
+                setComparisonDeleveredBacktestUrl(undefined);
+            }
         })();
     }, [fundAllocations]);
 
     return (
         <>
+            <h3>Portoflio Analysis</h3>
+            {(comparisonBacktestUrl || comparisonDeleveredBacktestUrl) && (
+                <ul>
+                    {comparisonBacktestUrl && (
+                        <li style={{ fontWeight: 500 }}>
+                            Portfolio Decomposed Baktests&nbsp;
+                            <PortfolioVisualizerLink url={comparisonBacktestUrl} />
+                        </li>
+                    )}
+                    {/* TODO has bug where rows don't align */}
+                    {comparisonDeleveredBacktestUrl && (
+                        <li style={{ fontWeight: 500 }}>
+                            Delevered Compositions Backtests&nbsp;
+                            <PortfolioVisualizerLink url={comparisonDeleveredBacktestUrl} />
+                        </li>
+                    )}
+                </ul>
+            )}
+
             {fundAnalysis &&
                 fundLookupCache &&
                 fundAnalysis.map((analysis, portfolioIndex) => (
                     <div key={portfolioIndex} className="float-start" style={{ marginRight: 75 }}>
-                        <h4>
-                            {portfolioIndex > 0 ? (
-                                <>&nbsp;</>
-                            ) : (
-                                <>
-                                    Backtest Portfolios&nbsp;
-                                    <a
-                                        href={comparisonBacktestUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        title="Open backtest in Portfolio Visualizer"
-                                        style={{ fontSize: '0.6em', position: 'relative', top: '-2px' }}
-                                    >
-                                        <FontAwesomeIcon icon={faExternalLink} />
-                                    </a>
-                                </>
-                            )}
-                        </h4>
-
                         {/*<h4>
                             {portfolioIndex === 0 ? 'Portfolio' : <>&nbsp;</>}
                             <PortfolioVisualizerLink allocations={analysis.holdings} />
@@ -91,8 +100,8 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                         </table>*/}
 
                         <h4>
-                            {portfolioIndex === 0 ? 'Portfolio Decomposed' : <>&nbsp;</>}
-                            <PortfolioVisualizerLink allocations={analysis.flattened} />
+                            {showRedundantTitles || portfolioIndex === 0 ? 'Portfolio Decomposed' : <>&nbsp;</>}
+                            <PortfolioVisualizerLink allocations={analysis.flattened} className="float-end" />
                         </h4>
                         <table className="table table-sm">
                             <thead>
@@ -116,12 +125,12 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                             </tbody>
                         </table>
 
-                        <h4>{portfolioIndex === 0 ? 'Portfolio Leverage' : <>&nbsp;</>}</h4>
+                        <h4>{showRedundantTitles || portfolioIndex === 0 ? 'Portfolio Leverage' : <>&nbsp;</>}</h4>
                         <div style={{ marginBottom: '1rem' }}>{analysis.leverage.toFixed(2)}&times;</div>
 
                         <h4>
-                            {portfolioIndex === 0 ? 'Delevered Composition' : <>&nbsp;</>}
-                            <PortfolioVisualizerLink allocations={analysis.delevered} />
+                            {showRedundantTitles || portfolioIndex === 0 ? 'Delevered Composition' : <>&nbsp;</>}
+                            <PortfolioVisualizerLink allocations={analysis.delevered} className="float-end" />
                         </h4>
                         <table className="table table-sm">
                             <thead>
@@ -144,7 +153,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                             </tbody>
                         </table>
 
-                        <h4>{portfolioIndex === 0 ? 'Portfolio Asset Classes' : <>&nbsp;</>}</h4>
+                        <h4>{showRedundantTitles || portfolioIndex === 0 ? 'Portfolio Asset Classes' : <>&nbsp;</>}</h4>
                         <table className="table table-sm">
                             <thead>
                                 <tr>
@@ -165,7 +174,15 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                             </tbody>
                         </table>
 
-                        <h4>{portfolioIndex === 0 ? 'Portfolio Regions (All Asset Classes)' : <>&nbsp;</>}</h4>
+                        <h4>
+                            {showRedundantTitles || portfolioIndex === 0 ? (
+                                <>
+                                    Portfolio Regions <span style={{ fontSize: 'smaller' }}>(All Asset Classes)</span>
+                                </>
+                            ) : (
+                                <>&nbsp;</>
+                            )}
+                        </h4>
                         <table className="table table-sm">
                             <thead>
                                 <tr>
@@ -192,7 +209,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
 
                             return (
                                 <React.Fragment key={assetClass}>
-                                    <h4>{portfolioIndex === 0 ? `${assetClass} by Region` : <>&nbsp;</>}</h4>
+                                    <h4>{showRedundantTitles || portfolioIndex === 0 ? `${assetClass} by Region` : <>&nbsp;</>}</h4>
                                     <table className="table table-sm">
                                         <thead>
                                             <tr>
@@ -206,10 +223,13 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                                                     <tr key={region}>
                                                         <td>{region}</td>
                                                         <td style={{ textAlign: 'right' }}>
-                                                            {(
-                                                                (funds.reduce((acc, fund) => acc + fund.percentage, 0) / totalPercentage) *
-                                                                100
-                                                            ).toFixed(1)}
+                                                            {totalPercentage === 0 && <>{(0).toFixed(1)}</>}
+                                                            {totalPercentage !== 0 &&
+                                                                (
+                                                                    (funds.reduce((acc, fund) => acc + fund.percentage, 0) /
+                                                                        totalPercentage) *
+                                                                    100
+                                                                ).toFixed(1)}
                                                             %
                                                         </td>
                                                     </tr>

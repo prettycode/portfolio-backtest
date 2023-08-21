@@ -1,39 +1,40 @@
 import { useEffect, useState } from 'react';
 import { getBacktestUrl } from '../../Fund/utils/getBacktestUrl';
 import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLink } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type PortfolioVisualizerBacktestLinkProps = {
-    allocations: Array<FundAllocation>;
+    allocations?: Array<FundAllocation>;
+    url?: string;
 };
 
-export const PortfolioVisualizerLink: React.FC<PortfolioVisualizerBacktestLinkProps> = ({ allocations }) => {
-    const [url, setUrl] = useState<string | undefined>();
+export const PortfolioVisualizerLink: React.FC<PortfolioVisualizerBacktestLinkProps & React.HTMLAttributes<HTMLSpanElement>> = ({
+    allocations,
+    url,
+    className,
+    style
+}) => {
+    const [calculatedUrl, setCalculatedUrl] = useState<string | undefined>(url ?? undefined);
 
     useEffect(() => {
-        (async () => setUrl(await getBacktestUrl(allocations)))();
+        if (allocations) {
+            (async () => setCalculatedUrl(await getBacktestUrl(allocations)))();
+        }
     });
 
     return (
         <>
-            {url && (
-                <span style={{ display: 'inline-block', float: 'right' }}>
-                    <a
-                        href={url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title="Open backtest in Portfolio Visualizer"
-                        style={{
-                            fontSize: '0.6em',
-                            position: 'relative',
-                            top: '-2px'
-                        }}
-                    >
-                        <FontAwesomeIcon icon={faExternalLink} />
-                    </a>
-                </span>
-            )}
+            <span
+                title="PortfolioVisualizer.com"
+                style={{ ...style, fontSize: 11 }}
+                className={className ? `${className} badge bg-light text-dark` : 'badge bg-light text-dark'}
+            >
+                PV&nbsp;&nbsp;
+                <a href={calculatedUrl} target="_blank" rel="noopener noreferrer" title="Open backtest in Portfolio Visualizer">
+                    <FontAwesomeIcon icon={faExternalLink} />
+                </a>
+            </span>
         </>
     );
 };
