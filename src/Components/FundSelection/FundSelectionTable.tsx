@@ -154,7 +154,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                             </span>
                             <button
                                 type="button"
-                                className="btn btn-sm btn-outline-secondary float-start me-1"
+                                className="btn btn-sm btn-outline-primary float-start me-1"
                                 onClick={onAddRow}
                                 style={{ marginLeft: 10 }}
                             >
