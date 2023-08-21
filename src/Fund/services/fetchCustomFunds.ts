@@ -200,12 +200,12 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                         percentage: 70
                     },
                     {
-                        fundId: 'VGLT',
-                        percentage: 45
+                        fundId: 'VGIT',
+                        percentage: 50
                     },
                     {
-                        fundId: 'VGIT',
-                        percentage: 45
+                        fundId: 'VGLT',
+                        percentage: 40
                     },
                     {
                         fundId: 'USFR',
