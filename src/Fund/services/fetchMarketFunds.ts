@@ -7,7 +7,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
         mock || [
             {
                 fundId: 'VTI',
-                name: 'US Market',
+                name: 'US Total-Market',
                 description: 'Vanguard Total Stock Market Index Fund Investor Shares',
                 tickerSymbol: 'VTSMX',
                 percentage: 100,
@@ -17,8 +17,41 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 allocations: []
             },
             {
+                fundId: 'XLU',
+                name: 'US Large-Cap Utilities',
+                description: '',
+                tickerSymbol: 'XLU',
+                percentage: 100,
+                type: 'ETF',
+                marketRegion: 'US',
+                assetClass: 'Equity',
+                allocations: []
+            },
+            {
+                fundId: 'XLP',
+                name: 'US Large-Cap Consumer Staples',
+                description: '',
+                tickerSymbol: 'XLP',
+                percentage: 100,
+                type: 'ETF',
+                marketRegion: 'US',
+                assetClass: 'Equity',
+                allocations: []
+            },
+            {
+                fundId: 'XLV',
+                name: 'US Large-Cap Healthcare',
+                description: '',
+                tickerSymbol: 'XLV',
+                percentage: 100,
+                type: 'ETF',
+                marketRegion: 'US',
+                assetClass: 'Equity',
+                allocations: []
+            },
+            {
                 fundId: 'SPY',
-                name: 'S&P 500',
+                name: 'US S&P 500',
                 description: 'Vanguard 500 Index Fund Investor Shares',
                 tickerSymbol: 'VFINX',
                 percentage: 100,
@@ -29,7 +62,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 'VGSH',
-                name: 'Short-Term US Treasury',
+                name: 'US Short-Term Treasuries',
                 description: 'Vanguard Short-Term Treasury Fund Investor Shares',
                 tickerSymbol: 'VFISX',
                 percentage: 100,
@@ -40,7 +73,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 'VGIT',
-                name: 'Intermediate-Term US Treasury',
+                name: 'US Intermediate-Term Treasuries',
                 description: 'Vanguard Intermediate-Term Treasury Fund Investor Shares',
                 tickerSymbol: 'VFITX',
                 percentage: 100,
@@ -51,7 +84,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 'VGLT',
-                name: 'Long-Term US Treasury',
+                name: 'US Long-Term Treasuries',
                 description: 'Vanguard Long-Term Treasury Fund Investor Shares',
                 tickerSymbol: 'VUSTX',
                 percentage: 100,
@@ -63,7 +96,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             {
                 fundId: 'GLD',
                 name: 'Gold',
-                description: 'Gold',
+                description: 'Gold Index',
                 tickerSymbol: '^GOLD',
                 percentage: 100,
                 type: 'Index',
@@ -73,7 +106,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 'USFR',
-                name: 'Cash (Floating-Rate)',
+                name: 'US Cash (Floating-Rate)',
                 description: 'US Treasury Money Market',
                 tickerSymbol: 'CASHX',
                 percentage: 100,
@@ -106,7 +139,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 'IEF',
-                name: '7-10 Year US Treasury',
+                name: 'US 7 – 10-Year Treasuries',
                 description: 'iShares 7-10 Year Treasury',
                 tickerSymbol: 'IEF',
                 percentage: 100,

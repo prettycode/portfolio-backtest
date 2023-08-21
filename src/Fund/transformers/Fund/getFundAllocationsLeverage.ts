@@ -12,7 +12,10 @@ export const getFundAllocationsLeverage = (fundHoldings: Array<FundAllocation>):
         throw new Error(`Holdings added up to ${totalPercentage} instead of 100.`);
     }
 
-    const totalPercentageSansBarrowing = fundHoldings.reduce((sum, holding) => sum + (holding.percentage < 0 ? 0 : holding.percentage), 0);
+    // TODO hack for floats
+    const totalPercentageSansBarrowing = +fundHoldings
+        .reduce((sum, holding) => sum + (holding.percentage < 0 ? 0 : holding.percentage), 0)
+        .toFixed(2);
 
     if (totalPercentageSansBarrowing < 100) {
         throw new Error('Holdings must add up to 100 or more when negative-percentage holdings are removed.');
