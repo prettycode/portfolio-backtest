@@ -105,6 +105,8 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
         setRows(newRows);
     };
 
+    const onCompare = () => {};
+
     const onCalculate = () => {
         const portfolios: Array<Array<FundAllocation>> = [];
 
@@ -155,7 +157,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                             <button
                                 type="button"
                                 className="btn btn-sm btn-outline-primary float-start me-1"
-                                onClick={onAddRow}
+                                onClick={onCompare}
                                 style={{ marginLeft: 10 }}
                             >
                                 Compare
