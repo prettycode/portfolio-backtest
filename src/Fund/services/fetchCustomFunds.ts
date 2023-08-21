@@ -29,7 +29,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
             {
                 fundId: 'VT',
                 name: 'Equity: Global (All-World)',
-                description: '60/40 US/Ex-US + 2/3 Intl. Developed, 1/3 EM',
+                description: '60/40 US/Ex-US + 2/3 Int’l. Developed, 1/3 EM',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [

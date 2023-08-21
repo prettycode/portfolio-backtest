@@ -122,7 +122,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 tickerSymbol: 'DFALX',
                 percentage: 100,
                 type: 'Mutual Fund',
-                marketRegion: 'Int’l Developed',
+                marketRegion: 'International Developed',
                 assetClass: 'Equity',
                 allocations: []
             },
