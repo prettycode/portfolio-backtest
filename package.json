@@ -7,7 +7,7 @@
         "name": "Chris O'Brien",
         "url": "https://github.com/prettycode"
     },
-    "license": "MIT",
+    "license": "cc-by-nc-4.0",
     "scripts": {
         "start": "npm run build:local && vite --open",
         "prettier:ci": "npx prettier . --check",

@@ -22,15 +22,12 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
 
     useEffect(() => {
         (async () => {
+            const cache: Record<string, Fund> = {};
             const analysis: Array<FundAnalysis> = await Promise.all(
                 fundAllocations.map((portfolio) => getFundAnalysisForCustomFund(portfolio))
             );
-            const cache: Record<string, Fund> = {};
 
             await Promise.all(
-                /*fundAllocations
-                    .flatMap((a) => a.map((holding) => holding.fundId))
-                    .map(async (fundId) => (cache[fundId] = await fetchFundByFundId(fundId)))*/
                 analysis
                     .flatMap((a) => a.flattened)
                     .map(async (holding) => (cache[holding.fundId] = await fetchFundByFundId(holding.fundId)))
@@ -38,16 +35,20 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
 
             setFundAnalysis(analysis);
             setFundLookupCache(cache);
+        })();
+    }, [fundAllocations]);
 
-            if (analysis.length > 1) {
-                setComparisonBacktestUrl(await getComparisonBacktestUrl(analysis.map((a) => a.flattened)));
-                setComparisonDeleveredBacktestUrl(await getComparisonBacktestUrl(analysis.map((a) => a.delevered)));
+    useEffect(() => {
+        (async () => {
+            if (fundAnalysis && fundAnalysis.length > 1) {
+                setComparisonBacktestUrl(await getComparisonBacktestUrl(fundAnalysis.map((a) => a.flattened)));
+                setComparisonDeleveredBacktestUrl(await getComparisonBacktestUrl(fundAnalysis.map((a) => a.delevered)));
             } else {
                 setComparisonBacktestUrl(undefined);
                 setComparisonDeleveredBacktestUrl(undefined);
             }
         })();
-    }, [fundAllocations]);
+    }, [fundAnalysis]);
 
     return (
         <>
