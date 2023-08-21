@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Fund } from '../../Fund/models/Fund/Fund';
 import { fetchMarketFunds } from '../../Fund/services/fetchMarketFunds';
 import { fetchCustomFunds } from '../../Fund/services/fetchCustomFunds';
-import { FundSelectionDropdown } from './FundSelectionDropdown';
+import { FundSelectionDropdown, FundSelectionDropdownOptionType } from './FundSelectionDropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
@@ -75,9 +75,9 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
         setRows(newRows);
     };
 
-    const onFundSelected = (rowIndex: number, fundId: string) => {
+    const onFundSelected = (rowIndex: number, selectedFund: FundSelectionDropdownOptionType | null) => {
         const newRows = [...rows];
-        newRows[rowIndex].fundId = fundId;
+        newRows[rowIndex].fundId = selectedFund?.value || defaultFundId;
         setRows(newRows);
     };
 
@@ -105,7 +105,14 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
         setRows(newRows);
     };
 
-    const onCompare = () => {};
+    /*const onCompare = (selectedFunds: FundSelectionDropdownOptionType | null) => {
+        if (!selectedFunds) {
+            return;
+        }
+        
+        // Convert Array<Array<FundAllocation>> to rows
+        setRows(newRows);
+    };*/
 
     const onCalculate = () => {
         const portfolios: Array<Array<FundAllocation>> = [];
@@ -153,12 +160,11 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                         <th></th>
                         <th style={{ fontWeight: 'normal', display: 'flex', alignItems: 'center', flexWrap: 'nowrap' }}>
                             <span style={{ width: '100%' }}>
-                                <FundSelectionDropdown onFundSelected={(fundId: string) => console.log(fundId)} isMulti funds={funds} />
+                                <FundSelectionDropdown onFundSelected={(x: any) => console.log(x)} isMulti funds={funds} />
                             </span>
                             <button
                                 type="button"
                                 className="btn btn-outline-primary float-start me-1"
-                                onClick={onCompare}
                                 style={{ marginLeft: 10 }}
                             >
                                 Compare
@@ -234,7 +240,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                                 <FundSelectionDropdown
                                     funds={funds}
                                     selectedFundId={row.fundId}
-                                    onFundSelected={(fundId: string) => onFundSelected(rowIndex, fundId)}
+                                    onFundSelected={(selectedOption: FundSelectionDropdownOptionType | null) => onFundSelected(rowIndex, selectedOption)}
                                 />
                             </td>
                             {row.percentage.map((percentageInColumn, columnIndex) => (

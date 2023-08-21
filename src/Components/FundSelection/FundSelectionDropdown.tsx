@@ -1,14 +1,14 @@
 import Select, { StylesConfig } from 'react-select';
 import { Fund } from '../../Fund/models/Fund/Fund';
 
-type OptionType = {
+export type FundSelectionDropdownOptionType = {
     value: string;
     label: string | undefined;
 };
 
 type FundSelectionDropdownProps = {
     funds: Array<Fund>;
-    onFundSelected: (fundId: string) => void;
+    onFundSelected: (fundId: FundSelectionDropdownOptionType | null) => void;
     className?: string | undefined;
     selectedFundId?: string | undefined;
     isMulti?: boolean | undefined;
@@ -22,7 +22,7 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({
     isMulti
 }) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const optionsDeprecated: OptionType[] = funds
+    const optionsDeprecated: FundSelectionDropdownOptionType[] = funds
         .map((fund) => ({
             value: fund.fundId,
             label:
@@ -31,7 +31,7 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({
         }))
         .sort((a, b) => a.label?.localeCompare(b.label || '') || 0);
 
-    const options: OptionType[] = funds
+    const options: FundSelectionDropdownOptionType[] = funds
         .map((fund) => ({
             value: fund.fundId,
             label:
@@ -40,7 +40,7 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({
         }))
         .sort((a, b) => a.label?.localeCompare(b.label || '') || 0);
 
-    const customStyles: StylesConfig<OptionType, false> = {
+    const customStyles: StylesConfig<FundSelectionDropdownOptionType, false> = {
         control: (provided) => ({
             ...provided,
             padding: '0',
@@ -50,8 +50,8 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({
         })
     };
 
-    const handleChange = (selectedOption: OptionType | null) => {
-        onFundSelected(!selectedOption ? '' /* defaultFundId */ : selectedOption.value);
+    const handleChange = (selectedOption: FundSelectionDropdownOptionType | null) => {
+        onFundSelected(!selectedOption ? null : selectedOption);
     };
 
     return (
@@ -62,7 +62,7 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({
             isClearable={true}
             options={options}
             value={selectedFundId ? options.find((option) => option.value === selectedFundId) : undefined}
-            placeholder={ isMulti ? 'Select multiple assets...' : "Search for asset..." }
+            placeholder={isMulti ? 'Select multiple assets...' : 'Search for asset...'}
             openMenuOnClick={false}
             isSearchable={true}
             onChange={handleChange}
