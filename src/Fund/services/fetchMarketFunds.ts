@@ -136,17 +136,6 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 marketRegion: 'Emerging',
                 assetClass: 'Equity',
                 allocations: []
-            },
-            {
-                fundId: 'IEF',
-                name: 'US 7 – 10-Year Treasuries',
-                description: 'iShares 7-10 Year Treasury',
-                tickerSymbol: 'IEF',
-                percentage: 100,
-                type: 'ETF',
-                marketRegion: 'US',
-                assetClass: 'Treasury',
-                allocations: []
             }
         ]
     );
