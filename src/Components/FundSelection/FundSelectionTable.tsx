@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Fund } from '../../Fund/models/Fund/Fund';
 import { fetchMarketFunds } from '../../Fund/services/fetchMarketFunds';
 import { fetchCustomFunds } from '../../Fund/services/fetchCustomFunds';
@@ -37,17 +37,26 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
     const sumSelectedFunds = (): number => rows.reduce((sum, row) => sum + (row.fundId === defaultFundId ? 0 : 1), 0);
 
     const [funds, setFunds] = useState<Array<Fund>>([]);
+    const [fundComparison, setFundComparison] = useState<Array<string>>([]);
     const [rows, setRows] = useState<FundSelectionTableRow[]>(
         state ? state.rows : Array.from({ length: defaultRowsCount }, () => createRow(defaultColumnsCount))
     );
     const [columnsCount, setColumnsCount] = useState<number>(state ? state.columnCount : defaultColumnsCount);
-
     const [customPortfolios, setCustomPortfolios] = useState<Array<Array<FundAllocation>> | undefined>(undefined);
+
+    const triggerCalculation = useRef(false);
 
     // Load funds into state for lookup dropdown
     useEffect(() => {
         (async () => setFunds([...(await fetchCustomFunds()), ...(await fetchMarketFunds())]))();
     }, []);
+
+    useEffect(() => {
+        if (triggerCalculation.current) {
+            onCalculate();
+            triggerCalculation.current = false;
+        }
+    }, [rows]);
 
     const onAddRow = () => {
         setRows([...rows, createRow(columnsCount)]);
@@ -105,14 +114,21 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
         setRows(newRows);
     };
 
-    /*const onCompare = (selectedFunds: FundSelectionDropdownOptionType | null) => {
-        if (!selectedFunds) {
-            return;
+    const onCompare = () => {
+        if (!fundComparison.length) {
+            throw new Error('Now funds selected to compare.');
         }
-        
-        // Convert Array<Array<FundAllocation>> to rows
+
+        const newRows = fundComparison.map((fundId, index) => {
+            const row = createRow(columnsCount);
+            row.fundId = fundId;
+            row.percentage[index] = 100;
+            return row;
+        });
+
         setRows(newRows);
-    };*/
+        triggerCalculation.current = true;
+    };
 
     const onCalculate = () => {
         const portfolios: Array<Array<FundAllocation>> = [];
@@ -147,6 +163,10 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
         onCalculatePortfolios(columnsCount, cloneDeep(rows));
     };
 
+    const onFundComparisonSelected = (fundSelection: Array<FundSelectionDropdownOptionType> | null): void => {
+        setFundComparison(!fundSelection ? [] : fundSelection.map((fund) => fund.value));
+    };
+
     return (
         <>
             <h3>Custom Portfolios</h3>
@@ -160,10 +180,16 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                         <th></th>
                         <th style={{ fontWeight: 'normal', display: 'flex', alignItems: 'center', flexWrap: 'nowrap' }}>
                             <span style={{ width: '100%' }}>
-                                <FundSelectionDropdown onFundSelected={(x: any) => console.log(x)} isMulti funds={funds} />
+                                <FundSelectionDropdown
+                                    onFundSelected={onFundComparisonSelected as (selection: FundSelectionDropdownOptionType | null) => void}
+                                    isMulti
+                                    funds={funds}
+                                />
                             </span>
                             <button
+                                disabled={fundComparison.length === 0}
                                 type="button"
+                                onClick={onCompare}
                                 className="btn btn-outline-primary float-start me-1"
                                 style={{ marginLeft: 10 }}
                             >
@@ -240,7 +266,9 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                                 <FundSelectionDropdown
                                     funds={funds}
                                     selectedFundId={row.fundId}
-                                    onFundSelected={(selectedOption: FundSelectionDropdownOptionType | null) => onFundSelected(rowIndex, selectedOption)}
+                                    onFundSelected={(selectedOption: FundSelectionDropdownOptionType | null) =>
+                                        onFundSelected(rowIndex, selectedOption)
+                                    }
                                 />
                             </td>
                             {row.percentage.map((percentageInColumn, columnIndex) => (

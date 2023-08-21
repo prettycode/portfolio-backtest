@@ -5,6 +5,10 @@ body {
     min-height: 100vh;
 }
 
+h3 {
+    margin-bottom: 1rem;
+}
+
 h4 {
     padding-top: 25px;
 }
