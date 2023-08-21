@@ -148,15 +148,13 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                     <tr>
                         <th></th>
                         <th style={{ fontWeight: 'normal', display: 'flex', alignItems: 'center', flexWrap: 'nowrap' }}>
-                            <span style={{ marginRight: 10, whiteSpace: 'nowrap', fontSize: 'smaller' }}>
-                                Load multiple custom portfolios:
-                            </span>
+                            <span style={{ marginRight: 10, whiteSpace: 'nowrap', fontSize: 'smaller' }}>Load multiple assets:</span>
                             <span style={{ width: '100%' }}>
                                 <FundSelectionDropdown onFundSelected={(fundId: string) => console.log(fundId)} isMulti funds={funds} />
                             </span>
                             <button
                                 type="button"
-                                className="btn btn-sm btn-outline-primary float-start me-1"
+                                className="btn btn-outline-primary float-start me-1"
                                 onClick={onCompare}
                                 style={{ marginLeft: 10 }}
                             >
