@@ -52,6 +52,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
     return (
         <>
             <h3>Portoflio Analysis</h3>
+            {!fundAnalysis?.length && <>No completed portfolios to analyze.</>}
             {(comparisonBacktestUrl || comparisonDeleveredBacktestUrl) && (
                 <ul>
                     {comparisonBacktestUrl && (
@@ -69,7 +70,6 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                     )}
                 </ul>
             )}
-
             {fundAnalysis &&
                 fundLookupCache &&
                 fundAnalysis.map((analysis, portfolioIndex) => (
