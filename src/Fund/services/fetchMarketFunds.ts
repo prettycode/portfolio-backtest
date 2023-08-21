@@ -122,7 +122,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 tickerSymbol: 'DFALX',
                 percentage: 100,
                 type: 'Mutual Fund',
-                marketRegion: 'Int’l Developed',
+                marketRegion: 'International Developed',
                 assetClass: 'Equity',
                 allocations: []
             },
@@ -135,17 +135,6 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 type: 'Mutual Fund',
                 marketRegion: 'Emerging',
                 assetClass: 'Equity',
-                allocations: []
-            },
-            {
-                fundId: 'IEF',
-                name: 'US 7 – 10-Year Treasuries',
-                description: 'iShares 7-10 Year Treasury',
-                tickerSymbol: 'IEF',
-                percentage: 100,
-                type: 'ETF',
-                marketRegion: 'US',
-                assetClass: 'Treasury',
                 allocations: []
             }
         ]

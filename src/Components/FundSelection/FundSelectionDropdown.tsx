@@ -21,16 +21,6 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({
     selectedFundId,
     isMulti
 }) => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const optionsDeprecated: FundSelectionDropdownOptionType[] = funds
-        .map((fund) => ({
-            value: fund.fundId,
-            label:
-                `${fund.fundId}: ` +
-                (fund.tickerSymbol ? (fund.name ? `${fund.tickerSymbol} (${fund.name})` : fund.tickerSymbol) : fund.name || '')
-        }))
-        .sort((a, b) => a.label?.localeCompare(b.label || '') || 0);
-
     const options: FundSelectionDropdownOptionType[] = funds
         .map((fund) => ({
             value: fund.fundId,

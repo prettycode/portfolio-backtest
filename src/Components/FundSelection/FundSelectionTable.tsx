@@ -56,7 +56,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
             onCalculate();
             triggerCalculation.current = false;
         }
-    }, [rows]);
+    });
 
     const onAddRow = () => {
         setRows([...rows, createRow(columnsCount)]);

@@ -31,7 +31,7 @@ const mockMarketFunds: Fund[] = [
         fundId: 'GLD',
         percentage: 100,
         name: 'VEA',
-        marketRegion: 'Int’l Developed',
+        marketRegion: 'International Developed',
         assetClass: 'Equity',
         allocations: [],
         description: '',
