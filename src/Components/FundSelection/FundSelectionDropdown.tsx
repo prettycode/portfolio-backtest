@@ -24,9 +24,10 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({
     const options: FundSelectionDropdownOptionType[] = funds
         .map((fund) => ({
             value: fund.fundId,
-            label:
-                `${fund.assetClass || fund.type}: ${fund.name || '[no name]'} ${fund.tickerSymbol ? `(${fund.tickerSymbol})` : ''}` +
-                (!isMulti ? `${fund.description ? ` [${fund.description}]` : ''}` : '')
+            label: `${fund.assetClass || fund.type}: ${fund.name || '[no name]'} ${fund.tickerSymbol ? `(${fund.tickerSymbol})` : ''}`
+            // Showing description is nice but it makes the matching function on the dropdown too inclusive; disable for now until filtering can be updated to exclude description
+            /*`${fund.assetClass || fund.type}: ${fund.name || '[no name]'} ${fund.tickerSymbol ? `(${fund.tickerSymbol})` : ''}` +
+                (!isMulti ? `${fund.description ? ` [${fund.description}]` : ''}` : '')*/
         }))
         .sort((a, b) => a.label?.localeCompare(b.label || '') || 0);
 

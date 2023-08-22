@@ -61,6 +61,17 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 allocations: []
             },
             {
+                fundId: 'USFR',
+                name: 'US Cash',
+                description: 'US Treasury Money Market',
+                tickerSymbol: 'CASHX',
+                percentage: 100,
+                type: 'ETF',
+                marketRegion: 'US',
+                assetClass: 'Cash',
+                allocations: []
+            },
+            {
                 fundId: 'VGSH',
                 name: 'US Short-Term Treasuries',
                 description: 'Vanguard Short-Term Treasury Fund Investor Shares',
@@ -94,6 +105,17 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 allocations: []
             },
             {
+                fundId: 'EDV',
+                name: 'US 20 – 30-Year Treasuries STRIPS',
+                description: 'Vanguard Extended Duration Treasury Index Fund Institutional Shares',
+                tickerSymbol: 'VEDTX',
+                percentage: 100,
+                type: 'Mutual Fund',
+                marketRegion: 'US',
+                assetClass: 'Treasury',
+                allocations: []
+            },
+            {
                 fundId: 'GLD',
                 name: 'Gold',
                 description: 'Gold Index',
@@ -102,17 +124,6 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 type: 'Index',
                 marketRegion: 'Global (All-World)',
                 assetClass: 'Commodity',
-                allocations: []
-            },
-            {
-                fundId: 'USFR',
-                name: 'US Cash (Floating-Rate)',
-                description: 'US Treasury Money Market',
-                tickerSymbol: 'CASHX',
-                percentage: 100,
-                type: 'ETF',
-                marketRegion: 'US',
-                assetClass: 'Cash',
                 allocations: []
             },
             {
