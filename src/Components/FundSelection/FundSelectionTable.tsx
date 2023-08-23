@@ -11,7 +11,7 @@ import cloneDeep from 'lodash.clonedeep';
 import './FundSelectionTable.css';
 
 function displayPercentage(percentage: number): string {
-    return percentage.toFixed(1).replace('.0', '');
+    return percentage.toFixed(1).replace(/\.0$/, '');
 }
 
 export type FundSelectionTableRow = {
