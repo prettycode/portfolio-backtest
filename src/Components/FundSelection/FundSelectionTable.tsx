@@ -275,8 +275,9 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                                 <td key={columnIndex}>
                                     <input
                                         className="form-control"
-                                        style={{ textAlign: 'center', width: 65 }}
+                                        style={{ textAlign: 'center', width: 85 }}
                                         type="text"
+                                        maxLength={7}
                                         value={percentageInColumn.toString()}
                                         onChange={(e) => onChangePercentage(rowIndex, columnIndex, e.target.value)}
                                     />
@@ -286,10 +287,16 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                     ))}
                     <tr>
                         <td></td>
-                        <td>Total: {sumSelectedFunds()} asset(s)</td>
+                        <td className="align-top">Total: {sumSelectedFunds()} asset(s)</td>
                         {Array.from({ length: getColumnsCount() }, (_, columnIndex) => (
-                            <td key={columnIndex} style={{ textAlign: 'center' }}>
-                                {sumColumn(columnIndex)}&thinsp;%
+                            <td className="align-top text-center" key={columnIndex}>
+                                <span className={sumColumn(columnIndex) !== 100 ? 'text-danger' : 'text-success'}>
+                                    {sumColumn(columnIndex)}&thinsp;%
+                                </span>
+                                <br />
+                                <span className="font-weight-lighter" style={{ fontSize: '0.8rem' }}>
+                                    {sumColumn(columnIndex) !== 100 && `add ${(100 - sumColumn(columnIndex)).toFixed(1)}%`}
+                                </span>
                             </td>
                         ))}
                     </tr>
