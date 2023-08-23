@@ -4,7 +4,7 @@ import { fetchMarketFunds } from '../../Fund/services/fetchMarketFunds';
 import { fetchCustomFunds } from '../../Fund/services/fetchCustomFunds';
 import { FundSelectionDropdown, FundSelectionDropdownOptionType } from './FundSelectionDropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBan, faChevronDown, faChevronUp, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faBan, faChevronDown, faChevronUp, faDeleteLeft, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
 import FundAnalysis from '../FundAnalysis/FundAnalysis';
 import cloneDeep from 'lodash.clonedeep';
@@ -232,9 +232,6 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                 <tbody>
                     {rows.map((row, rowIndex) => (
                         <tr key={rowIndex}>
-                            <td>
-                                <FontAwesomeIcon icon={faBan}></FontAwesomeIcon>
-                            </td>
                             <td style={{ padding: 0, verticalAlign: 'middle' }}>
                                 {rowIndex === rows.length - 1 && (
                                     <button title="Add new row" className="btn btn-xs" style={{ padding: '2px 4px' }} onClick={onAddRow}>
@@ -271,6 +268,10 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                                         )}
                                     </div>
                                 )}
+                            </td>
+                            <td style={{ fontSize: 'small' }}>
+                                <FontAwesomeIcon icon={faBan}></FontAwesomeIcon>
+                                <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
                             </td>
                             <td>
                                 <FundSelectionDropdown
