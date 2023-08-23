@@ -4,7 +4,7 @@ import { fetchMarketFunds } from '../../Fund/services/fetchMarketFunds';
 import { fetchCustomFunds } from '../../Fund/services/fetchCustomFunds';
 import { FundSelectionDropdown, FundSelectionDropdownOptionType } from './FundSelectionDropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faBan, faChevronDown, faChevronUp, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
 import FundAnalysis from '../FundAnalysis/FundAnalysis';
 import cloneDeep from 'lodash.clonedeep';
@@ -178,9 +178,11 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                 <thead>
                     <tr>
                         <th></th>
+                        <th></th>
                         <th>Compare Assets</th>
                     </tr>
                     <tr>
+                        <th></th>
                         <th></th>
                         <th style={{ fontWeight: 'normal', display: 'flex', alignItems: 'center', flexWrap: 'nowrap' }}>
                             <span style={{ width: '100%' }}>
@@ -204,11 +206,13 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                     <tr>
                         <th></th>
                         <th></th>
+                        <th></th>
                         <th className="text-center" colSpan={columnsCount}>
                             <span>Weight (%) in Portfolios</span>
                         </th>
                     </tr>
                     <tr>
+                        <th></th>
                         <th></th>
                         <th scope="col" style={{ width: '100%' }}>
                             Assets in Portfolios
@@ -228,6 +232,9 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                 <tbody>
                     {rows.map((row, rowIndex) => (
                         <tr key={rowIndex}>
+                            <td>
+                                <FontAwesomeIcon icon={faBan}></FontAwesomeIcon>
+                            </td>
                             <td style={{ padding: 0, verticalAlign: 'middle' }}>
                                 {rowIndex === rows.length - 1 && (
                                     <button title="Add new row" className="btn btn-xs" style={{ padding: '2px 4px' }} onClick={onAddRow}>
@@ -265,7 +272,6 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                                     </div>
                                 )}
                             </td>
-
                             <td>
                                 <FundSelectionDropdown
                                     funds={funds}
@@ -291,6 +297,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                     ))}
                     <tr>
                         <td></td>
+                        <td></td>
                         <td className="align-top">Total: {sumSelectedFunds()} asset(s)</td>
                         {Array.from({ length: getColumnsCount() }, (_, columnIndex) => (
                             <td className="align-top text-center" key={columnIndex}>
@@ -307,6 +314,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                 </tbody>
                 <tfoot>
                     <tr>
+                        <td></td>
                         <td></td>
                         <td colSpan={getColumnsCount() - 1}>
                             <div className="clearfix">
