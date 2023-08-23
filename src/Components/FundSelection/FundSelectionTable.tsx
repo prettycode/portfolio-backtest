@@ -4,7 +4,7 @@ import { fetchMarketFunds } from '../../Fund/services/fetchMarketFunds';
 import { fetchCustomFunds } from '../../Fund/services/fetchCustomFunds';
 import { FundSelectionDropdown, FundSelectionDropdownOptionType } from './FundSelectionDropdown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBan, faChevronDown, faChevronUp, faDeleteLeft, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faBan, faChevronDown, faChevronUp, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
 import FundAnalysis from '../FundAnalysis/FundAnalysis';
 import cloneDeep from 'lodash.clonedeep';
@@ -220,6 +220,10 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                         {Array.from({ length: columnsCount }).map((_, index) => (
                             <th key={index} className="text-center" title={`Portfolio ${index + 1}`}>
                                 P{index + 1}
+                                <span style={{ fontSize: 'small' }}>
+                                    <FontAwesomeIcon icon={faBan} className="ms-1 text-faded"></FontAwesomeIcon>
+                                    <FontAwesomeIcon icon={faTrash} className="ms-1 text-faded"></FontAwesomeIcon>
+                                </span>
                             </th>
                         ))}
                         <th>
@@ -269,7 +273,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                                     </div>
                                 )}
                             </td>
-                            <td style={{ fontSize: 'small' }}>
+                            <td style={{ fontSize: 'small' }} className="text-faded">
                                 <FontAwesomeIcon icon={faBan}></FontAwesomeIcon>
                                 <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
                             </td>
