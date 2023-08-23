@@ -10,6 +10,10 @@ import FundAnalysis from '../FundAnalysis/FundAnalysis';
 import cloneDeep from 'lodash.clonedeep';
 import './FundSelectionTable.css';
 
+function displayPercentage(percentage: number): string {
+    return percentage.toFixed(1).replace('.0', '');
+}
+
 export type FundSelectionTableRow = {
     fundId: string;
     percentage: Array<string | number>;
@@ -291,11 +295,11 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                         {Array.from({ length: getColumnsCount() }, (_, columnIndex) => (
                             <td className="align-top text-center" key={columnIndex}>
                                 <span className={sumColumn(columnIndex) !== 100 ? 'text-danger' : 'text-success'}>
-                                    {sumColumn(columnIndex)}&thinsp;%
+                                    {displayPercentage(sumColumn(columnIndex))}&thinsp;%
                                 </span>
                                 <br />
                                 <span className="font-weight-lighter" style={{ fontSize: '0.8rem' }}>
-                                    {sumColumn(columnIndex) !== 100 && `add ${(100 - sumColumn(columnIndex)).toFixed(1)}%`}
+                                    {sumColumn(columnIndex) !== 100 && `add ${displayPercentage(100 - sumColumn(columnIndex))}%`}
                                 </span>
                             </td>
                         ))}
