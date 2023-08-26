@@ -14,6 +14,11 @@ function displayPercentage(percentage: number): string {
     return percentage.toFixed(1).replace(/\.0$/, '');
 }
 
+export type FundSelectionTableState = {
+    columnCount: number;
+    rows: Array<FundSelectionTableRow>;
+};
+
 export type FundSelectionTableRow = {
     fundId: string;
     percentage: Array<string | number>;
@@ -21,10 +26,7 @@ export type FundSelectionTableRow = {
 
 export interface FundSelectionTableProps {
     onCalculatePortfolios: (columnCount: number, rows: Array<FundSelectionTableRow>) => void;
-    state?: {
-        columnCount: number;
-        rows: Array<FundSelectionTableRow>;
-    };
+    state?: FundSelectionTableState;
 }
 
 const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalculatePortfolios }) => {

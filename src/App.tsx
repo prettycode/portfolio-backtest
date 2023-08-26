@@ -1,22 +1,62 @@
-import FundSelectionTable, { FundSelectionTableRow } from './Components/FundSelection/FundSelectionTable';
+import FundSelectionTable, { FundSelectionTableState } from './Components/FundSelection/FundSelectionTable';
 import './App.css';
 
+const defaultTableState: FundSelectionTableState = {
+    columnCount: 3,
+    rows: [
+        { fundId: '-1', percentage: [0, 0, 0] },
+        { fundId: '-1', percentage: [0, 0, 0] },
+        { fundId: '-1', percentage: [0, 0, 0] }
+    ]
+};
+
+const manualTestingComparisons: Array<FundSelectionTableState> = [
+    defaultTableState,
+    {
+        // 6-Month Reserve
+        columnCount: 3,
+        rows: [
+            { fundId: 'VT', percentage: ['50', '40', '30'] },
+            { fundId: 'VGSH', percentage: ['30', '40', '50'] },
+            { fundId: 'GLD', percentage: ['20', '20', '20'] }
+        ]
+    },
+    {
+        // Global Efficient Core
+        columnCount: 3,
+        rows: [
+            { fundId: 'NTSX', percentage: ['40', '26.7', '20'] },
+            { fundId: 'GDE', percentage: ['20', '33.3', '40'] },
+            { fundId: 'NTSI', percentage: ['20', '20', '20'] },
+            { fundId: 'NTSE', percentage: ['20', '20', '20'] }
+        ]
+    }
+];
+
 function App() {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const stateDeserialized: { columnCount: number; rows: Array<FundSelectionTableRow> } = JSON.parse(
-        decodeURIComponent(
-            '%7B%22columnCount%22%3A4%2C%22rows%22%3A%5B%7B%22fundId%22%3A%22NTSX%22%2C%22percentage%22%3A%5B%2240%22%2C%2226.6%22%2C%2220%22%2C0%5D%7D%2C%7B%22fundId%22%3A%22GDE%22%2C%22percentage%22%3A%5B%2220%22%2C%2233.4%22%2C%2240%22%2C0%5D%7D%2C%7B%22fundId%22%3A%22NTSI%22%2C%22percentage%22%3A%5B%2220%22%2C%2220%22%2C%2220%22%2C0%5D%7D%2C%7B%22fundId%22%3A%22NTSE%22%2C%22percentage%22%3A%5B%2220%22%2C%2220%22%2C%2220%22%2C0%5D%7D%2C%7B%22fundId%22%3A%22%22%2C%22percentage%22%3A%5B0%2C0%2C%220%22%2C%22%22%5D%7D%5D%7D'
-        )
-    );
+    let stateToLoad: FundSelectionTableState = manualTestingComparisons[2];
+    const stateDeserialized: FundSelectionTableState | undefined = (() => {
+        try {
+            // TODO: Validate (using Zod?) that the state is a valid FundSelectionTableState
+            return JSON.parse(decodeURIComponent(location.search));
+        } catch (e) {
+            return undefined;
+        }
+    })();
+
+    if (stateDeserialized) {
+        stateToLoad = stateDeserialized;
+    }
 
     return (
         <>
             <div style={{ marginTop: 40 }}>
                 <FundSelectionTable
-                    state={stateDeserialized}
+                    state={stateToLoad}
                     onCalculatePortfolios={(columnCount, rows) => {
-                        const newSearch = new URLSearchParams({ state: JSON.stringify({ columnCount, rows }) }).toString();
-                        console.log(newSearch);
+                        const currentState: Array<FundSelectionTableState> = [{ columnCount, rows }];
+                        const newSearch = new URLSearchParams({ state: JSON.stringify(currentState) }).toString();
+                        console.log(newSearch, JSON.stringify(currentState, null, 4));
                     }}
                 ></FundSelectionTable>
             </div>

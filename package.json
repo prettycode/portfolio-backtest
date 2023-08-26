@@ -9,19 +9,20 @@
     },
     "license": "cc-by-nc-4.0",
     "scripts": {
-        "start": "npm run build:local && vite --open",
         "prettier:ci": "npx prettier . --check",
         "prettier:fix": "npx prettier . --write",
         "lint:ci": "eslint . --ext ts,tsx --max-warnings 0",
         "lint:fix": "npx eslint . --ext .ts,.tsx --fix",
-        "audit:local": "npm audit fix",
+        "audit:fix": "npm audit fix",
         "audit:ci": "npm audit",
         "vite:build:local": "tsc & vite build --mode development",
         "vite:build:ci": "tsc && vite build",
-        "build:local": "npm install && npm run audit:local && npm run prettier:fix && npm run lint:fix && npm run vite:build:local && npm run test",
+        "build:local": "npm install && npm update --save && npm run audit:fix && npm run prettier:fix && npm run lint:fix && npm run vite:build:local && npm run test",
         "build:ci": "npm ci && npm run audit:ci && npm run prettier:ci && npm run lint:ci && npm run vite:build:ci && npm run test",
         "test:local": "npm run vite:build:local && npx jest",
-        "test": "npx jest"
+        "test": "npx jest",
+        "start": "npm run build:local && vite --open",
+        "precommit": "npm run build:local && npm run build:ci && vite --open"
     },
     "dependencies": {
         "@fortawesome/free-solid-svg-icons": "^6.4.2",
@@ -37,23 +38,23 @@
         "reactstrap": "^9.2.0"
     },
     "devDependencies": {
-        "@types/jest": "^29.5.3",
+        "@types/jest": "^29.5.4",
         "@types/lodash.clonedeep": "^4.5.7",
         "@types/lodash.groupby": "^4.6.7",
-        "@types/react": "^18.2.15",
+        "@types/react": "^18.2.21",
         "@types/react-dom": "^18.2.7",
         "@types/react-fontawesome": "^1.6.5",
-        "@typescript-eslint/eslint-plugin": "^6.0.0",
-        "@typescript-eslint/parser": "^6.0.0",
+        "@typescript-eslint/eslint-plugin": "^6.4.1",
+        "@typescript-eslint/parser": "^6.4.1",
         "@vitejs/plugin-react-swc": "^3.3.2",
-        "eslint": "^8.45.0",
+        "eslint": "^8.48.0",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-refresh": "^0.4.3",
-        "jest": "^29.6.2",
-        "prettier": "^3.0.1",
+        "jest": "^29.6.4",
+        "prettier": "^3.0.2",
         "ts-jest": "^29.1.1",
-        "typescript": "^5.0.2",
-        "vite": "^4.4.5"
+        "typescript": "^5.2.2",
+        "vite": "^4.4.9"
     },
     "jest": {
         "preset": "ts-jest",
