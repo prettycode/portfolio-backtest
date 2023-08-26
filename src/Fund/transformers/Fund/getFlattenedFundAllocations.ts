@@ -1,10 +1,9 @@
-import { Fund } from '../../models/Fund/Fund';
 import { FundAllocation } from '../../models/Fund/FundAllocation';
 import { fetchFundByFundId } from '../../services/fetchFundByFundId';
 
 const sortFundAllocationsDescending = (funds: Array<FundAllocation>) => funds.sort((a, b) => b.percentage - a.percentage);
 
-export const getFlattenedFundAllocations = async (fund: Fund): Promise<Array<FundAllocation>> => {
+export const getFlattenedFundAllocations = async (funds: Array<FundAllocation>): Promise<Array<FundAllocation>> => {
     const flattened: Array<FundAllocation> = [];
 
     async function flatten(holdings: Array<FundAllocation>, weight: number) {
@@ -22,7 +21,7 @@ export const getFlattenedFundAllocations = async (fund: Fund): Promise<Array<Fun
         }
     }
 
-    await flatten(fund.allocations && fund.allocations.length > 0 ? fund.allocations : [fund], fund.percentage);
+    await flatten(funds, 100);
 
     // TODO no unit tests written cover this yet
     // Collapsing duplicates and summing percentages

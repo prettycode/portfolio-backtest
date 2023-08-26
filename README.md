@@ -19,3 +19,5 @@ TO-DO:
 3. Form validation
 4. Name custom portfolio (e.g. give names to P1, P2, etc.)
 5. Menu for custom portfolios (e.g. dropdown menu for P1, P2, etc. that allows: loading, saving, clearing, copying, equal-weight)
+6. Indexes on funds (i.e. EDV corresponds to Bloomberge XYZ Index)
+7. Sythentic vs. Custom (synthetic: default/all-user customs; custom: private, user-level customs)
