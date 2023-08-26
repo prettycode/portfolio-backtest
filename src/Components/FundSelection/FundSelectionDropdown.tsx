@@ -52,7 +52,7 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({
             styles={customStyles}
             isClearable={true}
             options={options}
-            value={selectedFundId ? options.find((option) => option.value === selectedFundId) : undefined}
+            value={selectedFundId ? options.find((option) => option.value === selectedFundId) : null}
             placeholder={isMulti ? 'Select multiple assets...' : 'Search for asset...'}
             openMenuOnClick={false}
             isSearchable={true}
