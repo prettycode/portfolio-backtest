@@ -9,7 +9,8 @@
     },
     "license": "cc-by-nc-4.0",
     "scripts": {
-        "start": "npm run versions && npm run install:ci && vite --open",
+        "start": "npm run versions && npm run install:ci && npm run start:vite",
+        "start:vite": "npx vite --open",
         "versions": "echo node: && node -v && echo npm: && npm -v",
         "install:ci": "npm ci",
         "install:local": "npm install",
@@ -17,17 +18,17 @@
         "outdated:fix": "npm update --save",
         "prettier:ci": "npx prettier . --check",
         "prettier:fix": "npx prettier . --write",
-        "lint:ci": "eslint . --max-warnings 0",
+        "lint:ci": "npx eslint . --max-warnings 0",
         "lint:fix": "npx eslint . --fix",
         "audit:fix": "npm audit fix --force",
         "audit:ci": "npm audit --audit-level=none",
-        "vite:build:local": "tsc & vite build --mode development",
-        "vite:build:ci": "tsc && vite build",
+        "vite:build:local": "npx tsc & npx vite build --mode development",
+        "vite:build:ci": "npx tsc && npx vite build",
         "build:local": "npm run versions && npm run install:local && npm run outdated:fix && npm run audit:fix && npm run prettier:fix && npm run lint:fix && npm run vite:build:local && npm run test",
         "build:ci": "npm run versions && npm run install:ci && npm run outdated:ci && npm run audit:ci && npm run prettier:ci && npm run lint:ci && npm run vite:build:ci && npm run test",
         "test:local": "npm run vite:build:local && npx jest",
         "test": "npx jest",
-        "precommit": "npm run build:local && npm run build:ci && vite --open"
+        "precommit": "npm run build:local && npm run build:ci && npm run start:vite"
     },
     "dependencies": {
         "@fortawesome/free-solid-svg-icons": "^6.4.2",

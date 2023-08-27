@@ -13,19 +13,21 @@ import { FundSelectionTableState } from './FundSelectionTableState';
 import { FundSelectionTableRow } from './FundSelectionTableRow';
 import { displayPercentage } from '../utils/displayPercentage';
 
+export const NEWROW_FUNDID: string = 'temp';
+
 export interface FundSelectionTableProps {
-    onCalculatePortfolios: (columnCount: number, rows: Array<FundSelectionTableRow>) => void;
+    onCalculatePortfolios: (rows: Array<FundSelectionTableRow>) => void;
     state?: FundSelectionTableState;
 }
 
 const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalculatePortfolios }) => {
-    const defaultFundId = '';
+    const defaultFundId = NEWROW_FUNDID;
     const defaultColumnsCount = 3;
     const defaultRowsCount = 3;
 
-    const createRow = (columnCountInRow: number): FundSelectionTableRow => ({
+    const createRow = (columnCountInRow?: number | undefined): FundSelectionTableRow => ({
         fundId: defaultFundId,
-        percentage: new Array(columnCountInRow).fill(0)
+        percentage: new Array(!columnCountInRow ? getColumnsCount() : columnCountInRow).fill(0)
     });
     const getColumnsCount = (): number => rows.reduce((max, row) => Math.max(max, row.percentage.length), 0);
     const sumColumn = (columnIndex: number): number => rows.reduce((sum, row) => sum + Number(row.percentage[columnIndex]), 0);
@@ -34,9 +36,8 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
     const [funds, setFunds] = useState<Array<Fund>>([]);
     const [fundComparison, setFundComparison] = useState<Array<string>>([]);
     const [rows, setRows] = useState<FundSelectionTableRow[]>(
-        state ? state.rows : Array.from({ length: defaultRowsCount }, () => createRow(defaultColumnsCount))
+        state?.rows ?? Array.from({ length: defaultRowsCount }, () => createRow(defaultColumnsCount))
     );
-    const [columnsCount, setColumnsCount] = useState<number>(state ? state.columnCount : defaultColumnsCount);
     const [customPortfolios, setCustomPortfolios] = useState<Array<Array<FundAllocation>> | undefined>(undefined);
 
     const triggerCalculation = useRef(false);
@@ -54,22 +55,20 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
     });
 
     const onAddRow = () => {
-        setRows([...rows, createRow(columnsCount)]);
+        setRows([...rows, createRow()]);
     };
 
     const onClear = () => {
-        setRows(Array.from({ length: rows.length }, () => createRow(columnsCount)));
+        setRows(Array.from({ length: rows.length }, () => createRow()));
     };
 
     const onReset = () => {
-        setColumnsCount(defaultColumnsCount);
         setRows(Array.from({ length: defaultRowsCount }, () => createRow(defaultColumnsCount)));
     };
 
     const onAddColumn = () => {
         const rowsShallowCopy = [...rows];
         rowsShallowCopy.forEach((row) => row.percentage.push(0));
-        setColumnsCount(columnsCount + 1);
         setRows(rowsShallowCopy);
     };
 
@@ -115,7 +114,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
         }
 
         const newRows = fundComparison.map((fundId, index) => {
-            const row = createRow(columnsCount);
+            const row = createRow();
             row.fundId = fundId;
             row.percentage[index] = 100;
             return row;
@@ -155,7 +154,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
         });
 
         setCustomPortfolios(portfolios);
-        onCalculatePortfolios(columnsCount, cloneDeep(rows));
+        onCalculatePortfolios(cloneDeep(rows));
     };
 
     const onFundComparisonSelected = (fundSelection: Array<FundSelectionDropdownOptionType> | null): void => {
@@ -200,7 +199,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                         <th></th>
                         <th></th>
                         <th></th>
-                        <th className="text-center" colSpan={columnsCount}>
+                        <th className="text-center" colSpan={getColumnsCount()}>
                             <span>Weight (%) in Portfolios</span>
                         </th>
                     </tr>
@@ -210,7 +209,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                         <th scope="col" style={{ width: '100%' }}>
                             Assets in Portfolios
                         </th>
-                        {Array.from({ length: columnsCount }).map((_, index) => (
+                        {Array.from({ length: getColumnsCount() }).map((_, index) => (
                             <th key={index} className="text-center" title={`Portfolio ${index + 1}`}>
                                 P{index + 1}
                                 <span style={{ fontSize: 'small' }}>

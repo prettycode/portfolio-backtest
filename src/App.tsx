@@ -1,13 +1,12 @@
-import './App.css';
-import FundSelectionTable from './Components/FundSelectionTable/FundSelectionTable';
+import FundSelectionTable, { NEWROW_FUNDID } from './Components/FundSelectionTable/FundSelectionTable';
 import { FundSelectionTableState } from './Components/FundSelectionTable/FundSelectionTableState';
+import './App.css';
 
 const defaultTableState: FundSelectionTableState = {
-    columnCount: 3,
     rows: [
-        { fundId: '-1', percentage: [0, 0, 0] },
-        { fundId: '-1', percentage: [0, 0, 0] },
-        { fundId: '-1', percentage: [0, 0, 0] }
+        { fundId: NEWROW_FUNDID, percentage: [0, 0, 0] },
+        { fundId: NEWROW_FUNDID, percentage: [0, 0, 0] },
+        { fundId: NEWROW_FUNDID, percentage: [0, 0, 0] }
     ]
 };
 
@@ -16,7 +15,6 @@ const manualTestingComparisons: Array<FundSelectionTableState> = [
     defaultTableState,
     {
         // 3-Month Money-Market
-        columnCount: 4,
         rows: [
             { fundId: 'USFR', percentage: ['100', '', '', ''] },
             { fundId: 'TFLO', percentage: ['', '100', '', ''] },
@@ -26,7 +24,6 @@ const manualTestingComparisons: Array<FundSelectionTableState> = [
     },
     {
         // 6-Month Reserve
-        columnCount: 3,
         rows: [
             { fundId: 'ACWV', percentage: ['50', '40', '30'] },
             { fundId: 'VGSH', percentage: ['30', '40', '50'] },
@@ -35,7 +32,6 @@ const manualTestingComparisons: Array<FundSelectionTableState> = [
     },
     {
         // 50% Equity Core
-        columnCount: 3,
         rows: [
             { fundId: 'AVUS', percentage: ['30', '', ''] },
             { fundId: 'AVUV', percentage: ['30', '', ''] },
@@ -47,7 +43,6 @@ const manualTestingComparisons: Array<FundSelectionTableState> = [
     },
     {
         // 40% Efficient Core
-        columnCount: 3,
         rows: [
             { fundId: 'NTSX', percentage: ['40', '26.7', '20'] },
             { fundId: 'GDE', percentage: ['20', '33.3', '40'] },
@@ -57,7 +52,6 @@ const manualTestingComparisons: Array<FundSelectionTableState> = [
     },
     {
         // 10% Defensive Equity
-        columnCount: 3,
         rows: [
             { fundId: 'VPU', percentage: ['24.5', (24.5 / 90) * 100, 30] },
             { fundId: 'KXI', percentage: ['23', (23 / 90) * 100, 35] },
@@ -89,8 +83,8 @@ function App() {
             <div style={{ marginTop: 40 }}>
                 <FundSelectionTable
                     state={stateToLoad}
-                    onCalculatePortfolios={(columnCount, rows) => {
-                        const currentState: Array<FundSelectionTableState> = [{ columnCount, rows }];
+                    onCalculatePortfolios={(rows) => {
+                        const currentState: Array<FundSelectionTableState> = [{ rows }];
                         const newSearch = new URLSearchParams({ state: JSON.stringify(currentState) }).toString();
                         console.log(newSearch, JSON.stringify(currentState, null, 4));
                     }}
