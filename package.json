@@ -44,7 +44,6 @@
         "reactstrap": "^9.2.0"
     },
     "devDependencies": {
-        "@types/axios": "^0.14.0",
         "@types/jest": "^29.5.4",
         "@types/lodash.clonedeep": "^4.5.7",
         "@types/lodash.groupby": "^4.6.7",
