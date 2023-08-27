@@ -28,7 +28,9 @@ type NasdaqApiResponseStockScreenerTableRow = {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function fetchStocksFromNasdaq(): Promise<Array<Fund>> {
-    const axiosResponse = await axios.get<NasdaqApiResponse>('https://api.nasdaq.com/api/screener/stocks?download=true');
+    const axiosResponse = await axios.get<NasdaqApiResponse>(
+        `https://corsproxy.io/?${encodeURIComponent('https://api.nasdaq.com/api/screener/stocks?download=true')}`
+    );
     const apiResponseModel = axiosResponse.data;
 
     return apiResponseModel.data.rows.map<Fund>((row) => ({
