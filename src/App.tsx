@@ -1,12 +1,12 @@
-import FundSelectionTable, { NEWROW_FUNDID } from './Components/FundSelectionTable/FundSelectionTable';
+import FundSelectionTable, { UNSELECTED_FUND_FUNDID } from './Components/FundSelectionTable/FundSelectionTable';
 import { FundSelectionTableState } from './Components/FundSelectionTable/FundSelectionTableState';
 import './App.css';
 
 const defaultTableState: FundSelectionTableState = {
     rows: [
-        { fundId: NEWROW_FUNDID, percentage: [0, 0, 0] },
-        { fundId: NEWROW_FUNDID, percentage: [0, 0, 0] },
-        { fundId: NEWROW_FUNDID, percentage: [0, 0, 0] }
+        { fundId: UNSELECTED_FUND_FUNDID, percentage: [0, 0, 0] },
+        { fundId: UNSELECTED_FUND_FUNDID, percentage: [0, 0, 0] },
+        { fundId: UNSELECTED_FUND_FUNDID, percentage: [0, 0, 0] }
     ]
 };
 

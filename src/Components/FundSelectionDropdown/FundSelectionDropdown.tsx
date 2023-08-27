@@ -1,5 +1,6 @@
 import Select, { StylesConfig } from 'react-select';
 import { Fund } from '../../Fund/models/Fund/Fund';
+import { UNSELECTED_FUND_FUNDID } from '../FundSelectionTable/FundSelectionTable';
 
 export type FundSelectionDropdownOptionType = {
     value: string;
@@ -13,6 +14,11 @@ type FundSelectionDropdownProps = {
     selectedFundId?: string | undefined;
     isMulti?: boolean | undefined;
 };
+
+/**
+ * `value` attribute value for `<Select>` that will clear it (`undefined` doesn't).
+ */
+const CLEAR_SELECT_VALUE = null;
 
 export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({
     funds,
@@ -52,7 +58,12 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({
             styles={customStyles}
             isClearable={true}
             options={options}
-            value={selectedFundId ? options.find((option) => option.value === selectedFundId) : null}
+            value={
+                selectedFundId !== UNSELECTED_FUND_FUNDID
+                    ? options.find((option) => option.value === selectedFundId) /* TODO: log warning if find() returns undefined  */ ||
+                      CLEAR_SELECT_VALUE
+                    : CLEAR_SELECT_VALUE
+            }
             placeholder={isMulti ? 'Select multiple assets...' : 'Search for asset...'}
             openMenuOnClick={false}
             isSearchable={true}

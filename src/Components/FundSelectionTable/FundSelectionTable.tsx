@@ -7,13 +7,14 @@ import { faBan, faChevronDown, faChevronUp, faPlus, faTrash } from '@fortawesome
 import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
 import FundAnalysis from '../FundAnalysis/FundAnalysis';
 import cloneDeep from 'lodash.clonedeep';
-import './FundSelectionTable.css';
 import { FundSelectionDropdown, FundSelectionDropdownOptionType } from '../FundSelectionDropdown/FundSelectionDropdown';
 import { FundSelectionTableState } from './FundSelectionTableState';
 import { FundSelectionTableRow } from './FundSelectionTableRow';
 import { displayPercentage } from '../utils/displayPercentage';
 
-export const NEWROW_FUNDID: string = 'temp';
+import './FundSelectionTable.css';
+
+export const UNSELECTED_FUND_FUNDID: string = '00000000-0000-0000-0000-000000000000';
 
 export interface FundSelectionTableProps {
     onCalculatePortfolios: (rows: Array<FundSelectionTableRow>) => void;
@@ -21,7 +22,7 @@ export interface FundSelectionTableProps {
 }
 
 const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalculatePortfolios }) => {
-    const defaultFundId = NEWROW_FUNDID;
+    const defaultFundId = UNSELECTED_FUND_FUNDID;
     const defaultColumnsCount = 3;
     const defaultRowsCount = 3;
 
@@ -35,7 +36,7 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
 
     const [funds, setFunds] = useState<Array<Fund>>([]);
     const [fundComparison, setFundComparison] = useState<Array<string>>([]);
-    const [rows, setRows] = useState<FundSelectionTableRow[]>(
+    const [rows, setRows] = useState<Array<FundSelectionTableRow>>(
         state?.rows ?? Array.from({ length: defaultRowsCount }, () => createRow(defaultColumnsCount))
     );
     const [customPortfolios, setCustomPortfolios] = useState<Array<Array<FundAllocation>> | undefined>(undefined);
@@ -54,15 +55,15 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
         }
     });
 
-    const onAddRow = () => {
+    const onAddTableRow = () => {
         setRows([...rows, createRow()]);
     };
 
-    const onClear = () => {
+    const onClearTable = () => {
         setRows(Array.from({ length: rows.length }, () => createRow()));
     };
 
-    const onReset = () => {
+    const onResetTable = () => {
         setRows(Array.from({ length: defaultRowsCount }, () => createRow(defaultColumnsCount)));
     };
 
@@ -230,7 +231,12 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                         <tr key={rowIndex}>
                             <td style={{ padding: 0, verticalAlign: 'middle' }}>
                                 {rowIndex === rows.length - 1 && (
-                                    <button title="Add new row" className="btn btn-xs" style={{ padding: '2px 4px' }} onClick={onAddRow}>
+                                    <button
+                                        title="Add new row"
+                                        className="btn btn-xs"
+                                        style={{ padding: '2px 4px' }}
+                                        onClick={onAddTableRow}
+                                    >
                                         <FontAwesomeIcon icon={faPlus} />
                                     </button>
                                 )}
@@ -315,19 +321,19 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                         <td></td>
                         <td colSpan={getColumnsCount() - 1}>
                             <div className="clearfix">
-                                <button type="button" className="btn btn-sm btn-outline-secondary float-start me-1" onClick={onAddRow}>
+                                <button type="button" className="btn btn-sm btn-outline-secondary float-start me-1" onClick={onAddTableRow}>
                                     Add Row
                                 </button>
                                 <button type="button" className="btn btn-sm btn-outline-secondary float-start me-1" onClick={onAddColumn}>
                                     Add Column
                                 </button>
-                                <button type="button" className="btn btn-sm btn-outline-danger float-start me-1" onClick={onClear}>
+                                <button type="button" className="btn btn-sm btn-outline-danger float-start me-1" onClick={onClearTable}>
                                     Clear
                                 </button>
                                 <button
                                     type="button"
                                     className="btn btn-sm btn-outline-danger  btn-outline-secondary float-start me-1"
-                                    onClick={onReset}
+                                    onClick={onResetTable}
                                 >
                                     Reset
                                 </button>
