@@ -189,7 +189,9 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                         <th style={{ fontWeight: 'normal', display: 'flex', alignItems: 'center', flexWrap: 'nowrap' }}>
                             <span style={{ width: '100%' }}>
                                 <FundSelectionDropdown
-                                    onFundSelected={onFundComparisonSelected as (selection: FundSelectionDropdownOptionType | null) => void}
+                                    onFundSelected={
+                                        onFundComparisonSelected as unknown as (selection: FundSelectionDropdownOptionType | null) => void
+                                    }
                                     isMulti
                                     funds={funds}
                                 />

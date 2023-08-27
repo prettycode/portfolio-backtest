@@ -12,7 +12,7 @@ Portfolio Visualizer shortcomings:
 8. ✅ "Backtest Portfolio Asset Class Allocation" does not support margin (i.e. CASHX)
 9. ❌ ETFs for asset classes (e.g. VGIT, VTI) do not automatically backfill with asset class history
 
-TO-DO:
+## TO-DO:
 
 1. Disable row/column
 2. Delete row/column

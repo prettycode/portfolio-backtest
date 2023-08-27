@@ -10,19 +10,42 @@ const defaultTableState: FundSelectionTableState = {
     ]
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const manualTestingComparisons: Array<FundSelectionTableState> = [
     defaultTableState,
+    {
+        // 3-Month Money-Market
+        columnCount: 4,
+        rows: [
+            { fundId: 'USFR', percentage: ['100', '', '', ''] },
+            { fundId: 'TFLO', percentage: ['', '100', '', ''] },
+            { fundId: 'FLOT', percentage: ['', '', '100', ''] },
+            { fundId: 'SGOV', percentage: ['', '', '', '100'] }
+        ]
+    },
     {
         // 6-Month Reserve
         columnCount: 3,
         rows: [
-            { fundId: 'VT', percentage: ['50', '40', '30'] },
+            { fundId: 'ACWV', percentage: ['50', '40', '30'] },
             { fundId: 'VGSH', percentage: ['30', '40', '50'] },
             { fundId: 'GLD', percentage: ['20', '20', '20'] }
         ]
     },
     {
-        // Global Efficient Core
+        // 50% Equity Core
+        columnCount: 3,
+        rows: [
+            { fundId: 'AVUS', percentage: ['30', '', ''] },
+            { fundId: 'AVUV', percentage: ['30', '', ''] },
+            { fundId: 'AVDE', percentage: ['10', '', ''] },
+            { fundId: 'AVDV', percentage: ['10', '', ''] },
+            { fundId: 'AVEM', percentage: ['10', '', ''] },
+            { fundId: 'DGS', percentage: ['10', '', ''] }
+        ]
+    },
+    {
+        // 40% Efficient Core
         columnCount: 3,
         rows: [
             { fundId: 'NTSX', percentage: ['40', '26.7', '20'] },
@@ -30,11 +53,23 @@ const manualTestingComparisons: Array<FundSelectionTableState> = [
             { fundId: 'NTSI', percentage: ['20', '20', '20'] },
             { fundId: 'NTSE', percentage: ['20', '20', '20'] }
         ]
+    },
+    {
+        // 10% Defensive Equity
+        columnCount: 3,
+        rows: [
+            { fundId: 'VPU', percentage: ['24.5', (24.5 / 90) * 100, 30] },
+            { fundId: 'KXI', percentage: ['23', (23 / 90) * 100, 35] },
+            { fundId: 'IXJ', percentage: ['22.5', (22.5 / 90) * 100, 35] },
+            { fundId: 'EFAV', percentage: ['10', (10 / 90) * 100, ''] },
+            { fundId: 'EEMV', percentage: ['10', (10 / 90) * 100, ''] },
+            { fundId: 'GOVZ', percentage: ['10', '', ''] }
+        ]
     }
 ];
 
 function App() {
-    let stateToLoad: FundSelectionTableState = manualTestingComparisons[2];
+    let stateToLoad: FundSelectionTableState = defaultTableState;
     const stateDeserialized: FundSelectionTableState | undefined = (() => {
         try {
             // TODO: Validate (using Zod?) that the state is a valid FundSelectionTableState
