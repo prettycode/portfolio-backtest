@@ -27,9 +27,21 @@ type NasdaqApiResponseStockScreenerTableRow = {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-async function fetchStocksFromNasdaq(): Promise<Array<NasdaqApiResponseStockScreenerTableRow>> {
-    const response = await axios.get<NasdaqApiResponse>('https://api.nasdaq.com/api/screener/stocks?download=true');
-    return response.data.data.rows;
+async function fetchStocksFromNasdaq(): Promise<Array<Fund>> {
+    const axiosResponse = await axios.get<NasdaqApiResponse>('https://api.nasdaq.com/api/screener/stocks?download=true');
+    const apiResponseModel = axiosResponse.data;
+
+    return apiResponseModel.data.rows.map<Fund>((row) => ({
+        fundId: row.symbol,
+        name: row.name,
+        description: `Country/Sector/Industry/Market Cap ${row.country}/${row.sector}/${row.industry}/${row.marketCap}}`,
+        tickerSymbol: row.symbol,
+        percentage: 100,
+        type: 'Market',
+        marketRegion: 'Unknonwn', // TODO function for mapping row.country -> FundMarketRegion
+        assetClass: 'Equity',
+        allocations: []
+    }));
 }
 
 export const fetchMarketFunds = async (): Promise<Array<Fund>> =>

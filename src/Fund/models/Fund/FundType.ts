@@ -1,1 +1,1 @@
-export type FundType = 'Custom' | 'ETF' | 'Company' | 'Index' | 'Mutual Fund';
+export type FundType = 'Custom' | 'Market' | 'ETF' | 'Company' | 'Index' | 'Mutual Fund';
