@@ -1,22 +1,92 @@
-import FundSelectionTable, { FundSelectionTableRow } from './Components/FundSelection/FundSelectionTable';
+import FundSelectionTable, { UNSELECTED_FUND_FUNDID } from './Components/FundSelectionTable/FundSelectionTable';
+import { FundSelectionTableState } from './Components/FundSelectionTable/FundSelectionTableState';
 import './App.css';
 
+const defaultTableState: FundSelectionTableState = {
+    rows: [
+        { fundId: UNSELECTED_FUND_FUNDID, percentage: [0, 0, 0] },
+        { fundId: UNSELECTED_FUND_FUNDID, percentage: [0, 0, 0] },
+        { fundId: UNSELECTED_FUND_FUNDID, percentage: [0, 0, 0] }
+    ]
+};
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const manualTestingComparisons: Array<FundSelectionTableState> = [
+    defaultTableState,
+    {
+        // 3-Month Money-Market
+        rows: [
+            { fundId: 'USFR', percentage: ['100', '', '', ''] },
+            { fundId: 'TFLO', percentage: ['', '100', '', ''] },
+            { fundId: 'FLOT', percentage: ['', '', '100', ''] },
+            { fundId: 'SGOV', percentage: ['', '', '', '100'] }
+        ]
+    },
+    {
+        // 6-Month Reserve
+        rows: [
+            { fundId: 'ACWV', percentage: ['50', '40', '30'] },
+            { fundId: 'VGSH', percentage: ['30', '40', '50'] },
+            { fundId: 'GLD', percentage: ['20', '20', '20'] }
+        ]
+    },
+    {
+        // 50% Equity Core
+        rows: [
+            { fundId: 'AVUS', percentage: ['30', '', ''] },
+            { fundId: 'AVUV', percentage: ['30', '', ''] },
+            { fundId: 'AVDE', percentage: ['10', '', ''] },
+            { fundId: 'AVDV', percentage: ['10', '', ''] },
+            { fundId: 'AVEM', percentage: ['10', '', ''] },
+            { fundId: 'DGS', percentage: ['10', '', ''] }
+        ]
+    },
+    {
+        // 40% Efficient Core
+        rows: [
+            { fundId: 'NTSX', percentage: ['40', '26.7', '20'] },
+            { fundId: 'GDE', percentage: ['20', '33.3', '40'] },
+            { fundId: 'NTSI', percentage: ['20', '20', '20'] },
+            { fundId: 'NTSE', percentage: ['20', '20', '20'] }
+        ]
+    },
+    {
+        // 10% Defensive Equity
+        rows: [
+            { fundId: 'VPU', percentage: ['24.5', (24.5 / 90) * 100, 30] },
+            { fundId: 'KXI', percentage: ['23', (23 / 90) * 100, 35] },
+            { fundId: 'IXJ', percentage: ['22.5', (22.5 / 90) * 100, 35] },
+            { fundId: 'EFAV', percentage: ['10', (10 / 90) * 100, ''] },
+            { fundId: 'EEMV', percentage: ['10', (10 / 90) * 100, ''] },
+            { fundId: 'GOVZ', percentage: ['10', '', ''] }
+        ]
+    }
+];
+
 function App() {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const stateDeserialized: { columnCount: number; rows: Array<FundSelectionTableRow> } = JSON.parse(
-        decodeURIComponent(
-            '%7B%22columnCount%22%3A4%2C%22rows%22%3A%5B%7B%22fundId%22%3A%22NTSX%22%2C%22percentage%22%3A%5B%2210%22%2C%2226.6%22%2C%2220%22%2C0%5D%7D%2C%7B%22fundId%22%3A%22GDE%22%2C%22percentage%22%3A%5B%2250%22%2C%2233.4%22%2C%2240%22%2C0%5D%7D%2C%7B%22fundId%22%3A%22NTSI%22%2C%22percentage%22%3A%5B%2220%22%2C%2220%22%2C%2220%22%2C0%5D%7D%2C%7B%22fundId%22%3A%22NTSE%22%2C%22percentage%22%3A%5B%2220%22%2C%2220%22%2C%2220%22%2C0%5D%7D%2C%7B%22fundId%22%3A%22VT%22%2C%22percentage%22%3A%5B0%2C0%2C%220%22%2C%22100%22%5D%7D%5D%7D'
-        )
-    );
+    let stateToLoad: FundSelectionTableState = defaultTableState;
+    const stateDeserialized: FundSelectionTableState | undefined = (() => {
+        try {
+            // TODO: Validate (using Zod?) that the state is a valid FundSelectionTableState
+            return JSON.parse(decodeURIComponent(location.search));
+        } catch (e) {
+            return undefined;
+        }
+    })();
+
+    if (stateDeserialized) {
+        stateToLoad = stateDeserialized;
+    }
 
     return (
         <>
             <div style={{ marginTop: 40 }}>
                 <FundSelectionTable
-                    state={stateDeserialized}
-                    onCalculatePortfolios={(columnCount, rows) => {
-                        const newSearch = new URLSearchParams({ state: JSON.stringify({ columnCount, rows }) }).toString();
-                        console.log(newSearch);
+                    state={stateToLoad}
+                    onCalculatePortfolios={(rows) => {
+                        const currentState: Array<FundSelectionTableState> = [{ rows }];
+                        const newSearch = new URLSearchParams({ state: JSON.stringify(currentState) }).toString();
+                        console.log(newSearch, JSON.stringify(currentState, null, 4));
                     }}
                 ></FundSelectionTable>
             </div>

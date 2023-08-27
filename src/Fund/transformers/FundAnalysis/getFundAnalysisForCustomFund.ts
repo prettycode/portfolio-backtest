@@ -17,13 +17,7 @@ export const getFundAnalysisForCustomFund = async (fundAllocations: Array<FundAl
         throw new Error('Fund has no holdings to analyze.');
     }
 
-    // TODO in next commit, refactor getFlattenedFundAllocations to accept holdings instead
-    const flattened = await getFlattenedFundAllocations({
-        fundId: '-1',
-        percentage: 100,
-        allocations: cloneDeep(holdings),
-        type: 'Custom'
-    });
+    const flattened = await getFlattenedFundAllocations(holdings);
     const leverage = getFundAllocationsLeverage(flattened);
     const delevered = getDeleveredFundAllocations(flattened);
     const composition = await getFundFromFundAllocation(delevered);

@@ -31,3 +31,7 @@ table {
 td {
     vertical-align: middle;
 }
+
+.text-faded {
+    color: rgba(0, 0, 0, 0.35) !important;
+}

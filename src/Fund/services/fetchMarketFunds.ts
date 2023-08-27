@@ -1,6 +1,36 @@
 import { Fund } from '../models/Fund/Fund';
+import axios from 'axios';
 
 let mock: Array<Fund> | undefined;
+
+type NasdaqApiResponse = {
+    data: {
+        asOf: string | null;
+        headers: NasdaqApiResponseStockScreenerTableRow;
+        rows: Array<NasdaqApiResponseStockScreenerTableRow>;
+    };
+};
+
+type NasdaqApiResponseStockScreenerTableRow = {
+    symbol: string;
+    name: string;
+    lastsale: string;
+    netchange: string;
+    pctchange: string;
+    volume: string;
+    marketCap: string;
+    country: string;
+    ipoyear: string;
+    industry: string;
+    sector: string;
+    url: string;
+};
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+async function fetchStocksFromNasdaq(): Promise<Array<NasdaqApiResponseStockScreenerTableRow>> {
+    const response = await axios.get<NasdaqApiResponse>('https://api.nasdaq.com/api/screener/stocks?download=true');
+    return response.data.data.rows;
+}
 
 export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
     Promise.resolve(
@@ -61,6 +91,17 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 allocations: []
             },
             {
+                fundId: 'USFR',
+                name: 'US Cash',
+                description: 'US Treasury Money Market',
+                tickerSymbol: 'CASHX',
+                percentage: 100,
+                type: 'ETF',
+                marketRegion: 'US',
+                assetClass: 'Cash',
+                allocations: []
+            },
+            {
                 fundId: 'VGSH',
                 name: 'US Short-Term Treasuries',
                 description: 'Vanguard Short-Term Treasury Fund Investor Shares',
@@ -94,6 +135,17 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 allocations: []
             },
             {
+                fundId: 'EDV',
+                name: 'US 20 – 30-Year Treasuries STRIPS',
+                description: 'Vanguard Extended Duration Treasury Index Fund Institutional Shares',
+                tickerSymbol: 'VEDTX',
+                percentage: 100,
+                type: 'Mutual Fund',
+                marketRegion: 'US',
+                assetClass: 'Treasury',
+                allocations: []
+            },
+            {
                 fundId: 'GLD',
                 name: 'Gold',
                 description: 'Gold Index',
@@ -102,17 +154,6 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                 type: 'Index',
                 marketRegion: 'Global (All-World)',
                 assetClass: 'Commodity',
-                allocations: []
-            },
-            {
-                fundId: 'USFR',
-                name: 'US Cash (Floating-Rate)',
-                description: 'US Treasury Money Market',
-                tickerSymbol: 'CASHX',
-                percentage: 100,
-                type: 'ETF',
-                marketRegion: 'US',
-                assetClass: 'Cash',
                 allocations: []
             },
             {
