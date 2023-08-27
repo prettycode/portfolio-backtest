@@ -9,20 +9,9 @@ import FundAnalysis from '../FundAnalysis/FundAnalysis';
 import cloneDeep from 'lodash.clonedeep';
 import './FundSelectionTable.css';
 import { FundSelectionDropdown, FundSelectionDropdownOptionType } from '../FundSelectionDropdown/FundSelectionDropdown';
-
-function displayPercentage(percentage: number): string {
-    return percentage.toFixed(1).replace(/\.0$/, '');
-}
-
-export type FundSelectionTableState = {
-    columnCount: number;
-    rows: Array<FundSelectionTableRow>;
-};
-
-export type FundSelectionTableRow = {
-    fundId: string;
-    percentage: Array<string | number>;
-};
+import { FundSelectionTableState } from './FundSelectionTableState';
+import { FundSelectionTableRow } from './FundSelectionTableRow';
+import { displayPercentage } from '../utils/displayPercentage';
 
 export interface FundSelectionTableProps {
     onCalculatePortfolios: (columnCount: number, rows: Array<FundSelectionTableRow>) => void;

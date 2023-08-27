@@ -1,5 +1,6 @@
 import './App.css';
-import FundSelectionTable, { FundSelectionTableState } from './Components/FundSelectionTable/FundSelectionTable';
+import FundSelectionTable from './Components/FundSelectionTable/FundSelectionTable';
+import { FundSelectionTableState } from './Components/FundSelectionTable/FundSelectionTableState';
 
 const defaultTableState: FundSelectionTableState = {
     columnCount: 3,
