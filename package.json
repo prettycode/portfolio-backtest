@@ -9,7 +9,7 @@
     },
     "license": "cc-by-nc-4.0",
     "scripts": {
-        "start": "npm run install && npm run build:ci  && vite --open",
+        "start": "npm run versions && npm run install:ci && vite --open",
         "versions": "echo node: && node -v && echo npm: && npm -v",
         "install:ci": "npm ci",
         "install:local": "npm install",
@@ -32,6 +32,7 @@
     "dependencies": {
         "@fortawesome/free-solid-svg-icons": "^6.4.2",
         "@fortawesome/react-fontawesome": "^0.2.0",
+        "axios": "^1.5.0",
         "bootstrap": "^5.3.1",
         "font-awesome": "^4.7.0",
         "lodash.clonedeep": "^4.5.0",
@@ -43,6 +44,7 @@
         "reactstrap": "^9.2.0"
     },
     "devDependencies": {
+        "@types/axios": "^0.14.0",
         "@types/jest": "^29.5.4",
         "@types/lodash.clonedeep": "^4.5.7",
         "@types/lodash.groupby": "^4.6.7",

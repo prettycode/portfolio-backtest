@@ -1,6 +1,36 @@
 import { Fund } from '../models/Fund/Fund';
+import axios from 'axios';
 
 let mock: Array<Fund> | undefined;
+
+type NasdaqApiResponse = {
+    data: {
+        asOf: string | null;
+        headers: NasdaqApiResponseStockScreenerTableRow;
+        rows: Array<NasdaqApiResponseStockScreenerTableRow>;
+    };
+};
+
+type NasdaqApiResponseStockScreenerTableRow = {
+    symbol: string;
+    name: string;
+    lastsale: string;
+    netchange: string;
+    pctchange: string;
+    volume: string;
+    marketCap: string;
+    country: string;
+    ipoyear: string;
+    industry: string;
+    sector: string;
+    url: string;
+};
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+async function fetchStocksFromNasdaq(): Promise<Array<NasdaqApiResponseStockScreenerTableRow>> {
+    const response = await axios.get<NasdaqApiResponse>('https://api.nasdaq.com/api/screener/stocks?download=true');
+    return response.data.data.rows;
+}
 
 export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
     Promise.resolve(
