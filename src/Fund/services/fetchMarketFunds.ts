@@ -40,7 +40,7 @@ async function fetchStocksFromNasdaq(): Promise<Array<Fund>> {
         tickerSymbol: row.symbol,
         percentage: 100,
         type: 'Market',
-        marketRegion: 'Unknonwn', // TODO function for mapping row.country -> FundMarketRegion
+        marketRegion: 'Unknown', // TODO function for mapping row.country -> FundMarketRegion
         assetClass: 'Equity',
         allocations: []
     }));
