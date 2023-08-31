@@ -141,7 +141,8 @@ const mockCustomFunds: Fund[] = [
 ];
 
 // TODO hack for float
-const fundTotal = (fund: Array<FundAllocation>): number => +fund.reduce((acc, curr) => acc + curr.percentage, 0).toFixed(2);
+const fundTotal = (fund: Array<FundAllocation>): number =>
+    +fund.reduce((acc, curr) => acc + curr.percentage, 0).toFixed(2);
 
 fetchCustomFunds.setMock(mockCustomFunds);
 fetchMarketFunds.setMock(mockMarketFunds);

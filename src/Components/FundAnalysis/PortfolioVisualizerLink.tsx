@@ -9,12 +9,9 @@ type PortfolioVisualizerBacktestLinkProps = {
     url?: string;
 };
 
-export const PortfolioVisualizerLink: React.FC<PortfolioVisualizerBacktestLinkProps & React.HTMLAttributes<HTMLSpanElement>> = ({
-    allocations,
-    url,
-    className,
-    style
-}) => {
+export const PortfolioVisualizerLink: React.FC<
+    PortfolioVisualizerBacktestLinkProps & React.HTMLAttributes<HTMLSpanElement>
+> = ({ allocations, url, className, style }) => {
     const [calculatedUrl, setCalculatedUrl] = useState<string | undefined>(url ?? undefined);
 
     useEffect(() => {
@@ -31,7 +28,12 @@ export const PortfolioVisualizerLink: React.FC<PortfolioVisualizerBacktestLinkPr
                 className={className ? `${className} badge bg-light text-dark` : 'badge bg-light text-dark'}
             >
                 PV&nbsp;&nbsp;
-                <a href={calculatedUrl} target="_blank" rel="noopener noreferrer" title="Open backtest in Portfolio Visualizer">
+                <a
+                    href={calculatedUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Open backtest in Portfolio Visualizer"
+                >
                     <FontAwesomeIcon icon={faExternalLink} />
                 </a>
             </span>

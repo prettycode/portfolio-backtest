@@ -1,5 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBank, faExternalLink, faOilCan, faQuestion, faSackDollar, faUserTie } from '@fortawesome/free-solid-svg-icons';
+import {
+    faBank,
+    faExternalLink,
+    faOilCan,
+    faQuestion,
+    faSackDollar,
+    faUserTie
+} from '@fortawesome/free-solid-svg-icons';
 import { FundAssetClass } from '../../Fund/models/Fund/FundAssetClass';
 
 type FundAssetClassIconProps = {

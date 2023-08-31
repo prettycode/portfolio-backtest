@@ -31,7 +31,8 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
         percentage: new Array(!columnCountInRow ? getColumnsCount() : columnCountInRow).fill(0)
     });
     const getColumnsCount = (): number => rows.reduce((max, row) => Math.max(max, row.percentage.length), 0);
-    const sumColumn = (columnIndex: number): number => rows.reduce((sum, row) => sum + Number(row.percentage[columnIndex]), 0);
+    const sumColumn = (columnIndex: number): number =>
+        rows.reduce((sum, row) => sum + Number(row.percentage[columnIndex]), 0);
     const sumSelectedFunds = (): number => rows.reduce((sum, row) => sum + (row.fundId === defaultFundId ? 0 : 1), 0);
 
     const [funds, setFunds] = useState<Array<Fund>>([]);
@@ -179,7 +180,9 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                             <span style={{ width: '100%' }}>
                                 <FundSelectionDropdown
                                     onFundSelected={
-                                        onFundComparisonSelected as unknown as (selection: FundSelectionDropdownOptionType | null) => void
+                                        onFundComparisonSelected as unknown as (
+                                            selection: FundSelectionDropdownOptionType | null
+                                        ) => void
                                     }
                                     isMulti
                                     funds={funds}
@@ -220,7 +223,12 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                             </th>
                         ))}
                         <th>
-                            <button title="Add new column" className="btn btn-xs" style={{ padding: '2px 4px' }} onClick={onAddColumn}>
+                            <button
+                                title="Add new column"
+                                className="btn btn-xs"
+                                style={{ padding: '2px 4px' }}
+                                onClick={onAddColumn}
+                            >
                                 <FontAwesomeIcon icon={faPlus} fixedWidth={true} />
                             </button>
                         </th>
@@ -309,7 +317,8 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                                 </span>
                                 <br />
                                 <span className="font-weight-lighter" style={{ fontSize: '0.8rem' }}>
-                                    {sumColumn(columnIndex) !== 100 && `add ${displayPercentage(100 - sumColumn(columnIndex))}%`}
+                                    {sumColumn(columnIndex) !== 100 &&
+                                        `add ${displayPercentage(100 - sumColumn(columnIndex))}%`}
                                 </span>
                             </td>
                         ))}
@@ -321,13 +330,25 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                         <td></td>
                         <td colSpan={getColumnsCount() - 1}>
                             <div className="clearfix">
-                                <button type="button" className="btn btn-sm btn-outline-secondary float-start me-1" onClick={onAddTableRow}>
+                                <button
+                                    type="button"
+                                    className="btn btn-sm btn-outline-secondary float-start me-1"
+                                    onClick={onAddTableRow}
+                                >
                                     Add Row
                                 </button>
-                                <button type="button" className="btn btn-sm btn-outline-secondary float-start me-1" onClick={onAddColumn}>
+                                <button
+                                    type="button"
+                                    className="btn btn-sm btn-outline-secondary float-start me-1"
+                                    onClick={onAddColumn}
+                                >
                                     Add Column
                                 </button>
-                                <button type="button" className="btn btn-sm btn-outline-danger float-start me-1" onClick={onClearTable}>
+                                <button
+                                    type="button"
+                                    className="btn btn-sm btn-outline-danger float-start me-1"
+                                    onClick={onClearTable}
+                                >
                                     Clear
                                 </button>
                                 <button
@@ -337,7 +358,11 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                                 >
                                     Reset
                                 </button>
-                                <button type="button" className="btn btn-sm btn-outline-primary float-start me-1" onClick={onCalculate}>
+                                <button
+                                    type="button"
+                                    className="btn btn-sm btn-outline-primary float-start me-1"
+                                    onClick={onCalculate}
+                                >
                                     Calculate
                                 </button>
                             </div>

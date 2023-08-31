@@ -115,7 +115,9 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                             <tbody>
                                 {analysis.flattened.map((fund, index) => (
                                     <tr key={index}>
-                                        <td style={{ width: '1%', paddingRight: '25px' }}>{fundLookupCache[fund.fundId].tickerSymbol}</td>
+                                        <td style={{ width: '1%', paddingRight: '25px' }}>
+                                            {fundLookupCache[fund.fundId].tickerSymbol}
+                                        </td>
                                         <td>{fundLookupCache[fund.fundId].name}</td>
                                         <td style={{ textAlign: 'right' }}>
                                             {fund.percentage.toFixed(1)}%&nbsp;&nbsp;
@@ -210,7 +212,13 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
 
                             return (
                                 <React.Fragment key={assetClass}>
-                                    <h4>{showRedundantTitles || portfolioIndex === 0 ? `${assetClass} by Region` : <>&nbsp;</>}</h4>
+                                    <h4>
+                                        {showRedundantTitles || portfolioIndex === 0 ? (
+                                            `${assetClass} by Region`
+                                        ) : (
+                                            <>&nbsp;</>
+                                        )}
+                                    </h4>
                                     <table className="table table-sm">
                                         <thead>
                                             <tr>
@@ -227,7 +235,10 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                                                             {totalPercentage === 0 && <>{(0).toFixed(1)}</>}
                                                             {totalPercentage !== 0 &&
                                                                 (
-                                                                    (funds.reduce((acc, fund) => acc + fund.percentage, 0) /
+                                                                    (funds.reduce(
+                                                                        (acc, fund) => acc + fund.percentage,
+                                                                        0
+                                                                    ) /
                                                                         totalPercentage) *
                                                                     100
                                                                 ).toFixed(1)}

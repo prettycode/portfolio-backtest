@@ -39,7 +39,9 @@ export const getComparisonBacktestUrl = async (portfolios: Array<Array<FundAlloc
         }
 
         const portfolioName = encodeURIComponent(
-            `${allocationFunds.map((fa) => fa.percentage.toFixed(0)).join('/')} ${allocationFunds.map((fa) => fa.tickerSymbol).join('/')}`
+            `${allocationFunds.map((fa) => fa.percentage.toFixed(0)).join('/')} ${allocationFunds
+                .map((fa) => fa.tickerSymbol)
+                .join('/')}`
         );
 
         url += `&portfolioName${portfolioIndex + 1}=${portfolioName}`;
@@ -52,7 +54,9 @@ export const getComparisonBacktestUrl = async (portfolios: Array<Array<FundAlloc
                 throw new Error('Could not look up fund ticker.');
             }
 
-            url += `&symbol${index + 1}=${fund.tickerSymbol}&allocation${index + 1}_${portfolioIndex + 1}=${allocation.percentage}`;
+            url += `&symbol${index + 1}=${fund.tickerSymbol}&allocation${index + 1}_${portfolioIndex + 1}=${
+                allocation.percentage
+            }`;
         }
     }
 

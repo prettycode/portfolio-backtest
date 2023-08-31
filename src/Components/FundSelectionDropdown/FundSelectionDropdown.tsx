@@ -30,7 +30,9 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({
     const options: FundSelectionDropdownOptionType[] = funds
         .map((fund) => ({
             value: fund.fundId,
-            label: `${fund.assetClass || fund.type}: ${fund.name || '[no name]'} ${fund.tickerSymbol ? `(${fund.tickerSymbol})` : ''}`
+            label: `${fund.assetClass || fund.type}: ${fund.name || '[no name]'} ${
+                fund.tickerSymbol ? `(${fund.tickerSymbol})` : ''
+            }`
             // Showing description is nice but it makes the matching function on the dropdown too inclusive; disable for now until filtering can be updated to exclude description
             /*`${fund.assetClass || fund.type}: ${fund.name || '[no name]'} ${fund.tickerSymbol ? `(${fund.tickerSymbol})` : ''}` +
                 (!isMulti ? `${fund.description ? ` [${fund.description}]` : ''}` : '')*/
@@ -60,8 +62,9 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({
             options={options}
             value={
                 selectedFundId !== UNSELECTED_FUND_FUNDID
-                    ? options.find((option) => option.value === selectedFundId) /* TODO: log warning if find() returns undefined  */ ||
-                      CLEAR_SELECT_VALUE
+                    ? options.find(
+                          (option) => option.value === selectedFundId
+                      ) /* TODO: log warning if find() returns undefined  */ || CLEAR_SELECT_VALUE
                     : CLEAR_SELECT_VALUE
             }
             placeholder={isMulti ? 'Select multiple assets...' : 'Search for asset...'}

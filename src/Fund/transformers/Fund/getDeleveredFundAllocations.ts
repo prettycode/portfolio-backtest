@@ -5,7 +5,8 @@ export const getDeleveredFundAllocations = (fundHoldings: Array<FundAllocation>)
         throw new Error('Fund is missing holdings. Cannot calculate unlevered portfolio.');
     }
 
-    const leverage = fundHoldings.reduce((sum, holding) => sum + (holding.percentage < 0 ? 0 : holding.percentage), 0) / 100;
+    const leverage =
+        fundHoldings.reduce((sum, holding) => sum + (holding.percentage < 0 ? 0 : holding.percentage), 0) / 100;
 
     const deleveredHoldings = fundHoldings
         .filter((holding) => holding.percentage >= 0)

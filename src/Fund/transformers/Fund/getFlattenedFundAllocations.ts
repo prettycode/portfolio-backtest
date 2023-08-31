@@ -1,7 +1,8 @@
 import { FundAllocation } from '../../models/Fund/FundAllocation';
 import { fetchFundByFundId } from '../../services/fetchFundByFundId';
 
-const sortFundAllocationsDescending = (funds: Array<FundAllocation>) => funds.sort((a, b) => b.percentage - a.percentage);
+const sortFundAllocationsDescending = (funds: Array<FundAllocation>) =>
+    funds.sort((a, b) => b.percentage - a.percentage);
 
 export const getFlattenedFundAllocations = async (funds: Array<FundAllocation>): Promise<Array<FundAllocation>> => {
     const flattened: Array<FundAllocation> = [];

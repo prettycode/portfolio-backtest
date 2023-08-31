@@ -18,7 +18,8 @@ const memoryCache: Record<string, string> = {};
  * Get the filepath that a cache entry should be written to. Make sure to includ a hash of `key` since
  * `safeFilename(key)` can return the same value if two different keys are sanitized to the same value.
  */
-const safeFilenameCacheKey = (key: string): string => path.join(cachePathRoot, `${safeFilename(key)}.${hashCode(key)}.json`);
+const safeFilenameCacheKey = (key: string): string =>
+    path.join(cachePathRoot, `${safeFilename(key)}.${hashCode(key)}.json`);
 
 /**
  * Make sure we can read from/write to the cache directory before we actually try to. The function is invoked upon
