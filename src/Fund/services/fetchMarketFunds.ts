@@ -1,12 +1,12 @@
 import { Fund } from '../models/Fund/Fund';
-import { fetchNasdaqFunds } from './fetchNasdaqFunds';
+import { fetchNasdaqEtfFunds } from './fetchNasdaqEtfFunds';
 
 let mock: Array<Fund> | undefined;
 
 export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
     Promise.resolve(
         mock ||
-            (await fetchNasdaqFunds()) || [
+            (await fetchNasdaqEtfFunds()) || [
                 {
                     fundId: 'VTI',
                     name: 'US Total-Market',
