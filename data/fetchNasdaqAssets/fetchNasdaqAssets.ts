@@ -62,7 +62,13 @@ export async function fetchNasdaqAssets<TData extends StocksApiResponse | EtfsAp
     const apiUrl = `https://api.nasdaq.com/api/screener/${type}?download=true`;
     const expireDailyCacheKey = dailyExpirationCacheKey(apiUrl);
 
-    let apiData: ApiResponse<TData> = await fileCacheGet(expireDailyCacheKey);
+    let apiData: ApiResponse<TData>;
+
+    try {
+        apiData = await fileCacheGet(expireDailyCacheKey);
+    } catch (error) {
+        console.error('Could not get from file cache.', error);
+    }
 
     if (apiData) {
         return apiData;
@@ -83,7 +89,7 @@ export async function fetchNasdaqAssets<TData extends StocksApiResponse | EtfsAp
         try {
             await fileCachePut(expireDailyCacheKey, apiData);
         } catch (error) {
-            console.error('Could not save data to local storage cache.', error);
+            console.error('Could not put to file cache.', error);
         }
     }
 
