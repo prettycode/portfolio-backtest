@@ -1,0 +1,3314 @@
+{
+    "data": {
+        "filters": null,
+        "records": {
+            "totalrecords": 25365,
+            "limit": 1000,
+            "offset": 25000,
+            "data": {
+                "asOf": null,
+                "headers": {
+                    "fundType": "FUND TYPE",
+                    "symbol": "SYMBOL",
+                    "companyName": "NAME",
+                    "lastSalePrice": "LAST",
+                    "netChange": "NET CHANGE",
+                    "percentageChange": "% CHANGE"
+                },
+                "rows": [
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFGWX",
+                        "companyName": "Allspring Growth Balanced C Shares",
+                        "lastSalePrice": "$37.17",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.05%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFHHX",
+                        "companyName": "Allspring Special Mid Cap Value Fund - R",
+                        "lastSalePrice": "$45.25",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFHYX",
+                        "companyName": "Allspring Short-Term High Income Fund Class C",
+                        "lastSalePrice": "$7.81",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.13%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFICX",
+                        "companyName": "North Star Small Cap Value Fund - Institutional",
+                        "lastSalePrice": "$15.43",
+                        "netChange": "+0.06",
+                        "percentageChange": "+0.39%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFILX",
+                        "companyName": "Allspring Index Fund Cl A",
+                        "lastSalePrice": "$45.78",
+                        "netChange": "-0.07",
+                        "percentageChange": "-0.15%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFINX",
+                        "companyName": "Allspring Index Fund Cl C",
+                        "lastSalePrice": "$46.90",
+                        "netChange": "-0.06",
+                        "percentageChange": "-0.13%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFIOX",
+                        "companyName": "Allspring Index Fund Admin Cl",
+                        "lastSalePrice": "$47.18",
+                        "netChange": "-0.07",
+                        "percentageChange": "-0.15%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFIPX",
+                        "companyName": "Allspring Core Plus Bond Fund Class C",
+                        "lastSalePrice": "$11.06",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.18%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFITX",
+                        "companyName": "Allspring Fd, Intermediate Tax/AMT-Free Admin Cl",
+                        "lastSalePrice": "$10.72",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.09%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFIVX",
+                        "companyName": "Wilshire 5000 Index Fund Investment Class",
+                        "lastSalePrice": "$26.58",
+                        "netChange": "-0.03",
+                        "percentageChange": "-0.11%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFLLX",
+                        "companyName": "Allspring Large Cap Core Fund Admin Cl",
+                        "lastSalePrice": "$16.55",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFLVX",
+                        "companyName": "Allspring Fd, Large Company Value C",
+                        "lastSalePrice": "$12.78",
+                        "netChange": "-0.06",
+                        "percentageChange": "-0.47%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFMAX",
+                        "companyName": "Allspring Moderate Balanced Class A",
+                        "lastSalePrice": "$19.28",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.10%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFMDX",
+                        "companyName": "Allspring Special Mid Cap Value Fund Admin Class",
+                        "lastSalePrice": "$46.16",
+                        "netChange": "-0.10",
+                        "percentageChange": "-0.22%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFMIX",
+                        "companyName": "Allspring Special Mid Cap Value Fund Insti Class",
+                        "lastSalePrice": "$46.59",
+                        "netChange": "-0.10",
+                        "percentageChange": "-0.21%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFMYX",
+                        "companyName": "Allspring Moderate Balanced Fund Institutional Class",
+                        "lastSalePrice": "$19.62",
+                        "netChange": "+0.03",
+                        "percentageChange": "+0.15%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFOPX",
+                        "companyName": "Allspring Fd, Opportunity Fund C",
+                        "lastSalePrice": "$41.36",
+                        "netChange": "-0.08",
+                        "percentageChange": "-0.19%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFPAX",
+                        "companyName": "Allspring Special Mid Cap Value Fund Class A",
+                        "lastSalePrice": "$45.02",
+                        "netChange": "-0.10",
+                        "percentageChange": "-0.22%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFPCX",
+                        "companyName": "Allspring Special Mid Cap Value Fund Class C",
+                        "lastSalePrice": "$42.04",
+                        "netChange": "-0.09",
+                        "percentageChange": "-0.21%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFPDX",
+                        "companyName": "Allspring Premier Large Company Growth Fund Admin Cl",
+                        "lastSalePrice": "$12.85",
+                        "netChange": "+0.03",
+                        "percentageChange": "+0.23%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFPRX",
+                        "companyName": "Allspring Special Mid Cap Value Fund - R6",
+                        "lastSalePrice": "$46.68",
+                        "netChange": "-0.11",
+                        "percentageChange": "-0.24%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFRPX",
+                        "companyName": "Wealthfront Risk Parity Fund Class W",
+                        "lastSalePrice": "$7.90",
+                        "netChange": "-0.02",
+                        "percentageChange": "-0.25%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFRTX",
+                        "companyName": "Allspring Intermediate Tax/AMT-Free Fund Class R6",
+                        "lastSalePrice": "$10.73",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.19%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFSAX",
+                        "companyName": "Allspring Small Company Growth Class A",
+                        "lastSalePrice": "$30.12",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.03%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFSDX",
+                        "companyName": "Allspring Small Cap Fund Admin Class",
+                        "lastSalePrice": "$24.82",
+                        "netChange": "-0.09",
+                        "percentageChange": "-0.36%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFSHX",
+                        "companyName": "Allspring Short-Term Bond Plus Fund C",
+                        "lastSalePrice": "$8.32",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.12%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFSJX",
+                        "companyName": "Allspring Small Cap Fund Class R6",
+                        "lastSalePrice": "$25.81",
+                        "netChange": "-0.10",
+                        "percentageChange": "-0.39%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFSMX",
+                        "companyName": "Allspring Small Cap Fund Class A",
+                        "lastSalePrice": "$23.95",
+                        "netChange": "-0.09",
+                        "percentageChange": "-0.37%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFSPX",
+                        "companyName": "iShares S&P 500 Index Fund - Class K",
+                        "lastSalePrice": "$529.89",
+                        "netChange": "-0.73",
+                        "percentageChange": "-0.14%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFSSX",
+                        "companyName": "Allspring Small Cap Fund Class I",
+                        "lastSalePrice": "$25.57",
+                        "netChange": "-0.10",
+                        "percentageChange": "-0.39%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFSTX",
+                        "companyName": "Allspring Discovery Innovation - A",
+                        "lastSalePrice": "$9.70",
+                        "netChange": "+0.03",
+                        "percentageChange": "+0.31%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFTAX",
+                        "companyName": "Allspring Fd, Intermediate Tax/AMT-Free Cl A",
+                        "lastSalePrice": "$10.71",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.09%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFTCX",
+                        "companyName": "Allspring Discovery Innovation - C",
+                        "lastSalePrice": "$4.47",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.22%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFTDX",
+                        "companyName": "Allspring Discovery Innovation - Administrative",
+                        "lastSalePrice": "$10.22",
+                        "netChange": "+0.03",
+                        "percentageChange": "+0.29%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFTFX",
+                        "companyName": "Allspring Fd, Intermediate Tax/AMT-Free Cl C",
+                        "lastSalePrice": "$10.71",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.09%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFTIX",
+                        "companyName": "Allspring Discovery Innovation - I",
+                        "lastSalePrice": "$10.53",
+                        "netChange": "+0.04",
+                        "percentageChange": "+0.38%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFUNX",
+                        "companyName": "Allspring Ultra Short-Term Municipal Income Fund A2",
+                        "lastSalePrice": "$9.49",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WFUSX",
+                        "companyName": "Allspring Fd, Ultra Short-Term Municipal Income C",
+                        "lastSalePrice": "$9.41",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGAFX",
+                        "companyName": "Allspring Spectrum Growth Fund Class A",
+                        "lastSalePrice": "$11.25",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGAYX",
+                        "companyName": "Allspring Spectrum Growth Fund Class I",
+                        "lastSalePrice": "$11.26",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGBAX",
+                        "companyName": "Allspring Spectrum Moderate Growth Fund Class A",
+                        "lastSalePrice": "$10.95",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGBFX",
+                        "companyName": "Allspring Spectrum Moderate Growth Fund Class C",
+                        "lastSalePrice": "$11.23",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGBIX",
+                        "companyName": "Allspring Spectrum Moderate Growth Fund Class I",
+                        "lastSalePrice": "$10.96",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGCAX",
+                        "companyName": "Allspring Global Investment Grade Credit - Class A",
+                        "lastSalePrice": "$8.53",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.24%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGCCX",
+                        "companyName": "Allspring Global Investment Grade Credit - Class C",
+                        "lastSalePrice": "$8.49",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.24%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGCFX",
+                        "companyName": "Allspring Spectrum Growth Fund Class C",
+                        "lastSalePrice": "$11.55",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGCIX",
+                        "companyName": "Allspring Global Investment Grade Credit Fund Class I",
+                        "lastSalePrice": "$8.52",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.24%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGCRX",
+                        "companyName": "Allspring Global Investment Grade Credit Fund Class R6",
+                        "lastSalePrice": "$8.52",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.24%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGFCX",
+                        "companyName": "Allspring Growth Fund Class C",
+                        "lastSalePrice": "$14.06",
+                        "netChange": "+0.04",
+                        "percentageChange": "+0.29%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGFIX",
+                        "companyName": "William Blair Global Leaders Fund Class I",
+                        "lastSalePrice": "$15.41",
+                        "netChange": "-0.07",
+                        "percentageChange": "-0.45%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGGCX",
+                        "companyName": "Wasatch Greater China Fund Institutional Class",
+                        "lastSalePrice": "$4.98",
+                        "netChange": "-0.04",
+                        "percentageChange": "-0.80%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGGNX",
+                        "companyName": "William Blair Global Leaders Fd Cl N",
+                        "lastSalePrice": "$15.26",
+                        "netChange": "-0.07",
+                        "percentageChange": "-0.46%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGGSX",
+                        "companyName": "Wasatch Global Select Fund Institutional Class",
+                        "lastSalePrice": "$10.88",
+                        "netChange": "-0.03",
+                        "percentageChange": "-0.27%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGICX",
+                        "companyName": "Wasatch Micro Cap Fund Institutional Class",
+                        "lastSalePrice": "$6.63",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.15%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGIFX",
+                        "companyName": "Capital World Growth and Income Fund Class F-2 Shares",
+                        "lastSalePrice": "$57.59",
+                        "netChange": "-0.08",
+                        "percentageChange": "-0.14%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGISX",
+                        "companyName": "Wasatch International Select Fund Institutional Class",
+                        "lastSalePrice": "$11.05",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGLSX",
+                        "companyName": "Wasatch Long/Short Alpha Fund Institutional Class",
+                        "lastSalePrice": "$11.88",
+                        "netChange": "-0.02",
+                        "percentageChange": "-0.17%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGMCX",
+                        "companyName": "Wasatch Ultra Growth Fund Institutional Class",
+                        "lastSalePrice": "$29.42",
+                        "netChange": "-0.07",
+                        "percentageChange": "-0.24%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGMVX",
+                        "companyName": "Wasatch Micro Cap Value Fund Institutional Class",
+                        "lastSalePrice": "$3.19",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.31%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGROX",
+                        "companyName": "Wasatch Core Growth Fund",
+                        "lastSalePrice": "$77.56",
+                        "netChange": "-0.13",
+                        "percentageChange": "-0.17%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGSCX",
+                        "companyName": "Allspring Government Securities Fund Class C",
+                        "lastSalePrice": "$9.56",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.10%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGSDX",
+                        "companyName": "Allspring Government Securities Fund Admin Cl",
+                        "lastSalePrice": "$9.56",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.10%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WGUSX",
+                        "companyName": "Wasatch U.S. Select Fund Institutional Class",
+                        "lastSalePrice": "$12.85",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.08%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WHGAX",
+                        "companyName": "Westwood Quality SmallCap Fund - A Class Shares",
+                        "lastSalePrice": "$19.39",
+                        "netChange": "-0.04",
+                        "percentageChange": "-0.21%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WHGCX",
+                        "companyName": "Westwood Quality SmallCap Fund - C Class Shares",
+                        "lastSalePrice": "$19.22",
+                        "netChange": "-0.03",
+                        "percentageChange": "-0.16%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WHGHX",
+                        "companyName": "Westwood High Income Fund - Institutional Shares",
+                        "lastSalePrice": "$9.28",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.11%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WHGIX",
+                        "companyName": "Westwood Income Opportunity Fund - Institutional Shares",
+                        "lastSalePrice": "$11.17",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.09%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WHGLX",
+                        "companyName": "Westwood Quality Value Fund - Institutional Shares",
+                        "lastSalePrice": "$12.93",
+                        "netChange": "-0.09",
+                        "percentageChange": "-0.69%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WHGMX",
+                        "companyName": "Westwood Quality SMIDCap Fund - Institutional Shares",
+                        "lastSalePrice": "$13.89",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WHGOX",
+                        "companyName": "Westwood Income Opportunity Fund - Ultra Shares",
+                        "lastSalePrice": "$11.17",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WHGQX",
+                        "companyName": "Westwood Quality Value Fund - Ultra Shares",
+                        "lastSalePrice": "$12.93",
+                        "netChange": "-0.10",
+                        "percentageChange": "-0.77%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WHGSX",
+                        "companyName": "Westwood Quality SmallCap Fund - Institutional Shares",
+                        "lastSalePrice": "$19.46",
+                        "netChange": "-0.04",
+                        "percentageChange": "-0.21%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WHIAX",
+                        "companyName": "Delaware Ivy High Income Fund Class A",
+                        "lastSalePrice": "$5.94",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.17%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WHIYX",
+                        "companyName": "Delaware Ivy High Income Fund Class Y",
+                        "lastSalePrice": "$5.94",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.17%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WHOSX",
+                        "companyName": "Wasatch-Hoisington U.S. Treasury Fund",
+                        "lastSalePrice": "$11.75",
+                        "netChange": "+0.05",
+                        "percentageChange": "+0.43%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WHYCX",
+                        "companyName": "Allspring High Yield Municipal Bond Fd Class C",
+                        "lastSalePrice": "$9.26",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.22%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WHYDX",
+                        "companyName": "Allspring High Yield Municipal Bond Fd Admin",
+                        "lastSalePrice": "$9.27",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.22%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WHYIX",
+                        "companyName": "Allspring High Yield Municipal Bond Fd Inst",
+                        "lastSalePrice": "$9.26",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.22%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WHYMX",
+                        "companyName": "Allspring High Yield Municipal Bond Fd A",
+                        "lastSalePrice": "$9.26",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.22%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIAEX",
+                        "companyName": "Wasatch Small Cap Growth Fund Instl Cl",
+                        "lastSalePrice": "$35.35",
+                        "netChange": "-0.09",
+                        "percentageChange": "-0.25%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIBMX",
+                        "companyName": "Wilmington Broad Market Bond Fund I Shares",
+                        "lastSalePrice": "$8.56",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.12%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WICGX",
+                        "companyName": "William Blair China Growth Fund Class I",
+                        "lastSalePrice": "$5.42",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.18%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WICIX",
+                        "companyName": "Allspring Special International Small Cap Fund Institutional Class",
+                        "lastSalePrice": "$11.17",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.18%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WICOX",
+                        "companyName": "Segall Bryant & Hamill Colorado Tax Free Fund Institutional Class",
+                        "lastSalePrice": "$10.27",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.10%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WICRX",
+                        "companyName": "Allspring Special International Small Cap Fund Class R6",
+                        "lastSalePrice": "$11.16",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.18%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WICVX",
+                        "companyName": "Wasatch Small Cap Value Fund Institutional Class Shares",
+                        "lastSalePrice": "$9.74",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.21%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIEFX",
+                        "companyName": "Boston Trust Walden International Equity Fund",
+                        "lastSalePrice": "$12.71",
+                        "netChange": "-0.09",
+                        "percentageChange": "-0.70%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIEMX",
+                        "companyName": "Wasatch Emerging Markets Small Cap Fund Instl Cl",
+                        "lastSalePrice": "$2.77",
+                        "netChange": "-0.02",
+                        "percentageChange": "-0.72%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIESX",
+                        "companyName": "Wasatch Emerging Markets Select Fd Inst Cl",
+                        "lastSalePrice": "$15.15",
+                        "netChange": "-0.15",
+                        "percentageChange": "-0.98%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIFMX",
+                        "companyName": "Wasatch Frontier Emerging Small Countries Fund Instl Cl",
+                        "lastSalePrice": "$2.98",
+                        "netChange": "-0.02",
+                        "percentageChange": "-0.67%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIGOX",
+                        "companyName": "Wasatch Global Opportunities Fund Instl Cl",
+                        "lastSalePrice": "$3.98",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIGRX",
+                        "companyName": "Wasatch Core Growth Fund Institutional Class Shares",
+                        "lastSalePrice": "$79.03",
+                        "netChange": "-0.14",
+                        "percentageChange": "-0.18%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIGTX",
+                        "companyName": "Seven Canyons Innovators Fund Institutional Class",
+                        "lastSalePrice": "$12.86",
+                        "netChange": "-0.04",
+                        "percentageChange": "-0.31%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIIBX",
+                        "companyName": "Segall Bryant & Hamill Plus Bond Fund Institutional Class",
+                        "lastSalePrice": "$9.07",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.11%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIIGX",
+                        "companyName": "Wasatch International Growth Fund Instl Cl",
+                        "lastSalePrice": "$22.70",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIINX",
+                        "companyName": "Wasatch Emerging India Fund Instl Cl",
+                        "lastSalePrice": "$5.91",
+                        "netChange": "-0.02",
+                        "percentageChange": "-0.34%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIIOX",
+                        "companyName": "Wasatch International Opportunities Fund Instl Cl",
+                        "lastSalePrice": "$2.92",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIISX",
+                        "companyName": "William Blair International Small Cap Growth Fund Class R6",
+                        "lastSalePrice": "$11.63",
+                        "netChange": "-0.03",
+                        "percentageChange": "-0.26%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WILCX",
+                        "companyName": "Wasatch Large Cap Value Fund Institutional Class",
+                        "lastSalePrice": "$8.80",
+                        "netChange": "-0.05",
+                        "percentageChange": "-0.56%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WILIX",
+                        "companyName": "William Blair International Leaders Fd Cl I",
+                        "lastSalePrice": "$18.53",
+                        "netChange": "-0.13",
+                        "percentageChange": "-0.70%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WILJX",
+                        "companyName": "William Blair International Leaders Fund Class R6",
+                        "lastSalePrice": "$18.55",
+                        "netChange": "-0.12",
+                        "percentageChange": "-0.64%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WILNX",
+                        "companyName": "William Blair International Leaders Fd N",
+                        "lastSalePrice": "$18.36",
+                        "netChange": "-0.12",
+                        "percentageChange": "-0.65%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WILTX",
+                        "companyName": "Segall Bryant & Hamill Quality High Yield Fund Institutional Class",
+                        "lastSalePrice": "$8.11",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.12%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIMVX",
+                        "companyName": "Segall Bryant & Hamill Global All Cap Fund Institutional Class",
+                        "lastSalePrice": "$9.92",
+                        "netChange": "-0.05",
+                        "percentageChange": "-0.50%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WINAX",
+                        "companyName": "Wilmington International Fund Class A",
+                        "lastSalePrice": "$8.19",
+                        "netChange": "-0.02",
+                        "percentageChange": "-0.24%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WINDX",
+                        "companyName": "Wilshire 5000 Index Fund Institutional Class",
+                        "lastSalePrice": "$26.64",
+                        "netChange": "-0.02",
+                        "percentageChange": "-0.08%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WINIX",
+                        "companyName": "Wilmington International Fund Class I",
+                        "lastSalePrice": "$8.29",
+                        "netChange": "-0.02",
+                        "percentageChange": "-0.24%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIOPX",
+                        "companyName": "Wilshire Income Opportunities Fund - Institutional Class",
+                        "lastSalePrice": "$8.57",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.23%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIORX",
+                        "companyName": "Wilshire Income Opportunities Fund - Investment Class",
+                        "lastSalePrice": "$8.64",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.12%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIPDX",
+                        "companyName": "Allspring Core Plus Bond Fund Administrator Class",
+                        "lastSalePrice": "$11.05",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.18%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIPIX",
+                        "companyName": "Allspring Core Plus Bond Fund Inst Class",
+                        "lastSalePrice": "$11.08",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.18%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WIREX",
+                        "companyName": "WIRELESS FUND",
+                        "lastSalePrice": "$13.07",
+                        "netChange": "+0.07",
+                        "percentageChange": "+0.54%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WISEX",
+                        "companyName": "Azzad Wise Capital Fund",
+                        "lastSalePrice": "$10.53",
+                        "netChange": "-0.02",
+                        "percentageChange": "-0.19%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WISGX",
+                        "companyName": "Segall Bryant & Hamill Small Cap Growth Fund Institutional Class",
+                        "lastSalePrice": "$18.04",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.06%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WISIX",
+                        "companyName": "William Blair International Small Cap Growth Fund Class I",
+                        "lastSalePrice": "$11.55",
+                        "netChange": "-0.03",
+                        "percentageChange": "-0.26%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WISNX",
+                        "companyName": "WmBlair International Small Cap Growth Fund Class N",
+                        "lastSalePrice": "$11.36",
+                        "netChange": "-0.03",
+                        "percentageChange": "-0.26%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WITAX",
+                        "companyName": "Segall Bryant & Hamill Municipal Opportunities Fund Institutional Class",
+                        "lastSalePrice": "$9.41",
+                        "netChange": "+0.03",
+                        "percentageChange": "+0.32%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WITIX",
+                        "companyName": "Allspring Fd, Intermediate Tax/AMT-Free Inst Cl",
+                        "lastSalePrice": "$10.73",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.09%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WLBCX",
+                        "companyName": "Delaware Ivy Limited-Term Bond Fund Class C",
+                        "lastSalePrice": "$10.32",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WLCAX",
+                        "companyName": "Allspring Fd, Large Company Value A",
+                        "lastSalePrice": "$12.20",
+                        "netChange": "-0.06",
+                        "percentageChange": "-0.49%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WLCGX",
+                        "companyName": "Wilshire Mutual Fds, Inc. Wilshire Large Company Growth Portf Insti Cl",
+                        "lastSalePrice": "$39.59",
+                        "netChange": "+0.07",
+                        "percentageChange": "+0.18%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WLCIX",
+                        "companyName": "Allspring Fd, Large Company Value Inst",
+                        "lastSalePrice": "$12.31",
+                        "netChange": "-0.05",
+                        "percentageChange": "-0.40%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WLCTX",
+                        "companyName": "Wilshire International Equity Fd Investment Cl",
+                        "lastSalePrice": "$10.35",
+                        "netChange": "-0.07",
+                        "percentageChange": "-0.67%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WLCVX",
+                        "companyName": "Wilshire Mutual Fds, Inc. Wilshire Large Company Value Portf Insti Cl",
+                        "lastSalePrice": "$19.30",
+                        "netChange": "-0.05",
+                        "percentageChange": "-0.26%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WLGAX",
+                        "companyName": "Delaware Ivy Large Cap Growth Fund Class A",
+                        "lastSalePrice": "$28.80",
+                        "netChange": "-0.05",
+                        "percentageChange": "-0.17%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WLGCX",
+                        "companyName": "Delaware Ivy Large Cap Growth Fund Class C",
+                        "lastSalePrice": "$19.91",
+                        "netChange": "-0.03",
+                        "percentageChange": "-0.15%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WLGRX",
+                        "companyName": "Delaware Ivy Large Cap Growth Fund Class R",
+                        "lastSalePrice": "$26.58",
+                        "netChange": "-0.04",
+                        "percentageChange": "-0.15%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WLGYX",
+                        "companyName": "Delaware Ivy Large Cap Growth Fund Class Y",
+                        "lastSalePrice": "$30.02",
+                        "netChange": "-0.05",
+                        "percentageChange": "-0.17%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WLIVX",
+                        "companyName": "WCM Focused International Value Fund Investor Class",
+                        "lastSalePrice": "$12.26",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WLTAX",
+                        "companyName": "Delaware Ivy Limited-Term Bond Fund Class A",
+                        "lastSalePrice": "$10.32",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WLTTX",
+                        "companyName": "Wilshire International Equity Fund Inst Cl",
+                        "lastSalePrice": "$10.25",
+                        "netChange": "-0.06",
+                        "percentageChange": "-0.58%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WLTYX",
+                        "companyName": "Delaware Ivy Limited-Term Bond Fund Class Y",
+                        "lastSalePrice": "$10.32",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WLVIX",
+                        "companyName": "Westwood Total Return Fund - Institutional Shares",
+                        "lastSalePrice": "$6.41",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.16%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMBAX",
+                        "companyName": "Delaware Ivy Municipal Bond Fund Class A",
+                        "lastSalePrice": "$9.96",
+                        "netChange": "+0.04",
+                        "percentageChange": "+0.40%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMBCX",
+                        "companyName": "Delaware Ivy Municipal Bond Fund Class C",
+                        "lastSalePrice": "$9.96",
+                        "netChange": "+0.04",
+                        "percentageChange": "+0.40%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMBDX",
+                        "companyName": "WesMark Government Bond Fund",
+                        "lastSalePrice": "$7.76",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.26%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMBFX",
+                        "companyName": "Allspring Spectrum Conservative Growth Fund Class C",
+                        "lastSalePrice": "$9.55",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.10%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMBGX",
+                        "companyName": "Allspring Spectrum Conservative Growth Fund Class A",
+                        "lastSalePrice": "$9.29",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.11%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMBIX",
+                        "companyName": "Allspring Fd, Municipal Bond Inst",
+                        "lastSalePrice": "$9.57",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.10%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMBLX",
+                        "companyName": "WesMark Balanced Fund",
+                        "lastSalePrice": "$13.15",
+                        "netChange": "-0.02",
+                        "percentageChange": "-0.15%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMBRX",
+                        "companyName": "Allspring Municipal Bond Fund Class R6",
+                        "lastSalePrice": "$9.58",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.21%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMBZX",
+                        "companyName": "Allspring Spectrum Conservative Growth Fund Class I",
+                        "lastSalePrice": "$9.31",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.11%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMCVX",
+                        "companyName": "Wasatch Small Cap Value Fund",
+                        "lastSalePrice": "$9.63",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.21%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMFAX",
+                        "companyName": "Allspring Municipal Bond Fund Class A",
+                        "lastSalePrice": "$9.57",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.10%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMFCX",
+                        "companyName": "Allspring Municipal Bond Fund Class C",
+                        "lastSalePrice": "$9.57",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.21%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMFDX",
+                        "companyName": "Allspring Municipal Bond Fund Admin Cl",
+                        "lastSalePrice": "$9.58",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.21%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMFFX",
+                        "companyName": "Washington Mutual Investors Fund Cl F-2 Shs",
+                        "lastSalePrice": "$54.93",
+                        "netChange": "-0.15",
+                        "percentageChange": "-0.27%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMGAX",
+                        "companyName": "Delaware Ivy Mid Cap Growth Fund Class A",
+                        "lastSalePrice": "$26.56",
+                        "netChange": "+0.05",
+                        "percentageChange": "+0.19%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMGCX",
+                        "companyName": "Delaware Ivy Mid Cap Growth Fund Class C",
+                        "lastSalePrice": "$19.41",
+                        "netChange": "+0.04",
+                        "percentageChange": "+0.21%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMGRX",
+                        "companyName": "Delaware Ivy Mid Cap Growth Fund Class R",
+                        "lastSalePrice": "$25.08",
+                        "netChange": "+0.04",
+                        "percentageChange": "+0.16%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMGYX",
+                        "companyName": "Delaware Ivy Mid Cap Growth Fund Class Y",
+                        "lastSalePrice": "$28.49",
+                        "netChange": "+0.05",
+                        "percentageChange": "+0.18%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMICX",
+                        "companyName": "Wasatch Micro Cap Fund",
+                        "lastSalePrice": "$6.62",
+                        "netChange": "-0.02",
+                        "percentageChange": "-0.30%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMIDX",
+                        "companyName": "WCM Mid Cap Quality Value Fund - Investor Class",
+                        "lastSalePrice": "$11.20",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMKGX",
+                        "companyName": "WesMark Large Company Fund",
+                        "lastSalePrice": "$21.80",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMKMX",
+                        "companyName": "WesMark West Virginia Municipal Bond Fund",
+                        "lastSalePrice": "$9.52",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.21%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMKSX",
+                        "companyName": "WesMark Small Company Fund",
+                        "lastSalePrice": "$13.09",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.08%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMKTX",
+                        "companyName": "WesMark Tactical Opportunity Fund",
+                        "lastSalePrice": "$10.65",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.09%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMLIX",
+                        "companyName": "Wilmington Large-Cap Strategy Fund Instl Shares",
+                        "lastSalePrice": "$27.38",
+                        "netChange": "-0.03",
+                        "percentageChange": "-0.11%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMMAX",
+                        "companyName": "TETON Westwood Mighty Mites  Fund Class A",
+                        "lastSalePrice": "$20.71",
+                        "netChange": "-0.02",
+                        "percentageChange": "-0.10%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMMCX",
+                        "companyName": "TETON Westwood Mighty Mites  Fund Class C",
+                        "lastSalePrice": "$16.66",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.06%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMMRX",
+                        "companyName": "Wilmington Real Asset Fund Class A",
+                        "lastSalePrice": "$13.32",
+                        "netChange": "-0.03",
+                        "percentageChange": "-0.22%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMNAX",
+                        "companyName": "Westwood Alternative Income Fund - A Class Shares",
+                        "lastSalePrice": "$9.27",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.11%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMNIX",
+                        "companyName": "Westwood Alternative Income Fund - Institutional Shares",
+                        "lastSalePrice": "$9.27",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMNUX",
+                        "companyName": "Westwood Alternative Income Fund - Ultra Shares",
+                        "lastSalePrice": "$9.28",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMRIX",
+                        "companyName": "Wilmington Real Asset Fund Class I",
+                        "lastSalePrice": "$13.54",
+                        "netChange": "-0.03",
+                        "percentageChange": "-0.22%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMSAX",
+                        "companyName": "Allspring Municipal Sustainability Fund A",
+                        "lastSalePrice": "$18.49",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.11%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMSCX",
+                        "companyName": "Allspring Municipal Sustainability Fund C",
+                        "lastSalePrice": "$18.63",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.11%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMSDX",
+                        "companyName": "Allspring Municipal Sustainability Fund Admin",
+                        "lastSalePrice": "$18.50",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.11%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMSIX",
+                        "companyName": "Allspring Municipal Sustainability Fund Inst",
+                        "lastSalePrice": "$18.51",
+                        "netChange": "+0.03",
+                        "percentageChange": "+0.16%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMSRX",
+                        "companyName": "Allspring Municipal Sustainability Fund R6",
+                        "lastSalePrice": "$18.51",
+                        "netChange": "+0.03",
+                        "percentageChange": "+0.16%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMTCX",
+                        "companyName": "Allspring Minnesota Tax-Free Fund Class C",
+                        "lastSalePrice": "$9.95",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.20%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WMTIX",
+                        "companyName": "Allspring Minnesota Tax-Free Fund-I",
+                        "lastSalePrice": "$9.95",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.10%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WNTFX",
+                        "companyName": "Nebraska Tax Free Income Fund Investor Class",
+                        "lastSalePrice": "$9.49",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.11%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WNYAX",
+                        "companyName": "Wilmington New York Municipal Bond Fund Class A Shares",
+                        "lastSalePrice": "$9.66",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.21%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WNYIX",
+                        "companyName": "Wilmington New York Municipal Bond Fund I Shares",
+                        "lastSalePrice": "$9.66",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.10%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WOAIX",
+                        "companyName": "WOA All Asset I Cl I",
+                        "lastSalePrice": "$11.37",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.09%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WOBAX",
+                        "companyName": "Wells Fargo Advantage Core Bond Option Class A",
+                        "lastSalePrice": "$12.76",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.08%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WOBCX",
+                        "companyName": "Wells Fargo Advantage Core Bond Option Class C",
+                        "lastSalePrice": "$11.50",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.09%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WOBDX",
+                        "companyName": "JPMorgan Core Bond Fund I Class",
+                        "lastSalePrice": "$10.05",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.20%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WOBIX",
+                        "companyName": "Wells Fargo Advantage Core Bond Option Class I",
+                        "lastSalePrice": "$12.89",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.08%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WOFDX",
+                        "companyName": "Allspring Opportunity Fund Admin Cl",
+                        "lastSalePrice": "$54.08",
+                        "netChange": "-0.11",
+                        "percentageChange": "-0.20%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WOFNX",
+                        "companyName": "Allspring Opportunity Fund Institutional Class",
+                        "lastSalePrice": "$55.96",
+                        "netChange": "-0.10",
+                        "percentageChange": "-0.18%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WOFRX",
+                        "companyName": "Allspring Opportunity Fund R6",
+                        "lastSalePrice": "$56.01",
+                        "netChange": "-0.10",
+                        "percentageChange": "-0.18%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WOGSX",
+                        "companyName": "White Oak Select Growth Fund",
+                        "lastSalePrice": "$126.09",
+                        "netChange": "-0.03",
+                        "percentageChange": "-0.02%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WOOOX",
+                        "companyName": "JPMorgan SMID Cap Equity Fund Class R3",
+                        "lastSalePrice": "$14.40",
+                        "netChange": "-0.04",
+                        "percentageChange": "-0.28%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WOOPX",
+                        "companyName": "JPMorgan SMID Cap Equity Fund Class I",
+                        "lastSalePrice": "$16.11",
+                        "netChange": "-0.05",
+                        "percentageChange": "-0.31%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WOOQX",
+                        "companyName": "JPMorgan SMID Cap Equity Fund Class R4",
+                        "lastSalePrice": "$16.02",
+                        "netChange": "-0.05",
+                        "percentageChange": "-0.31%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WOOSX",
+                        "companyName": "JPMorgan SMID Cap Equity Fund Class R6",
+                        "lastSalePrice": "$16.19",
+                        "netChange": "-0.05",
+                        "percentageChange": "-0.31%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WPASX",
+                        "companyName": "AB Cap Fund, Inc. - AB Concentrated Growth Portfolio - Class A",
+                        "lastSalePrice": "$49.15",
+                        "netChange": "-0.08",
+                        "percentageChange": "-0.16%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WPCSX",
+                        "companyName": "AB Cap Fund, Inc. - AB Concentrated Growth Portfolio - Class C",
+                        "lastSalePrice": "$44.98",
+                        "netChange": "-0.08",
+                        "percentageChange": "-0.18%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WPGSX",
+                        "companyName": "WPG Partners Select Small Cap Value Fund",
+                        "lastSalePrice": "$11.82",
+                        "netChange": "-0.04",
+                        "percentageChange": "-0.34%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WPGTX",
+                        "companyName": "WPG Partners Small Cap Value Diversified Fund - Institutional Class",
+                        "lastSalePrice": "$18.82",
+                        "netChange": "-0.04",
+                        "percentageChange": "-0.21%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WPLCX",
+                        "companyName": "WP Large Cap Income Plus Fund Cl I",
+                        "lastSalePrice": "$11.68",
+                        "netChange": "-0.04",
+                        "percentageChange": "-0.34%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WPOIX",
+                        "companyName": "Weitz Funds, Partners III Opportunity Fund Investor Class",
+                        "lastSalePrice": "$11.81",
+                        "netChange": "-0.02",
+                        "percentageChange": "-0.17%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WPOPX",
+                        "companyName": "Weitz Funds, Partners III Opportunity Fund Insti Class",
+                        "lastSalePrice": "$12.86",
+                        "netChange": "-0.02",
+                        "percentageChange": "-0.16%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WPRSX",
+                        "companyName": "AB Cap Fund, Inc. - AB Concentrated Growth Portfolio - Class R",
+                        "lastSalePrice": "$47.47",
+                        "netChange": "-0.08",
+                        "percentageChange": "-0.17%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WPSGX",
+                        "companyName": "AB Cap Fund, Inc. - AB Concentrated Growth Portfolio - Advisor Class",
+                        "lastSalePrice": "$50.52",
+                        "netChange": "-0.09",
+                        "percentageChange": "-0.18%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WPSIX",
+                        "companyName": "AB Cap Fund, Inc. - AB Concentrated Growth Portfolio - Class I",
+                        "lastSalePrice": "$50.57",
+                        "netChange": "-0.09",
+                        "percentageChange": "-0.18%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WPSKX",
+                        "companyName": "AB Cap Fund, Inc. - AB Concentrated Growth Portfolio - Class K",
+                        "lastSalePrice": "$49.12",
+                        "netChange": "-0.08",
+                        "percentageChange": "-0.16%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WPSZX",
+                        "companyName": "AB Cap Fund, Inc. - AB Concentrated Growth Portfolio - Class Z",
+                        "lastSalePrice": "$50.64",
+                        "netChange": "-0.09",
+                        "percentageChange": "-0.18%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WPVAX",
+                        "companyName": "Aberdeen International Small Cap Fund Cl R",
+                        "lastSalePrice": "$24.54",
+                        "netChange": "-0.11",
+                        "percentageChange": "-0.45%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WPVIX",
+                        "companyName": "Multi Cap Equity Fund Institutional Class",
+                        "lastSalePrice": "$30.43",
+                        "netChange": "-0.08",
+                        "percentageChange": "-0.26%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WPVLX",
+                        "companyName": "Multi Cap Equity Fund Investor Class",
+                        "lastSalePrice": "$29.60",
+                        "netChange": "-0.07",
+                        "percentageChange": "-0.24%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WQAIX",
+                        "companyName": "Westwood Quality AllCap Fund - Institutional Shares",
+                        "lastSalePrice": "$10.51",
+                        "netChange": "-0.05",
+                        "percentageChange": "-0.47%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WQAUX",
+                        "companyName": "Westwood Quality AllCap Fund - Ultra Shares",
+                        "lastSalePrice": "$10.51",
+                        "netChange": "-0.05",
+                        "percentageChange": "-0.47%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WQDGX",
+                        "companyName": "WCM Quality Dividend Growth Fund - Investor",
+                        "lastSalePrice": "$9.83",
+                        "netChange": "-0.06",
+                        "percentageChange": "-0.61%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WRAAX",
+                        "companyName": "Wilmington Global Alpha Equities Fund Class A",
+                        "lastSalePrice": "$11.95",
+                        "netChange": "-0.02",
+                        "percentageChange": "-0.17%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WRAIX",
+                        "companyName": "Wilmington Global Alpha Equities Fund, Class I",
+                        "lastSalePrice": "$12.19",
+                        "netChange": "-0.03",
+                        "percentageChange": "-0.25%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WRCGX",
+                        "companyName": "William Blair China Growth Fund Class R6",
+                        "lastSalePrice": "$5.40",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.18%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WRGCX",
+                        "companyName": "Delaware Ivy Small Cap Growth Fund Class C",
+                        "lastSalePrice": "$6.86",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.29%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WRHIX",
+                        "companyName": "Delaware Ivy High Income Fund Class C",
+                        "lastSalePrice": "$5.94",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.17%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WRLDX",
+                        "companyName": "Scharf Global Opportunity Fund - Institutional Class",
+                        "lastSalePrice": "$32.43",
+                        "netChange": "-0.27",
+                        "percentageChange": "-0.83%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WRPIX",
+                        "companyName": "Allspring Alternative Risk Premia Institutional Class",
+                        "lastSalePrice": "$8.30",
+                        "netChange": "-0.06",
+                        "percentageChange": "-0.72%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WRPRX",
+                        "companyName": "Allspring Alternative Risk Premia Class R6",
+                        "lastSalePrice": "$8.33",
+                        "netChange": "-0.06",
+                        "percentageChange": "-0.72%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSACX",
+                        "companyName": "Wellington Shields All Cap Class Institutional",
+                        "lastSalePrice": "$23.23",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSBFX",
+                        "companyName": "Boston Trust Walden Balanced Fund",
+                        "lastSalePrice": "$22.67",
+                        "netChange": "-0.07",
+                        "percentageChange": "-0.31%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSBIX",
+                        "companyName": "Allspring Fd, Short-Term Municipal Bond Inst",
+                        "lastSalePrice": "$9.51",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.11%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSCAX",
+                        "companyName": "Wanger International",
+                        "lastSalePrice": "$19.12",
+                        "netChange": "-0.04",
+                        "percentageChange": "-0.21%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSCDX",
+                        "companyName": "Allspring Small Cap Fund Class C",
+                        "lastSalePrice": "$20.20",
+                        "netChange": "-0.07",
+                        "percentageChange": "-0.35%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSCGX",
+                        "companyName": "Allspring Fd, Small Company Growth Inst",
+                        "lastSalePrice": "$36.02",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.03%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSCIX",
+                        "companyName": "Westwood SmallCap Growth Fund - Institutional Shares",
+                        "lastSalePrice": "$8.37",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.24%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSCJX",
+                        "companyName": "Allspring Disciplined Small Cap Fund Class R6",
+                        "lastSalePrice": "$11.69",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSCOX",
+                        "companyName": "Allspring Disciplined Small Cap Fund Institutional Class",
+                        "lastSalePrice": "$11.71",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSCRX",
+                        "companyName": "Allspring Small Company Growth-R6",
+                        "lastSalePrice": "$36.40",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.03%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSCVX",
+                        "companyName": "North Star Small Cap Value Fund - Investor",
+                        "lastSalePrice": "$15.48",
+                        "netChange": "+0.06",
+                        "percentageChange": "+0.39%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSCYX",
+                        "companyName": "Delaware Ivy Small Cap Growth Fund Class Y",
+                        "lastSalePrice": "$17.87",
+                        "netChange": "+0.06",
+                        "percentageChange": "+0.34%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSDAX",
+                        "companyName": "Westwood High Income Fund - A Class Shares",
+                        "lastSalePrice": "$9.32",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSEFX",
+                        "companyName": "Boston Trust Walden Equity Fund",
+                        "lastSalePrice": "$33.75",
+                        "netChange": "-0.16",
+                        "percentageChange": "-0.47%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSGAX",
+                        "companyName": "Delaware Ivy Small Cap Growth Fund Class A",
+                        "lastSalePrice": "$12.05",
+                        "netChange": "+0.04",
+                        "percentageChange": "+0.33%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSGIX",
+                        "companyName": "Allspring Short Duration Government Bond Fund Class I",
+                        "lastSalePrice": "$8.79",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSGRX",
+                        "companyName": "Delaware Ivy Small Cap Growth Fund Class R",
+                        "lastSalePrice": "$11.37",
+                        "netChange": "+0.04",
+                        "percentageChange": "+0.35%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSHCX",
+                        "companyName": "Washington Mutual Fd Invs Fd Cl C Shs",
+                        "lastSalePrice": "$53.99",
+                        "netChange": "-0.16",
+                        "percentageChange": "-0.30%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSHFX",
+                        "companyName": "Washington Mutual Invs Fund Cl F-1 Shs",
+                        "lastSalePrice": "$54.71",
+                        "netChange": "-0.16",
+                        "percentageChange": "-0.29%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSHNX",
+                        "companyName": "Weitz Short Duration Income Fund Investor Class",
+                        "lastSalePrice": "$11.71",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSIAX",
+                        "companyName": "Allspring Income Plus Fund A",
+                        "lastSalePrice": "$8.60",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.12%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSICX",
+                        "companyName": "Allspring Income Plus Fund C",
+                        "lastSalePrice": "$8.65",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.12%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSIDX",
+                        "companyName": "Allspring Income Plus Fund Admin",
+                        "lastSalePrice": "$8.68",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.12%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSINX",
+                        "companyName": "Allspring Income Plus Fund I",
+                        "lastSalePrice": "$8.58",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.12%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSMAX",
+                        "companyName": "Allspring Fd Short-Term Municipal Bond Class A",
+                        "lastSalePrice": "$9.49",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSMCX",
+                        "companyName": "Allspring Small Company Growth Class C",
+                        "lastSalePrice": "$19.93",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.05%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSMDX",
+                        "companyName": "William Blair Small-Mid Cap Growth Fund Class I",
+                        "lastSalePrice": "$28.69",
+                        "netChange": "-0.03",
+                        "percentageChange": "-0.10%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSMGX",
+                        "companyName": "Wilshire Mutual Fds, Inc. Wilshire Small Company Growth Portf Insti Cl",
+                        "lastSalePrice": "$18.85",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.05%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSMNX",
+                        "companyName": "WmBlair Small-Mid Cap Growth Fund Class N",
+                        "lastSalePrice": "$26.48",
+                        "netChange": "-0.04",
+                        "percentageChange": "-0.15%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSMRX",
+                        "companyName": "William Blair Small-Mid Cap Growth Fund Class R6",
+                        "lastSalePrice": "$28.78",
+                        "netChange": "-0.03",
+                        "percentageChange": "-0.10%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSMVX",
+                        "companyName": "Wilshire Mutual Fds, Inc. Wilshire Small Company Value Portf Insti Cl",
+                        "lastSalePrice": "$25.01",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSSCX",
+                        "companyName": "Allspring Short-Term Municipal Bond Fund Class C",
+                        "lastSalePrice": "$9.49",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSSRX",
+                        "companyName": "Allspring Short-Term Municipal Bond Fund - Class R6",
+                        "lastSalePrice": "$9.51",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.11%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSTAX",
+                        "companyName": "Delaware Ivy Science and Technology Fund Class A",
+                        "lastSalePrice": "$46.22",
+                        "netChange": "+0.20",
+                        "percentageChange": "+0.43%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSTCX",
+                        "companyName": "Delaware Ivy Science and Technology Fund Class C",
+                        "lastSalePrice": "$26.92",
+                        "netChange": "+0.12",
+                        "percentageChange": "+0.45%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSTMX",
+                        "companyName": "Allspring Short-Term Municipal Bond Fund Administrator Class",
+                        "lastSalePrice": "$9.49",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.11%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSTRX",
+                        "companyName": "Delaware Ivy Science and Technology Fund Class R",
+                        "lastSalePrice": "$41.90",
+                        "netChange": "+0.17",
+                        "percentageChange": "+0.41%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WSTYX",
+                        "companyName": "Delaware Ivy Science and Technology Fund Class Y",
+                        "lastSalePrice": "$52.84",
+                        "netChange": "+0.23",
+                        "percentageChange": "+0.44%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTABX",
+                        "companyName": "Wilmington Municipal Bond Fund A Shares",
+                        "lastSalePrice": "$12.04",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.17%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTAIX",
+                        "companyName": "Wilmington Municipal Bond Fund Institutional Class",
+                        "lastSalePrice": "$12.05",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.17%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTCOX",
+                        "companyName": "Segall Bryant & Hamill Colorado Tax Free Fund Retail Class",
+                        "lastSalePrice": "$10.23",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.10%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTDAX",
+                        "companyName": "Allspring Dynamic Target 2040 Class A",
+                        "lastSalePrice": "$10.95",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.09%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTDCX",
+                        "companyName": "Allspring Dynamic Target 2040 Class C",
+                        "lastSalePrice": "$10.93",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTDEX",
+                        "companyName": "Allspring Dynamic Target 2040 Class R4",
+                        "lastSalePrice": "$11.13",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTDFX",
+                        "companyName": "Allspring Dynamic Target 2040 Class R6",
+                        "lastSalePrice": "$11.15",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTDGX",
+                        "companyName": "Allspring Dynamic Target 2045 Class A",
+                        "lastSalePrice": "$11.08",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.09%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTDHX",
+                        "companyName": "Allspring Dynamic Target 2045 Class C",
+                        "lastSalePrice": "$11.15",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTDJX",
+                        "companyName": "Allspring Dynamic Target 2045 Class R4",
+                        "lastSalePrice": "$11.23",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTDKX",
+                        "companyName": "Allspring Dynamic Target 2045 Class R6",
+                        "lastSalePrice": "$11.26",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.09%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTDLX",
+                        "companyName": "Allspring Dynamic Target 2050 Class A",
+                        "lastSalePrice": "$11.26",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTDMX",
+                        "companyName": "Allspring Dynamic Target 2050 Class C",
+                        "lastSalePrice": "$11.17",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.09%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTDOX",
+                        "companyName": "Allspring Dynamic Target 2050 Class R4",
+                        "lastSalePrice": "$11.37",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.09%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTDPX",
+                        "companyName": "Allspring Dynamic Target 2050 Class R6",
+                        "lastSalePrice": "$11.41",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTDQX",
+                        "companyName": "Allspring Dynamic Target 2055 Class A",
+                        "lastSalePrice": "$11.43",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTDRX",
+                        "companyName": "Allspring Dynamic Target 2055 Class C",
+                        "lastSalePrice": "$11.47",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.09%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTDTX",
+                        "companyName": "Allspring Dynamic Target 2055 Class R4",
+                        "lastSalePrice": "$11.54",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.09%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTDUX",
+                        "companyName": "Allspring Dynamic Target 2055 Class R6",
+                        "lastSalePrice": "$11.57",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.09%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTDVX",
+                        "companyName": "Allspring Dynamic Target 2060 Class A",
+                        "lastSalePrice": "$11.44",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.09%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTDWX",
+                        "companyName": "Allspring Dynamic Target 2060 Class C",
+                        "lastSalePrice": "$11.41",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.09%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTDZX",
+                        "companyName": "Allspring Dynamic Target 2060 Class R4",
+                        "lastSalePrice": "$11.58",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.09%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTIBX",
+                        "companyName": "Segall Bryant & Hamill Plus Bond Fund Retail Class",
+                        "lastSalePrice": "$9.17",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.11%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTLGX",
+                        "companyName": "WisdomTree Long Term Treasury Digital Fund",
+                        "lastSalePrice": "$8.947648",
+                        "netChange": "+0.038003",
+                        "percentageChange": "+0.43%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTLTX",
+                        "companyName": "Segall Bryant & Hamill Quality High Yield Fund Retail Class",
+                        "lastSalePrice": "$8.21",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.12%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTLVX",
+                        "companyName": "Allspring Large Company Value Fund R6 Class",
+                        "lastSalePrice": "$12.28",
+                        "netChange": "-0.06",
+                        "percentageChange": "-0.49%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTMVX",
+                        "companyName": "Segall Bryant & Hamill Global All Cap Fund Retail Class",
+                        "lastSalePrice": "$10.05",
+                        "netChange": "-0.05",
+                        "percentageChange": "-0.50%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTOCX",
+                        "companyName": "Westwood Total Return Fund - C Class Shares",
+                        "lastSalePrice": "$6.39",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTRCX",
+                        "companyName": "Delaware Ivy Core Equity Fund Class C",
+                        "lastSalePrice": "$12.01",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTRIX",
+                        "companyName": "Allspring Core Bond Fd R6",
+                        "lastSalePrice": "$10.91",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.18%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTRRX",
+                        "companyName": "Allspring Core Bond Fd R",
+                        "lastSalePrice": "$11.10",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTSGX",
+                        "companyName": "Segall Bryant & Hamill Small Cap Growth Fund  Retail Class",
+                        "lastSalePrice": "$17.56",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.11%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTSIX",
+                        "companyName": "WisdomTree Short-Duration Income Digital Fund",
+                        "lastSalePrice": "$9.985912",
+                        "netChange": "+0.00787",
+                        "percentageChange": "+0.08%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTSTX",
+                        "companyName": "WisdomTree 7-10 Year Treasury Digital Fund",
+                        "lastSalePrice": "$9.50605",
+                        "netChange": "+0.015494",
+                        "percentageChange": "+0.16%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTSYX",
+                        "companyName": "WisdomTree Short-Term Treasury Digital Fund",
+                        "lastSalePrice": "$0.993035",
+                        "netChange": "+0.000605",
+                        "percentageChange": "+0.06%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTSZX",
+                        "companyName": "Allspring Dynamic Target 2060 Class R6",
+                        "lastSalePrice": "$11.61",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.09%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTTAX",
+                        "companyName": "Segall Bryant & Hamill Municipal Opportunities Fund Retail Class",
+                        "lastSalePrice": "$9.40",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.21%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WTTSX",
+                        "companyName": "WisdomTree 3-7 Year Treasury Digital Fund",
+                        "lastSalePrice": "$9.728334",
+                        "netChange": "+0.015368",
+                        "percentageChange": "+0.16%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WUSAX",
+                        "companyName": "Wanger Acorn",
+                        "lastSalePrice": "$12.89",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.08%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WUSDX",
+                        "companyName": "Allspring Ultra Short-Term Income Fund Admin Cl",
+                        "lastSalePrice": "$8.52",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WUSMX",
+                        "companyName": "Allspring Ultra Short-Term Municipal Income Fund Administrator Class",
+                        "lastSalePrice": "$9.49",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WUSNX",
+                        "companyName": "Allspring Ultra Short-Term Income Fund A2",
+                        "lastSalePrice": "$8.55",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WUSRX",
+                        "companyName": "Allspring Ultra Short-Term Municipal Income Fund - Class R6",
+                        "lastSalePrice": "$9.49",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WUSTX",
+                        "companyName": "Allspring Fd Ultra Short-Term Income Class C",
+                        "lastSalePrice": "$8.55",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WVAIX",
+                        "companyName": "Large Cap Equity Fund Institutional Class",
+                        "lastSalePrice": "$53.02",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.04%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WVALX",
+                        "companyName": "Large Cap Equity Fund Investor Class",
+                        "lastSalePrice": "$51.68",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.04%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WVCCX",
+                        "companyName": "Aberdeen International Small Cap Fund Cl A",
+                        "lastSalePrice": "$26.51",
+                        "netChange": "-0.12",
+                        "percentageChange": "-0.45%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WVMIX",
+                        "companyName": "William Blair Mid Cap Value Fund Class I",
+                        "lastSalePrice": "$9.73",
+                        "netChange": "-0.02",
+                        "percentageChange": "-0.21%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WVMRX",
+                        "companyName": "William Blair Mid Cap Value Fund Class R6",
+                        "lastSalePrice": "$9.74",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.10%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWACX",
+                        "companyName": "Westwood Alternative Income Fund - C Class Shares",
+                        "lastSalePrice": "$9.27",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWHCX",
+                        "companyName": "Westwood High Income Fund - C Class Shares",
+                        "lastSalePrice": "$9.35",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWIAX",
+                        "companyName": "Westwood Income Opportunity Fund - A Class Shares",
+                        "lastSalePrice": "$11.16",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWICX",
+                        "companyName": "Westwood Income Opportunity Fund - C Class Shares",
+                        "lastSalePrice": "$11.09",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.09%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWIDX",
+                        "companyName": "Allspring Large Company Value Fd Admin Cl",
+                        "lastSalePrice": "$12.38",
+                        "netChange": "-0.06",
+                        "percentageChange": "-0.48%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWLAX",
+                        "companyName": "Westwood Quality Value Fund - A Class Shares",
+                        "lastSalePrice": "$13.01",
+                        "netChange": "-0.08",
+                        "percentageChange": "-0.61%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWLCX",
+                        "companyName": "Westwood Quality Value Fund - C Class Shares",
+                        "lastSalePrice": "$12.67",
+                        "netChange": "-0.08",
+                        "percentageChange": "-0.63%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWMCX",
+                        "companyName": "Westwood Quality MidCap Fund - Institutional Shares",
+                        "lastSalePrice": "$10.34",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.10%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWNPX",
+                        "companyName": "Kinetics Mutual Funds, Inc., The Paradigm Fund",
+                        "lastSalePrice": "$82.57",
+                        "netChange": "-1.75",
+                        "percentageChange": "-2.08%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWOCX",
+                        "companyName": "Virtus Vontobel Global Opportunities Fund C",
+                        "lastSalePrice": "$11.31",
+                        "netChange": "-0.07",
+                        "percentageChange": "-0.62%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWOIX",
+                        "companyName": "Virtus Vontobel Global Opportunities Fund I",
+                        "lastSalePrice": "$15.52",
+                        "netChange": "-0.09",
+                        "percentageChange": "-0.58%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWSAX",
+                        "companyName": "TETON Westwood SmallCap Equity Fund Class A",
+                        "lastSalePrice": "$22.72",
+                        "netChange": "-0.04",
+                        "percentageChange": "-0.18%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWSCX",
+                        "companyName": "TETON Westwood SmallCap Equity Fund Class C",
+                        "lastSalePrice": "$18.32",
+                        "netChange": "-0.03",
+                        "percentageChange": "-0.16%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWSIX",
+                        "companyName": "TETON Westwood SmallCap Equity Fd Class I",
+                        "lastSalePrice": "$25.40",
+                        "netChange": "-0.05",
+                        "percentageChange": "-0.20%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWSMX",
+                        "companyName": "Westwood Quality SMIDCap Fund - Ultra Shares",
+                        "lastSalePrice": "$13.89",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWSYX",
+                        "companyName": "Westwood Quality SmallCap Fund - Ultra Shares",
+                        "lastSalePrice": "$19.49",
+                        "netChange": "-0.03",
+                        "percentageChange": "-0.15%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWTAX",
+                        "companyName": "Westwood Total Return Fund - A Class Shares",
+                        "lastSalePrice": "$6.39",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.16%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWTCX",
+                        "companyName": "Allspring Wisconsin Tax-Free Fund Class C",
+                        "lastSalePrice": "$10.09",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.20%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWTFX",
+                        "companyName": "Allspring Fd, Wisconsin Tax-Free A",
+                        "lastSalePrice": "$10.09",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.20%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWTIX",
+                        "companyName": "Allspring Wisconsin Tax-Free Fund-I",
+                        "lastSalePrice": "$10.09",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.20%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWWEX",
+                        "companyName": "Kinetics The Global Fund",
+                        "lastSalePrice": "$8.74",
+                        "netChange": "-0.19",
+                        "percentageChange": "-2.13%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WWWFX",
+                        "companyName": "Kinetics Funds, The Internet Fund",
+                        "lastSalePrice": "$50.13",
+                        "netChange": "-1.02",
+                        "percentageChange": "-1.99%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WXCIX",
+                        "companyName": "William Blair Emerging Markets ex China Growth Fund Class I",
+                        "lastSalePrice": "$10.58",
+                        "netChange": "-0.06",
+                        "percentageChange": "-0.56%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WXCRX",
+                        "companyName": "William Blair Emerging Markets ex China Growth Fund Class R6",
+                        "lastSalePrice": "$10.59",
+                        "netChange": "-0.06",
+                        "percentageChange": "-0.56%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "WYMHX",
+                        "companyName": "Delaware Ivy Municipal High Income Fund Class I",
+                        "lastSalePrice": "$4.14",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.49%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "XAXCX",
+                        "companyName": "Invesco Dynamic Credit Opportunity Fund Class AX",
+                        "lastSalePrice": "$11.13",
+                        "netChange": "+0.04",
+                        "percentageChange": "+0.36%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "XCRRX",
+                        "companyName": "Invesco Dynamic Credit Opportunity Fund Class R6",
+                        "lastSalePrice": "$11.14",
+                        "netChange": "+0.04",
+                        "percentageChange": "+0.36%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "XCRTX",
+                        "companyName": "Invesco Dynamic Credit Opportunity Fund Class A",
+                        "lastSalePrice": "$11.14",
+                        "netChange": "+0.04",
+                        "percentageChange": "+0.36%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "XCYOX",
+                        "companyName": "Invesco Dynamic Credit Opportunity Fund Class Y",
+                        "lastSalePrice": "$11.14",
+                        "netChange": "+0.04",
+                        "percentageChange": "+0.36%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "XIGDX",
+                        "companyName": "Voya Global Equity Dividend and Premium Opportunity Fund",
+                        "lastSalePrice": "$5.83",
+                        "netChange": "-0.02",
+                        "percentageChange": "-0.34%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "XILBX",
+                        "companyName": "Pioneer ILS Bridge Fund",
+                        "lastSalePrice": "$10.00",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "XILSX",
+                        "companyName": "Pioneer ILS Interval Fund",
+                        "lastSalePrice": "$9.04",
+                        "netChange": "+0.08",
+                        "percentageChange": "+0.89%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "XRSFX",
+                        "companyName": "RiverNorth Capital and Income Fund",
+                        "lastSalePrice": "$16.65",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "XSPDX",
+                        "companyName": "StepStone Private Venture and Growth Fund - Class D Shares",
+                        "lastSalePrice": "$30.9675",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "XSPIX",
+                        "companyName": "StepStone Private Venture and Growth Fund - Class I Shares",
+                        "lastSalePrice": "$31.0839",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "XSPSX",
+                        "companyName": "StepStone Private Venture and Growth Fund - Class S Shares",
+                        "lastSalePrice": "$30.9884",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "XSPTX",
+                        "companyName": "StepStone Private Venture and Growth Fund - Class T Share",
+                        "lastSalePrice": "$30.9607",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "YACKX",
+                        "companyName": "AMG Yacktman Fund - Class I",
+                        "lastSalePrice": "$23.00",
+                        "netChange": "-0.05",
+                        "percentageChange": "-0.22%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "YAFFX",
+                        "companyName": "AMG Yacktman Focused Fund- Class N",
+                        "lastSalePrice": "$19.76",
+                        "netChange": "-0.02",
+                        "percentageChange": "-0.10%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "YAFIX",
+                        "companyName": "AMG Yacktman Focused Fund - Class I",
+                        "lastSalePrice": "$19.71",
+                        "netChange": "-0.01",
+                        "percentageChange": "-0.05%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "YASLX",
+                        "companyName": "AMG Yacktman Special Opportunities Fund - Class Z",
+                        "lastSalePrice": "$11.25",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "YASSX",
+                        "companyName": "AMG Yacktman Special Opportunities Fund - Class I",
+                        "lastSalePrice": "$11.21",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "YCGEX",
+                        "companyName": "YCG Enhanced Fund",
+                        "lastSalePrice": "$27.72",
+                        "netChange": "-0.10",
+                        "percentageChange": "-0.36%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "YFSIX",
+                        "companyName": "AMG Yacktman Global Fund - Class I",
+                        "lastSalePrice": "$15.18",
+                        "netChange": "UNCH",
+                        "percentageChange": "",
+                        "deltaIndicator": "unch"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "YFSNX",
+                        "companyName": "AMG Yacktman Global Fund - Class N",
+                        "lastSalePrice": "$15.13",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.07%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "YOVAX",
+                        "companyName": "Yorktown Small Cap Fund Class A",
+                        "lastSalePrice": "$14.15",
+                        "netChange": "+0.03",
+                        "percentageChange": "+0.21%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "YOVIX",
+                        "companyName": "Yorktown Small Cap Fund Institutional Share Class",
+                        "lastSalePrice": "$14.40",
+                        "netChange": "+0.03",
+                        "percentageChange": "+0.21%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "YOVLX",
+                        "companyName": "Yorktown Small Cap Fund Class L",
+                        "lastSalePrice": "$13.32",
+                        "netChange": "+0.02",
+                        "percentageChange": "+0.15%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "ZDIIX",
+                        "companyName": "Zacks Dividend Fund - Institutional Class",
+                        "lastSalePrice": "$22.95",
+                        "netChange": "-0.04",
+                        "percentageChange": "-0.17%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "ZDIVX",
+                        "companyName": "Zacks Dividend Fund Investor Class",
+                        "lastSalePrice": "$23.26",
+                        "netChange": "-0.04",
+                        "percentageChange": "-0.17%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "ZEMAX",
+                        "companyName": "Investec Emerging Markets Equity Fund Class A",
+                        "lastSalePrice": "$9.34",
+                        "netChange": "-0.07",
+                        "percentageChange": "-0.74%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "ZEMIX",
+                        "companyName": "Investec Emerging Markets Equity Fund Class I",
+                        "lastSalePrice": "$9.27",
+                        "netChange": "-0.07",
+                        "percentageChange": "-0.75%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "ZEOIX",
+                        "companyName": "Osterweis Short Duration Credit Fund - Class I",
+                        "lastSalePrice": "$7.83",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.13%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "ZGEIX",
+                        "companyName": "Ninety One Global Environment Fund Institutional Class",
+                        "lastSalePrice": "$7.80",
+                        "netChange": "-0.03",
+                        "percentageChange": "-0.38%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "ZGFAX",
+                        "companyName": "Ninety One Global Franchise Fund Class A",
+                        "lastSalePrice": "$15.49",
+                        "netChange": "-0.09",
+                        "percentageChange": "-0.58%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "ZGFIX",
+                        "companyName": "Ninety One Global Franchise Fund Class I",
+                        "lastSalePrice": "$15.54",
+                        "netChange": "-0.09",
+                        "percentageChange": "-0.58%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "ZIFIX",
+                        "companyName": "Ninety One International Franchise Fund Institutional Class",
+                        "lastSalePrice": "$9.14",
+                        "netChange": "-0.06",
+                        "percentageChange": "-0.65%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "ZSCCX",
+                        "companyName": "Zacks Small-Cap Core Fd",
+                        "lastSalePrice": "$33.32",
+                        "netChange": "-0.16",
+                        "percentageChange": "-0.48%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "ZSCIX",
+                        "companyName": "Zacks Small-Cap Core Fund Institutional Class",
+                        "lastSalePrice": "$33.93",
+                        "netChange": "-0.17",
+                        "percentageChange": "-0.50%",
+                        "deltaIndicator": "down"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "ZSRIX",
+                        "companyName": "Osterweis Sustainable Credit Fund - Class I",
+                        "lastSalePrice": "$7.75",
+                        "netChange": "+0.01",
+                        "percentageChange": "+0.13%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "ZVGIX",
+                        "companyName": "Zevenbergen Genea Fund - Institutional Class",
+                        "lastSalePrice": "$34.56",
+                        "netChange": "+0.37",
+                        "percentageChange": "+1.08%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "ZVGNX",
+                        "companyName": "Zevenbergen Genea Fund - Investor Class",
+                        "lastSalePrice": "$33.84",
+                        "netChange": "+0.37",
+                        "percentageChange": "+1.11%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "ZVNBX",
+                        "companyName": "Zevenbergen Growth Fund - Investor Class",
+                        "lastSalePrice": "$26.27",
+                        "netChange": "+0.34",
+                        "percentageChange": "+1.31%",
+                        "deltaIndicator": "up"
+                    },
+                    {
+                        "fundType": "Managed Fund",
+                        "symbol": "ZVNIX",
+                        "companyName": "Zevenbergen Growth Fund - Institutional Class",
+                        "lastSalePrice": "$26.85",
+                        "netChange": "+0.34",
+                        "percentageChange": "+1.28%",
+                        "deltaIndicator": "up"
+                    }
+                ]
+            }
+        }
+    },
+    "message": null,
+    "status": {
+        "rCode": 200,
+        "bCodeMessage": null,
+        "developerMessage": null
+    }
+}

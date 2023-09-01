@@ -9,6 +9,7 @@ import { getFlattenedFundAllocations } from '../Fund/getFlattenedFundAllocations
 import { getFundAllocationsLeverage } from '../Fund/getFundAllocationsLeverage';
 import { getFundFromFundAllocation } from '../Fund/getFundsFromFundAllocations';
 import { FundAllocation } from '../../models/Fund/FundAllocation';
+import { getFundBacktestFundId } from './getFundBacktestFundId';
 
 export const getFundAnalysisForCustomFund = async (fundAllocations: Array<FundAllocation>): Promise<FundAnalysis> => {
     const holdings = cloneDeep(fundAllocations);
@@ -17,7 +18,10 @@ export const getFundAnalysisForCustomFund = async (fundAllocations: Array<FundAl
         throw new Error('Fund has no holdings to analyze.');
     }
 
-    const flattened = await getFlattenedFundAllocations(holdings);
+    const flattened = (await getFlattenedFundAllocations(holdings)).map((allocation) => ({
+        ...allocation,
+        fundId: getFundBacktestFundId(allocation.fundId)
+    }));
     const leverage = getFundAllocationsLeverage(flattened);
     const delevered = getDeleveredFundAllocations(flattened);
     const composition = await getFundFromFundAllocation(delevered);

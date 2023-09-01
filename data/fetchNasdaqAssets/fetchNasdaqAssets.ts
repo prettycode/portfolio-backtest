@@ -4,7 +4,7 @@ import { fileCacheGet, fileCachePut } from '../utils/fileCache';
 import { putFileText } from '../utils/fs';
 import { jsonSerialize } from '../utils/json';
 
-type ApiResponse<TData extends StocksApiResponse | EtfsApiResponse> = {
+type ApiResponse<TData extends StocksApiResponse | EtfsApiResponse | MutualFundApiResponse> = {
     data: TData;
     message: string | null;
     status: {
@@ -14,19 +14,51 @@ type ApiResponse<TData extends StocksApiResponse | EtfsApiResponse> = {
     };
 };
 
+type Table<T> = {
+    asOf: string | null;
+    headers?: T;
+    rows?: Array<T>;
+};
+
+type EtfsApiResponse = {
+    dataAsOf: string | null;
+    data: Table<Etf>;
+};
+
+type MutualFundApiResponse = {
+    filters: null;
+    records: {
+        data: Table<MutualFund>;
+        limit: number;
+        offset: number;
+        totalrecords: number;
+    };
+};
+
 type StocksApiResponse = {
     asOf: string | null;
     headers: Stock;
     rows: Array<Stock>;
 };
 
-type EtfsApiResponse = {
-    dataAsOf: string | null;
-    data: {
-        asOf: string | null;
-        headers?: Etf;
-        rows?: Array<Etf>;
-    };
+export type Etf = {
+    companyName: string;
+    deltaIndicator: 'up' | 'down';
+    lastSalePrice: string;
+    netChange: string;
+    oneYearPercentage: string;
+    percentageChange: string;
+    symbol: string;
+};
+
+export type MutualFund = {
+    companyName: string;
+    deltaIndicator: 'up' | 'down';
+    fundType: string;
+    lastSalePrice: string;
+    netChange: string;
+    percentageChange: string;
+    symbol: string;
 };
 
 export type Stock = {
@@ -44,25 +76,39 @@ export type Stock = {
     volume: string;
 };
 
-export type Etf = {
-    companyName: string;
-    deltaIndicator: 'up' | 'down';
-    lastSalePrice: string;
-    netChange: string;
-    oneYearPercentage: string;
-    percentageChange: string;
-    symbol: string;
-};
+export type NasdaqAssetType = 'etf' | 'stocks' | 'mutualfunds';
 
 const dailyExpirationCacheKey = (key: string) => `${new Date().toISOString().slice(0, 10)}:${key}`;
+const monthlyExpirationCacheKey = (key: string) => `${new Date().toISOString().slice(0, 7)}:${key}`;
 
-export async function fetchNasdaqAssets<TData extends StocksApiResponse | EtfsApiResponse>(
-    type: 'etf' | 'stocks' | 'mutualfunds'
+export async function fetchNasdaqAssets<TData extends StocksApiResponse | EtfsApiResponse | MutualFundApiResponse>(
+    type: NasdaqAssetType,
+    offset: number = 0,
+    limit: number | undefined = undefined
 ): Promise<ApiResponse<TData> | undefined> {
-    const apiUrl = `https://api.nasdaq.com/api/screener/${type}?download=true`;
-    const expireDailyCacheKey = dailyExpirationCacheKey(apiUrl);
+    const apiParams = new URLSearchParams({
+        download: 'true'
+    });
+
+    if (type === 'mutualfunds') {
+        apiParams.append('fundtype', 'MF');
+    }
+
+    if (limit !== undefined) {
+        apiParams.append('limit', limit.toString());
+    }
+
+    if (offset !== 0) {
+        apiParams.append('offset', offset.toString());
+    }
+
+    const apiUrl = `https://api.nasdaq.com/api/screener/${type}?${apiParams.toString()}`;
+    const expireDailyCacheKey =
+        type === 'mutualfunds' ? monthlyExpirationCacheKey(apiUrl) : dailyExpirationCacheKey(apiUrl);
 
     let apiData: ApiResponse<TData>;
+
+    console.log(`Looking for cache of '${type}' data...`);
 
     try {
         apiData = await fileCacheGet(expireDailyCacheKey);
@@ -75,6 +121,8 @@ export async function fetchNasdaqAssets<TData extends StocksApiResponse | EtfsAp
     }
 
     let apiResponse: AxiosResponse<ApiResponse<TData>>;
+
+    console.log(`Downloading '${type}' data (offset: ${offset}, take: ${limit})...`);
 
     try {
         apiResponse = await throttle({ sec: 5 }, axios.get(apiUrl));
@@ -96,12 +144,59 @@ export async function fetchNasdaqAssets<TData extends StocksApiResponse | EtfsAp
     return apiData;
 }
 
+const writeNasdaqEtfData = async () => {
+    const outputFilePath = 'data/fetchNasdaqAssets/etf.json';
+    const assetData = await fetchNasdaqAssets<EtfsApiResponse>('etf');
+
+    if (!assetData || !assetData.data) {
+        throw new Error('Failed to fetch ETF data.');
+    }
+
+    const assetList = assetData.data.data?.rows || [];
+    const assetListJson = jsonSerialize(assetList);
+
+    console.table(assetList);
+
+    console.log(`Writing ${assetList.length} ETFs to ${outputFilePath}...`);
+    await putFileText(outputFilePath, assetListJson);
+};
+
+const writeNasdaqMutualData = async () => {
+    const outputFilePath = 'data/fetchNasdaqAssets/mutualfunds.json';
+    let offset = 0;
+    const limit = 1000;
+    let totalRecords = 0;
+    const allFunds: Array<MutualFund> = [];
+
+    // eslint-disable-next-line no-constant-condition
+    while (true) {
+        const assetData = await fetchNasdaqAssets<MutualFundApiResponse>('mutualfunds', offset, limit);
+
+        if (!assetData || !assetData.data) {
+            throw new Error(`Failed to fetch Mutual Fund data (offset: ${offset}, take: ${limit}).`);
+        }
+
+        totalRecords = assetData.data.records.totalrecords;
+
+        const assetList = assetData.data.records?.data.rows || [];
+        allFunds.push(...assetList);
+
+        if (allFunds.length >= totalRecords) {
+            break;
+        }
+
+        offset += limit;
+    }
+
+    const allFundsJson = jsonSerialize(allFunds);
+
+    console.table(allFunds);
+
+    console.log(`Writing ${allFunds.length} Mutual Funds to ${outputFilePath}...`);
+    await putFileText(outputFilePath, allFundsJson);
+};
+
 (async () => {
-    const etfData = await fetchNasdaqAssets<EtfsApiResponse>('etf');
-    const etfList = etfData?.data.data.rows ?? [];
-    const eftJson = jsonSerialize(etfList);
-
-    console.table(etfList);
-
-    await putFileText(`data/fetchNasdaqAssets/etfs.json`, eftJson);
+    await writeNasdaqEtfData();
+    await writeNasdaqMutualData();
 })();
