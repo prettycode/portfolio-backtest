@@ -6,7 +6,7 @@ export const getFundBacktestFundId = (tickerSymbol: string): string => {
         // US Total market
         case 'VTI':
         case 'ITOT':
-        case 'SCHB':
+        case 'AVUS':
             return 'VTSMX';
 
         // S&P 500
@@ -34,11 +34,13 @@ export const getFundBacktestFundId = (tickerSymbol: string): string => {
         // Int’l Developed Large Cap
         case 'VEA':
         case 'EFA':
+        case 'AVDE':
             return 'DFALX';
 
         // Emerging Markets
         case 'VWO':
         case 'EEM':
+        case 'AVEM':
             return 'VEIEX';
 
         // US Cash (Money Market)
@@ -79,6 +81,26 @@ export const getFundBacktestFundId = (tickerSymbol: string): string => {
         case 'OUNZ':
         case 'BAR':
             return '^GOLD';
+
+        // US Large-Cap Value
+        case 'AVLV':
+        case 'DFLV':
+            return 'DFLVX';
+
+        // Int’l Developed Large-Cap Value
+        case 'AVDV':
+        case 'DFIV':
+            return 'DFIVX';
+
+        // US Small-Cap Value
+        case 'AVUV':
+        case 'DFSV':
+            return 'DFSVX';
+
+        // Int’l Developed Small-Cap Value
+        case 'AVDV':
+        case 'DISV':
+            return 'DISVX';
 
         default:
             return tickerSymbol;
