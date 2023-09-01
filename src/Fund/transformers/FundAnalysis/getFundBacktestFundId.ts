@@ -48,7 +48,9 @@ export const getFundBacktestFundId = (tickerSymbol: string): string => {
         case 'SGOV':
         case 'TFLO':
         case 'FLOT':
-            return 'CASHX';
+            // TODO need index type (not ETF, not Mutual Fund in this case)
+            // return 'CASHX';
+            return 'USFR';
 
         // US Short-Term Treasuries
         case 'VGSH':
@@ -80,7 +82,9 @@ export const getFundBacktestFundId = (tickerSymbol: string): string => {
         case 'AAAU':
         case 'OUNZ':
         case 'BAR':
-            return '^GOLD';
+            // TODO need index type (not ETF, not Mutual Fund in this case)
+            // return '^GOLD';
+            return 'GLD';
 
         // US Large-Cap Value
         case 'AVLV':
@@ -88,7 +92,7 @@ export const getFundBacktestFundId = (tickerSymbol: string): string => {
             return 'DFLVX';
 
         // Int’l Developed Large-Cap Value
-        case 'AVDV':
+        case 'AVIV':
         case 'DFIV':
             return 'DFIVX';
 
@@ -101,6 +105,28 @@ export const getFundBacktestFundId = (tickerSymbol: string): string => {
         case 'AVDV':
         case 'DISV':
             return 'DISVX';
+
+        case 'DGS':
+            // Emerging Markets Small Cap Portfolio
+            return 'DEMSX';
+
+        case 'NTSX':
+            return 'Custom:NTSX';
+
+        case 'NTSI':
+            return 'Custom:NTSI';
+
+        case 'NTSE':
+            return 'Custom:NTSE';
+
+        case 'GDE':
+            return 'Custom:GDE';
+
+        case 'SWAN':
+            return 'Custom:SWAN';
+
+        case 'AOR':
+            return 'Custom:AOR';
 
         default:
             return tickerSymbol;

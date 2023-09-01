@@ -1,5 +1,5 @@
 import { Fund } from '../models/Fund/Fund';
-import etfs from '../../../data/fetchNasdaqAssets/etfs.json';
+import etfs from '../../../data/fetchNasdaqAssets/etf.json';
 import { Etf } from '../../../data/fetchNasdaqAssets/fetchNasdaqAssets';
 
 export const fetchNasdaqEtfFunds = async (): Promise<Array<Fund> | undefined> => {

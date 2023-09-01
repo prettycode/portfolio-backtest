@@ -80,8 +80,24 @@ function App() {
 
     stateToLoad = {
         rows: [
-            { fundId: 'Custom:NTSX', percentage: ['100', ''] },
-            { fundId: 'NTSX', percentage: ['', '100'] }
+            { fundId: 'AVUS', percentage: [50 * 0.9 * 0.3] },
+            { fundId: 'AVUV', percentage: [50 * 0.9 * 0.3] },
+            { fundId: 'AVDE', percentage: [50 * 0.9 * 0.1] },
+            { fundId: 'AVDV', percentage: [50 * 0.9 * 0.1] },
+            { fundId: 'AVEM', percentage: [50 * 0.9 * 0.1] },
+            { fundId: 'DGS', percentage: [50 * 0.9 * 0.1] },
+            { fundId: 'GOVZ', percentage: [50 * 0.1 * 1.0] },
+
+            // TODO why isn't not using 'Custom:' working here?
+            { fundId: 'Custom:GDE', percentage: [40 * 0.333] },
+            { fundId: 'Custom:NTSX', percentage: [40 * 0.267] },
+            { fundId: 'Custom:NTSI', percentage: [40 * 0.2] },
+            { fundId: 'Custom:NTSE', percentage: [40 * 0.2] },
+
+            { fundId: 'Custom:US Defensive', percentage: [10 * 0.9 * 0.6 * 1.0] },
+            { fundId: 'VEA', percentage: [10 * 0.9 * 0.4 * 0.5] },
+            { fundId: 'VWO', percentage: [10 * 0.9 * 0.4 * 0.5] },
+            { fundId: 'GOVZ', percentage: [10 * 0.1 * 1.0 * 1.0] }
         ]
     };
 
