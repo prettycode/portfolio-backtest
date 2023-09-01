@@ -75,7 +75,7 @@ const mockMarketFunds: Fund[] = [
 
 const mockCustomFunds: Fund[] = [
     {
-        fundId: 'NTSX',
+        fundId: 'Custom:NTSX',
         percentage: 100,
         name: 'Market-cap Weighted All-World Equity',
         description: '',
@@ -83,7 +83,7 @@ const mockCustomFunds: Fund[] = [
         allocations: [{ fundId: 'SPY', percentage: 100 }]
     },
     {
-        fundId: 'GDE',
+        fundId: 'Custom:GDE',
         percentage: 100,
         name: '60/20/20 All-World Equity',
         description: '',
@@ -95,24 +95,24 @@ const mockCustomFunds: Fund[] = [
         ]
     },
     {
-        fundId: 'NTSI',
+        fundId: 'Custom:NTSI',
         percentage: 100,
         name: '90/10 All-World Equity/Bonds',
         description: '',
         type: 'Custom',
         allocations: [
-            { fundId: 'GDE', percentage: 90 },
+            { fundId: 'Custom:GDE', percentage: 90 },
             { fundId: 'VEA', percentage: 10 }
         ]
     },
     {
-        fundId: 'NTSE',
+        fundId: 'Custom:NTSE',
         percentage: 100,
         name: '80% 90/10 All-World Equity/Bonds + 10% Gold',
         description: '',
         type: 'Custom',
         allocations: [
-            { fundId: 'NTSI', percentage: 80 },
+            { fundId: 'Custom:NTSI', percentage: 80 },
             { fundId: 'VWO', percentage: 20 }
         ]
     },
@@ -134,7 +134,7 @@ const mockCustomFunds: Fund[] = [
         description: '',
         type: 'Custom',
         allocations: [
-            { fundId: 'GDE', percentage: 50 },
+            { fundId: 'Custom:GDE', percentage: 50 },
             { fundId: '11', percentage: 50 }
         ]
     }

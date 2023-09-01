@@ -44,10 +44,10 @@ const manualTestingComparisons: Array<FundSelectionTableState> = [
     {
         // 40% Efficient Core
         rows: [
-            { fundId: 'NTSX', percentage: ['40', '26.7', '20'] },
-            { fundId: 'GDE', percentage: ['20', '33.3', '40'] },
-            { fundId: 'NTSI', percentage: ['20', '20', '20'] },
-            { fundId: 'NTSE', percentage: ['20', '20', '20'] }
+            { fundId: 'Custom:NTSX', percentage: ['40', '26.7', '20'] },
+            { fundId: 'Custom:GDE', percentage: ['20', '33.3', '40'] },
+            { fundId: 'Custom:NTSI', percentage: ['20', '20', '20'] },
+            { fundId: 'Custom:NTSE', percentage: ['20', '20', '20'] }
         ]
     },
     {
@@ -77,6 +77,13 @@ function App() {
     if (stateDeserialized) {
         stateToLoad = stateDeserialized;
     }
+
+    stateToLoad = {
+        rows: [
+            { fundId: 'Custom:NTSX', percentage: ['100', ''] },
+            { fundId: 'NTSX', percentage: ['', '100'] }
+        ]
+    };
 
     return (
         <>

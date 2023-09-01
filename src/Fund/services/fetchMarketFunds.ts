@@ -5,8 +5,7 @@ let mock: Array<Fund> | undefined;
 
 export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
     Promise.resolve(
-        mock ||
-            (await fetchNasdaqEtfFunds()) || [
+        mock || (await fetchNasdaqEtfFunds()) /*|| [
                 {
                     fundId: 'VTI',
                     name: 'US Total-Market',
@@ -150,7 +149,7 @@ export const fetchMarketFunds = async (): Promise<Array<Fund>> =>
                     assetClass: 'Equity',
                     allocations: []
                 }
-            ]
+            ]*/
     );
 
 fetchMarketFunds.setMock = (mockMarketFunds: Array<Fund>): void => {

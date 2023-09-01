@@ -6,7 +6,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
     Promise.resolve(
         mock || [
             {
-                fundId: 'US Defensive',
+                fundId: 'Custom:US Defensive',
                 name: 'Equity: US: Defensive',
                 description: '33/33/33 XLU/XLP/XLV',
                 percentage: 100,
@@ -27,7 +27,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 ]
             },
             {
-                fundId: 'VT',
+                fundId: 'Custom:VT',
                 name: 'Equity: Global (All-World)',
                 description: '60/40 US/Ex-US + 2/3 Int’l. Developed, 1/3 EM',
                 percentage: 100,
@@ -48,7 +48,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 ]
             },
             {
-                fundId: 'NTSX',
+                fundId: 'Custom:NTSX',
                 name: 'NTSX (Simulated)',
                 description: '90/60 SPY/VGIT',
                 percentage: 100,
@@ -69,7 +69,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 ]
             },
             {
-                fundId: 'GDE',
+                fundId: 'Custom:GDE',
                 name: 'GDE (Simulated)',
                 description: '90/90 SPY/GLD',
                 percentage: 100,
@@ -90,7 +90,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 ]
             },
             {
-                fundId: 'NTSI',
+                fundId: 'Custom:NTSI',
                 name: 'NTSI (Simulated)',
                 description: '90/60 VEA/VGIT',
                 percentage: 100,
@@ -111,7 +111,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 ]
             },
             {
-                fundId: 'NTSE',
+                fundId: 'Custom:NTSE',
                 name: 'NTSE (Simulated)',
                 description: '90/60 VWO/VGIT',
                 percentage: 100,
@@ -132,28 +132,28 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 ]
             },
             {
-                fundId: 'Global Efficient Core',
+                fundId: 'Custom:Global Efficient Core',
                 name: 'Global Efficient Core',
                 description: '60/20/20 NTSX/NTSI/NTSE (Simulated)',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
                     {
-                        fundId: 'NTSX',
+                        fundId: 'Custom:NTSX',
                         percentage: 60
                     },
                     {
-                        fundId: 'NTSI',
+                        fundId: 'Custom:NTSI',
                         percentage: 20
                     },
                     {
-                        fundId: 'NTSE',
+                        fundId: 'Custom:NTSE',
                         percentage: 20
                     }
                 ]
             },
             {
-                fundId: 'Global Equities',
+                fundId: 'Custom:Global Equities',
                 name: 'Global Equities',
                 description: '60/20/20 VTI/VEA/VWO',
                 percentage: 100,
@@ -174,7 +174,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 ]
             } /*
             {
-                fundId: 'UPAR',
+                fundId: 'Custom:UPAR',
                 name: 'UPAR',
                 description: 'Should match global equities return',
                 percentage: 100,
@@ -183,13 +183,13 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                     { fundId: 'TIPS', percentage: 49 },
                     { fundId: 'Treasuries', percentage: 49 },
                     { fundId: 'Gold', percentage: 14 },
-                    { fundId: 'VT', percentage: 35 },
+                    { fundId: 'Custom:VT', percentage: 35 },
                     { fundId: 'GUNR', percentage: 21 },
                     { fundId: 'USFR', percentage: -68 }
                 ]
             },*/,
             {
-                fundId: 'SWAN',
+                fundId: 'Custom:SWAN',
                 name: 'SWAN (Simulated)',
                 description: '70/45/45 SPY/VGLT/VGIT',
                 percentage: 100,
@@ -214,7 +214,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 ]
             },
             {
-                fundId: 'AOR',
+                fundId: 'Custom:AOR',
                 name: 'Balanced Fund (Global)',
                 description: '60/40 Global Equities/Intermediate Treasuries',
                 percentage: 100,
