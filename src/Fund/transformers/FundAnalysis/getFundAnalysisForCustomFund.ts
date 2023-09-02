@@ -18,16 +18,28 @@ export const getFundAnalysisForCustomFund = async (fundAllocations: Array<FundAl
         throw new Error('Fund has no holdings to analyze.');
     }
 
+    // "Portfolio Decomposed" (w/backtest link)
     const flattened = (await getFlattenedFundAllocations(holdings)).map((allocation) => ({
         ...allocation,
         fundId: getFundBacktestFundId(allocation.fundId)
     }));
+
+    // "Portfolio Leverage"
     const leverage = getFundAllocationsLeverage(flattened);
+
+    // "Delevered Composition" (w/backtest link)
     const delevered = getDeleveredFundAllocations(flattened);
+
+    // ???
     const composition = await getFundFromFundAllocation(delevered);
 
-    const marketRegion = groupBy(cloneDeep(composition), 'marketRegion') as Record<FundMarketRegion, Fund[]>;
+    // "Portfolio Asset Classes"
     const assetClass = groupBy(cloneDeep(composition), 'assetClass') as Record<FundAssetClass, Fund[]>;
+
+    // "Portfolio Regions (All Asset Classes)"
+    const marketRegion = groupBy(cloneDeep(composition), 'marketRegion') as Record<FundMarketRegion, Fund[]>;
+
+    // {assetClass} by Region
     const assetByRegion: Partial<Record<FundAssetClass, Partial<Record<FundMarketRegion, Array<Fund>>>>> = (
         Object.entries(assetClass) as [FundAssetClass, Array<FundAllocation>][]
     ).reduce(
