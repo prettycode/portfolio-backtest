@@ -45,6 +45,7 @@ export const getFundBacktestFundId = (tickerSymbol: string): string => {
 
         // US Cash (Money Market)
         case 'USFR':
+        case 'BIL':
         case 'SGOV':
         case 'TFLO':
         case 'FLOT':
@@ -67,7 +68,7 @@ export const getFundBacktestFundId = (tickerSymbol: string): string => {
         case 'TLT':
             return 'VUSTX';
 
-        // US 20 – 30-Year Treasuries STRIPS
+        // US 25+ Year Treasuries
         case 'EDV':
         case 'ZROZ':
         case 'GOVZ':

@@ -203,22 +203,38 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                         <th></th>
                         <th></th>
                         <th></th>
-                        <th className="text-center" colSpan={getColumnsCount()}>
+                        <th
+                            className="text-center"
+                            colSpan={getColumnsCount()}
+                        >
                             <span>Weight (%) in Portfolios</span>
                         </th>
                     </tr>
                     <tr>
                         <th></th>
                         <th></th>
-                        <th scope="col" style={{ width: '100%' }}>
+                        <th
+                            scope="col"
+                            style={{ width: '100%' }}
+                        >
                             Assets in Portfolios
                         </th>
                         {Array.from({ length: getColumnsCount() }).map((_, index) => (
-                            <th key={index} className="text-center" title={`Portfolio ${index + 1}`}>
+                            <th
+                                key={index}
+                                className="text-center"
+                                title={`Portfolio ${index + 1}`}
+                            >
                                 P{index + 1}
                                 <span style={{ fontSize: 'small' }}>
-                                    <FontAwesomeIcon icon={faBan} className="ms-1 text-faded"></FontAwesomeIcon>
-                                    <FontAwesomeIcon icon={faTrash} className="ms-1 text-faded"></FontAwesomeIcon>
+                                    <FontAwesomeIcon
+                                        icon={faBan}
+                                        className="ms-1 text-faded"
+                                    ></FontAwesomeIcon>
+                                    <FontAwesomeIcon
+                                        icon={faTrash}
+                                        className="ms-1 text-faded"
+                                    ></FontAwesomeIcon>
                                 </span>
                             </th>
                         ))}
@@ -229,7 +245,10 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                                 style={{ padding: '2px 4px' }}
                                 onClick={onAddColumn}
                             >
-                                <FontAwesomeIcon icon={faPlus} fixedWidth={true} />
+                                <FontAwesomeIcon
+                                    icon={faPlus}
+                                    fixedWidth={true}
+                                />
                             </button>
                         </th>
                     </tr>
@@ -279,7 +298,10 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                                     </div>
                                 )}
                             </td>
-                            <td style={{ fontSize: 'small' }} className="text-faded">
+                            <td
+                                style={{ fontSize: 'small' }}
+                                className="text-faded"
+                            >
                                 <FontAwesomeIcon icon={faBan}></FontAwesomeIcon>
                                 <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
                             </td>
@@ -311,12 +333,18 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                         <td></td>
                         <td className="align-top">Total: {sumSelectedFunds()} asset(s)</td>
                         {Array.from({ length: getColumnsCount() }, (_, columnIndex) => (
-                            <td className="align-top text-center" key={columnIndex}>
+                            <td
+                                className="align-top text-center"
+                                key={columnIndex}
+                            >
                                 <span className={sumColumn(columnIndex) !== 100 ? 'text-danger' : 'text-success'}>
                                     {displayPercentage(sumColumn(columnIndex))}&thinsp;%
                                 </span>
                                 <br />
-                                <span className="font-weight-lighter" style={{ fontSize: '0.8rem' }}>
+                                <span
+                                    className="font-weight-lighter"
+                                    style={{ fontSize: '0.8rem' }}
+                                >
                                     {sumColumn(columnIndex) !== 100 &&
                                         `add ${displayPercentage(100 - sumColumn(columnIndex))}%`}
                                 </span>

@@ -74,7 +74,11 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
             {fundAnalysis &&
                 fundLookupCache &&
                 fundAnalysis.map((analysis, portfolioIndex) => (
-                    <div key={portfolioIndex} className="float-start" style={{ marginRight: 75 }}>
+                    <div
+                        key={portfolioIndex}
+                        className="float-start"
+                        style={{ marginRight: 75 }}
+                    >
                         {/*<h4>
                             {portfolioIndex === 0 ? 'Portfolio' : <>&nbsp;</>}
                             <PortfolioVisualizerLink allocations={analysis.holdings} />
@@ -102,7 +106,10 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
 
                         <h4>
                             {showRedundantTitles || portfolioIndex === 0 ? 'Portfolio Decomposed' : <>&nbsp;</>}
-                            <PortfolioVisualizerLink allocations={analysis.flattened} className="float-end" />
+                            <PortfolioVisualizerLink
+                                allocations={analysis.flattened}
+                                className="float-end"
+                            />
                         </h4>
                         <table className="table table-sm">
                             <thead>
@@ -133,7 +140,10 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
 
                         <h4>
                             {showRedundantTitles || portfolioIndex === 0 ? 'Delevered Composition' : <>&nbsp;</>}
-                            <PortfolioVisualizerLink allocations={analysis.delevered} className="float-end" />
+                            <PortfolioVisualizerLink
+                                allocations={analysis.delevered}
+                                className="float-end"
+                            />
                         </h4>
                         <table className="table table-sm">
                             <thead>

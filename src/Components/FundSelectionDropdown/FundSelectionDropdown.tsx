@@ -27,7 +27,7 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({
     selectedFundId,
     isMulti
 }) => {
-    const options: FundSelectionDropdownOptionType[] = funds
+    const options: Array<FundSelectionDropdownOptionType> = funds
         .map((fund) => ({
             value: fund.fundId,
             label: fund.tickerSymbol
@@ -56,6 +56,13 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({
         onFundSelected(!selectedOption ? null : selectedOption);
     };
 
+    const filterOptions = (
+        candidate: { label: string; value: string; data: FundSelectionDropdownOptionType },
+        input: string
+    ) => {
+        return input.trim().length > 2 && candidate.label.toLowerCase().trim().includes(input.toLowerCase().trim());
+    };
+
     return (
         <Select
             isMulti={isMulti as false | undefined}
@@ -74,6 +81,7 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({
             openMenuOnClick={false}
             isSearchable={true}
             onChange={handleChange}
+            filterOption={filterOptions}
         />
     );
 };
