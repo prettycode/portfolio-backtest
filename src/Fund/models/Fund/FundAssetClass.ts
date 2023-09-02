@@ -1,1 +1,1 @@
-export type FundAssetClass = 'Equity' | 'Treasury' | 'Bond' | 'Commodity' | 'Cash';
+export type FundAssetClass = 'Equity' | 'Treasury' | 'Bond' | 'Commodity' | 'Cash' | 'Unknown';

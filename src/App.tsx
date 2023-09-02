@@ -81,26 +81,26 @@ function App() {
     stateToLoad = {
         rows: [
             // 90% Equity Core
-            { fundId: 'AVUS', percentage: [50 * 0.9 * 0.3] },
-            { fundId: 'AVUV', percentage: [50 * 0.9 * 0.3] },
-            { fundId: 'AVDE', percentage: [50 * 0.9 * 0.1] },
-            { fundId: 'AVDV', percentage: [50 * 0.9 * 0.1] },
-            { fundId: 'AVEM', percentage: [50 * 0.9 * 0.1] },
-            { fundId: 'DGS', percentage: [50 * 0.9 * 0.1] },
-            { fundId: 'GOVZ', percentage: [50 * 0.1 * 1.0] },
+            { fundId: 'AVUS', percentage: [50 * 0.9 * 0.3, 50 * 1.0 * 0.3] },
+            { fundId: 'AVUV', percentage: [50 * 0.9 * 0.3, 50 * 1.0 * 0.3] },
+            { fundId: 'AVDE', percentage: [50 * 0.9 * 0.1, 50 * 1.0 * 0.1] },
+            { fundId: 'AVDV', percentage: [50 * 0.9 * 0.1, 50 * 1.0 * 0.1] },
+            { fundId: 'AVEM', percentage: [50 * 0.9 * 0.1, 50 * 1.0 * 0.1] },
+            { fundId: 'DGS', percentage: [50 * 0.9 * 0.1, 50 * 1.0 * 0.1] },
+            { fundId: 'GOVZ', percentage: [50 * 0.1 * 1.0, 0] },
 
             // 40% Efficient Core
             // TODO why isn't not using 'Custom:' working here?
-            { fundId: 'Custom:GDE', percentage: [40 * 0.333] },
-            { fundId: 'Custom:NTSX', percentage: [40 * 0.267] },
-            { fundId: 'Custom:NTSI', percentage: [40 * 0.2] },
-            { fundId: 'Custom:NTSE', percentage: [40 * 0.2] },
+            { fundId: 'Custom:GDE', percentage: [40 * 0.333, 40 * 0.333] },
+            { fundId: 'Custom:NTSX', percentage: [40 * 0.267, 40 * 0.267] },
+            { fundId: 'Custom:NTSI', percentage: [40 * 0.2, 40 * 0.2] },
+            { fundId: 'Custom:NTSE', percentage: [40 * 0.2, 40 * 0.2] },
 
             // 10% Defensive Equity
-            { fundId: 'Custom:US Defensive', percentage: [10 * 0.9 * 0.6 * 1.0] },
-            { fundId: 'VEA' /* EFAV */, percentage: [10 * 0.9 * 0.4 * 0.5] },
-            { fundId: 'VWO' /* EEMV */, percentage: [10 * 0.9 * 0.4 * 0.5] },
-            { fundId: 'GOVZ', percentage: [10 * 0.1 * 1.0 * 1.0] }
+            { fundId: 'Custom:US Defensive', percentage: [10 * 0.9 * 0.6 * 1.0, 10 * 0.9 * 0.6 * 1.0] },
+            { fundId: 'VEA' /* EFAV */, percentage: [10 * 0.9 * 0.4 * 0.5, 10 * 0.9 * 0.4 * 0.5] },
+            { fundId: 'VWO' /* EEMV */, percentage: [10 * 0.9 * 0.4 * 0.5, 10 * 0.9 * 0.4 * 0.5] },
+            { fundId: 'GOVZ', percentage: [10 * 0.1 * 1.0 * 1.0, 10 * 0.1 * 1.0 * 1.0] }
         ]
     };
 

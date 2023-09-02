@@ -1,3 +1,160 @@
+import { Fund } from '../../models/Fund/Fund';
+
+export const getFundBacktestFundDetails = (fundId: string): Partial<Fund> => {
+    switch (fundId) {
+        // US Total market
+        case 'VTI':
+        case 'ITOT':
+        case 'AVUS':
+        case 'VTSMX':
+            return { marketRegion: 'US', assetClass: 'Equity' };
+
+        // S&P 500
+        case 'VOO':
+        case 'SPY':
+        case 'VFINX':
+            return { marketRegion: 'US', assetClass: 'Equity' };
+
+        // US Large-Cap Utilities
+        case 'VPU':
+        case 'XLU':
+            return { marketRegion: 'US', assetClass: 'Equity' };
+
+        // US Large-Cap Consumer Staples
+        case 'VDC':
+        case 'XLP':
+            return { marketRegion: 'US', assetClass: 'Equity' };
+
+        // US Large-Cap Healthcare
+        case 'VHT':
+        case 'XLV':
+            return { marketRegion: 'US', assetClass: 'Equity' };
+
+        // US Large-Cap Real Estate
+        case 'VNQ':
+        case 'IYR':
+        case 'VGSIX':
+            return { marketRegion: 'US', assetClass: 'Equity' };
+
+        // Int’l Developed Large Cap
+        case 'VEA':
+        case 'EFA':
+        case 'AVDE':
+        case 'DFALX':
+            return { marketRegion: 'International Developed', assetClass: 'Equity' };
+
+        // Emerging Markets
+        case 'VWO':
+        case 'EEM':
+        case 'AVEM':
+        case 'VEIEX':
+            return { marketRegion: 'Emerging', assetClass: 'Equity' };
+
+        // US Cash (Money Market)
+        case 'USFR':
+        case 'BIL':
+        case 'SGOV':
+        case 'TFLO':
+        case 'FLOT':
+            // TODO need index type (not ETF, not Mutual Fund in this case)
+            // case 'CASHX':
+            return { marketRegion: 'US', assetClass: 'Cash' };
+
+        // US Short-Term Treasuries
+        case 'VGSH':
+        case 'SHV':
+        case 'VFISX':
+            return { marketRegion: 'US', assetClass: 'Treasury' };
+
+        // US Intermediate-Term Treasuries
+        case 'VGIT':
+        case 'IEF':
+        case 'VFITX':
+            return { marketRegion: 'US', assetClass: 'Treasury' };
+
+        // US Long-Term Treasuries
+        case 'VGLT':
+        case 'TLT':
+        case 'VUSTX':
+            return { marketRegion: 'US', assetClass: 'Treasury' };
+
+        // US 25+ Year Treasuries
+        case 'EDV':
+        case 'ZROZ':
+        case 'GOVZ':
+        case 'VEDTX':
+            return { marketRegion: 'US', assetClass: 'Treasury' };
+
+        // Gold
+        case 'GLD':
+        case 'GLDM':
+        case 'IAU':
+        case 'IAUM':
+        case 'SGOL':
+        case 'AAAU':
+        case 'OUNZ':
+        case 'BAR':
+            // TODO need index type (not ETF, not Mutual Fund in this case)
+            // case '^GOLD':
+            return { marketRegion: 'Global (All-World)', assetClass: 'Commodity' };
+
+        // US Large-Cap Value
+        case 'AVLV':
+        case 'DFLV':
+        case 'DFLVX':
+            return { marketRegion: 'US', assetClass: 'Equity' };
+
+        // Int’l Developed Large-Cap Value
+        case 'AVIV':
+        case 'DFIV':
+        case 'DFIVX':
+            return { marketRegion: 'International Developed', assetClass: 'Equity' };
+
+        // US Small-Cap Value
+        case 'AVUV':
+        case 'DFSV':
+        case 'DFSVX':
+            return { marketRegion: 'US', assetClass: 'Equity' };
+
+        // Int’l Developed Small-Cap Value
+        case 'AVDV':
+        case 'DISV':
+        case 'DISVX':
+            return { marketRegion: 'International Developed', assetClass: 'Equity' };
+
+        case 'DGS':
+        case 'DEMSX':
+            return { marketRegion: 'Emerging', assetClass: 'Equity' };
+
+        case 'NTSX':
+        case 'Custom:NTSX':
+            return { marketRegion: 'US' };
+
+        case 'NTSI':
+        case 'Custom:NTSI':
+            return {};
+
+        case 'NTSE':
+        case 'Custom:NTSE':
+            return {};
+
+        case 'GDE':
+        case 'Custom:GDE':
+            return { marketRegion: 'US' };
+
+        case 'SWAN':
+        case 'Custom:SWAN':
+            return { marketRegion: 'US' };
+
+        case 'AOR':
+        case 'Custom:AOR':
+            return { marketRegion: 'Global (All-World)' };
+
+        default:
+            return {};
+    }
+};
+
 /**
  * Given the ticker symbol of an asset, return the ticker symbol of a similar asset with longer history.
  */

@@ -39,7 +39,7 @@ export const getFundAnalysisForCustomFund = async (fundAllocations: Array<FundAl
     // "Portfolio Regions (All Asset Classes)"
     const marketRegion = groupBy(cloneDeep(composition), 'marketRegion') as Record<FundMarketRegion, Fund[]>;
 
-    // {assetClass} by Region
+    // "{assetClass} by Region"
     const assetByRegion: Partial<Record<FundAssetClass, Partial<Record<FundMarketRegion, Array<Fund>>>>> = (
         Object.entries(assetClass) as [FundAssetClass, Array<FundAllocation>][]
     ).reduce(
