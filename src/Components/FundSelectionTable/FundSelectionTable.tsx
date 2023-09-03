@@ -163,6 +163,26 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
         setFundComparison(!fundSelection ? [] : fundSelection.map((fund) => fund.value));
     };
 
+    function deleteColumn(columnIndex: number) {
+        const newRows = [...rows];
+        newRows.forEach((row) => row.percentage.splice(columnIndex, 1));
+        setRows(newRows);
+    }
+
+    function deleteRow(rowIndex: number): void {
+        const newRows = [...rows];
+        newRows.splice(rowIndex, 1);
+        setRows(newRows);
+    }
+
+    function disableRow(rowIndex: number): void {
+        throw new Error(`Function not implemented. Cannot disable row ${rowIndex}`);
+    }
+
+    function disableColumn(columnIndex: number): void {
+        throw new Error(`Function not implemented. Cannot disable column ${columnIndex}`);
+    }
+
     return (
         <>
             <h3>Custom Portfolios</h3>
@@ -219,21 +239,25 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                         >
                             Assets in Portfolios
                         </th>
-                        {Array.from({ length: getColumnsCount() }).map((_, index) => (
+                        {Array.from({ length: getColumnsCount() }).map((_, columnIndex) => (
                             <th
-                                key={index}
+                                key={columnIndex}
                                 className="text-center"
-                                title={`Portfolio ${index + 1}`}
+                                title={`Portfolio ${columnIndex + 1}`}
                             >
-                                P{index + 1}
+                                P{columnIndex + 1}
                                 <span style={{ fontSize: 'small' }}>
                                     <FontAwesomeIcon
                                         icon={faBan}
                                         className="ms-1 text-faded"
+                                        cursor={'pointer'}
+                                        onClick={() => disableColumn(columnIndex)}
                                     ></FontAwesomeIcon>
                                     <FontAwesomeIcon
                                         icon={faTrash}
                                         className="ms-1 text-faded"
+                                        cursor={'pointer'}
+                                        onClick={() => deleteColumn(columnIndex)}
                                     ></FontAwesomeIcon>
                                 </span>
                             </th>
@@ -302,8 +326,16 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                                 style={{ fontSize: 'small' }}
                                 className="text-faded"
                             >
-                                <FontAwesomeIcon icon={faBan}></FontAwesomeIcon>
-                                <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+                                <FontAwesomeIcon
+                                    icon={faBan}
+                                    cursor={'pointer'}
+                                    onClick={() => disableRow(rowIndex)}
+                                ></FontAwesomeIcon>
+                                <FontAwesomeIcon
+                                    icon={faTrash}
+                                    cursor={'pointer'}
+                                    onClick={() => deleteRow(rowIndex)}
+                                ></FontAwesomeIcon>
                             </td>
                             <td>
                                 <FundSelectionDropdown
