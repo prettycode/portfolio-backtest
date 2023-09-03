@@ -17,8 +17,10 @@ export const PortfolioVisualizerLink: React.FC<
     useEffect(() => {
         if (allocations) {
             (async () => setCalculatedUrl(await getBacktestUrl(allocations)))();
+        } else if (url) {
+            setCalculatedUrl(url);
         }
-    });
+    }, [allocations, url]);
 
     return (
         <>

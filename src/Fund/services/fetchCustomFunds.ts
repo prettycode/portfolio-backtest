@@ -27,6 +27,35 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 ]
             },
             {
+                fundId: 'Custom:Global (All-World) Defensive',
+                name: 'Equity: Global (All-World): Defensive',
+                description: 'Utilities, Staples, Healthcare, and Low-Volatility',
+                percentage: 100,
+                type: 'Custom',
+                allocations: [
+                    {
+                        fundId: 'VPU',
+                        percentage: 26
+                    },
+                    {
+                        fundId: 'IXJ',
+                        percentage: 26
+                    },
+                    {
+                        fundId: 'KXI',
+                        percentage: 26
+                    },
+                    {
+                        fundId: 'EFAV',
+                        percentage: 11
+                    },
+                    {
+                        fundId: 'EEMV',
+                        percentage: 11
+                    }
+                ]
+            },
+            {
                 fundId: 'Custom:VT',
                 name: 'Equity: Global (All-World)',
                 description: '60/40 US/Ex-US + 2/3 Int’l. Developed, 1/3 EM',
@@ -141,6 +170,31 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                     {
                         fundId: 'Custom:NTSX',
                         percentage: 60
+                    },
+                    {
+                        fundId: 'Custom:NTSI',
+                        percentage: 20
+                    },
+                    {
+                        fundId: 'Custom:NTSE',
+                        percentage: 20
+                    }
+                ]
+            },
+            {
+                fundId: 'Custom:Global Efficient Core, Gilded',
+                name: 'Global Efficient Core, Gilded',
+                description: '60/20/20 NTSX/NTSI/NTSE (Simulated)',
+                percentage: 100,
+                type: 'Custom',
+                allocations: [
+                    {
+                        fundId: 'Custom:GDE',
+                        percentage: 33.3
+                    },
+                    {
+                        fundId: 'Custom:NTSX',
+                        percentage: 26.7
                     },
                     {
                         fundId: 'Custom:NTSI',

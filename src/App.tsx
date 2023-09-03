@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import FundSelectionTable, { UNSELECTED_FUND_FUNDID } from './Components/FundSelectionTable/FundSelectionTable';
 import { FundSelectionTableState } from './Components/FundSelectionTable/FundSelectionTableState';
 import './App.css';
@@ -10,7 +12,6 @@ const defaultTableState: FundSelectionTableState = {
     ]
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const manualTestingComparisons: Array<FundSelectionTableState> = [
     defaultTableState,
     {
@@ -78,7 +79,7 @@ function App() {
         stateToLoad = stateDeserialized;
     }
 
-    stateToLoad = {
+    const everythingBagel = {
         rows: [
             // 90% Equity Core
             { fundId: 'AVUS', percentage: [50 * 0.9 * 0.3, 50 * 1.0 * 0.3] },
@@ -102,6 +103,96 @@ function App() {
             { fundId: 'VWO' /* EEMV */, percentage: [10 * 0.9 * 0.4 * 0.5, 10 * 0.9 * 0.4 * 0.5] },
             { fundId: 'GOVZ', percentage: [10 * 0.1 * 1.0 * 1.0, 10 * 0.1 * 1.0 * 1.0] }
         ]
+    };
+
+    const efficientCores = {
+        rows: [
+            {
+                fundId: 'Custom:GDE',
+                percentage: ['30', '33.3', '60']
+            },
+            {
+                fundId: 'Custom:NTSX',
+                percentage: ['30', '26.7', '0']
+            },
+            {
+                fundId: 'Custom:NTSI',
+                percentage: ['20', '20', '20']
+            },
+            {
+                fundId: 'Custom:NTSE',
+                percentage: ['20', '20', '20']
+            }
+        ]
+    };
+
+    stateToLoad = {
+        rows: [
+            {
+                fundId: 'Custom:GDE',
+                percentage: ['30', 0, '0']
+            },
+            {
+                fundId: 'Custom:NTSX',
+                percentage: ['30', '0', '0']
+            },
+            {
+                fundId: 'Custom:NTSI',
+                percentage: ['20', '0', '0']
+            },
+            {
+                fundId: 'Custom:NTSE',
+                percentage: ['20', '0', '0']
+            },
+            {
+                fundId: 'AVUV',
+                percentage: [0, '60', '30']
+            },
+            {
+                fundId: 'AVUS',
+                percentage: [0, 0, '30']
+            },
+            {
+                fundId: 'AVDV',
+                percentage: [0, '20', '10']
+            },
+            {
+                fundId: 'AVDE',
+                percentage: [0, 0, '10']
+            },
+            {
+                fundId: 'DGS',
+                percentage: [0, '20', '10']
+            },
+            {
+                fundId: 'AVEM',
+                percentage: [0, 0, '10']
+            }
+        ]
+        /*[
+            {
+                fundId: 'Custom:Global Efficient Core, Gilded',
+                percentage: [100, 0, '66']
+            },
+            {
+                fundId: 'AVUV',
+                percentage: [0, 60, '20']
+            },
+            {
+                fundId: 'AVDV',
+                percentage: [0, 20, '7']
+            },
+            {
+                fundId: 'VWO',
+                percentage: [0, 20, '7']
+            }
+        ]*/
+        /*[
+            { fundId: 'Custom:Global Efficient Core, Gilded', percentage: [100, 0, 50] },
+            { fundId: 'AVUV', percentage: [0, 60, 30] },
+            { fundId: 'AVDV', percentage: [0, 20, 10] },
+            { fundId: 'VWO', percentage: [0, 20, 10] }
+        ]*/
     };
 
     return (
