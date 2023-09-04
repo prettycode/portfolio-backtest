@@ -3,7 +3,15 @@ import { Fund } from '../../Fund/models/Fund/Fund';
 import { fetchMarketFunds } from '../../Fund/services/fetchMarketFunds';
 import { fetchCustomFunds } from '../../Fund/services/fetchCustomFunds';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBan, faChevronDown, faChevronUp, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
+import {
+    faBan,
+    faChevronDown,
+    faChevronLeft,
+    faChevronRight,
+    faChevronUp,
+    faPlus,
+    faTrash
+} from '@fortawesome/free-solid-svg-icons';
 import { FundAllocation } from '../../Fund/models/Fund/FundAllocation';
 import FundAnalysis from '../FundAnalysis/FundAnalysis';
 import cloneDeep from 'lodash.clonedeep';
@@ -183,6 +191,26 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
         throw new Error(`Function not implemented. Cannot disable column ${columnIndex}`);
     }
 
+    function onMoveColumnLeft(columnIndex: number): void {
+        const newRows = [...rows];
+        newRows.forEach((row) => {
+            const temp = row.percentage[columnIndex - 1];
+            row.percentage[columnIndex - 1] = row.percentage[columnIndex];
+            row.percentage[columnIndex] = temp;
+        });
+        setRows(newRows);
+    }
+
+    function onMoveColumnRight(columnIndex: number): void {
+        const newRows = [...rows];
+        newRows.forEach((row) => {
+            const temp = row.percentage[columnIndex + 1];
+            row.percentage[columnIndex + 1] = row.percentage[columnIndex];
+            row.percentage[columnIndex] = temp;
+        });
+        setRows(newRows);
+    }
+
     return (
         <>
             <h3>Custom Portfolios</h3>
@@ -245,7 +273,26 @@ const FundSelectionTable: React.FC<FundSelectionTableProps> = ({ state, onCalcul
                                 className="text-center"
                                 title={`Portfolio ${columnIndex + 1}`}
                             >
-                                P{columnIndex + 1}
+                                {columnIndex > 0 && (
+                                    <button
+                                        className="btn btn-xs"
+                                        style={{ padding: '0 4px' }}
+                                        onClick={() => onMoveColumnLeft(columnIndex)}
+                                    >
+                                        <FontAwesomeIcon icon={faChevronLeft} />
+                                    </button>
+                                )}
+                                &nbsp;
+                                {columnIndex < getColumnsCount() - 1 && (
+                                    <button
+                                        className="btn btn-xs"
+                                        style={{ padding: '0 4px' }}
+                                        onClick={() => onMoveColumnRight(columnIndex)}
+                                    >
+                                        <FontAwesomeIcon icon={faChevronRight} />
+                                    </button>
+                                )}
+                                <br />P{columnIndex + 1}
                                 <span style={{ fontSize: 'small' }}>
                                     <FontAwesomeIcon
                                         icon={faBan}

@@ -130,13 +130,42 @@ function App() {
         rows: [
             {
                 fundId: 'Custom:Global Efficient Core, Gilded',
-                percentage: ['52.64', '100', 0]
+                percentage: ['100', '', '52.64', '']
             },
             {
                 fundId: 'Custom:Small Cap Value',
-                percentage: ['47.36', 0, '100']
+                percentage: ['', '100', '47.36', '']
+            },
+            {
+                fundId: 'Custom:GDE',
+                percentage: ['', '', '', '17.5']
+            },
+            {
+                fundId: 'Custom:NTSX',
+                percentage: ['', '', '', '14.1']
+            },
+            {
+                fundId: 'AVUV',
+                percentage: ['', '', '', '28.4']
+            },
+            {
+                fundId: 'Custom:NTSI',
+                percentage: ['', '', '', '10.5']
+            },
+            {
+                fundId: 'AVDV',
+                percentage: ['', '', '', '9.5']
+            },
+            {
+                fundId: 'Custom:NTSE',
+                percentage: ['', '', '', '10.5']
+            },
+            {
+                fundId: 'DGS',
+                percentage: ['', '', '', '9.5']
             }
-        ] /*[
+        ]
+        /*[
             {
                 fundId: 'Custom:GDE',
                 percentage: ['30', 0, '0']
