@@ -17,7 +17,7 @@ const manualTestingComparisons: Array<FundSelectionTableState> = [
     {
         // 3-Month Money-Market
         rows: [
-            { fundId: 'USFR', percentage: ['100', '', '', ''] },
+            { fundId: 'CASHX', percentage: ['100', '', '', ''] },
             { fundId: 'TFLO', percentage: ['', '100', '', ''] },
             { fundId: 'FLOT', percentage: ['', '', '100', ''] },
             { fundId: 'SGOV', percentage: ['', '', '', '100'] }

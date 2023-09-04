@@ -1,5 +1,7 @@
 import { Fund } from '../../models/Fund/Fund';
 
+// TODO:
+// This is dumb. Instead, take fundId and get backtest ID, then take marketRegion, assetClass, etc. from backtest fund
 export const getFundBacktestFundDetails = (fundId: string): Partial<Fund> => {
     switch (fundId) {
         // US Total market
@@ -56,8 +58,6 @@ export const getFundBacktestFundDetails = (fundId: string): Partial<Fund> => {
         case 'SGOV':
         case 'TFLO':
         case 'FLOT':
-            // TODO need index type (not ETF, not Mutual Fund in this case)
-            // case 'CASHX':
             return { marketRegion: 'US', assetClass: 'Cash' };
 
         // US Short-Term Treasuries
@@ -94,8 +94,6 @@ export const getFundBacktestFundDetails = (fundId: string): Partial<Fund> => {
         case 'AAAU':
         case 'OUNZ':
         case 'BAR':
-            // TODO need index type (not ETF, not Mutual Fund in this case)
-            // case '^GOLD':
             return { marketRegion: 'Global (All-World)', assetClass: 'Commodity' };
 
         // US Large-Cap Value
@@ -206,9 +204,7 @@ export const getFundBacktestFundId = (tickerSymbol: string): string => {
         case 'SGOV':
         case 'TFLO':
         case 'FLOT':
-            // TODO need index type (not ETF, not Mutual Fund in this case)
-            // return 'CASHX';
-            return 'USFR';
+            return 'CASHX';
 
         // US Short-Term Treasuries
         case 'VGSH':
@@ -240,9 +236,7 @@ export const getFundBacktestFundId = (tickerSymbol: string): string => {
         case 'AAAU':
         case 'OUNZ':
         case 'BAR':
-            // TODO need index type (not ETF, not Mutual Fund in this case)
-            // return '^GOLD';
-            return 'GLD';
+            return '^GOLD';
 
         // US Large-Cap Value
         case 'AVLV':
