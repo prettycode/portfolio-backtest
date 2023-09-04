@@ -6,9 +6,33 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
     Promise.resolve(
         mock || [
             {
+                fundId: 'CASHX',
+                tickerSymbol: 'CASHX',
+                name: 'Cash (Money Market)',
+                description: undefined,
+                marketRegion: 'US',
+                assetClass: 'Cash',
+                percentage: 100,
+                type: 'Index',
+                allocations: []
+            },
+            {
+                fundId: '^GOLD',
+                name: 'Gold (Index)',
+                tickerSymbol: '^GOLD',
+                description: undefined,
+                marketRegion: 'Global (All-World)',
+                assetClass: 'Commodity',
+                percentage: 100,
+                type: 'Index',
+                allocations: []
+            },
+            {
                 fundId: 'Custom:US Defensive',
                 name: 'Equity: US: Defensive',
                 description: 'Utilities, Consumer Staples, Healthcare',
+                marketRegion: 'US',
+                assetClass: 'Equity',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
@@ -30,6 +54,8 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 fundId: 'Custom:Global (All-World) Defensive',
                 name: 'Equity: Global (All-World): Defensive',
                 description: 'Utilities, Consumer Staples, Healthcare, and Low-Volatility',
+                marketRegion: 'Global (All-World)',
+                assetClass: 'Equity',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
@@ -59,6 +85,8 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 fundId: 'Custom:VT',
                 name: 'Equity: Global (All-World)',
                 description: '60/40 US/Ex-US, where Ex-US is 2/3 Int’l. Developed, 1/3 EM',
+                marketRegion: 'Global (All-World)',
+                assetClass: 'Equity',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
@@ -80,6 +108,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 fundId: 'Custom:NTSX',
                 name: 'NTSX (Simulated)',
                 description: '90/60 SPY/VGIT',
+                marketRegion: 'US',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
@@ -92,7 +121,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                         percentage: 60
                     },
                     {
-                        fundId: 'USFR',
+                        fundId: 'CASHX',
                         percentage: -50
                     }
                 ]
@@ -101,6 +130,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 fundId: 'Custom:GDE',
                 name: 'GDE (Simulated)',
                 description: '90/90 SPY/GLD',
+                marketRegion: 'US',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
@@ -113,7 +143,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                         percentage: 90
                     },
                     {
-                        fundId: 'USFR',
+                        fundId: 'CASHX',
                         percentage: -80
                     }
                 ]
@@ -121,7 +151,8 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
             {
                 fundId: 'Custom:NTSX+GDE',
                 name: 'US Efficient Core + Gold',
-                description: '90/60 SPY/VGIT',
+                description: '66.7/33.3 NTSX/GDE (Simulated)',
+                marketRegion: 'US',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
@@ -151,7 +182,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                         percentage: 60
                     },
                     {
-                        fundId: 'USFR',
+                        fundId: 'CASHX',
                         percentage: -50
                     }
                 ]
@@ -172,7 +203,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                         percentage: 60
                     },
                     {
-                        fundId: 'USFR',
+                        fundId: 'CASHX',
                         percentage: -50
                     }
                 ]
@@ -181,6 +212,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 fundId: 'Custom:Global Efficient Core',
                 name: 'Global (All-World) Efficient Core',
                 description: '60/20/20 NTSX/NTSI/NTSE (Simulated)',
+                marketRegion: 'Global (All-World)',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
@@ -202,6 +234,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 fundId: 'Custom:Global Efficient Core, Gilded',
                 name: 'Global (All-World) Efficient Core + Gold',
                 description: '60/20/20 NTSX/NTSI/NTSE (Simulated)',
+                marketRegion: 'Global (All-World)',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
@@ -227,6 +260,8 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 fundId: 'Custom:Global Equities',
                 name: 'Global (All-World) Equities (3/1/1 US/Developed/EM)',
                 description: '60/20/20 VTI/VEA/VWO',
+                marketRegion: 'Global (All-World)',
+                assetClass: 'Equity',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
@@ -243,26 +278,12 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                         percentage: 20
                     }
                 ]
-            } /*
-            {
-                fundId: 'Custom:UPAR',
-                name: 'UPAR',
-                description: 'Should match global equities return',
-                percentage: 100,
-                type: 'Custom',
-                allocations: [
-                    { fundId: 'TIPS', percentage: 49 },
-                    { fundId: 'Treasuries', percentage: 49 },
-                    { fundId: 'Gold', percentage: 14 },
-                    { fundId: 'Custom:VT', percentage: 35 },
-                    { fundId: 'GUNR', percentage: 21 },
-                    { fundId: 'USFR', percentage: -68 }
-                ]
-            },*/,
+            },
             {
                 fundId: 'Custom:SWAN',
                 name: 'SWAN (Simulated)',
                 description: '70/45/45 SPY/VGLT/VGIT',
+                marketRegion: 'US',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
@@ -279,7 +300,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                         percentage: 40
                     },
                     {
-                        fundId: 'USFR',
+                        fundId: 'CASHX',
                         percentage: -60
                     }
                 ]
@@ -288,6 +309,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 fundId: 'Custom:AOR',
                 name: 'Global (All-World) Balanced Fund',
                 description: '60/40 Global Equities/Intermediate Treasuries',
+                marketRegion: 'Global (All-World)',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
@@ -312,7 +334,9 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
             {
                 fundId: 'Custom:Small Cap Value',
                 name: 'Global (All-World) Small-Cap Value',
-                description: '',
+                description: '60/20/20 AVUV/AVDV/DGS',
+                marketRegion: 'Global (All-World)',
+                assetClass: 'Equity',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
@@ -329,7 +353,22 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                         percentage: 20
                     }
                 ]
-            }
+            } /*,
+            {
+                fundId: 'Custom:UPAR',
+                name: 'UPAR',
+                description: 'Should match global equities return',
+                percentage: 100,
+                type: 'Custom',
+                allocations: [
+                    { fundId: 'TIPS', percentage: 49 },
+                    { fundId: 'Treasuries', percentage: 49 },
+                    { fundId: 'Gold', percentage: 14 },
+                    { fundId: 'Custom:VT', percentage: 35 },
+                    { fundId: 'GUNR', percentage: 21 },
+                    { fundId: 'CASHX', percentage: -68 }
+                ]
+            },*/
         ]
     );
 

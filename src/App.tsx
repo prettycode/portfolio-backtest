@@ -17,7 +17,7 @@ const manualTestingComparisons: Array<FundSelectionTableState> = [
     {
         // 3-Month Money-Market
         rows: [
-            { fundId: 'USFR', percentage: ['100', '', '', ''] },
+            { fundId: 'CASHX', percentage: ['100', '', '', ''] },
             { fundId: 'TFLO', percentage: ['', '100', '', ''] },
             { fundId: 'FLOT', percentage: ['', '', '100', ''] },
             { fundId: 'SGOV', percentage: ['', '', '', '100'] }
@@ -129,6 +129,15 @@ function App() {
     stateToLoad = {
         rows: [
             {
+                fundId: 'Custom:NTSX+GDE',
+                percentage: ['52.65', '100', 0]
+            },
+            {
+                fundId: 'AVUV',
+                percentage: ['47.35', 0, '100']
+            }
+        ] /*[
+            {
                 fundId: 'Custom:GDE',
                 percentage: ['30', 0, '0']
             },
@@ -168,7 +177,7 @@ function App() {
                 fundId: 'AVEM',
                 percentage: [0, 0, '10']
             }
-        ]
+        ]*/
         /*[
             {
                 fundId: 'Custom:Global Efficient Core, Gilded',
