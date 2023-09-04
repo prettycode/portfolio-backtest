@@ -129,12 +129,12 @@ function App() {
     stateToLoad = {
         rows: [
             {
-                fundId: 'Custom:NTSX+GDE',
-                percentage: ['52.65', '100', 0]
+                fundId: 'Custom:Global Efficient Core, Gilded',
+                percentage: ['52.64', '100', 0]
             },
             {
-                fundId: 'AVUV',
-                percentage: ['47.35', 0, '100']
+                fundId: 'Custom:Small Cap Value',
+                percentage: ['47.36', 0, '100']
             }
         ] /*[
             {

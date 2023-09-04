@@ -97,7 +97,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                                         <td style={{ width: '1%', paddingRight: '25px' }}>{fundLookupCache[fund.fundId].tickerSymbol}</td>
                                         <td>{fundLookupCache[fund.fundId].name}</td>
                                         <td style={{ textAlign: 'right' }}>
-                                            {fund.percentage.toFixed(1)}%&nbsp;&nbsp;
+                                            {fund.percentage.toFixed(2)}%&nbsp;&nbsp;
                                         </td>
                                     </tr>
                                 ))}
@@ -127,7 +127,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                                         </td>
                                         <td>{fundLookupCache[fund.fundId].name}</td>
                                         <td style={{ textAlign: 'right' }}>
-                                            {fund.percentage.toFixed(1)}%&nbsp;&nbsp;
+                                            {fund.percentage.toFixed(2)}%&nbsp;&nbsp;
                                             {/*<FundAssetClassIcon assetClass={fundLookupCache[String(fund.fundId)].assetClass}></FundAssetClassIcon>*/}
                                         </td>
                                     </tr>
@@ -160,7 +160,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                                             {fundLookupCache[String(fund.fundId)].tickerSymbol}
                                         </td>
                                         <td>{fundLookupCache[String(fund.fundId)].name}</td>
-                                        <td style={{ textAlign: 'right' }}>{fund.percentage.toFixed(1)}%</td>
+                                        <td style={{ textAlign: 'right' }}>{fund.percentage.toFixed(2)}%</td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -180,7 +180,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                                         <tr key={index}>
                                             <td>{region}</td>
                                             <td style={{ textAlign: 'right' }}>
-                                                {funds.reduce((total, fund) => total + fund.percentage, 0).toFixed(1)}%
+                                                {funds.reduce((total, fund) => total + fund.percentage, 0).toFixed(2)}%
                                             </td>
                                         </tr>
                                     ))}
@@ -208,7 +208,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                                     <tr key={index}>
                                         <td>{region}</td>
                                         <td style={{ textAlign: 'right' }}>
-                                            {funds.reduce((total, fund) => total + fund.percentage, 0).toFixed(1)}%
+                                            {funds.reduce((total, fund) => total + fund.percentage, 0).toFixed(2)}%
                                         </td>
                                     </tr>
                                 ))}
@@ -242,7 +242,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                                                     <tr key={region}>
                                                         <td>{region}</td>
                                                         <td style={{ textAlign: 'right' }}>
-                                                            {totalPercentage === 0 && <>{(0).toFixed(1)}</>}
+                                                            {totalPercentage === 0 && <>{(0).toFixed(2)}</>}
                                                             {totalPercentage !== 0 &&
                                                                 (
                                                                     (funds.reduce(
@@ -251,7 +251,7 @@ const FundAnalysis: React.FC<FundAnalysisProps> = ({ fundAllocations }) => {
                                                                     ) /
                                                                         totalPercentage) *
                                                                     100
-                                                                ).toFixed(1)}
+                                                                ).toFixed(2)}
                                                             %
                                                         </td>
                                                     </tr>
