@@ -60,7 +60,7 @@ export const FundSelectionDropdown: React.FC<FundSelectionDropdownProps> = ({
         candidate: { label: string; value: string; data: FundSelectionDropdownOptionType },
         input: string
     ) => {
-        return input.trim().length > 2 && candidate.label.toLowerCase().trim().includes(input.toLowerCase().trim());
+        return input.trim().length >= 2 && candidate.label.toLowerCase().trim().includes(input.toLowerCase().trim());
     };
 
     return (

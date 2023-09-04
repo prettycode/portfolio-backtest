@@ -8,7 +8,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
             {
                 fundId: 'Custom:US Defensive',
                 name: 'Equity: US: Defensive',
-                description: '33/33/33 XLU/XLP/XLV',
+                description: 'Utilities, Consumer Staples, Healthcare',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
@@ -29,7 +29,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
             {
                 fundId: 'Custom:Global (All-World) Defensive',
                 name: 'Equity: Global (All-World): Defensive',
-                description: 'Utilities, Staples, Healthcare, and Low-Volatility',
+                description: 'Utilities, Consumer Staples, Healthcare, and Low-Volatility',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
@@ -58,7 +58,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
             {
                 fundId: 'Custom:VT',
                 name: 'Equity: Global (All-World)',
-                description: '60/40 US/Ex-US + 2/3 Int’l. Developed, 1/3 EM',
+                description: '60/40 US/Ex-US, where Ex-US is 2/3 Int’l. Developed, 1/3 EM',
                 percentage: 100,
                 type: 'Custom',
                 allocations: [
@@ -119,6 +119,23 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                 ]
             },
             {
+                fundId: 'Custom:NTSX+GDE',
+                name: 'US Efficient Core + Gold',
+                description: '90/60 SPY/VGIT',
+                percentage: 100,
+                type: 'Custom',
+                allocations: [
+                    {
+                        fundId: 'Custom:NTSX',
+                        percentage: 66.7
+                    },
+                    {
+                        fundId: 'Custom:GDE',
+                        percentage: 33.3
+                    }
+                ]
+            },
+            {
                 fundId: 'Custom:NTSI',
                 name: 'NTSI (Simulated)',
                 description: '90/60 VEA/VGIT',
@@ -162,7 +179,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 'Custom:Global Efficient Core',
-                name: 'Global Efficient Core',
+                name: 'Global (All-World) Efficient Core',
                 description: '60/20/20 NTSX/NTSI/NTSE (Simulated)',
                 percentage: 100,
                 type: 'Custom',
@@ -183,7 +200,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 'Custom:Global Efficient Core, Gilded',
-                name: 'Global Efficient Core, Gilded',
+                name: 'Global (All-World) Efficient Core + Gold',
                 description: '60/20/20 NTSX/NTSI/NTSE (Simulated)',
                 percentage: 100,
                 type: 'Custom',
@@ -208,7 +225,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 'Custom:Global Equities',
-                name: 'Global Equities',
+                name: 'Global (All-World) Equities (3/1/1 US/Developed/EM)',
                 description: '60/20/20 VTI/VEA/VWO',
                 percentage: 100,
                 type: 'Custom',
@@ -269,7 +286,7 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
             },
             {
                 fundId: 'Custom:AOR',
-                name: 'Balanced Fund (Global)',
+                name: 'Global (All-World) Balanced Fund',
                 description: '60/40 Global Equities/Intermediate Treasuries',
                 percentage: 100,
                 type: 'Custom',
@@ -289,6 +306,27 @@ export const fetchCustomFunds = async (): Promise<Array<Fund>> =>
                     {
                         fundId: 'VGIT',
                         percentage: 40
+                    }
+                ]
+            },
+            {
+                fundId: 'Custom:Small Cap Value',
+                name: 'Global (All-World) Small-Cap Value',
+                description: '',
+                percentage: 100,
+                type: 'Custom',
+                allocations: [
+                    {
+                        fundId: 'AVUV',
+                        percentage: 60
+                    },
+                    {
+                        fundId: 'AVDV',
+                        percentage: 20
+                    },
+                    {
+                        fundId: 'DGS',
+                        percentage: 20
                     }
                 ]
             }
