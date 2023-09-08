@@ -120,6 +120,13 @@ export const getFundBacktestFundDetails = (fundId: string): Partial<Fund> => {
         case 'DISVX':
             return { marketRegion: 'International Developed', assetClass: 'Equity' };
 
+        // Emerging Markets Value
+        case 'AVES':
+        case 'DFEV':
+        case 'DFEVX':
+            return { marketRegion: 'Emerging', assetClass: 'Equity' };
+
+        // Emerging Markets Small Cap Value
         case 'DGS':
         case 'DEMSX':
             return { marketRegion: 'Emerging', assetClass: 'Equity' };
@@ -258,6 +265,12 @@ export const getFundBacktestFundId = (tickerSymbol: string): string => {
         case 'DISV':
             return 'DISVX';
 
+        // Emerging Markets Value
+        case 'AVES':
+        case 'DFEV':
+            return 'DFEVX';
+
+        // Emerging Markets Small Cap Value
         case 'DGS':
             // Emerging Markets Small Cap Portfolio
             return 'DEMSX';
