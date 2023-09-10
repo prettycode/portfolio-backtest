@@ -42,6 +42,7 @@ export const getFundBacktestFundDetails = (fundId: string): Partial<Fund> => {
         case 'VEA':
         case 'EFA':
         case 'AVDE':
+        case 'VTMGX':
         case 'DFALX':
             return { marketRegion: 'International Developed', assetClass: 'Equity' };
 
@@ -198,6 +199,7 @@ export const getFundBacktestFundId = (tickerSymbol: string): string => {
         case 'VEA':
         case 'EFA':
         case 'AVDE':
+        case 'VTMGX':
             return 'DFALX';
 
         // Emerging Markets
