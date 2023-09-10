@@ -94,6 +94,7 @@ export const getFundBacktestFundDetails = (fundId: string): Partial<Fund> => {
         case 'AAAU':
         case 'OUNZ':
         case 'BAR':
+        case 'PHYS':
             return { marketRegion: 'Global (All-World)', assetClass: 'Commodity' };
 
         // US Large-Cap Value
@@ -243,6 +244,7 @@ export const getFundBacktestFundId = (tickerSymbol: string): string => {
         case 'AAAU':
         case 'OUNZ':
         case 'BAR':
+        case 'PHYS':
             return '^GOLD';
 
         // US Large-Cap Value
